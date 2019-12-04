@@ -1,8 +1,8 @@
-const initState = {};
+const initialSate = {};
 
 export const actionType = {};
 
-export default (state = initState, action) => {
+export default (state = initialSate, action) => {
   switch (action.type) {
     default:
       return state;
