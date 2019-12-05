@@ -21,6 +21,9 @@ const AppContainer = createAppContainer(AppNavigator);
 
 const App = () => (
   <Provider store={store}>
+    <View style={styles.container}>
+      <Text>11111</Text>
+    </View>
     <AppContainer />
   </Provider>
 );
