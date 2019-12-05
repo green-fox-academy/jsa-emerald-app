@@ -9,11 +9,11 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
       IconComponent = MaterialIcons;
       iconName = `pie-chart${focused ? '' : '-outlined'}`;
       break;
-    case 'TransCreator':
+    case 'Create':
       IconComponent = MaterialCommunityIcons;
       iconName = `pencil-circle${focused ? '' : '-outline'}`;
       break;
-    case 'Personal':
+    case 'Me':
       IconComponent = MaterialIcons;
       iconName = `person${focused ? '' : '-outline'}`;
       break;

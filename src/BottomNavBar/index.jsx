@@ -8,8 +8,8 @@ import themeColor from '../Common/Color';
 
 const AppNavigator = createBottomTabNavigator({
   Stats: { screen: Stats },
-  TransCreator: { screen: TransCreator },
-  Personal: { screen: Personal },
+  Create: { screen: TransCreator },
+  Me: { screen: Personal },
 },
 {
   defaultNavigationOptions: ({ navigation }) => ({
