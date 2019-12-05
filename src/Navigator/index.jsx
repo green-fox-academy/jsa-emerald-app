@@ -1,18 +1,27 @@
+import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import getTabBarIcon from './getTabBarIcon';
+import TabBarIcon from './TabBarIcon';
 import Stats from '../Stats/index';
 import TransCreator from '../TransCreator/index';
 import Personal from '../Personal/index';
 import themeColor from '../Common/Color';
 
 const AppNavigator = createBottomTabNavigator({
-  Stats: { screen: Stats },
-  Create: { screen: TransCreator },
-  Me: { screen: Personal },
+  Stats,
+  Create: TransCreator,
+  Me: Personal,
 },
 {
   defaultNavigationOptions: ({ navigation }) => ({
-    tabBarIcon: ({ focused, tintColor }) => getTabBarIcon(navigation, focused, tintColor),
+    // eslint-disable-next-line react/prop-types
+    tabBarIcon: ({ focused, tintColor }) => (
+      <TabBarIcon
+        navigation={navigation}
+        focused={focused}
+        tintColor={tintColor}
+      />
+    ),
+
   }),
   tabBarOptions: themeColor,
 });

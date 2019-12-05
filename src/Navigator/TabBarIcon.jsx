@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { NavigationScreenPropType } from 'react-navigation';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
-const getTabBarIcon = (navigation, focused, tintColor) => {
+const TabBarIcon = ({ navigation, focused, tintColor }) => {
   const { routeName } = navigation.state;
   let iconName; let IconComponent;
   switch (routeName) {
@@ -23,4 +25,16 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
   return <IconComponent name={iconName} size={25} color={tintColor} />;
 };
 
-export default getTabBarIcon;
+TabBarIcon.propTypes = {
+  focused: PropTypes.bool,
+  tintColor: PropTypes.string,
+  navigation: PropTypes.shape(NavigationScreenPropType),
+};
+
+TabBarIcon.defaultProps = {
+  focused: '',
+  tintColor: '',
+  navigation: {},
+};
+
+export default TabBarIcon;
