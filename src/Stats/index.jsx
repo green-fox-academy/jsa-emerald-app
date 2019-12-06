@@ -12,6 +12,7 @@ import EmptyHistory from './EmptyHistory';
 
 const moment = require('moment');
 
+
 export default function Stats() {
   const { transactions } = useSelector((state) => state.transactions);
   const [view, setCurrentView] = useState('month');
