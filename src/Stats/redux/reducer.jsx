@@ -2,7 +2,7 @@ import {} from 'react-navigation-stack';
 
 import moment from 'moment';
 
-const initialSate = {
+const initialState = {
   transactions: [],
   newTransType: 'Expense',
   newTransDate: moment().format('DD/MM/YYYY'),
@@ -18,15 +18,15 @@ export const actionType = {
   SET_NEW_TRANS_INSERTION_SUCCESS: 'SET_NEW_TRANS_INSERTION_SUCCESS',
 };
 
-export default (state = initialSate, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case actionType.ADD_TRANS:
       return {
         ...state,
         newTransInsertionSuccess: true,
-        newTransType: initialSate.newTransType,
-        newTransAmount: initialSate.newTransAmount,
-        newTransDate: initialSate.newTransDate,
+        newTransType: initialState.newTransType,
+        newTransAmount: initialState.newTransAmount,
+        newTransDate: initialState.newTransDate,
         transactions: [...state.transactions, { ...action.data }],
       };
     case actionType.SET_NEW_TRANS_TYPE:
