@@ -23,7 +23,7 @@ const AppNavigator = createBottomTabNavigator({
     ),
 
   }),
-  tabBarOptions: themeColor,
+  tabBarOptions: themeColor.navColor,
 });
 
 export default AppNavigator;
