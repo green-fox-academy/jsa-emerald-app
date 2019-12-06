@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { actionType } from './actionCreator';
 
 const initialState = {
   transactions: [],
@@ -6,14 +7,6 @@ const initialState = {
   newTransDate: moment().format('DD/MM/YYYY'),
   newTransAmount: null,
   newTransInsertionSuccess: false,
-};
-
-export const actionType = {
-  ADD_TRANS: 'ADD_TRANS',
-  SET_NEW_TRANS_TYPE: 'SET_NEW_TRANS_TYPE',
-  SET_NEW_TRANS_DATE: 'SET_NEW_TRANS_DATE',
-  SET_NEW_TRANS_AMOUNT: 'SET_NEW_TRANS_AMOUNT',
-  SET_NEW_TRANS_INSERTION_SUCCESS: 'SET_NEW_TRANS_INSERTION_SUCCESS',
 };
 
 export default (state = initialState, action) => {

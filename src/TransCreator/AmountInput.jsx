@@ -4,29 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Input, Text } from 'native-base';
 import { Platform } from 'react-native';
 import styles from './Style';
-import { setNewTransactionAmount } from '../Stats/redux/actionCreator';
-
-const numHandler = (val, dispatch) => {
-  if (val === '') {
-    dispatch(setNewTransactionAmount(null));
-    return;
-  }
-
-  const charList = val.split('');
-  const charListLen = charList.length;
-  if (charList[charListLen - 1] === '.' && val.indexOf('.') !== charListLen - 1) {
-    if (charListLen === 1) {
-      dispatch(setNewTransactionAmount('0.00'));
-    } else {
-      dispatch(setNewTransactionAmount(val.substr(0, charListLen - 1)));
-    }
-    return;
-  }
-
-  if (val.indexOf('.') === -1 || val.toString().search(/^\d+\.\d{0,2}$/) >= 0) {
-    dispatch(setNewTransactionAmount(val));
-  }
-};
+import numHandler from './utilityMethod';
 
 export default () => {
   const { newTransAmount } = useSelector((state) => state.transactions);

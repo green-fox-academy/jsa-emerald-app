@@ -4,7 +4,7 @@ import {
   Header, Text, Left, Right, Button, Body, Segment,
 } from 'native-base';
 import styles from './Style';
-import { setNewTransactionType } from '../Stats/redux/actionCreator';
+import { setNewTransactionType } from '../Stats/actionCreator';
 
 export default () => {
   const { newTransType } = useSelector((state) => state.transactions);

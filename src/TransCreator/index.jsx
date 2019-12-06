@@ -12,9 +12,9 @@ import { NavigationScreenPropType } from 'react-navigation';
 import styles from './Style';
 import PageHeader from './PageHeader';
 import PageFooter from './PageFooter';
-import AmountInputter from './AmountInputter';
+import AmountInput from './AmountInput';
 import DateSelector from './DateSelector';
-import { setNewTransactionInsertionSuccess } from '../Stats/redux/actionCreator';
+import { setNewTransactionInsertionSuccess } from '../Stats/actionCreator';
 
 const TransCreator = ({ navigation }) => {
   const { newTransInsertionSuccess } = useSelector((state) => state.transactions);
@@ -33,7 +33,7 @@ const TransCreator = ({ navigation }) => {
         <PageHeader />
         <Content padder>
           <Item style={styles.amountInputOuter}>
-            <AmountInputter />
+            <AmountInput />
           </Item>
           <Item style={styles.dateItem}>
             <DateSelector />

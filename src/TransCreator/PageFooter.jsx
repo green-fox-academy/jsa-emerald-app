@@ -9,7 +9,7 @@ import {
 import { Platform } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Style';
-import { addNewTransaction } from '../Stats/redux/actionCreator';
+import { addNewTransaction } from '../Stats/actionCreator';
 
 const pressHandler = (amount, date, view, dispatch) => {
   if (!amount) {

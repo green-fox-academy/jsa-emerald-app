@@ -8,7 +8,7 @@ import {
 import { View } from 'react-native';
 import moment from 'moment';
 import styles from './Style';
-import { setNewTransactionDate } from '../Stats/redux/actionCreator';
+import { setNewTransactionDate } from '../Stats/actionCreator';
 
 export default () => {
   const { newTransDate } = useSelector((state) => state.transactions);
