@@ -11,7 +11,6 @@ export default () => {
   const dispatch = useDispatch();
 
   return (
-
     <Header transparent>
       <Left />
       <Body>

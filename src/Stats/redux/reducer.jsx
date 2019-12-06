@@ -1,5 +1,3 @@
-import {} from 'react-navigation-stack';
-
 import moment from 'moment';
 
 const initialState = {
