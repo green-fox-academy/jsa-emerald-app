@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import {
   Text,
   Button,
@@ -49,13 +50,13 @@ const PageFooter = ({ transAmount, transType, transDate }) => {
 PageFooter.propTypes = {
   transAmount: PropTypes.string,
   transType: PropTypes.string,
-  transDate: PropTypes.string,
+  transDate: PropTypes.number,
 };
 
 PageFooter.defaultProps = {
-  transAmount: PropTypes.string,
+  transAmount: null,
   transType: 'Expense',
-  transDate: PropTypes.string,
+  transDate: moment().unix(),
 };
 
 export default PageFooter;

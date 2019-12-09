@@ -23,10 +23,10 @@ const DateSelector = ({ transDate, setTransDate }) => (
         modalTransparent={false}
         animationType="fade"
         androidMode="default"
-        placeHolderText={transDate}
+        placeHolderText={moment.unix(transDate).format('MM/DD/YYYY')}
         textStyle={{ color: '#5C6BC0' }}
         placeHolderTextStyle={{ color: '#5C6BC0' }}
-        onDateChange={(newDate) => setTransDate(moment(newDate).format('DD/MM/YYYY'))}
+        onDateChange={(newDate) => setTransDate(moment(newDate).unix())}
         disabled={false}
       />
     </View>
@@ -34,13 +34,13 @@ const DateSelector = ({ transDate, setTransDate }) => (
 );
 
 DateSelector.propTypes = {
-  transDate: PropTypes.string,
+  transDate: PropTypes.number,
   setTransDate: PropTypes.func,
 };
 
 DateSelector.defaultProps = {
-  transDate: null,
-  setTransDate: moment().format('DD/MM/YYYY'),
+  transDate: moment().unix(),
+  setTransDate: null,
 };
 
 export default DateSelector;

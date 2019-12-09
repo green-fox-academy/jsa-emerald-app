@@ -20,7 +20,7 @@ import { setNewTransactionInsertionSuccess } from '../Stats/actionCreator';
 const TransCreator = ({ navigation }) => {
   const [transAmount, setTransAmount] = useState(null);
   const [transType, setTransType] = useState('Expense');
-  const [transDate, setTransDate] = useState(moment().format('DD/MM/YYYY'));
+  const [transDate, setTransDate] = useState(moment().unix());
 
   const { newTransInsertionSuccess } = useSelector((state) => state.Transactions);
   const dispatch = useDispatch();
