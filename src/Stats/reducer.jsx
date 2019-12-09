@@ -1,15 +1,20 @@
 import { actionType } from './actionCreator';
 
 const initialState = {
-  transactions: [],
+  transactionList: [],
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionType.ADD_TRANS:
+    case actionType.ADD_SINGLE_TRANS:
       return {
         ...state,
-        transactions: [...state.transactions, { ...action.data }],
+        transactionList: [...state.transactionList, { ...action.data }],
+      };
+    case actionType.LOAD_LIST_TRANS:
+      return {
+        ...state,
+        transactionList: [...action.data],
       };
     default:
       return state;
