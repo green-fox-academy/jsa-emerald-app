@@ -3,7 +3,7 @@ import { registerRootComponent, AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Provider } from 'react-redux';
 import { createAppContainer } from 'react-navigation';
-import { Toast } from 'native-base';
+import { Alert } from 'react-native';
 import AppNavigator from './Navigator';
 import store from './reduxStore';
 import Roboto from '../assets/Fonts/Roboto/Roboto-Regular.ttf';
@@ -23,12 +23,9 @@ const App = () => {
         });
         setFontLoading(false);
       } catch (err) {
-        Toast.show({
-          position: 'top',
-          textStyle: { color: '#F4511E' },
-          text: `Cannot load custom font, err::${err}`,
-          buttonText: 'Okay',
-        });
+        Alert.alert(
+          'Failed to load custom Font',
+        );
       }
     }
     loadFont();

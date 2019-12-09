@@ -46,6 +46,8 @@ export default StyleSheet.create({
     marginLeft: 20,
   },
   confirmButton: {
+    marginLeft: 30,
+    marginRight: 30,
     height: 40,
     borderColor: '#5C6BC0',
   },

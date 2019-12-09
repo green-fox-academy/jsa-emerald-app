@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import Transactions from './Stats/reducer';
+import transactions from './Stats/reducer';
 
 const mainReducer = combineReducers({
-  Transactions,
+  transactions,
 });
 export default createStore(mainReducer, applyMiddleware(thunk));

@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Input, Text } from 'native-base';
 import { Platform } from 'react-native';
 import styles from './Style';
-import numValidator from './numericInputValidator';
+import numDecorator from './numericInputDecorator';
 
 const AmountInput = ({ transAmount, setTransAmount }) => (
   <>
@@ -15,7 +15,7 @@ const AmountInput = ({ transAmount, setTransAmount }) => (
       placeholder="0.00"
       value={transAmount ? transAmount.toString() : null}
       style={styles.amountInput}
-      onChangeText={(val) => setTransAmount(numValidator(val))}
+      onChangeText={(val) => setTransAmount(numDecorator(val))}
     />
   </>
 );
