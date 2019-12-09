@@ -7,7 +7,8 @@ import {
   Toast,
 } from 'native-base';
 import { Platform } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './Style';
 import { addNewTransaction } from '../Stats/actionCreator';
 
@@ -25,9 +26,8 @@ const pressHandler = (amount, date, view, dispatch) => {
   dispatch(addNewTransaction(view, date, amount));
 };
 
-export default () => {
+const PageFooter = ({ transAmount, transType, transDate }) => {
   const dispatch = useDispatch();
-  const { newTransType, newTransAmount, newTransDate } = useSelector((state) => state.transactions);
   return (
     <Footer style={Platform.OS === 'ios' ? styles.footerIOS : styles.footerAndroid}>
       <FooterTab style={styles.footerAndroid}>
@@ -35,7 +35,7 @@ export default () => {
         <Button
           bordered
           style={styles.confirmButton}
-          onPress={() => pressHandler(newTransAmount, newTransDate, newTransType, dispatch)}
+          onPress={() => pressHandler(transAmount, transDate, transType, dispatch)}
         >
           <Text style={styles.confirmButtonText}>Add</Text>
         </Button>
@@ -44,3 +44,18 @@ export default () => {
     </Footer>
   );
 };
+
+
+PageFooter.propTypes = {
+  transAmount: PropTypes.string,
+  transType: PropTypes.string,
+  transDate: PropTypes.string,
+};
+
+PageFooter.defaultProps = {
+  transAmount: PropTypes.string,
+  transType: 'Expense',
+  transDate: PropTypes.string,
+};
+
+export default PageFooter;

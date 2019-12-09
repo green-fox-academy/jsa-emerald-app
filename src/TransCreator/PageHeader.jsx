@@ -1,29 +1,35 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import {
   Header, Text, Left, Right, Button, Body, Segment,
 } from 'native-base';
+import PropTypes from 'prop-types';
 import styles from './Style';
-import { setNewTransactionType } from '../Stats/actionCreator';
 
-export default () => {
-  const { newTransType } = useSelector((state) => state.transactions);
-  const dispatch = useDispatch();
+const PageHeader = ({ transType, setTransType }) => (
+  <Header transparent>
+    <Left />
+    <Body>
+      <Segment style={styles.headerSegment}>
+        <Button bordered first active={transType === 'Expense'} onPress={() => setTransType('Expense')}>
+          <Text style={transType !== 'Expense' ? styles.nonActive : {}}>Expense</Text>
+        </Button>
+        <Button bordered last active={transType === 'Income'} onPress={() => setTransType('Income')}>
+          <Text style={transType !== 'Income' ? styles.nonActive : {}}>Income</Text>
+        </Button>
+      </Segment>
+    </Body>
+    <Right />
+  </Header>
+);
 
-  return (
-    <Header transparent>
-      <Left />
-      <Body>
-        <Segment style={styles.headerSegment}>
-          <Button bordered first active={newTransType === 'Expense'} onPress={() => dispatch(setNewTransactionType('Expense'))}>
-            <Text style={newTransType !== 'Expense' ? styles.nonActive : {}}>Expense</Text>
-          </Button>
-          <Button bordered last active={newTransType === 'Income'} onPress={() => dispatch(setNewTransactionType('Income'))}>
-            <Text style={newTransType !== 'Income' ? styles.nonActive : {}}>Income</Text>
-          </Button>
-        </Segment>
-      </Body>
-      <Right />
-    </Header>
-  );
+PageHeader.propTypes = {
+  transType: PropTypes.string,
+  setTransType: PropTypes.func,
 };
+
+PageHeader.defaultProps = {
+  transType: 'Expense',
+  setTransType: null,
+};
+
+export default PageHeader;
