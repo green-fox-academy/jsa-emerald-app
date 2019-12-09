@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 import styles from './Style';
 import { addNewTransaction } from '../Stats/actionCreator';
 
-const pressHandler = (amount, date, view, dispatch) => {
+const pressHandler = (amount, date, view, setTransAmount, setTransType, setTransDate, dispatch) => {
   if (!amount) {
     Toast.show({
       position: 'top',
@@ -24,10 +24,15 @@ const pressHandler = (amount, date, view, dispatch) => {
     return;
   }
 
+  setTransAmount(null);
+  setTransType('Expense');
+  setTransDate(moment().unix());
   dispatch(addNewTransaction(view, date, amount));
 };
 
-const PageFooter = ({ transAmount, transType, transDate }) => {
+const PageFooter = ({
+  transAmount, transType, transDate, setTransAmount, setTransType, setTransDate,
+}) => {
   const dispatch = useDispatch();
   return (
     <Footer style={Platform.OS === 'ios' ? styles.footerIOS : styles.footerAndroid}>
@@ -36,7 +41,7 @@ const PageFooter = ({ transAmount, transType, transDate }) => {
         <Button
           bordered
           style={styles.confirmButton}
-          onPress={() => pressHandler(transAmount, transDate, transType, dispatch)}
+          onPress={() => pressHandler(transAmount, transDate, transType, setTransAmount, setTransType, setTransDate, dispatch)}
         >
           <Text style={styles.confirmButtonText}>Add</Text>
         </Button>
@@ -51,12 +56,18 @@ PageFooter.propTypes = {
   transAmount: PropTypes.string,
   transType: PropTypes.string,
   transDate: PropTypes.number,
+  setTransAmount: PropTypes.func,
+  setTransType: PropTypes.func,
+  setTransDate: PropTypes.func,
 };
 
 PageFooter.defaultProps = {
   transAmount: null,
   transType: 'Expense',
   transDate: moment().unix(),
+  setTransAmount: null,
+  setTransType: null,
+  setTransDate: null,
 };
 
 export default PageFooter;

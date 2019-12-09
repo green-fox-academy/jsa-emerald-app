@@ -44,7 +44,14 @@ const TransCreator = ({ navigation }) => {
             <DateSelector transDate={transDate} setTransDate={setTransDate} />
           </Item>
         </Content>
-        <PageFooter transAmount={transAmount} transType={transType} transDate={transDate} />
+        <PageFooter
+          transAmount={transAmount}
+          transType={transType}
+          transDate={transDate}
+          setTransAmount={setTransAmount}
+          setTransType={setTransType}
+          setTransDate={setTransDate}
+        />
       </Container>
     </Root>
   );
