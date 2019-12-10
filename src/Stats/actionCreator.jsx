@@ -1,20 +1,12 @@
 export const actionType = {
-  ADD_SINGLE_TRANS: 'ADD_SINGLE_TRANS',
-  LOAD_LIST_TRANS: 'LOAD_LIST_TRANS',
+  ADD_TRANS: 'ADD_TRANS',
 };
 
-export function addSingleTransaction(type, date, amount) {
+export function addNewTransaction(type, date, amount) {
   return {
-    type: actionType.ADD_SINGLE_TRANS,
+    type: actionType.ADD_TRANS,
     data: {
       type, date, amount,
     },
-  };
-}
-
-export function loadTransaction(bulkTrans) {
-  return {
-    type: actionType.LOAD_LIST_TRANS,
-    data: bulkTrans,
   };
 }

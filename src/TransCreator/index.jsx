@@ -15,7 +15,7 @@ import PageHeader from './PageHeader';
 import PageFooter from './PageFooter';
 import AmountInput from './AmountInput';
 import DateSelector from './DateSelector';
-import { addSingleTransaction } from '../Stats/actionCreator';
+import { addNewTransaction } from '../Stats/actionCreator';
 
 const TransCreator = ({ navigation }) => {
   const [transAmount, setTransAmount] = useState(null);
@@ -36,7 +36,7 @@ const TransCreator = ({ navigation }) => {
       Alert.alert('Please enter the amount');
       return;
     }
-    dispatch(addSingleTransaction(transType, transDate, transAmount));
+    dispatch(addNewTransaction(transType, transDate, transAmount));
     setNewTransInsertionSuccess(true);
     setTransAmount(null);
     setTransType('Expense');
