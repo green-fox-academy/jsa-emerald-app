@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
-import transactionReducer from './Stats/reducer';
+import transactions from './Stats/reducer';
 
 const persistConfig = {
   key: 'root',
@@ -12,7 +12,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  transaction: transactionReducer,
+  transactions,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

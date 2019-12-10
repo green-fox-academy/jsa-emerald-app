@@ -1,7 +1,7 @@
 import { actionType } from './actionCreator';
 
 const initialState = {
-  transactionList: [],
+  transactions: [],
 };
 
 export default (state = initialState, action) => {
@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
     case actionType.ADD_TRANS:
       return {
         ...state,
-        transactionList: [...state.transactionList, { ...action.data }],
+        transactions: [...state.transactions, { ...action.data }],
       };
     default:
       return state;
