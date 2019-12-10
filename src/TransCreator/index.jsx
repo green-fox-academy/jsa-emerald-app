@@ -36,6 +36,7 @@ const TransCreator = ({ navigation }) => {
       Alert.alert('Please enter the amount');
       return;
     }
+
     dispatch(addNewTransaction(transType, transDate, transAmount));
     setNewTransInsertionSuccess(true);
     setTransAmount(null);
