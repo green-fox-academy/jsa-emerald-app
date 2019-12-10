@@ -5,7 +5,7 @@ import {
   Item,
   Root,
 } from 'native-base';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { NavigationScreenPropType } from 'react-navigation';
@@ -16,15 +16,12 @@ import PageFooter from './PageFooter';
 import AmountInput from './AmountInput';
 import DateSelector from './DateSelector';
 import { addSingleTransaction } from '../Stats/actionCreator';
-import { saveTransactionList } from '../PersistStorage';
 
 const TransCreator = ({ navigation }) => {
   const [transAmount, setTransAmount] = useState(null);
   const [transType, setTransType] = useState('Expense');
   const [transDate, setTransDate] = useState(moment().unix());
   const [newTransInsertionSuccess, setNewTransInsertionSuccess] = useState(false);
-
-  const { transactionList } = useSelector((state) => state.transactions);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,7 +29,6 @@ const TransCreator = ({ navigation }) => {
       navigation.navigate('Stats');
       setNewTransInsertionSuccess(false);
     }
-    return () => { saveTransactionList(transactionList); };
   });
 
   const createHandler = () => {

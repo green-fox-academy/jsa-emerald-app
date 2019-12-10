@@ -4,10 +4,12 @@ import * as Font from 'expo-font';
 import { Provider } from 'react-redux';
 import { createAppContainer } from 'react-navigation';
 import { Alert } from 'react-native';
+import { PersistGate } from 'redux-persist/integration/react';
 import AppNavigator from './Navigator';
-import store from './reduxStore';
+import { store, persistor } from './reduxStore';
 import Roboto from '../assets/Fonts/Roboto/Roboto-Regular.ttf';
 import RobotoMedium from '../assets/Fonts/Roboto/Roboto-Medium.ttf';
+
 
 const AppContainer = createAppContainer(AppNavigator);
 
@@ -34,7 +36,9 @@ const App = () => {
   return fontLoading ? <AppLoading />
     : (
       <Provider store={store}>
-        <AppContainer />
+        <PersistGate loading={null} persistor={persistor}>
+          <AppContainer />
+        </PersistGate>
       </Provider>
     );
 };
