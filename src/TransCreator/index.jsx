@@ -17,7 +17,6 @@ import AmountInput from './AmountInput';
 import DateSelector from './DateSelector';
 import { addNewTransaction } from '../Stats/actionCreator';
 
-
 const TransCreator = ({ navigation }) => {
   const [transAmount, setTransAmount] = useState(null);
   const [transType, setTransType] = useState('Expense');
