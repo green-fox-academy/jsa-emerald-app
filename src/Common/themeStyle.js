@@ -68,6 +68,16 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 8,
   },
+
+  headerFormat: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 20,
+  },
+
 });
 
 export default styles;
