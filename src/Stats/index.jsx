@@ -3,7 +3,7 @@ import { View, ScrollView } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
-import sortDataByDate from './utils';
+import utils from './utils';
 import styles from '../Common/themeStyle';
 
 export default function Stats() {
@@ -11,7 +11,7 @@ export default function Stats() {
   return (
     <ScrollView>
       <View style={styles.card}>
-        {sortDataByDate(transactions).map((item, index) => (
+        {utils.sortDataByDate(transactions).map((item, index) => (
           <ListItem
             key={`ListKey${index + 1}`}
             title={item.label ? item.label : 'Undefined'}

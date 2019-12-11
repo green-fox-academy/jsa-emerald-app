@@ -4,4 +4,6 @@ const sortDataByDate = (dataList) => {
   return orderedDataListByDateFromNearToFar;
 };
 
-export default sortDataByDate;
+export default {
+  sortDataByDate,
+};
