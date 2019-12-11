@@ -55,4 +55,42 @@ export default StyleSheet.create({
     color: '#5C6BC0',
     fontSize: 15,
   },
+  labelContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  labelItem: {
+    width: 88,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 0,
+    padding: 0,
+  },
+  transTypeButton: {
+    borderRadius: 50,
+    width: 120,
+    marginTop: 0,
+    paddingTop: 5,
+    marginBottom: 0,
+    paddingBottom: 5,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginRight: 6,
+    marginLeft: 6,
+  },
+  transTypeTitle: {
+    color: 'grey',
+    fontSize: 15,
+  },
+  transTypeTitleActive: {
+    color: 'black',
+  },
+  transTypeButtonActive: {
+    borderColor: 'black',
+  },
+  labelClicked: {
+    backgroundColor: 'red',
+  },
 });

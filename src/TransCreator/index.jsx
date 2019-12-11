@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Container,
-  Content,
   Item,
   Root,
 } from 'native-base';
@@ -11,16 +9,18 @@ import moment from 'moment';
 import { NavigationScreenPropType } from 'react-navigation';
 import { Alert } from 'react-native';
 import styles from './Style';
-import PageHeader from './PageHeader';
 import PageFooter from './PageFooter';
 import AmountInput from './AmountInput';
 import DateSelector from './DateSelector';
 import { addNewTransaction } from '../Stats/actionCreator';
+import LabelGroup from './LabelGroup';
+import Header from './PageHeader';
 
 const TransCreator = ({ navigation }) => {
   const [transAmount, setTransAmount] = useState(null);
   const [transType, setTransType] = useState('Expense');
   const [transDate, setTransDate] = useState(moment().unix());
+  const [transIcon, setTransIcon] = useState({});
   const [newTransInsertionSuccess, setNewTransInsertionSuccess] = useState(false);
   const dispatch = useDispatch();
 
@@ -37,27 +37,30 @@ const TransCreator = ({ navigation }) => {
       return;
     }
 
-    dispatch(addNewTransaction(transType, transDate, transAmount));
+    dispatch(addNewTransaction(transType, transDate, transAmount, transIcon));
     setNewTransInsertionSuccess(true);
     setTransAmount(null);
     setTransType('Expense');
     setTransDate(moment().unix());
+    setTransIcon({});
   };
 
   return (
     <Root>
-      <Container>
-        <PageHeader transType={transType} setTransType={setTransType} />
-        <Content padder>
-          <Item style={styles.amountInputOuter}>
-            <AmountInput transAmount={transAmount} setTransAmount={setTransAmount} />
-          </Item>
-          <Item style={styles.dateItem}>
-            <DateSelector transDate={transDate} setTransDate={setTransDate} />
-          </Item>
-        </Content>
-        <PageFooter createHandler={createHandler} />
-      </Container>
+      <Header icon={transIcon} type={transType} amount={transAmount} />
+      <Item style={styles.amountInputOuter}>
+        <AmountInput transAmount={transAmount} setTransAmount={setTransAmount} />
+      </Item>
+      <LabelGroup
+        transType={transType}
+        setTransType={setTransType}
+        transIcon={transIcon}
+        setTransIcon={setTransIcon}
+      />
+      <Item style={styles.dateItem}>
+        <DateSelector transDate={transDate} setTransDate={setTransDate} />
+      </Item>
+      <PageFooter createHandler={createHandler} />
     </Root>
   );
 };
