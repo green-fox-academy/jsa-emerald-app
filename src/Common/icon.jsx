@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 import themeColor from './Color';
 
 export default function GradientIcon(props) {
-  const { name } = props;
-  const { color } = props;
+  const { name, color, iconFamily } = props;
   return (
     <LinearGradient
       colors={themeColor.gradientColor[color]}
@@ -16,7 +15,7 @@ export default function GradientIcon(props) {
         borderRadius: 23, padding: 8,
       }}
     >
-      <Icon name={name} color="white" size={30} />
+      <Icon name={name} color="white" size={30} type={iconFamily} />
     </LinearGradient>
   );
 }
@@ -24,9 +23,11 @@ export default function GradientIcon(props) {
 GradientIcon.propTypes = {
   name: PropTypes.string,
   color: PropTypes.string,
+  iconFamily: PropTypes.string,
 };
 
 GradientIcon.defaultProps = {
   name: '',
   color: '',
+  iconFamily: '',
 };
