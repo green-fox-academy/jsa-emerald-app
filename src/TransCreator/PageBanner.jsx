@@ -1,18 +1,15 @@
 import React from 'react';
-import {
-  View, Text, Platform,
-} from 'react-native';
-import { Input, Icon } from 'react-native-elements';
+import { View, Text } from 'react-native';
+import { Icon } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import PropTypes from 'prop-types';
 import themeStyle from '../Common/themeStyle';
 import themeColor from '../Common/Color';
 import styles from './Style';
-import numDecorator from './numericInputDecorator';
 
 export default function PageBanner({
-  transLabel, transType, transAmount, setTransAmount,
+  transLabel, transType, transAmount,
 }) {
   let displayAmount = transAmount === '' ? '0.00' : transAmount;
   displayAmount = transType === 'Expense' ? `-$${displayAmount}` : `+$${displayAmount}`;
@@ -30,15 +27,6 @@ export default function PageBanner({
               <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
             </View>
             <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{ displayAmount }</Text>
-            {/* <Input
-              placeholder="$ 0.00"
-              keyboardType={Platform.OS === 'ios' ? 'numeric' : 'decimal-pad'}
-              inputStyle={[styles.headerText, { textAlign: 'right', color: '#ffffff' }]}
-              value={transAmount ? transAmount.toString() : null}
-              containerStyle={{ width: 150 }}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              onChangeText={(val) => setTransAmount(numDecorator(val))}
-            /> */}
           </View>
         </LinearGradient>
       )

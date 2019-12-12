@@ -7,7 +7,6 @@ import moment from 'moment';
 import { NavigationScreenPropType } from 'react-navigation';
 
 import styles from './Style';
-import PageFooter from './PageFooter';
 import DateSelector from './DateSelector';
 import { addNewTransaction } from '../Stats/actionCreator';
 import LabelGroup from './LabelGroup';
@@ -31,7 +30,6 @@ const TransCreator = ({ navigation }) => {
   });
 
   const createHandler = () => {
-    console.log(transAmount);
     if (transAmount === '') {
       Alert.alert('Please enter the amount');
       return;
@@ -51,7 +49,6 @@ const TransCreator = ({ navigation }) => {
         transLabel={transLabel}
         transType={transType}
         transAmount={transAmount}
-        setTransAmount={setTransAmount}
       />
       <View style={{ flex: 1, flexDirection: 'row' }}>
         <View style={theme.deviceBody}>
@@ -64,8 +61,6 @@ const TransCreator = ({ navigation }) => {
           <Item style={styles.dateItem}>
             <DateSelector transDate={transDate} setTransDate={setTransDate} />
           </Item>
-
-          {/* <PageFooter createHandler={createHandler} /> */}
         </View>
       </View>
       <Keyboard
