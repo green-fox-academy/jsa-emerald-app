@@ -11,11 +11,11 @@ import themeColor from '../Common/Color';
 import styles from './Style';
 import numDecorator from './numericInputDecorator';
 
-export default function LabelHeader({
-  transIcon, transType, transAmount, setTransAmount,
+export default function PageBanner({
+  transLabel, transType, transAmount, setTransAmount,
 }) {
   return (
-    transIcon.label
+    transLabel.name
       ? (
         <LinearGradient
           colors={transType === 'Expense' ? themeColor.gradientColor.red : themeColor.gradientColor.green}
@@ -24,8 +24,8 @@ export default function LabelHeader({
         >
           <View style={[themeStyle.headerFormat, styles.headerFormat]}>
             <View style={styles.headerContainer}>
-              <Icon name={transIcon.icon} type={transIcon.iconFamily} color="#ffffff" size={40} />
-              <Text style={[styles.headerText, { color: '#ffffff' }]}>{transIcon.label || 'undefined'}</Text>
+              <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
+              <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
             </View>
             <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{ transType === 'Expense' ? `-$${transAmount}` : `+$${transAmount}` }</Text>
             {/* <Input
@@ -48,9 +48,9 @@ export default function LabelHeader({
   );
 }
 
-LabelHeader.propTypes = {
-  transIcon: PropTypes.shape({
-    label: PropTypes.string,
+PageBanner.propTypes = {
+  transLabel: PropTypes.shape({
+    name: PropTypes.string,
     icon: PropTypes.string,
     iconFamily: PropTypes.string,
     color: PropTypes.string,
@@ -60,9 +60,9 @@ LabelHeader.propTypes = {
   setTransAmount: PropTypes.func,
 };
 
-LabelHeader.defaultProps = {
-  transIcon: {
-    label: '',
+PageBanner.defaultProps = {
+  transLabel: {
+    name: '',
     icon: '',
     iconFamily: '',
     color: '',

@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
   deviceHead: {
     height: 120,
     justifyContent: 'flex-end',

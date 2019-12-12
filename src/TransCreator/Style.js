@@ -11,6 +11,7 @@ export default StyleSheet.create({
   dateItem: {
     borderBottomWidth: 0,
     marginTop: 30,
+    marginBottom: 20,
   },
   dateItemIcon: {
     fontSize: 25,
@@ -38,7 +39,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   labelItem: {
-    width: 88,
+    width: 85,
     height: 60,
     alignItems: 'center',
     justifyContent: 'center',
@@ -53,7 +54,7 @@ export default StyleSheet.create({
   typeButton: {
     borderRadius: 50,
     width: 120,
-    marginTop: 0,
+    marginTop: 15,
     paddingTop: 5,
     marginBottom: 0,
     paddingBottom: 5,
