@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 
   deviceBody: {
     flexDirection: 'column',
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f3f5fa',
     paddingLeft: 20,
     paddingRight: 20,
   },
@@ -71,11 +71,16 @@ const styles = StyleSheet.create({
 
   headerFormat: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'flex-end',
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20,
+  },
+
+  headerFont: {
+    fontSize: 20,
+    fontWeight: '500',
+    textAlign: 'center',
   },
 
 });
