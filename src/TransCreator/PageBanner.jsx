@@ -14,6 +14,8 @@ import numDecorator from './numericInputDecorator';
 export default function PageBanner({
   transLabel, transType, transAmount, setTransAmount,
 }) {
+  let displayAmount = transAmount === '' ? '0.00' : transAmount;
+  displayAmount = transType === 'Expense' ? `-$${displayAmount}` : `+$${displayAmount}`;
   return (
     transLabel.name
       ? (
@@ -27,7 +29,7 @@ export default function PageBanner({
               <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
               <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
             </View>
-            <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{ transType === 'Expense' ? `-$${transAmount}` : `+$${transAmount}` }</Text>
+            <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{ displayAmount }</Text>
             {/* <Input
               placeholder="$ 0.00"
               keyboardType={Platform.OS === 'ios' ? 'numeric' : 'decimal-pad'}
@@ -56,7 +58,7 @@ PageBanner.propTypes = {
     color: PropTypes.string,
   }),
   transType: PropTypes.string,
-  transAmount: PropTypes.number,
+  transAmount: PropTypes.string,
   setTransAmount: PropTypes.func,
 };
 
@@ -68,6 +70,6 @@ PageBanner.defaultProps = {
     color: '',
   },
   transType: '',
-  transAmount: 0,
+  transAmount: '',
   setTransAmount: null,
 };

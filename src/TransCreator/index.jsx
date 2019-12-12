@@ -16,7 +16,7 @@ import theme from '../Common/themeStyle';
 import Keyboard from './Keyboard';
 
 const TransCreator = ({ navigation }) => {
-  const [transAmount, setTransAmount] = useState(0);
+  const [transAmount, setTransAmount] = useState('');
   const [transType, setTransType] = useState('Expense');
   const [transDate, setTransDate] = useState(moment().unix());
   const [transLabel, setTransLabel] = useState({});
@@ -31,14 +31,15 @@ const TransCreator = ({ navigation }) => {
   });
 
   const createHandler = () => {
-    if (!transAmount) {
+    console.log(transAmount);
+    if (transAmount === '') {
       Alert.alert('Please enter the amount');
       return;
     }
 
     dispatch(addNewTransaction(transType, transDate, transAmount, transLabel));
     setNewTransInsertionSuccess(true);
-    setTransAmount(0);
+    setTransAmount('');
     setTransType('Expense');
     setTransDate(moment().unix());
     setTransLabel({});
@@ -60,15 +61,15 @@ const TransCreator = ({ navigation }) => {
             transLabel={transLabel}
             setTransLabel={setTransLabel}
           />
-          {/* <Item style={styles.dateItem}>
+          <Item style={styles.dateItem}>
             <DateSelector transDate={transDate} setTransDate={setTransDate} />
-          </Item> */}
+          </Item>
 
           {/* <PageFooter createHandler={createHandler} /> */}
         </View>
       </View>
       <Keyboard
-        transIcon={transIcon}
+        transLabel={transLabel}
         createHandler={createHandler}
         transAmount={transAmount}
         setTransAmount={setTransAmount}
