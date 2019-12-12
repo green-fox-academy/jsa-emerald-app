@@ -13,9 +13,10 @@ import { addNewTransaction } from '../Stats/actionCreator';
 import LabelGroup from './LabelGroup';
 import Header from './PageHeader';
 import theme from '../Common/themeStyle';
+import Keyboard from './Keyboard';
 
 const TransCreator = ({ navigation }) => {
-  const [transAmount, setTransAmount] = useState(null);
+  const [transAmount, setTransAmount] = useState(0);
   const [transType, setTransType] = useState('Expense');
   const [transDate, setTransDate] = useState(moment().unix());
   const [transIcon, setTransIcon] = useState({});
@@ -37,7 +38,7 @@ const TransCreator = ({ navigation }) => {
 
     dispatch(addNewTransaction(transType, transDate, transAmount, transIcon));
     setNewTransInsertionSuccess(true);
-    setTransAmount(null);
+    setTransAmount(0);
     setTransType('Expense');
     setTransDate(moment().unix());
     setTransIcon({});
@@ -59,12 +60,19 @@ const TransCreator = ({ navigation }) => {
             transIcon={transIcon}
             setTransIcon={setTransIcon}
           />
-          <Item style={styles.dateItem}>
+          {/* <Item style={styles.dateItem}>
             <DateSelector transDate={transDate} setTransDate={setTransDate} />
-          </Item>
-          <PageFooter createHandler={createHandler} />
+          </Item> */}
+
+          {/* <PageFooter createHandler={createHandler} /> */}
         </View>
       </View>
+      <Keyboard
+        transIcon={transIcon}
+        createHandler={createHandler}
+        transAmount={transAmount}
+        setTransAmount={setTransAmount}
+      />
     </Root>
   );
 };

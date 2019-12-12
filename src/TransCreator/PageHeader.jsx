@@ -27,7 +27,8 @@ export default function LabelHeader({
               <Icon name={transIcon.icon} type={transIcon.iconFamily} color="#ffffff" size={40} />
               <Text style={[styles.headerText, { color: '#ffffff' }]}>{transIcon.label || 'undefined'}</Text>
             </View>
-            <Input
+            <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{ transType === 'Expense' ? `-$${transAmount}` : `+$${transAmount}` }</Text>
+            {/* <Input
               placeholder="$ 0.00"
               keyboardType={Platform.OS === 'ios' ? 'numeric' : 'decimal-pad'}
               inputStyle={[styles.headerText, { textAlign: 'right', color: '#ffffff' }]}
@@ -35,7 +36,7 @@ export default function LabelHeader({
               containerStyle={{ width: 150 }}
               inputContainerStyle={{ borderBottomWidth: 0 }}
               onChangeText={(val) => setTransAmount(numDecorator(val))}
-            />
+            /> */}
           </View>
         </LinearGradient>
       )
@@ -55,7 +56,7 @@ LabelHeader.propTypes = {
     color: PropTypes.string,
   }),
   transType: PropTypes.string,
-  transAmount: PropTypes.string,
+  transAmount: PropTypes.number,
   setTransAmount: PropTypes.func,
 };
 
@@ -67,6 +68,6 @@ LabelHeader.defaultProps = {
     color: '',
   },
   transType: '',
-  transAmount: '',
+  transAmount: 0,
   setTransAmount: null,
 };
