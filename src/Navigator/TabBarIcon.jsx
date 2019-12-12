@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavigationScreenPropType } from 'react-navigation';
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import AddButton from './AddButton';
 
 const TabBarIcon = ({ navigation, focused, tintColor }) => {
   const { routeName } = navigation.state;
@@ -10,19 +11,17 @@ const TabBarIcon = ({ navigation, focused, tintColor }) => {
     case 'Stats':
       IconComponent = MaterialIcons;
       iconName = `pie-chart${focused ? '' : '-outlined'}`;
-      break;
+      return <IconComponent name={iconName} size={25} color={tintColor} />;
     case 'Create':
-      IconComponent = MaterialCommunityIcons;
-      iconName = `pencil-circle${focused ? '' : '-outline'}`;
-      break;
+      return <AddButton />;
     case 'Me':
       IconComponent = MaterialIcons;
       iconName = `person${focused ? '' : '-outline'}`;
-      break;
+      return <IconComponent name={iconName} size={25} color={tintColor} />;
     default:
       break;
   }
-  return <IconComponent name={iconName} size={25} color={tintColor} />;
+  // return <IconComponent name={iconName} size={25} color={tintColor} />;
 };
 
 TabBarIcon.propTypes = {
