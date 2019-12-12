@@ -19,6 +19,7 @@ const LabelGroup = ({
     }
     return ['white', 'white'];
   };
+
   return (
     <View style={theme.card}>
       <LabelGroupSelector
@@ -42,8 +43,17 @@ const LabelGroup = ({
               style={{ margin: 5, padding: 2, borderRadius: 5 }}
             >
               <View style={styles.labelItem}>
-                <Icon name={item.icon} type={item.iconFamily} color={transIcon.label === item.label ? 'white' : item.color} size={30} />
-                <Text style={transIcon.label === item.label ? { color: 'white' } : { color: 'grey' }}>{item.label}</Text>
+                <Icon
+                  name={item.icon}
+                  type={item.iconFamily}
+                  color={transIcon.label === item.label ? 'white' : item.color}
+                  size={30}
+                />
+                <Text style={transIcon.label === item.label
+                  ? { color: 'white' } : { color: 'grey' }}
+                >
+                  {item.label}
+                </Text>
               </View>
             </LinearGradient>
           </TouchableHighlight>

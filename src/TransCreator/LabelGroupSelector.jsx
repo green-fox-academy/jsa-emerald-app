@@ -5,21 +5,19 @@ import PropTypes from 'prop-types';
 import styles from './Style';
 
 const LabelGroupSelector = ({ transType, setTransType, setTransIcon }) => (
-  <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 20 }}>
-    <Button
-      buttonStyle={transType === 'Expense' ? [styles.transTypeButton, styles.transTypeButtonActive] : styles.transTypeButton}
-      titleStyle={transType === 'Expense' ? [styles.transTypeTitle, styles.transTypeTitleActive] : styles.transTypeTitle}
-      title="Expense"
-      type="outline"
-      onPress={() => { setTransIcon({}); setTransType('Expense'); }}
-    />
-    <Button
-      buttonStyle={transType === 'Income' ? [styles.transTypeButton, styles.transTypeButtonActive] : styles.transTypeButton}
-      titleStyle={transType === 'Income' ? [styles.transTypeTitle, styles.transTypeTitleActive] : styles.transTypeTitle}
-      title="Income"
-      type="outline"
-      onPress={() => { setTransIcon({}); setTransType('Income'); }}
-    />
+  <View style={styles.typeButtonGroup}>
+    {['Expense', 'Income'].map((cate) => (
+      <Button
+        key={cate}
+        buttonStyle={transType === cate
+          ? [styles.typeButton, styles.typeButtonActive] : styles.typeButton}
+        titleStyle={transType === cate
+          ? [styles.typeTitle, styles.typeTitleActive] : styles.typeTitle}
+        title={cate}
+        type="outline"
+        onPress={() => { setTransIcon({}); setTransType(cate); }}
+      />
+    ))}
   </View>
 );
 

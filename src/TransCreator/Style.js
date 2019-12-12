@@ -1,35 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  headerSegment: {
-    backgroundColor: 'transparent',
-  },
-  headerIcon: {
-    fontSize: 30,
-  },
-  amountInputOuter: {
-    borderBottomColor: 'rgb(221,218,223)',
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderTopColor: 'rgb(221,218,223)',
-  },
-  amountInputIcon: {
-    fontSize: 25,
-    marginRight: 15,
-  },
-  amountInput: {
-    textAlign: 'right',
-    fontSize: 40,
-  },
   footerIOS: {
     backgroundColor: 'transparent',
     borderTopWidth: 0,
   },
   footerAndroid: {
     backgroundColor: 'transparent',
-  },
-  nonActive: {
-    color: 'grey',
   },
   dateItem: {
     borderBottomWidth: 0,
@@ -68,7 +45,12 @@ export default StyleSheet.create({
     margin: 0,
     padding: 0,
   },
-  transTypeButton: {
+  typeButtonGroup: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  typeButton: {
     borderRadius: 50,
     width: 120,
     marginTop: 0,
@@ -80,17 +62,25 @@ export default StyleSheet.create({
     marginRight: 6,
     marginLeft: 6,
   },
-  transTypeTitle: {
+  typeTitle: {
     color: 'grey',
     fontSize: 15,
   },
-  transTypeTitleActive: {
+  typeTitleActive: {
     color: 'black',
   },
-  transTypeButtonActive: {
+  typeButtonActive: {
     borderColor: 'black',
   },
-  labelClicked: {
-    backgroundColor: 'red',
+  headerFormat: {
+    height: 140,
+    justifyContent: 'space-between',
+  },
+  headerContainer: {
+    alignItems: 'flex-start',
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: '400',
   },
 });

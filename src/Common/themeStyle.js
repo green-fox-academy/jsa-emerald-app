@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 
   deviceBody: {
     flexDirection: 'column',
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f3f5fa',
     paddingLeft: 20,
     paddingRight: 20,
   },

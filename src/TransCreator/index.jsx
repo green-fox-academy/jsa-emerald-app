@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Item,
-  Root,
-} from 'native-base';
+import { Item, Root } from 'native-base';
+import { View, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { NavigationScreenPropType } from 'react-navigation';
-import { Alert } from 'react-native';
+
 import styles from './Style';
 import PageFooter from './PageFooter';
-import AmountInput from './AmountInput';
 import DateSelector from './DateSelector';
 import { addNewTransaction } from '../Stats/actionCreator';
 import LabelGroup from './LabelGroup';
 import Header from './PageHeader';
+import theme from '../Common/themeStyle';
 
 const TransCreator = ({ navigation }) => {
   const [transAmount, setTransAmount] = useState(null);
@@ -47,20 +45,26 @@ const TransCreator = ({ navigation }) => {
 
   return (
     <Root>
-      <Header icon={transIcon} type={transType} amount={transAmount} />
-      <Item style={styles.amountInputOuter}>
-        <AmountInput transAmount={transAmount} setTransAmount={setTransAmount} />
-      </Item>
-      <LabelGroup
-        transType={transType}
-        setTransType={setTransType}
+      <Header
         transIcon={transIcon}
-        setTransIcon={setTransIcon}
+        transType={transType}
+        transAmount={transAmount}
+        setTransAmount={setTransAmount}
       />
-      <Item style={styles.dateItem}>
-        <DateSelector transDate={transDate} setTransDate={setTransDate} />
-      </Item>
-      <PageFooter createHandler={createHandler} />
+      <View style={{ flex: 1, flexDirection: 'row' }}>
+        <View style={theme.deviceBody}>
+          <LabelGroup
+            transType={transType}
+            setTransType={setTransType}
+            transIcon={transIcon}
+            setTransIcon={setTransIcon}
+          />
+          <Item style={styles.dateItem}>
+            <DateSelector transDate={transDate} setTransDate={setTransDate} />
+          </Item>
+          <PageFooter createHandler={createHandler} />
+        </View>
+      </View>
     </Root>
   );
 };
