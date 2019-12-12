@@ -25,7 +25,6 @@ const LabelGroup = ({
       <TransactionTypeSelector
         transType={transType}
         setTransType={setTransType}
-        setTransLabel={setTransLabel}
       />
       <View style={styles.labelContainer}>
         {labels.map((item) => (
@@ -55,7 +54,6 @@ const LabelGroup = ({
               </View>
             </LinearGradient>
           </TouchableHighlight>
-
         ))}
       </View>
     </View>

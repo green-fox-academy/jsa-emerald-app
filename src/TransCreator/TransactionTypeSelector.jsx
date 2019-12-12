@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import styles from './Style';
 
-const TransactionTypeSelector = ({ transType, setTransType, setTransLabel }) => (
+const TransactionTypeSelector = ({ transType, setTransType }) => (
   <View style={styles.typeButtonGroup}>
     <Button
       buttonStyle={transType === 'Expense'
@@ -13,7 +13,7 @@ const TransactionTypeSelector = ({ transType, setTransType, setTransLabel }) => 
         ? [styles.typeTitle, styles.typeTitleActive] : styles.typeTitle}
       title="Expense"
       type="outline"
-      onPress={() => { setTransLabel({}); setTransType('Expense'); }}
+      onPress={() => setTransType('Expense')}
     />
     <Button
       buttonStyle={transType === 'Income'
@@ -22,7 +22,7 @@ const TransactionTypeSelector = ({ transType, setTransType, setTransLabel }) => 
         ? [styles.typeTitle, styles.typeTitleActive] : styles.typeTitle}
       title="Income"
       type="outline"
-      onPress={() => { setTransLabel({}); setTransType('Income'); }}
+      onPress={() => setTransType('Income')}
     />
   </View>
 );
@@ -30,13 +30,11 @@ const TransactionTypeSelector = ({ transType, setTransType, setTransLabel }) => 
 TransactionTypeSelector.propTypes = {
   transType: PropTypes.string,
   setTransType: PropTypes.func,
-  setTransLabel: PropTypes.func,
 };
 
 TransactionTypeSelector.defaultProps = {
   transType: 'Expense',
   setTransType: null,
-  setTransLabel: null,
 };
 
 export default TransactionTypeSelector;

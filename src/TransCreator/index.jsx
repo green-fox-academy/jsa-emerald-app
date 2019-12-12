@@ -55,9 +55,14 @@ const TransCreator = ({ navigation }) => {
         <View style={theme.deviceBody}>
           <LabelGroup
             transType={transType}
-            setTransType={setTransType}
             transLabel={transLabel}
             setTransLabel={setTransLabel}
+            setTransType={(type) => {
+              setTransType(type);
+              setTransLabel({});
+              setTransAmount(null);
+            }}
+
           />
           <Item style={styles.dateItem}>
             <DateSelector transDate={transDate} setTransDate={setTransDate} />

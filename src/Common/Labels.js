@@ -43,7 +43,8 @@ export default {
     },
     {
       name: 'Alipay', icon: 'alipay-circle', iconFamily: 'antdesign', color: '#08addb',
-    }, {
+    },
+    {
       name: 'Cash', icon: 'wallet', iconFamily: 'antdesign', color: '#6976dc',
     },
     {
