@@ -16,7 +16,7 @@ export default function LabelHeader({ icon, type, amount }) {
           start={[0.1, 0.9]}
           end={[0.9, 0.1]}
         >
-          <View style={[styles.headerFormat, { height: 140 }]}>
+          <View style={[styles.headerFormat, { height: 140, justifyContent: 'space-between' }]}>
             <View style={{ alignItems: 'flex-start' }}>
               <Icon name={icon.icon} type={icon.iconFamily} color="#ffffff" size={40} />
               <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{icon.label || 'undefined'}</Text>
@@ -27,7 +27,7 @@ export default function LabelHeader({ icon, type, amount }) {
       )
       : (
         <View style={
-          [styles.headerFormat, { backgroundColor: '#ffffff', height: 140 }]
+          [styles.headerFormat, { backgroundColor: '#ffffff', height: 140, justifyContent: 'space-between' }]
         }
         >
           <Text style={{ fontSize: 20, fontWeight: '400' }}>Select a category</Text>

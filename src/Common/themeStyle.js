@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
 
   headerFormat: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'flex-end',
     paddingLeft: 20,
     paddingRight: 20,

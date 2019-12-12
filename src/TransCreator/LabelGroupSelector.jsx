@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './Style';
 
 const LabelGroupSelector = ({ transType, setTransType, setTransIcon }) => (
-  <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+  <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 20 }}>
     <Button
       buttonStyle={transType === 'Expense' ? [styles.transTypeButton, styles.transTypeButtonActive] : styles.transTypeButton}
       titleStyle={transType === 'Expense' ? [styles.transTypeTitle, styles.transTypeTitleActive] : styles.transTypeTitle}
