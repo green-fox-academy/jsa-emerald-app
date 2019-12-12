@@ -1,54 +1,59 @@
 export default {
   Expense: [
     {
-      label: 'House', icon: 'home', iconFamily: 'antdesign', color: '#08addb',
+      name: 'House', icon: 'home', iconFamily: 'antdesign', color: '#08addb',
     },
     {
-      label: 'Food & Drink', icon: 'local-pizza', iconFamily: '', color: '#e9b69a',
-    }, {
-      label: 'Bills & Fees', icon: 'attach-money', iconFamily: '', color: '#1cd09d',
+      name: 'Food & Drink', icon: 'local-pizza', iconFamily: '', color: '#e9b69a',
     },
     {
-      label: 'Shopping', icon: 'shoppingcart', iconFamily: 'antdesign', color: '#aa78db',
+      name: 'Bills & Fees', icon: 'attach-money', iconFamily: '', color: '#1cd09d',
     },
     {
-      label: 'Education', icon: 'school', iconFamily: '', color: '#f87f91',
-    }, {
-      label: 'Sport', icon: 'run-fast', iconFamily: 'material-community', color: '#6976dc',
+      name: 'Shopping', icon: 'shoppingcart', iconFamily: 'antdesign', color: '#aa78db',
     },
     {
-      label: 'Utilities', icon: 'lightbulb-on-outline', iconFamily: 'material-community', color: '#fea971',
+      name: 'Education', icon: 'school', iconFamily: '', color: '#f87f91',
     },
     {
-      label: 'Travel', icon: 'flight', iconFamily: '', color: '#aba2da',
-    }, {
-      label: 'Health', icon: 'medicinebox', iconFamily: 'antdesign', color: '#ff464e',
+      name: 'Sport', icon: 'run-fast', iconFamily: 'material-community', color: '#6976dc',
+    },
+    {
+      name: 'Utilities', icon: 'lightbulb-on-outline', iconFamily: 'material-community', color: '#fea971',
+    },
+    {
+      name: 'Travel', icon: 'flight', iconFamily: '', color: '#aba2da',
+    },
+    {
+      name: 'Health', icon: 'medicinebox', iconFamily: 'antdesign', color: '#ff464e',
     },
   ],
   Income: [
     {
-      label: 'Salary', icon: 'briefcase', iconFamily: 'font-awesome', color: '#f87f91',
+      name: 'Salary', icon: 'briefcase', iconFamily: 'font-awesome', color: '#f87f91',
     },
     {
-      label: 'Red Packet', icon: 'redenvelopes', iconFamily: 'antdesign', color: '#e9b69a',
+      name: 'Red Packet', icon: 'redenvelopes', iconFamily: 'antdesign', color: '#e9b69a',
+    },
+    {
+      name: 'Investment', icon: 'linechart', iconFamily: 'antdesign', color: '#aba2da',
+    },
+    {
+      name: 'Bonus', icon: 'coin', iconFamily: 'material-community', color: '#aa78db',
+    },
+    {
+      name: 'Alipay', icon: 'alipay-circle', iconFamily: 'antdesign', color: '#08addb',
     }, {
-      label: 'Investment', icon: 'linechart', iconFamily: 'antdesign', color: '#aba2da',
+      name: 'Cash', icon: 'wallet', iconFamily: 'antdesign', color: '#6976dc',
     },
     {
-      label: 'Bonus', icon: 'coin', iconFamily: 'material-community', color: '#aa78db',
+      name: 'Refund', icon: 'credit-card-refund', iconFamily: 'material-community', color: '#fea971',
     },
     {
-      label: 'Alipay', icon: 'alipay-circle', iconFamily: 'antdesign', color: '#08addb',
-    }, {
-      label: 'Cash', icon: 'wallet', iconFamily: 'antdesign', color: '#6976dc',
+      name: 'Lottery', icon: 'balloon', iconFamily: 'material-community', color: '#ff464e',
     },
     {
-      label: 'Refund', icon: 'credit-card-refund', iconFamily: 'material-community', color: '#fea971',
-    },
-    {
-      label: 'Lottery', icon: 'balloon', iconFamily: 'material-community', color: '#ff464e',
-    }, {
-      label: 'WeChat', icon: 'wechat', iconFamily: 'antdesign', color: '#1cd09d',
+      name: 'WeChat', icon: 'wechat', iconFamily: 'antdesign', color: '#1cd09d',
     },
   ],
 };

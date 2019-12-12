@@ -11,14 +11,14 @@ import PageFooter from './PageFooter';
 import DateSelector from './DateSelector';
 import { addNewTransaction } from '../Stats/actionCreator';
 import LabelGroup from './LabelGroup';
-import Header from './PageHeader';
+import PageBanner from './PageBanner';
 import theme from '../Common/themeStyle';
 
 const TransCreator = ({ navigation }) => {
   const [transAmount, setTransAmount] = useState(null);
   const [transType, setTransType] = useState('Expense');
   const [transDate, setTransDate] = useState(moment().unix());
-  const [transIcon, setTransIcon] = useState({});
+  const [transLabel, setTransLabel] = useState({});
   const [newTransInsertionSuccess, setNewTransInsertionSuccess] = useState(false);
   const dispatch = useDispatch();
 
@@ -35,18 +35,18 @@ const TransCreator = ({ navigation }) => {
       return;
     }
 
-    dispatch(addNewTransaction(transType, transDate, transAmount, transIcon));
+    dispatch(addNewTransaction(transType, transDate, transAmount, transLabel));
     setNewTransInsertionSuccess(true);
     setTransAmount(null);
     setTransType('Expense');
     setTransDate(moment().unix());
-    setTransIcon({});
+    setTransLabel({});
   };
 
   return (
     <Root>
-      <Header
-        transIcon={transIcon}
+      <PageBanner
+        transLabel={transLabel}
         transType={transType}
         transAmount={transAmount}
         setTransAmount={setTransAmount}
@@ -56,8 +56,8 @@ const TransCreator = ({ navigation }) => {
           <LabelGroup
             transType={transType}
             setTransType={setTransType}
-            transIcon={transIcon}
-            setTransIcon={setTransIcon}
+            transLabel={transLabel}
+            setTransLabel={setTransLabel}
           />
           <Item style={styles.dateItem}>
             <DateSelector transDate={transDate} setTransDate={setTransDate} />
