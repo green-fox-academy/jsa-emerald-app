@@ -8,7 +8,7 @@ export default function GradientIcon(props) {
   const { name, color, iconFamily } = props;
   return (
     <LinearGradient
-      colors={themeColor.gradientColor[color]}
+      colors={themeColor.gradientColor.blue}
       start={[0.1, 0.9]}
       end={[0.9, 0.1]}
       style={{
