@@ -76,6 +76,21 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 8,
   },
+
+  headerFormat: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 20,
+  },
+
+  headerFont: {
+    fontSize: 20,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+
 });
 
 export default styles;
