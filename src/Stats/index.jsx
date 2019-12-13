@@ -86,8 +86,8 @@ export default function Stats() {
               {value.map((item, idx) => (
                 <ListItem
                   key={`InfoGroup:${idx + 1}`}
-                  leftElement={<GradientIcon name={item.label ? item.label.icon : 'home'} color={item.label && item.label.color ? item.label.color : 'blue'} iconFamily={item.label && item.label.iconFamily ? item.label.iconFamily : ''} />}
-                  title={item.label ? item.label.label : 'Unknown'}
+                  leftElement={<GradientIcon name={item.label ? item.label.icon : 'home'} color={item.label && item.label.color ? item.label.color : '#9e87fc'} iconFamily={item.label && item.label.iconFamily ? item.label.iconFamily : ''} />}
+                  title={item.label ? item.label.name : 'Unknown'}
                   subtitle={item.comment ? item.comment : 'Unknown'}
                   subtitleStyle={{ color: 'grey' }}
                   rightTitle={item.type === 'Expense' ? `-$${item.amount}` : `+$${item.amount}`}
