@@ -1,26 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  headerSegment: {
-    backgroundColor: 'transparent',
-  },
-  headerIcon: {
-    fontSize: 30,
-  },
-  amountInputOuter: {
-    borderBottomColor: 'rgb(221,218,223)',
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderTopColor: 'rgb(221,218,223)',
-  },
-  amountInputIcon: {
-    fontSize: 25,
-    marginRight: 15,
-  },
-  amountInput: {
-    textAlign: 'right',
-    fontSize: 40,
-  },
   footerIOS: {
     backgroundColor: 'transparent',
     borderTopWidth: 0,
@@ -28,12 +8,10 @@ export default StyleSheet.create({
   footerAndroid: {
     backgroundColor: 'transparent',
   },
-  nonActive: {
-    color: 'grey',
-  },
   dateItem: {
     borderBottomWidth: 0,
     marginTop: 30,
+    marginBottom: 20,
   },
   dateItemIcon: {
     fontSize: 25,
@@ -54,5 +32,56 @@ export default StyleSheet.create({
   confirmButtonText: {
     color: '#5C6BC0',
     fontSize: 15,
+  },
+  labelContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  labelItem: {
+    width: 85,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 0,
+    padding: 0,
+  },
+  typeButtonGroup: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  typeButton: {
+    borderRadius: 50,
+    width: 120,
+    marginTop: 15,
+    paddingTop: 5,
+    marginBottom: 0,
+    paddingBottom: 5,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginRight: 6,
+    marginLeft: 6,
+  },
+  typeTitle: {
+    color: 'grey',
+    fontSize: 15,
+  },
+  typeTitleActive: {
+    color: 'black',
+  },
+  typeButtonActive: {
+    borderColor: 'black',
+  },
+  headerFormat: {
+    height: 140,
+    justifyContent: 'space-between',
+  },
+  headerContainer: {
+    alignItems: 'flex-start',
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: '400',
   },
 });
