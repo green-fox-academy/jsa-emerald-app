@@ -1,7 +1,7 @@
 export default {
   Expense: [
     {
-      name: 'House', icon: 'home', iconFamily: 'antdesign', color: '#08addb',
+      name: 'House', icon: 'home', iconFamily: '', color: '#08addb',
     },
     {
       name: 'Food & Drink', icon: 'local-pizza', iconFamily: '', color: '#e9b69a',
@@ -10,7 +10,7 @@ export default {
       name: 'Bills & Fees', icon: 'attach-money', iconFamily: '', color: '#1cd09d',
     },
     {
-      name: 'Shopping', icon: 'shoppingcart', iconFamily: 'antdesign', color: '#aa78db',
+      name: 'Shopping', icon: 'shoppingcart', iconFamily: 'antdesign', color: '#9e87fc',
     },
     {
       name: 'Education', icon: 'school', iconFamily: '', color: '#f87f91',
