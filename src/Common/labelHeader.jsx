@@ -22,16 +22,16 @@ export default function LabelHeader(props) {
           <View style={[styles.headerFormat, styles.LabelHeader]}>
             <View style={{ alignItems: 'flex-start' }}>
               <Icon name={icon} color="#ffffff" size={40} />
-              <Text style={[styles.labelHeaderFont, color: '#ffffff']}>{name || 'undefined'}</Text>
+              <Text style={[styles.labelHeaderFont, { color: '#ffffff' }]}>{name || 'undefined'}</Text>
             </View>
-            <Text style={[styles.labelHeaderFont, color: '#ffffff']}>{ type === 'out' ? `-$${amount}` : `+$${amount}` }</Text>
+            <Text style={[styles.labelHeaderFont, { color: '#ffffff' }]}>{ type === 'out' ? `-$${amount}` : `+$${amount}` }</Text>
 
           </View>
         </LinearGradient>
       )
       : (
         <View style={
-          [styles.headerFormat, styles.labelHeader, {backgroundColor: '#ffffff' }]
+          [styles.headerFormat, styles.labelHeader, { backgroundColor: '#ffffff' }]
         }
         >
           <Text style={styles.labelHeaderFont}>Select a category</Text>
