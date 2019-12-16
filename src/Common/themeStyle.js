@@ -77,6 +77,16 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
 
+  labelHeader: {
+    height: 140, 
+    justifyContent: 'space-between',
+  },
+
+  labelHeaderFont: {
+    fontSize: 20, 
+    fontWeight: '400',
+  },
+
   headerFont: {
     fontSize: 20,
     fontWeight: '500',

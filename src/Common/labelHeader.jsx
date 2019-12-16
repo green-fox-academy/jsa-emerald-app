@@ -19,22 +19,22 @@ export default function LabelHeader(props) {
           start={[0.1, 0.9]}
           end={[0.9, 0.1]}
         >
-          <View style={[styles.headerFormat, { height: 140, justifyContent: 'space-between' }]}>
+          <View style={[styles.headerFormat, styles.LabelHeader]}>
             <View style={{ alignItems: 'flex-start' }}>
               <Icon name={icon} color="#ffffff" size={40} />
-              <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{name || 'undefined'}</Text>
+              <Text style={[styles.labelHeaderFont, color: '#ffffff']}>{name || 'undefined'}</Text>
             </View>
-            <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{ type === 'out' ? `-$${amount}` : `+$${amount}` }</Text>
+            <Text style={[styles.labelHeaderFont, color: '#ffffff']}>{ type === 'out' ? `-$${amount}` : `+$${amount}` }</Text>
 
           </View>
         </LinearGradient>
       )
       : (
         <View style={
-          [styles.headerFormat, { height: 140, justifyContent: 'space-between', backgroundColor: '#ffffff' }]
+          [styles.headerFormat, styles.labelHeader, {backgroundColor: '#ffffff' }]
         }
         >
-          <Text style={{ fontSize: 20, fontWeight: '400' }}>Select a category</Text>
+          <Text style={styles.labelHeaderFont}>Select a category</Text>
         </View>
       )
   );
