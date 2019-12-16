@@ -3,11 +3,11 @@ import { View, ScrollView, Text } from 'react-native';
 import { ListItem, Overlay, Button } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
-import MainHeader from '../Common/mainHeader';
-import LargeButton from '../Common/largeBtn';
+import MainHeader from '../Common/MainHeader';
+import LargeButton from '../Common/LargeBtn';
 import GradientIcon from '../Common/icon';
 import utils from './utils';
-import SubHeader from '../Common/subHeader';
+import SubHeader from '../Common/SubHeader';
 
 const moment = require('moment');
 
