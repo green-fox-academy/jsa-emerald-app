@@ -22,14 +22,14 @@ export default function LargeButton(props) {
         end={[0.9, 0.1]}
         style={{ borderRadius: 10, padding: 20 }}
       >
-        <Text style={{ color: 'white', fontSize: 15, fontWeight: '300' }}>{subtitle}</Text>
+        <Text style={styles.largeBtnFont}>{subtitle}</Text>
         <Text style={{
           color: 'white', fontSize: 18, fontWeight: '400', marginTop: 5, marginBottom: 5,
         }}
         >
           {title}
         </Text>
-        <Text style={{ color: 'white', fontSize: 15, fontWeight: '300' }}>{note}</Text>
+        <Text style={styles.largeBtnFont}>{note}</Text>
       </LinearGradient>
     </View>
   );

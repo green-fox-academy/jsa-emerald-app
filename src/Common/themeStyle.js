@@ -77,6 +77,12 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
 
+  largeBtnFont: {
+    color: 'white',
+    fontSize: 15,
+    fontWeight: '300',
+  },
+
   labelHeader: {
     height: 140,
     justifyContent: 'space-between',
@@ -92,6 +98,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
   },
+
 
 });
 
