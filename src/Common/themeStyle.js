@@ -77,23 +77,13 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
 
-<<<<<<< HEAD
-=======
-  headerFormat: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingBottom: 20,
-  },
-
   labelHeader: {
-    height: 140, 
+    height: 140,
     justifyContent: 'space-between',
   },
 
   labelHeaderFont: {
-    fontSize: 20, 
+    fontSize: 20,
     fontWeight: '400',
   },
 
@@ -103,7 +93,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
->>>>>>> JSAEM2-15 complete group transition by date&year
 });
 
 export default styles;
