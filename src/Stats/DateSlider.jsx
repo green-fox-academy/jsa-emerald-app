@@ -6,6 +6,7 @@ import { Button } from 'react-native-elements';
 export default function SubHeader(props) {
   const { viewSet, onPressBtn, viewType } = props;
   const format = viewType === 'month' ? 'MMM YYYY' : 'YYYY';
+
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
       <Button
@@ -21,7 +22,6 @@ export default function SubHeader(props) {
       >
         <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500' }}>{viewSet[1].format(format)}</Text>
       </View>
-
       <Button
         containerStyle={{ flex: 1, borderBottomWidth: 2, borderBottomColor: 'white' }}
         title={viewSet[2].format(format)}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { ListItem, Overlay, Button } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
@@ -14,31 +14,18 @@ const moment = require('moment');
 
 export default function Stats() {
   const { transactions } = useSelector((state) => state.transactions);
-  const [currentMonthSet, setCurrentMonthSet] = useState(utils.getDateSet(moment(), 'months'));
-  const [currentYearSet, setCurrentYearSet] = useState(utils.getDateSet(moment(), 'years'));
   const [view, setCurrentView] = useState('month');
+  const [timePeriodOptions, setTimePeriod] = useState(utils.getDateSet(moment(), view));
   const [isOverlayVisible, setOverlayVisibility] = useState(false);
-
-  const updateCurrent = (value, type) => {
-    switch (type) {
-      case 'month':
-        setCurrentMonthSet(utils.getDateSet(value, 'months'));
-        break;
-      case 'year':
-        setCurrentYearSet(utils.getDateSet(value, 'years'));
-        break;
-      default:
-        break;
-    }
-  };
 
   const updateHeaderView = (type) => {
     setCurrentView(type);
+    setTimePeriod(utils.getDateSet(moment(), type));
     setOverlayVisibility(!isOverlayVisible);
   };
 
   const filterListView = (transactionRecords) => {
-    const current = view === 'month' ? currentMonthSet[1] : currentYearSet[1];
+    const current = timePeriodOptions[1];
     return utils.filterData(transactionRecords, current, view);
   };
 
@@ -56,7 +43,11 @@ export default function Stats() {
         </View>
       </Overlay>
       <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(!isOverlayVisible)} />
-      <SubHeader viewSet={view === 'month' ? currentMonthSet : currentYearSet} onPressBtn={updateCurrent} viewType={view} />
+      <SubHeader
+        viewSet={timePeriodOptions}
+        onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}
+        viewType={view}
+      />
       <ScrollView style={styles.deviceBody}>
         <View style={{ marginBottom: 20 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
