@@ -4,10 +4,11 @@ import { ListItem, Overlay, Button } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
 import MainHeader from '../Common/MainHeader';
-import LargeButton from '../Common/LargeBtn';
 import GradientIcon from '../Common/icon';
 import utils from './utils';
 import SubHeader from '../Common/SubHeader';
+import FilterBtn from './FilterBtn';
+import TransList from './TransList';
 
 const moment = require('moment');
 
@@ -70,33 +71,11 @@ export default function Stats() {
       <ScrollView style={styles.deviceBody}>
         <View style={{ marginBottom: 20 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <LargeButton subtitle="Spent" title="-$400.00" note="Expense" bgColor="red" btnAmount={2} />
-            <LargeButton subtitle="Earned" title="+$680.00" note="Incomes" bgColor="green" btnAmount={2} />
+            <FilterBtn />
           </View>
           {ifTransition(transactions)
-            ? updateListView(utils.groupData(transactions)).map((value, index) => (
-              <View style={styles.card} key={`DateGroup:${index + 1}`}>
-                <View style={styles.cardAlign}>
-                  <Text style={styles.cardHeader}>
-                    {value[0].date}
-                  </Text>
-                  <Text style={styles.cardHeader}>
-                    {utils.sumAmount(value)}
-                  </Text>
-                </View>
-                {value.map((item, idx) => (
-                  <ListItem
-                    key={`InfoGroup:${idx + 1}`}
-                    leftElement={<GradientIcon name={item.label ? item.label.icon : 'home'} color={item.label && item.label.color ? item.label.color : '#9e87fc'} iconFamily={item.label && item.label.iconFamily ? item.label.iconFamily : ''} />}
-                    title={item.label ? item.label.name : 'Unknown'}
-                    subtitle={item.comment ? item.comment : 'Unknown'}
-                    subtitleStyle={{ color: 'grey' }}
-                    rightTitle={item.type === 'Expense' ? `-$${item.amount}` : `+$${item.amount}`}
-                  />
-                ))}
-
-              </View>
-            )) : <View><Text>NULL</Text></View>}
+            ? <TransList transactions={updateListView(utils.groupData(transactions))} />
+            : <View><Text>NULL</Text></View>}
         </View>
       </ScrollView>
     </View>
