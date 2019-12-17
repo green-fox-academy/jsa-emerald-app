@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 2,
     padding: 10,
-    marginBottom: 20,
+    marginTop: 20,
   },
 
   headerFormat: {
