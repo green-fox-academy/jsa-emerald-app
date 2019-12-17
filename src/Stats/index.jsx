@@ -18,9 +18,6 @@ export default function Stats() {
   const [view, setCurrentView] = useState('month');
   const [isOverlayVisible, setOverlayVisibility] = useState(false);
 
-
-  const ifTransition = (arr) => (arr.length !== 0);
-
   const updateCurrent = (value, type) => {
     switch (type) {
       case 'month':
@@ -64,7 +61,7 @@ export default function Stats() {
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <FilterBtn />
           </View>
-          {ifTransition(transactions)
+          {(transactions.length !== 0)
             ? <TransList transactions={updateListView(utils.groupData(transactions))} />
             : <View><Text>NULL</Text></View>}
         </View>
