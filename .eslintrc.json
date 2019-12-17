@@ -2,7 +2,8 @@
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": ["airbnb"],
   "globals": {
@@ -17,6 +18,5 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "ignorePatterns":["*.test.jsx"],
   "rules": {}
 }
