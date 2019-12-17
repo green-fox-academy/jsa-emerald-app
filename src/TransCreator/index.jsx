@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { NavigationScreenPropType } from 'react-navigation';
-
 import styles from './Style';
 import PageFooter from './PageFooter';
 import DateSelector from './DateSelector';
