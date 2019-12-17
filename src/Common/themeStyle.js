@@ -21,17 +21,17 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: 'white',
-    borderRadius: 3,
+    borderRadius: 5,
     shadowColor: 'grey',
     shadowOffset: {
-      width: 0,
+      width: 2,
       height: 3,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 4.65,
-    elevation: 7,
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
+    elevation: 2,
     padding: 10,
-    marginTop: 20,
+    marginBottom: 20,
   },
 
   headerFormat: {

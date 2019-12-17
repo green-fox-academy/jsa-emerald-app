@@ -68,7 +68,7 @@ export default function Stats() {
       <MainHeader title="Activity" onPressBtn={updateOverlay} />
       <SubHeader viewSet={view === 'month' ? currentMonthSet : currentYearSet} onPressBtn={updateCurrent} viewType={view} />
       <ScrollView style={styles.deviceBody}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 }}>
           <LargeButton subtitle="Spent" title="-$400.00" note="Expense" bgColor="red" btnAmount={2} />
           <LargeButton subtitle="Earned" title="+$680.00" note="Incomes" bgColor="green" btnAmount={2} />
         </View>
