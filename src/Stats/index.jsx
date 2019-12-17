@@ -37,9 +37,9 @@ export default function Stats() {
     setOverlayVisibility(!isOverlayVisible);
   };
 
-  const updateListView = (dataList) => {
+  const filterListView = (transactionRecords) => {
     const current = view === 'month' ? currentMonthSet[1] : currentYearSet[1];
-    return utils.filterData(dataList, current, view);
+    return utils.filterData(transactionRecords, current, view);
   };
 
   return (
@@ -63,7 +63,7 @@ export default function Stats() {
             <FilterBtn />
           </View>
           {(transactions.length !== 0)
-            ? <TransList transactions={updateListView(utils.groupData(transactions))} />
+            ? <TransList transactions={filterListView(utils.groupData(transactions))} />
             : <EmptyTrans />}
         </View>
       </ScrollView>
