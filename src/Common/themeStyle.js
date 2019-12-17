@@ -29,7 +29,11 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: 'white',
+<<<<<<< HEAD
     borderRadius: 5,
+=======
+    borderRadius: 6,
+>>>>>>> JSAEM2-10 Set UI design
     shadowColor: 'grey',
     shadowOffset: {
       width: 2,
@@ -67,6 +71,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: '#30d29d',
     justifyContent: 'center',
+  },
+  
+  secondaryHeading: {
+    fontSize: 20,
+    fontWeight: '500',
+    marginTop: 10,
+    marginBottom: 10,
   },
 
   cardAlign: {

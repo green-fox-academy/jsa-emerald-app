@@ -1,29 +1,24 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
-import { Avatar, ListItem, Tooltip } from 'react-native-elements';
+import { Avatar, ListItem } from 'react-native-elements';
 import styles from '../Common/themeStyle';
 
 export default function Personal() {
   const [switchValue, setSwitchValue] = useState(false);
-  const toggleSwitch = (value) => {
-    if (value) {
-      setSwitchValue(false);
-    } else {
-      setSwitchValue(true);
-    }
-  };
+
   return (
     <View style={[styles.deviceBody, { flex: 1, flexDirection: 'column' }]}>
       <View style={[styles.card, { padding: 0 }]}>
         <View style={{
-          alignItems: 'center', backgroundColor: '#f078a4', borderTopLeftRadius: 3, borderTopRightRadius: 3, padding: 20,
+          alignItems: 'center', backgroundColor: '#f078a4', borderTopLeftRadius: 6, borderTopRightRadius: 6, paddingVertical: 30,
         }}
         >
           <Avatar rounded size={60} icon={{ name: 'user', type: 'font-awesome' }} />
-          <Text>Personal Info</Text>
+          <Text style={[styles.secondaryHeading, { color: 'white' }]}>Johnathan Doe</Text>
+          <Text style={{ color: 'white' }}>Email</Text>
         </View>
-        <View>
-          <Text style={{ color: 'grey', fontWeight: '600', fontSize: 18 }}>General</Text>
+        <View style={{ paddingTop: 15, paddingBottom: 10, paddingHorizontal: 10 }}>
+          <Text style={[styles.secondaryHeading, { color: 'grey', marginLeft: 12, marginBottom: 5 }]}>General</Text>
           <ListItem
             title="Personal details"
             subtitle="you can dit your information about your email address, phone number"
@@ -35,9 +30,15 @@ export default function Personal() {
             subtitle="Login to backup data"
             subtitleStyle={{ color: 'grey' }}
             switch={{
-              disabled: false, trackColor: { true: '#5C6BC0' }, value: switchValue, onValueChange: () => toggleSwitch(switchValue),
+              disabled: false, trackColor: { true: '#5C6BC0' }, value: switchValue, onValueChange: () => setSwitchValue(!switchValue),
             }}
+            bottomDivider
           />
+          <ListItem
+            title="Change Password"
+            bottomDivider
+          />
+          <ListItem title="Categories" subtitle="Add or remove categories" subtitleStyle={{ color: 'grey' }} />
         </View>
       </View>
     </View>
