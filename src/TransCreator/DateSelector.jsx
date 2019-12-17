@@ -7,26 +7,26 @@ import PropTypes from 'prop-types';
 import styles from './Style';
 
 const DateSelector = ({ transDate, setTransDate }) => {
-  const [datePickerShow, setDatePickerShow] = useState(false);
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   return (
     <>
       <MaterialIcons name="date-range" style={styles.dateItemIcon} />
       <Text>Date: </Text>
       <View style={styles.dateView}>
         <Text
-          onPress={() => setDatePickerShow(true)}
+          onPress={() => setDatePickerVisibility(true)}
           style={{ padding: 5 }}
         >
           {moment.unix(transDate).format('MM/DD/YYYY')}
         </Text>
         <DateTimePicker
-          isVisible={datePickerShow}
+          isVisible={isDatePickerVisible}
           mode="date"
           date={new Date(moment.unix(transDate).format('YYYY-MM-DD'))}
-          onCancel={() => setDatePickerShow(false)}
+          onCancel={() => setDatePickerVisibility(false)}
           onConfirm={(date) => {
             setTransDate(moment(date).unix());
-            setDatePickerShow(false);
+            setDatePickerVisibility(false);
           }}
           titleStyle={{ color: '#5C6BC0' }}
         />
