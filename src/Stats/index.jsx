@@ -4,9 +4,8 @@ import { ListItem, Overlay, Button } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
 import MainHeader from '../Common/MainHeader';
-import GradientIcon from '../Common/icon';
 import utils from './utils';
-import SubHeader from '../Common/SubHeader';
+import SubHeader from './DateSlider';
 import FilterBtn from './FilterBtn';
 import TransList from './TransList';
 
