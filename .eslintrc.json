@@ -18,6 +18,5 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "ignorePatterns":["*.test.jsx"],
   "rules": {}
 }
