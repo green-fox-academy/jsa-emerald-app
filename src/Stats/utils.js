@@ -35,13 +35,7 @@ const groupData = (transactions) => {
 };
 
 const getDateSet = (current, type) => {
-  const result = [];
-  const prev = current.subtract(1, `${type}`);
-  result.push(prev.clone());
-  const curr = prev.add(1, `${type}`);
-  result.push(curr.clone());
-  const next = curr.add(1, `${type}`);
-  result.push(next.clone());
+  const result = [current.clone().subtract(1, type), current.clone(), current.clone().add(1, type)];
   return result;
 };
 
