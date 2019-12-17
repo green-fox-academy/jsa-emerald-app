@@ -16,7 +16,7 @@ export default function Stats() {
   const [currentMonthSet, setCurrentMonthSet] = useState(utils.getDateSet(moment(), 'months'));
   const [currentYearSet, setCurrentYearSet] = useState(utils.getDateSet(moment(), 'years'));
   const [view, setCurrentView] = useState('month');
-  const [overlay, setOverlay] = useState(false);
+  const [isOverlayVisible, setOverlayVisibility] = useState(false);
 
 
   const ifTransition = (arr) => (arr.length !== 0);
@@ -35,10 +35,10 @@ export default function Stats() {
   };
 
   const updateOverlay = () => {
-    if (overlay === true) {
-      setOverlay(false);
+    if (isOverlayVisible === true) {
+      setOverlayVisibility(false);
     } else {
-      setOverlay(true);
+      setOverlayVisibility(true);
     }
   };
 
@@ -54,7 +54,7 @@ export default function Stats() {
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
-      <Overlay height={200} isVisible={overlay}>
+      <Overlay height={200} isVisible={isOverlayVisible}>
         <View>
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
             <Button icon={{ name: 'close' }} type="clear" onPress={updateOverlay} />
