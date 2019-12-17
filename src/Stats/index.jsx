@@ -34,17 +34,9 @@ export default function Stats() {
     }
   };
 
-  const updateOverlay = () => {
-    if (isOverlayVisible === true) {
-      setOverlayVisibility(false);
-    } else {
-      setOverlayVisibility(true);
-    }
-  };
-
   const updateHeaderView = (type) => {
     setCurrentView(type);
-    updateOverlay();
+    setOverlayVisibility(!isOverlayVisible);
   };
 
   const updateListView = (dataList) => {
@@ -57,7 +49,7 @@ export default function Stats() {
       <Overlay height={200} isVisible={isOverlayVisible}>
         <View>
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-            <Button icon={{ name: 'close' }} type="clear" onPress={updateOverlay} />
+            <Button icon={{ name: 'close' }} type="clear" onPress={() => setOverlayVisibility(!isOverlayVisible)} />
           </View>
           <View style={{ marginTop: 20 }}>
             <ListItem title="Month" topDivider bottomDivider onPress={() => updateHeaderView('month')} />
@@ -65,7 +57,7 @@ export default function Stats() {
           </View>
         </View>
       </Overlay>
-      <MainHeader title="Activity" onPressBtn={updateOverlay} />
+      <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(!isOverlayVisible)} />
       <SubHeader viewSet={view === 'month' ? currentMonthSet : currentYearSet} onPressBtn={updateCurrent} viewType={view} />
       <ScrollView style={styles.deviceBody}>
         <View style={{ marginBottom: 20 }}>
