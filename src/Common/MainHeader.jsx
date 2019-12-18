@@ -5,7 +5,7 @@ import { Button } from 'react-native-elements';
 import styles from './themeStyle';
 
 export default function MainHeader(props) {
-  const { title, onPressBtn } = props;
+  const { title, onPressBtn, btnName } = props;
   return (
     <View style={styles.mainHeader}>
       <View style={{ flex: 1 }}>
@@ -16,7 +16,7 @@ export default function MainHeader(props) {
         flex: 1, alignItems: 'flex-end',
       }}
       >
-        <Button onPress={onPressBtn} icon={{ name: 'filter' }} type="clear" />
+        <Button onPress={onPressBtn} icon={{ name: btnName }} type="clear" />
       </View>
     </View>
   );
@@ -25,9 +25,11 @@ export default function MainHeader(props) {
 MainHeader.propTypes = {
   title: PropTypes.string,
   onPressBtn: PropTypes.func,
+  btnName: PropTypes.string,
 };
 
 MainHeader.defaultProps = {
   title: '',
-  onPressBtn: {},
+  onPressBtn: null,
+  btnName: '',
 };

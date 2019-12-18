@@ -42,7 +42,7 @@ export default function Stats() {
           </View>
         </View>
       </Overlay>
-      <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(!isOverlayVisible)} />
+      <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(!isOverlayVisible)} btnName="filter" />
       <SubHeader
         viewSet={timePeriodOptions}
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}
