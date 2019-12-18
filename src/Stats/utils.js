@@ -33,28 +33,24 @@ const groupData = (transactions) => {
   return Object.values(result);
 };
 
-const getDateSet = (current, type) => {
-  const result = [
-    current.clone().subtract(1, type),
-    current.clone(),
-    current.clone().add(1, type),
-  ];
-  return result;
-};
+const getDateSet = (current, type) => [
+  current.clone().subtract(1, type),
+  current.clone(),
+  current.clone().add(1, type),
+];
 
 const filterData = (dataList, range, view) => {
-  let result;
+  const monthRange = range.format('MMM YYYY');
+  const yearRange = range.format('YYYY');
+
   switch (view) {
     case 'month':
-      result = dataList.filter((value) => moment(value[0].date, 'MMMM Do YYYY').format('MMM YYYY') === range.format('MMM YYYY'));
-      break;
+      return dataList.filter((value) => moment(value[0].date, 'MMMM Do YYYY').format('MMM YYYY') === monthRange);
     case 'year':
-      result = dataList.filter((value) => moment(value[0].date, 'MMMM Do YYYY').format('YYYY') === range.format('YYYY'));
-      break;
+      return dataList.filter((value) => moment(value[0].date, 'MMMM Do YYYY').format('YYYY') === yearRange);
     default:
       break;
   }
-  return result;
 };
 
 export default {
