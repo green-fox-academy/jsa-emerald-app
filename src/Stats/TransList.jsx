@@ -32,7 +32,7 @@ export default function TransList(props) {
             title={item.label ? item.label.name : 'Unknown'}
             subtitle={item.comment ? item.comment : 'Unknown'}
             subtitleStyle={{ color: 'grey' }}
-            rightTitle={item.type === 'Expense' ? `-$${item.amount}` : `+$${item.amount}`}
+            rightTitle={utils.transType(item.amount, item.type)}
           />
         ))}
       </View>

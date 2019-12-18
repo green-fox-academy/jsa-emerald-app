@@ -55,10 +55,13 @@ const filterData = (dataList, range, view) => {
   return result;
 };
 
+const transType = (amount, type) => (type === 'Expense' ? `-$${amount}` : `+$${amount}`);
+
 export default {
   sortDataByDate,
   sumAmount,
   groupTransactionsByDate,
   getDateSet,
   filterData,
+  transType,
 };
