@@ -35,12 +35,11 @@ export default function DateSlider(props) {
 
 DateSlider.propTypes = {
   viewSet: PropTypes.instanceOf(Array),
-  onPressBtn: PropTypes.func,
-  viewType: PropTypes.string,
+  onPressBtn: PropTypes.func.isRequired,
+  viewType: PropTypes.oneOf(['month', 'year']),
 };
 
 DateSlider.defaultProps = {
   viewSet: [],
-  onPressBtn: {},
   viewType: 'month',
 };
