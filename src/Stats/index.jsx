@@ -8,7 +8,7 @@ import utils from './utils';
 import SubHeader from './DateSlider';
 import FilterBtn from './FilterBtn';
 import TransList from './TransList';
-import EmptyTrans from './EmptyTrans';
+import EmptyHistory from './EmptyHistory';
 
 const moment = require('moment');
 
@@ -55,7 +55,7 @@ export default function Stats() {
           </View>
           {(transactions.length !== 0)
             ? <TransList transactions={filterListView(utils.groupTransactionsByDate(transactions))} />
-            : <EmptyTrans />}
+            : <EmptyHistory />}
         </View>
       </ScrollView>
     </View>
