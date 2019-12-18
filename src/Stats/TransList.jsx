@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import GradientIcon from '../Common/icon';
+import GradientIcon from '../Common/GradientIcon';
 import styles from '../Common/themeStyle';
 import utils from './utils';
 
