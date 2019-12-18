@@ -34,7 +34,7 @@ export default function Stats() {
       <Overlay height={200} isVisible={isOverlayVisible}>
         <View>
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-            <Button icon={{ name: 'close' }} type="clear" onPress={() => setOverlayVisibility(!isOverlayVisible)} />
+            <Button icon={{ name: 'close' }} type="clear" onPress={() => setOverlayVisibility(false)} />
           </View>
           <View style={{ marginTop: 20 }}>
             <ListItem title="Month" topDivider bottomDivider onPress={() => updateHeaderView('month')} />
@@ -42,7 +42,7 @@ export default function Stats() {
           </View>
         </View>
       </Overlay>
-      <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(!isOverlayVisible)} btnName="filter" />
+      <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(true)} btnName="filter" />
       <SubHeader
         viewSet={timePeriodOptions}
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}
