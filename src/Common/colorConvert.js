@@ -18,8 +18,8 @@ function rgbToHex(r, g, b) {
 }
 
 function fadeHex(hex) {
-  const rgb = hexToFadeRgb(hex);
-  return rgbToHex(rgb.r, rgb.g, rgb.b);
+  const { r, g, b } = hexToFadeRgb(hex);
+  return rgbToHex(r, g, b);
 }
 
 export default fadeHex;
