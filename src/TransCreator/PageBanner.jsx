@@ -1,19 +1,20 @@
 import React from 'react';
 import {
-  View, Text, Platform,
+  View, Text,
 } from 'react-native';
-import { Input, Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import PropTypes from 'prop-types';
 import themeStyle from '../Common/themeStyle';
 import themeColor from '../Common/Color';
 import styles from './Style';
-import numDecorator from './numericInputDecorator';
 
 export default function PageBanner({
-  transLabel, transType, transAmount, setTransAmount,
+  transLabel, transType, transAmount, transExpression,
 }) {
+  let displayAmount = transAmount === '' ? '0.00' : transAmount;
+  displayAmount = transType === 'Expense' ? `-$${displayAmount}` : `+$${displayAmount}`;
   return (
     transLabel.name
       ? (
@@ -27,15 +28,13 @@ export default function PageBanner({
               <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
               <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
             </View>
-            <Input
-              placeholder="$ 0.00"
-              keyboardType={Platform.OS === 'ios' ? 'numeric' : 'decimal-pad'}
-              inputStyle={[styles.headerText, { textAlign: 'right', color: '#ffffff' }]}
-              value={transAmount ? transAmount.toString() : null}
-              containerStyle={{ width: 150 }}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              onChangeText={(val) => setTransAmount(numDecorator(val))}
-            />
+            <View style={{
+              flex: 1, flexDirection: 'column', alignItems: 'flex-end',
+            }}
+            >
+              <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{ displayAmount }</Text>
+              <Text style={{ color: '#EEEEEE', fontSize: 17, fontWeight: '400' }}>{transExpression}</Text>
+            </View>
           </View>
         </LinearGradient>
       )
@@ -56,7 +55,7 @@ PageBanner.propTypes = {
   }),
   transType: PropTypes.string,
   transAmount: PropTypes.string,
-  setTransAmount: PropTypes.func,
+  transExpression: PropTypes.string,
 };
 
 PageBanner.defaultProps = {
@@ -68,5 +67,5 @@ PageBanner.defaultProps = {
   },
   transType: '',
   transAmount: '',
-  setTransAmount: null,
+  transExpression: '',
 };
