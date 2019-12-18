@@ -54,7 +54,7 @@ export default function Stats() {
             <FilterBtn />
           </View>
           {(transactions.length !== 0)
-            ? <TransList transactions={filterListView(utils.groupData(transactions))} />
+            ? <TransList transactions={filterListView(utils.groupTransactionsByDate(transactions))} />
             : <EmptyTrans />}
         </View>
       </ScrollView>

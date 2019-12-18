@@ -11,8 +11,7 @@ const sumAmount = (dataList) => {
   return result > 0 ? `+$${result}` : `-$${0 - result}`;
 };
 
-const groupData = (transactions) => {
-  // const sortedData = ;
+const groupTransactionsByDate = (transactions) => {
   const convertedSet = transactions.sort((a, b) => (b.date - a.date)).map((value) => ({
     ...value,
     amount: value.amount,
@@ -59,7 +58,7 @@ const filterData = (dataList, range, view) => {
 export default {
   sortDataByDate,
   sumAmount,
-  groupData,
+  groupTransactionsByDate,
   getDateSet,
   filterData,
 };
