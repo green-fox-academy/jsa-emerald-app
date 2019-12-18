@@ -1,9 +1,9 @@
 function hexToFadeRgb(hex) {
+  // TODO: consider short hex situation
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  const thread = 1.4;
   return result ? {
     r: Math.min(255, Math.floor(parseInt(result[1], 16) * 2)),
-    g: Math.min(255, Math.floor(parseInt(result[2], 16) * thread)),
+    g: Math.min(255, Math.floor(parseInt(result[2], 16) * 1.4)),
     b: Math.min(255, Math.floor(parseInt(result[3], 16) * 1.3)),
   } : null;
 }
