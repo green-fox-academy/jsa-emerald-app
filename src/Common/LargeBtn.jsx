@@ -6,11 +6,9 @@ import styles from './themeStyle';
 import themeColor from './Color';
 
 export default function LargeButton({
-  subtitle, title, note, bgColor, numberOfBtns,
+  subtitle, title, note, bgColor, btnWidth,
 }) {
   const btnStyle = `${bgColor}LargeBtn`;
-  const btnWidth = `${100 / numberOfBtns - 2}%`;
-
   return (
     <View style={[styles[btnStyle], { width: btnWidth }]}>
       <LinearGradient
@@ -34,7 +32,7 @@ LargeButton.propTypes = {
   title: PropTypes.string,
   note: PropTypes.string,
   bgColor: PropTypes.string,
-  numberOfBtns: PropTypes.number,
+  btnWidth: PropTypes.string,
 };
 
 LargeButton.defaultProps = {
@@ -42,5 +40,5 @@ LargeButton.defaultProps = {
   title: '',
   note: '',
   bgColor: '',
-  numberOfBtns: 1,
+  btnWidth: '',
 };
