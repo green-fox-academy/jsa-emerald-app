@@ -7,19 +7,20 @@ import utils from './utils';
 
 export default function TransList(props) {
   const { transactions } = props;
+  console.log(transactions);
 
   return (
-    transactions.map((value, index) => (
+    transactions.map((groupedRecordsByDate, index) => (
       <View style={styles.card} key={`DateGroup:${index + 1}`}>
         <View style={styles.cardAlign}>
           <Text style={styles.cardHeader}>
-            {value[0].date}
+            {groupedRecordsByDate[0].date}
           </Text>
           <Text style={styles.cardHeader}>
-            {utils.sumAmount(value)}
+            {utils.sumAmount(groupedRecordsByDate)}
           </Text>
         </View>
-        {value.map((item, idx) => (
+        {groupedRecordsByDate.map((item, idx) => (
           <ListItem
             key={`InfoGroup:${idx + 1}`}
             leftElement={<GradientIcon name={item.label ? item.label.icon : 'home'} color={item.label && item.label.color ? item.label.color : '#9e87fc'} iconFamily={item.label && item.label.iconFamily ? item.label.iconFamily : ''} />}
