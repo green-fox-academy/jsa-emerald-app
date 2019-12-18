@@ -34,7 +34,11 @@ const groupData = (transactions) => {
 };
 
 const getDateSet = (current, type) => {
-  const result = [current.clone().subtract(1, type), current.clone(), current.clone().add(1, type)];
+  const result = [
+    current.clone().subtract(1, type),
+    current.clone(),
+    current.clone().add(1, type),
+  ];
   return result;
 };
 
