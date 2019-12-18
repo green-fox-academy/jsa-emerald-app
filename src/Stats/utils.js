@@ -19,19 +19,18 @@ const groupData = (transactions) => {
     date: moment.unix(value.date).format('MMMM Do YYYY'),
     type: value.type,
   }));
-  const result = []; let temp = [convertedSet[0]];
-  for (let i = 1; i < convertedSet.length; i += 1) {
-    if (temp[0].date === convertedSet[i].date) {
-      temp.push(convertedSet[i]);
+
+  const result = convertedSet.reduce((groups, transaction) => {
+    const myGroup = groups;
+    if (Object.keys(groups).includes(transaction.date)) {
+      myGroup[transaction.date].push(transaction);
     } else {
-      result.push(temp);
-      temp = [convertedSet[i]];
+      myGroup[transaction.date] = [transaction];
     }
-  }
-  if (temp.length > 0) {
-    result.push(temp);
-  }
-  return result;
+    return myGroup;
+  }, {});
+
+  return Object.values(result);
 };
 
 const getDateSet = (current, type) => {
