@@ -56,6 +56,19 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
 
+  dateNormal: {
+    flex: 1,
+    borderBottomWidth: 2,
+    borderBottomColor: 'white',
+  },
+
+  dateHighlight: {
+    flex: 1,
+    borderBottomWidth: 2,
+    borderBottomColor: '#30d29d',
+    justifyContent: 'center',
+  },
+
   cardAlign: {
     flexDirection: 'row',
     justifyContent: 'space-between',
