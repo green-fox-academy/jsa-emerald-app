@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
 import MainHeader from '../Common/MainHeader';
 import utils from './utils';
-import SubHeader from './DateSlider';
+import DateSlider from './DateSlider';
 import FilterBtn from './FilterBtn';
 import TransList from './TransList';
 import EmptyHistory from './EmptyHistory';
@@ -43,7 +43,7 @@ export default function Stats() {
         </View>
       </Overlay>
       <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(true)} btnName="filter" />
-      <SubHeader
+      <DateSlider
         viewSet={timePeriodOptions}
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}
         viewType={view}

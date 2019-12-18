@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { Button } from 'react-native-elements';
 
-export default function SubHeader(props) {
+export default function DateSlider(props) {
   const { viewSet, onPressBtn, viewType } = props;
   const format = viewType === 'month' ? 'MMM YYYY' : 'YYYY';
 
@@ -33,13 +33,13 @@ export default function SubHeader(props) {
   );
 }
 
-SubHeader.propTypes = {
+DateSlider.propTypes = {
   viewSet: PropTypes.instanceOf(Array),
   onPressBtn: PropTypes.func,
   viewType: PropTypes.string,
 };
 
-SubHeader.defaultProps = {
+DateSlider.defaultProps = {
   viewSet: [],
   onPressBtn: {},
   viewType: 'month',
