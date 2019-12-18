@@ -77,6 +77,14 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
 
+  largeBtnHeader: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: '400',
+    marginTop: 5,
+    marginBottom: 5,
+  },
+
   largeBtnFont: {
     color: 'white',
     fontSize: 15,

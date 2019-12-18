@@ -20,10 +20,7 @@ export default function LargeButton({
         style={{ borderRadius: 10, padding: 20 }}
       >
         <Text style={styles.largeBtnFont}>{subtitle}</Text>
-        <Text style={{
-          color: 'white', fontSize: 18, fontWeight: '400', marginTop: 5, marginBottom: 5,
-        }}
-        >
+        <Text style={styles.largeBtnHeader}>
           {title}
         </Text>
         <Text style={styles.largeBtnFont}>{note}</Text>
