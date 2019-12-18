@@ -7,10 +7,7 @@ import styles from './themeStyle';
 export default function MainHeader(props) {
   const { title, onPressBtn } = props;
   return (
-    <View style={[styles.headerFormat, {
-      height: 100, justifyContent: 'space-between',
-    }]}
-    >
+    <View style={styles.mainHeader}>
       <View style={{ flex: 1 }}>
         <Button type="clear" />
       </View>

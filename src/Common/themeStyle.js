@@ -1,5 +1,13 @@
 import { StyleSheet } from 'react-native';
 
+const commonHeader = {
+  flexDirection: 'row',
+  alignItems: 'flex-end',
+  paddingLeft: 20,
+  paddingRight: 20,
+  paddingBottom: 20,
+};
+
 const styles = StyleSheet.create({
   deviceHead: {
     height: 120,
@@ -32,6 +40,12 @@ const styles = StyleSheet.create({
     elevation: 2,
     padding: 10,
     marginTop: 20,
+  },
+
+  mainHeader: {
+    ...commonHeader,
+    height: 100,
+    justifyContent: 'space-between',
   },
 
   headerFormat: {
