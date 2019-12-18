@@ -5,13 +5,10 @@ import PropTypes from 'prop-types';
 import styles from './themeStyle';
 import themeColor from './Color';
 
-export default function LargeButton(props) {
-  const { subtitle } = props;
-  const { title } = props;
-  const { note } = props;
-  const { bgColor } = props;
+export default function LargeButton({
+  subtitle, title, note, bgColor, numberOfBtns,
+}) {
   const btnStyle = `${bgColor}LargeBtn`;
-  const { numberOfBtns } = props;
   const btnWidth = `${100 / numberOfBtns - 2}%`;
 
   return (
