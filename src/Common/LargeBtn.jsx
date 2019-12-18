@@ -11,8 +11,8 @@ export default function LargeButton(props) {
   const { note } = props;
   const { bgColor } = props;
   const btnStyle = `${bgColor}LargeBtn`;
-  const { NumOfBtn } = props;
-  const btnWidth = `${100 / NumOfBtn - 2}%`;
+  const { numberOfBtns } = props;
+  const btnWidth = `${100 / numberOfBtns - 2}%`;
 
   return (
     <View style={[styles[btnStyle], { width: btnWidth }]}>
@@ -40,7 +40,7 @@ LargeButton.propTypes = {
   title: PropTypes.string,
   note: PropTypes.string,
   bgColor: PropTypes.string,
-  NumOfBtn: PropTypes.number,
+  numberOfBtns: PropTypes.number,
 };
 
 LargeButton.defaultProps = {
@@ -48,5 +48,5 @@ LargeButton.defaultProps = {
   title: '',
   note: '',
   bgColor: '',
-  NumOfBtn: 1,
+  numberOfBtns: 1,
 };
