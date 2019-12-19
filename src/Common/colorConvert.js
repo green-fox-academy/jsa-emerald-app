@@ -10,7 +10,7 @@ function hexToFadeRgb(hex) {
 
 function componentToHex(c) {
   const hex = c.toString(16);
-  return hex.padStart(1, '0');
+  return hex.padStart(2, '0');
 }
 
 function rgbToHex(r, g, b) {
