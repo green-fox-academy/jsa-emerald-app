@@ -4,6 +4,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import transactions from './Stats/reducer';
+import backupState from './Personal/reducer';
 
 const persistConfig = {
   key: 'root',
@@ -12,7 +13,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  transactions,
+  transactions, backupState,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

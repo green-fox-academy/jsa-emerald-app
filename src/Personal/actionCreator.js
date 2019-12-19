@@ -1,16 +1,27 @@
 export const actionType = {
-  BACKUP_REQUEST: 'BACKUP_REQUEST',
+  BACKUP_DATA: 'BACKUP_DATA',
 };
 
-export function backupRequest(transactionData) {
+export function backupData(statusCode) {
   return {
-    type: actionType.BACKUP_REQUEST,
-    data: transactionData,
+    type: actionType.BACKUP_DATA,
+    payload: statusCode,
   };
 }
 
-export const backupData = (transactions) => function (dispatch) {
-  console.log(transactions);
+export const requestBackup = (transactions) => (dispatch) => {
+  fetch('http://10.72.160.223:8080/backup', {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(transactions),
 
-  // dispatch(backupRequest(transactions));
+  }).then((response) => {
+    dispatch(backupData(response.status));
+  })
+    .catch((error) => {
+      throw error;
+    });
 };

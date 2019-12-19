@@ -2,16 +2,17 @@ import { actionType } from './actionCreator';
 
 const initialState = {
   loading: false,
-  transactions: [],
+  stateCode: 0,
   error: '',
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionType.BACKUP_REQUEST:
+    case actionType.BACKUP_DATA:
       return {
         ...state,
-        transactions: [...state.transactions, { ...action.data }],
+        loading: true,
+        stateCode: action.payload,
       };
 
     default:
