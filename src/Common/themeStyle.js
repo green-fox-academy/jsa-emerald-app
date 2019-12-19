@@ -1,5 +1,13 @@
 import { StyleSheet } from 'react-native';
 
+const commonHeader = {
+  flexDirection: 'row',
+  alignItems: 'flex-end',
+  paddingLeft: 20,
+  paddingRight: 20,
+  paddingBottom: 20,
+};
+
 const styles = StyleSheet.create({
   deviceHead: {
     height: 120,
@@ -21,17 +29,23 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: 'white',
-    borderRadius: 3,
+    borderRadius: 5,
     shadowColor: 'grey',
     shadowOffset: {
-      width: 0,
+      width: 2,
       height: 3,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 4.65,
-    elevation: 7,
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
+    elevation: 2,
     padding: 10,
     marginTop: 20,
+  },
+
+  mainHeader: {
+    ...commonHeader,
+    height: 100,
+    justifyContent: 'space-between',
   },
 
   headerFormat: {
@@ -40,6 +54,19 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20,
+  },
+
+  dateNormal: {
+    flex: 1,
+    borderBottomWidth: 2,
+    borderBottomColor: 'white',
+  },
+
+  dateHighlight: {
+    flex: 1,
+    borderBottomWidth: 2,
+    borderBottomColor: '#30d29d',
+    justifyContent: 'center',
   },
 
   cardAlign: {
@@ -76,6 +103,37 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 8,
   },
+
+  largeBtnHeader: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: '400',
+    marginTop: 5,
+    marginBottom: 5,
+  },
+
+  largeBtnFont: {
+    color: 'white',
+    fontSize: 15,
+    fontWeight: '300',
+  },
+
+  labelHeader: {
+    height: 140,
+    justifyContent: 'space-between',
+  },
+
+  labelHeaderFont: {
+    fontSize: 20,
+    fontWeight: '400',
+  },
+
+  headerFont: {
+    fontSize: 20,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+
 });
 
 export default styles;
