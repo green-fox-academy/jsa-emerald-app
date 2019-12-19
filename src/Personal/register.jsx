@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, Text, TextInput, TouchableOpacity,
+  View, Text, TextInput, Alert, Button,
 } from 'react-native';
 import utils from './utils';
 import styles from '../Common/RegisterPage';
@@ -33,7 +33,7 @@ export default function Register() {
         onChangeText={(value) => handleEmailChange(value)}
       />
       <Text style={styles.Note}>
-        {email === 'test@1.com' ? 'The email is registered.' : '' }
+        {email === 'test@gmail.com' ? 'The email is registered.' : '' }
         {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
       </Text>
 
@@ -46,7 +46,6 @@ export default function Register() {
         onChangeText={(value) => handlePasswordChange(value)}
       />
       <Text style={styles.Note}>
-        {password === confirmPassword || confirmPassword === '' ? '' : 'Password is not the same.' }
         {utils.passwordValidation(password) || password === '' ? '' : 'Password should be 8 to 16 characters.'}
       </Text>
 
@@ -58,12 +57,30 @@ export default function Register() {
         value={confirmPassword}
         onChangeText={(value) => handleConfirmPasswordChange(value)}
       />
+      <Text style={styles.Note}>
+        {password === confirmPassword || confirmPassword === '' ? '' : 'Password is not the same.'}
+      </Text>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>
-          Sign up
-        </Text>
-      </TouchableOpacity>
+      {
+      password !== ''
+      && email !== ''
+      && email !== 'test@gmail.com'
+      && password === confirmPassword
+      && utils.emailValidation(email)
+      && utils.passwordValidation(password)
+        ? (
+          <Button
+            title="Sign Up"
+            color="green"
+            onPress={() => Alert.alert('Successfully!')}
+          />
+        ) : (
+          <Button
+            title="Sign Up"
+            disabled
+          />
+        )
+      }
 
     </View>
   );
