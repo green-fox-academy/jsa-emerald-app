@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
+import { useDispatch, useSelector } from 'react-redux';
+import { backupData } from './actionCreator';
 import styles from '../Common/themeStyle';
 
 export default function Personal() {
   const [switchValue, setSwitchValue] = useState(false);
+  const dispatch = useDispatch();
+  const { transactions } = useSelector((state) => state.transactions);
+
+  useEffect(() => {
+    if (switchValue) {
+      dispatch(backupData(transactions));
+    }
+  }, [switchValue]);
 
   return (
     <View style={[styles.deviceBody, { flex: 1, flexDirection: 'column' }]}>
