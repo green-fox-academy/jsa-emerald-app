@@ -24,7 +24,7 @@ const groupTransactionsByDate = (transactions) => {
   }));
 
   const result = convertedSet.reduce((groups, transaction) => {
-    const myGroup = groups;
+    const myGroup = {...groups};
     if (Object.keys(groups).includes(transaction.date)) {
       myGroup[transaction.date].push(transaction);
     } else {
