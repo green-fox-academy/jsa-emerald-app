@@ -30,6 +30,6 @@ MainHeader.propTypes = {
 
 MainHeader.defaultProps = {
   title: '',
-  onPressBtn: null,
+  onPressBtn: () => {},
   btnName: '',
 };
