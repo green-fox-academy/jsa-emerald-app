@@ -9,9 +9,8 @@ const sortDataByDate = (dataList) => {
 const sumAmount = (dataList) => {
   const result = dataList.reduce((sum, { amount, type }) => {
     const parsedAmount = parseFloat(amount);
-    return type === 'Expense' ? sum -  parsedAmount : sum + parsedAmount
+    return type === 'Expense' ? sum - parsedAmount : sum + parsedAmount;
   }, 0);
-    
   return result > 0 ? `+$${result}` : `-$${0 - result}`;
 };
 
@@ -24,7 +23,7 @@ const groupTransactionsByDate = (transactions) => {
   }));
 
   const result = convertedSet.reduce((groups, transaction) => {
-    const myGroup = {...groups};
+    const myGroup = { ...groups };
     if (Object.keys(groups).includes(transaction.date)) {
       myGroup[transaction.date].push(transaction);
     } else {
