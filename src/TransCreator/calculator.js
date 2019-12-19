@@ -1,3 +1,9 @@
+export const keyboardLayout = [
+  [1, 4, 7, 'C'],
+  [2, 5, 8, '0'],
+  [3, 6, 9, '.'],
+  ['+', '-', 'remove', 'Add'],
+];
 
 const isNumber = (value) => !Number.isNaN(parseFloat(value));
 
@@ -19,7 +25,6 @@ export default class Calculator {
 
   init() {
     this.operation = '';
-    return this.getResult();
   }
 
   push(val) {
@@ -28,20 +33,18 @@ export default class Calculator {
       if (lastNum.indexOf('.') < 0) {
         this.operation += '.';
       }
-      return this.getResult();
+      return;
     }
 
     if (isNumber(val) && lastNum.indexOf('.') >= 0 && lastNum.split('.')[1].length === 2) {
-      return this.getResult();
+      return;
     }
 
     this.operation += val;
-    return this.getResult();
   }
 
   pop() {
     this.operation = this.operation.slice(0, -1);
-    return this.getResult();
   }
 
   getResult() {
@@ -66,18 +69,15 @@ export default class Calculator {
     operationArr.forEach((i) => {
       if (i === '+') {
         sign = 1;
-        return;
-      }
-
-      if (i === '-') {
+      } else if (i === '-') {
         sign = -1;
-        return;
+      } else {
+        temp = parseFloat(i);
+        result += sign * temp;
       }
-      temp = parseFloat(i);
-      result += sign * temp;
     });
 
-    return result.toString();
+    return result.toFixed(2).toString();
   }
 
   getOperation() {
