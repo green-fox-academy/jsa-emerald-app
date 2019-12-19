@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Item, Root } from 'native-base';
+import { Root } from 'native-base';
 import { View, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { NavigationScreenPropType } from 'react-navigation';
-
-import styles from './Style';
-import DateSelector from './DateSelector';
 import { addNewTransaction } from '../Stats/actionCreator';
 import LabelGroup from './LabelGroup';
 import PageBanner from './PageBanner';
@@ -64,11 +61,7 @@ const TransCreator = ({ navigation }) => {
               setTransLabel({});
               setTransAmount('');
             }}
-
           />
-          <Item style={styles.dateItem}>
-            <DateSelector transDate={transDate} setTransDate={setTransDate} />
-          </Item>
         </View>
       </View>
       <Keyboard
@@ -76,6 +69,8 @@ const TransCreator = ({ navigation }) => {
         createHandler={createHandler}
         setTransExpression={setTransExpression}
         setTransAmount={setTransAmount}
+        transDate={transDate}
+        setTransDate={setTransDate}
       />
     </Root>
   );
