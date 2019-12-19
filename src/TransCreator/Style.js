@@ -16,7 +16,7 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     width: DeviceWidth,
     borderTopWidth: 1,
-    borderColor: 'rgb(240,240,240)',
+    borderColor: '#f0f0f0',
     height: 35,
     alignItems: 'center',
   },
@@ -100,7 +100,7 @@ export default StyleSheet.create({
     height: DeviceWidth * 0.15,
     width: DeviceWidth * 0.25,
     borderRadius: 0,
-    borderColor: 'rgb(240,240,240)',
+    borderColor: '#f0f0f0',
   },
   keyboardLayout: {
     flex: 1,

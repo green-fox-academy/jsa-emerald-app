@@ -28,7 +28,7 @@ const TransCreator = ({ navigation }) => {
   });
 
   const createHandler = () => {
-    if (!transAmount) {
+    if (!transAmount || transAmount === '0.00') {
       Alert.alert('Please enter the amount');
       return;
     }
