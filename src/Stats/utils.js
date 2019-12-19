@@ -7,7 +7,11 @@ const sortDataByDate = (dataList) => {
 };
 
 const sumAmount = (dataList) => {
-  const result = dataList.reduce((sum, { amount, type }) => (type === 'Expense' ? sum - parseFloat(amount) : sum + parseFloat(amount)), 0);
+  const result = dataList.reduce((sum, { amount, type }) => {
+    const parsedAmount = parseFloat(amount);
+    return type === 'Expense' ? sum -  parsedAmount : sum + parsedAmount
+  }, 0);
+    
   return result > 0 ? `+$${result}` : `-$${0 - result}`;
 };
 
