@@ -4,6 +4,10 @@ export default {
     inactiveTintColor: 'gray',
   },
 
+  headerColor: {
+    color: '#777777',
+  },
+
   gradientColor: {
     blue: ['#9e87fc', '#82c3fb'],
     red: ['#e96d9e', '#ffaa8f'],
