@@ -2,7 +2,7 @@ export const keyboardLayout = [
   [1, 4, 7, 'C'],
   [2, 5, 8, '0'],
   [3, 6, 9, '.'],
-  ['+', '-', 'remove', 'Add'],
+  ['+', '-', 'Remove', 'Add'],
 ];
 
 const isNumber = (value) => !Number.isNaN(parseFloat(value));

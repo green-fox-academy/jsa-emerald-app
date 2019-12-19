@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import Calculator, { keyboardLayout } from './calculator';
 import styles from './Style';
 import DateSelector from './DateSelector';
+import btnColor from '../Common/Color';
 
 export default function Keyboard({
   calculable,
@@ -18,55 +18,59 @@ export default function Keyboard({
   const [calculator, setCalculator] = useState(null);
   useEffect(() => setCalculator(new Calculator()), []);
 
-  const pressHandler = (val) => {
+  const pressHandler = (pressedVal) => {
     if (!calculable) {
       return;
     }
 
-    if (val === 'Add') {
+    if (pressedVal === 'Add') {
       createHandler();
-    } else if (val === 'C') {
+    } else if (pressedVal === 'C') {
       calculator.init();
-    } else if (val === 'remove') {
+    } else if (pressedVal === 'Remove') {
       calculator.pop();
     } else {
-      calculator.push(val);
+      calculator.push(pressedVal);
     }
     setTransAmount(calculator.getResult());
     setTransExpression(calculator.getOperation());
   };
 
-  const numberBtn = (val) => (
+  const numberBtn = (btnVal) => (
     <Button
       type="outline"
       buttonStyle={styles.keyboardBtn}
-      title={val.toString()}
-      titleStyle={{ color: 'rgb(45,45,67)' }}
-      onPress={() => pressHandler(val)}
+      title={btnVal.toString()}
+      titleStyle={{ color: btnColor.grey }}
+      onPress={() => pressHandler(btnVal)}
     />
   );
 
-  const iconBtn = (name, val) => (
+  const iconBtn = (iconName, btnVal) => (
     <Button
       type="outline"
       icon={{
-        name,
+        name: iconName,
         size: 25,
-        color: 'rgb(45,45,67)',
+        color: btnColor.grey,
       }}
       buttonStyle={styles.keyboardBtn}
-      onPress={() => pressHandler(val)}
+      onPress={() => pressHandler(btnVal)}
     />
   );
 
-  const btnSelector = (val) => {
-    if (val === 'Add') {
-      return iconBtn('playlist-add', val);
+  const btnSelector = (btnVal) => {
+    if (btnVal === 'Add') {
+      return iconBtn('playlist-add', btnVal);
     }
-    if (val === 'remove') {
-      return iconBtn('backspace', val);
+    if (btnVal === 'Remove') {
+      return iconBtn('backspace', btnVal);
     }
-    return numberBtn(val);
+    if (btnVal === 'C') {
+      return numberBtn('C');
+    }
+
+    return numberBtn(btnVal);
   };
 
   return (
@@ -89,18 +93,13 @@ export default function Keyboard({
 
 Keyboard.propTypes = {
   calculable: PropTypes.string,
-  transDate: PropTypes.number,
-  setTransAmount: PropTypes.func,
-  createHandler: PropTypes.func,
-  setTransExpression: PropTypes.func,
-  setTransDate: PropTypes.func,
+  transDate: PropTypes.number.isRequired,
+  setTransAmount: PropTypes.func.isRequired,
+  createHandler: PropTypes.func.isRequired,
+  setTransExpression: PropTypes.func.isRequired,
+  setTransDate: PropTypes.func.isRequired,
 };
 
 Keyboard.defaultProps = {
   calculable: '',
-  transDate: moment().unix(),
-  setTransAmount: null,
-  createHandler: null,
-  setTransExpression: null,
-  setTransDate: null,
 };

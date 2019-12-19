@@ -15,4 +15,8 @@ export default {
     purple: ['#a765cf', '#f8b6cc'],
     orange: ['#ef6d6b', '#feaa74'],
   },
+
+  btnColor: {
+    grey: '#2d2d43',
+  },
 };
