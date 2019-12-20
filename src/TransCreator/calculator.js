@@ -18,7 +18,7 @@ const getLastNum = (str) => {
   return rst;
 };
 
-export const push = (oriStr, newChar) => {
+export const append = (oriStr, newChar) => {
   const lastNum = getLastNum(oriStr);
   if (newChar === '.') {
     if (lastNum.indexOf('.') < 0) {
@@ -34,7 +34,7 @@ export const push = (oriStr, newChar) => {
   return oriStr + newChar;
 };
 
-export const pop = (oriStr) => oriStr.slice(0, -1);
+export const removeLast = (oriStr) => oriStr.slice(0, -1);
 
 export const getResult = (oriStr) => {
   const operationArr = [];

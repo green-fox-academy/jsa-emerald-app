@@ -9,8 +9,7 @@ import { addNewTransaction } from '../Stats/actionCreator';
 import LabelGroup from './LabelGroup';
 import PageBanner from './PageBanner';
 import theme from '../Common/themeStyle';
-import Keyboard from './Keyboard';
-import { getResult } from './calculator';
+import CalculatorKeyboard from './CalculatorKeyboard';
 
 const TransCreator = ({ navigation }) => {
   const [transAmount, setTransAmount] = useState('');
@@ -67,12 +66,12 @@ const TransCreator = ({ navigation }) => {
           />
         </View>
       </View>
-      <Keyboard
+      <CalculatorKeyboard
         calculable={transLabel.name !== undefined}
         createHandler={createHandler}
-        updateCalDisplay={(val) => {
-          setExpStr(val);
-          setTransAmount(getResult(val));
+        onExpressionsChange={(rst) => {
+          setExpStr(rst.expression);
+          setTransAmount(rst.result);
         }}
         transDate={transDate}
         setTransDate={setTransDate}

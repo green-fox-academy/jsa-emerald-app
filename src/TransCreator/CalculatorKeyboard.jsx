@@ -1,7 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
-import { push, pop, keyboardLayout } from './calculator';
+import {
+  append, removeLast, keyboardLayout, getResult,
+} from './Calculator';
 import styles from './Style';
 import DateSelector from './DateSelector';
 import KeyboardButton from './KeyboardButton';
@@ -12,8 +14,13 @@ export default function Keyboard({
   createHandler,
   transDate,
   setTransDate,
-  updateCalDisplay,
+  onExpressionsChange,
 }) {
+  const wrapResult = (exp) => ({
+    expression: exp,
+    result: getResult(exp),
+  });
+
   const pressHandler = (pressedVal) => {
     if (!calculable) {
       return;
@@ -24,13 +31,13 @@ export default function Keyboard({
         createHandler();
         break;
       case 'C':
-        updateCalDisplay('');
+        onExpressionsChange(wrapResult(''));
         break;
       case 'Remove':
-        updateCalDisplay(pop(expStr));
+        onExpressionsChange(wrapResult(removeLast(expStr)));
         break;
       default:
-        updateCalDisplay(push(expStr, pressedVal));
+        onExpressionsChange(wrapResult(append(expStr, pressedVal)));
     }
   };
 
@@ -58,7 +65,7 @@ Keyboard.propTypes = {
   createHandler: PropTypes.func.isRequired,
   transDate: PropTypes.number.isRequired,
   setTransDate: PropTypes.func.isRequired,
-  updateCalDisplay: PropTypes.func.isRequired,
+  onExpressionsChange: PropTypes.func.isRequired,
 };
 
 Keyboard.defaultProps = {
