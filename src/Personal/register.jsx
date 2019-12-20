@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import {
-  View, Text, TextInput, Alert, Button,
+  View, Text, TextInput, Button,
 } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { useNavigation } from 'react-navigation-hooks';
 import utils from './utils';
 import styles from '../Common/RegisterPage';
+import { requestSignup } from './actionCreator';
 
 export default function Register() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const { navigate } = useNavigation();
+
+  const [username, setUsername] = useState('user1');
+  const [email, setEmail] = useState('1@1.com');
+  const [password, setPassword] = useState('11111111');
+  const [confirmPassword, setConfirmPassword] = useState('11111111');
+
+  const dispatch = useDispatch();
 
   const handlePasswordChange = (value) => {
     setPassword(value);
@@ -19,10 +27,26 @@ export default function Register() {
   const handleEmailChange = (value) => {
     setEmail(value);
   };
+  const handleUsernameChange = (value) => {
+    setUsername(value);
+  };
+
+  const signUp = (userInfo) => {
+    dispatch(requestSignup(userInfo.email, userInfo.password, userInfo.username));
+    navigate('Index');
+  };
 
   return (
     <View style={styles.registerForm}>
       <Text styles={styles.header}>Registration</Text>
+
+      <TextInput
+        style={styles.inputText}
+        placeholder="Your username"
+        underlineColorAndroid="transparent"
+        value={username}
+        onChangeText={(value) => handleUsernameChange(value)}
+      />
 
       <TextInput
         style={styles.inputText}
@@ -62,7 +86,8 @@ export default function Register() {
       </Text>
 
       {
-      password !== ''
+      username !== ''
+      && password !== ''
       && email !== ''
       && email !== 'test@gmail.com'
       && password === confirmPassword
@@ -72,7 +97,7 @@ export default function Register() {
           <Button
             title="Sign Up"
             color="green"
-            onPress={() => Alert.alert('Successfully!')}
+            onPress={() => signUp({ email, password, username })}
           />
         ) : (
           <Button
