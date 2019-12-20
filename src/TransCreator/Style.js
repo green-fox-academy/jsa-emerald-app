@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const DeviceWidth = Dimensions.get('window').width;
 
 export default StyleSheet.create({
   footerIOS: {
@@ -8,20 +10,30 @@ export default StyleSheet.create({
   footerAndroid: {
     backgroundColor: 'transparent',
   },
-  dateItem: {
-    borderBottomWidth: 0,
-    marginTop: 30,
-    marginBottom: 20,
+  dateSection: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    width: DeviceWidth,
+    borderTopWidth: 1,
+    borderColor: '#f0f0f0',
+    height: 35,
+    alignItems: 'center',
   },
   dateItemIcon: {
     fontSize: 25,
-    marginRight: 15,
+    marginLeft: 15,
+    color: 'grey',
   },
   dateView: {
     borderWidth: 1,
     borderColor: '#5C6BC0',
     borderRadius: 10,
-    marginLeft: 20,
+    marginLeft: 5,
+    paddingLeft: 7,
+    paddingRight: 7,
+    paddingTop: 2,
+    paddingBottom: 2,
   },
   confirmButton: {
     marginLeft: 30,
@@ -83,5 +95,24 @@ export default StyleSheet.create({
   headerText: {
     fontSize: 20,
     fontWeight: '400',
+  },
+  keyboardBtn: {
+    height: DeviceWidth * 0.15,
+    width: DeviceWidth * 0.25,
+    borderRadius: 0,
+    borderColor: '#f0f0f0',
+  },
+  keyboardLayout: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 0,
+  },
+  keyboardRowLayout: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
