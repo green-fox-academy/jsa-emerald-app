@@ -58,6 +58,14 @@ const filterData = (dataList, range, view) => {
   return result;
 };
 
+const filterType = (dataList, type) => {
+  if (type === 'all') {
+    return dataList;
+  }
+
+  return dataList.filter((item) => (item.type === type));
+};
+
 const transType = (amount, type) => (type === 'Expense' ? `-$${amount}` : `+$${amount}`);
 
 export default {
@@ -66,5 +74,6 @@ export default {
   groupTransactionsByDate,
   getDateSet,
   filterData,
+  filterType,
   transType,
 };

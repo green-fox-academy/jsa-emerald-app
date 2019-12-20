@@ -17,6 +17,7 @@ export default function Stats() {
   const [view, setCurrentView] = useState('month');
   const [timePeriodOptions, setTimePeriod] = useState(utils.getDateSet(moment(), view));
   const [isOverlayVisible, setOverlayVisibility] = useState(false);
+  const [transFilter, setTransFilter] = useState('all');
 
   const updateHeaderView = (type) => {
     setCurrentView(type);
@@ -24,9 +25,10 @@ export default function Stats() {
     setOverlayVisibility(!isOverlayVisible);
   };
 
-  const filterListView = (transactionRecords) => {
+  const filterListView = (typedTransaction) => {
+    const groupedTransaction = utils.groupTransactionsByDate(typedTransaction);
     const current = timePeriodOptions[1];
-    return utils.filterData(transactionRecords, current, view);
+    return utils.filterData(groupedTransaction, current, view);
   };
 
   return (
@@ -51,12 +53,16 @@ export default function Stats() {
       <ScrollView style={styles.deviceBody}>
         <View style={{ marginBottom: 20 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <FilterBtn />
+            <FilterBtn
+              transFilter={transFilter}
+              setTransFilter={setTransFilter}
+              groupTransactions={filterListView(transactions)}
+            />
           </View>
           {(transactions.length !== 0)
             ? (
               <TransList
-                transactions={filterListView(utils.groupTransactionsByDate(transactions))}
+                transactions={filterListView(utils.filterType(transactions, transFilter))}
               />
             )
             : <EmptyHistory />}
