@@ -1,27 +1,57 @@
+import { BACKEND_URL } from 'react-native-dotenv';
+
 export const actionType = {
+  BACKUP_START: 'BACKUP_START',
   BACKUP_DATA: 'BACKUP_DATA',
+  BACKUP_FAILED: 'BACKUP_FAILED',
+  BACKUP_INITIAL: 'BACKUP_INITIAL',
 };
 
-export function backupData(statusCode) {
+export function backupStart() {
+  return {
+    type: actionType.BACKUP_START,
+  };
+}
+
+export function backupData() {
   return {
     type: actionType.BACKUP_DATA,
-    payload: statusCode,
+  };
+}
+
+export function backupFailed() {
+  return {
+    type: actionType.BACKUP_FAILED,
+  };
+}
+
+export function initialBackup() {
+  return {
+    type: actionType.BACKUP_INITIAL,
   };
 }
 
 export const requestBackup = (transactions) => (dispatch) => {
-  fetch('http://10.72.160.223:8080/backup', {
+  dispatch(backupStart());
+  fetch(`${BACKEND_URL}/backup`, {
     method: 'POST',
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(transactions),
-
   }).then((response) => {
-    dispatch(backupData(response.status));
+    if (response.status === 200) {
+      dispatch(backupData());
+      setTimeout(() => dispatch(initialBackup()), 2000);
+    } else {
+      dispatch(backupFailed());
+      setTimeout(() => dispatch(initialBackup()), 2000);
+    }
   })
     .catch((error) => {
+      dispatch(backupFailed());
+      setTimeout(() => dispatch(initialBackup()), 2000);
       throw error;
     });
 };

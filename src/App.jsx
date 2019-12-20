@@ -10,6 +10,7 @@ import { store, persistor } from './reduxStore';
 import Roboto from '../assets/Fonts/Roboto/Roboto-Regular.ttf';
 import RobotoMedium from '../assets/Fonts/Roboto/Roboto-Medium.ttf';
 
+
 const AppContainer = createAppContainer(AppNavigator);
 
 const App = () => {
