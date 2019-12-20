@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import { Avatar, ListItem, Button } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
