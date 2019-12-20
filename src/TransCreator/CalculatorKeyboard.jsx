@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import {
   append, removeLast, keyboardLayout, getResult,
-} from './Calculator';
+} from './CalculatorHelper';
 import styles from './Style';
 import DateSelector from './DateSelector';
 import KeyboardButton from './KeyboardButton';
