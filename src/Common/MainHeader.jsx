@@ -18,7 +18,6 @@ export default function MainHeader(props) {
       >
         {(btnName !== '')
           ? <Button onPress={onPressBtn} icon={{ name: btnName }} type="clear" /> : <View />}
-
       </View>
     </View>
   );

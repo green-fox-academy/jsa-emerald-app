@@ -5,6 +5,9 @@ export const actionType = {
   BACKUP_DATA: 'BACKUP_DATA',
   BACKUP_FAILED: 'BACKUP_FAILED',
   BACKUP_INITIAL: 'BACKUP_INITIAL',
+  SIGNUP_START: 'SIGNUP_START',
+  SIGNUP_SUCCESSFUL: 'SIGNUP_SUCCESSFUL',
+  SIGNUP_FAILED: 'SIGNUP_FAILED',
 };
 
 export function backupStart() {
@@ -28,6 +31,25 @@ export function backupFailed() {
 export function initialBackup() {
   return {
     type: actionType.BACKUP_INITIAL,
+  };
+}
+
+export function signupStart() {
+  return {
+    type: actionType.SIGNUP_START,
+  };
+}
+
+export function signupSuccessful(userInfo) {
+  return {
+    type: actionType.signupSuccessful,
+    payload: userInfo,
+  };
+}
+
+export function signupFailed() {
+  return {
+    type: actionType.signupFailed,
   };
 }
 
