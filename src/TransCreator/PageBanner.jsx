@@ -11,7 +11,7 @@ import themeColor from '../Common/Color';
 import styles from './Style';
 
 export default function PageBanner({
-  transLabel, transType, transAmount, transExpression,
+  transLabel, transType, transAmount, expStr,
 }) {
   let displayAmount = transAmount === '' ? '0.00' : transAmount;
   displayAmount = transType === 'Expense' ? `-$${displayAmount}` : `+$${displayAmount}`;
@@ -33,7 +33,7 @@ export default function PageBanner({
             }}
             >
               <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{ displayAmount }</Text>
-              <Text style={{ color: '#EEEEEE', fontSize: 17, fontWeight: '400' }}>{transExpression}</Text>
+              <Text style={{ color: '#EEEEEE', fontSize: 17, fontWeight: '400' }}>{expStr}</Text>
             </View>
           </View>
         </LinearGradient>
@@ -55,7 +55,7 @@ PageBanner.propTypes = {
   }),
   transType: PropTypes.string,
   transAmount: PropTypes.string,
-  transExpression: PropTypes.string,
+  expStr: PropTypes.string,
 };
 
 PageBanner.defaultProps = {
@@ -67,5 +67,5 @@ PageBanner.defaultProps = {
   },
   transType: '',
   transAmount: '',
-  transExpression: '',
+  expStr: '',
 };

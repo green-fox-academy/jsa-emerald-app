@@ -10,10 +10,11 @@ import LabelGroup from './LabelGroup';
 import PageBanner from './PageBanner';
 import theme from '../Common/themeStyle';
 import Keyboard from './Keyboard';
+import { getResult } from './calculator';
 
 const TransCreator = ({ navigation }) => {
   const [transAmount, setTransAmount] = useState('');
-  const [transExpression, setTransExpression] = useState('');
+  const [expStr, setExpStr] = useState('');
   const [transType, setTransType] = useState('Expense');
   const [transDate, setTransDate] = useState(moment().unix());
   const [transLabel, setTransLabel] = useState({});
@@ -36,6 +37,7 @@ const TransCreator = ({ navigation }) => {
     dispatch(addNewTransaction(transType, transDate, transAmount, transLabel));
     setNewTransInsertionSuccess(true);
     setTransAmount('');
+    setExpStr('');
     setTransType('Expense');
     setTransDate(moment().unix());
     setTransLabel({});
@@ -48,7 +50,7 @@ const TransCreator = ({ navigation }) => {
         transType={transType}
         transAmount={transAmount}
         setTransAmount={setTransAmount}
-        transExpression={transExpression}
+        expStr={expStr}
       />
       <View style={{ flex: 1, flexDirection: 'row' }}>
         <View style={theme.deviceBody}>
@@ -60,6 +62,7 @@ const TransCreator = ({ navigation }) => {
               setTransType(type);
               setTransLabel({});
               setTransAmount('');
+              setExpStr('');
             }}
           />
         </View>
@@ -67,10 +70,13 @@ const TransCreator = ({ navigation }) => {
       <Keyboard
         calculable={transLabel.name}
         createHandler={createHandler}
-        setTransExpression={setTransExpression}
-        setTransAmount={setTransAmount}
+        updateCalDisplay={(val) => {
+          setExpStr(val);
+          setTransAmount(getResult(val));
+        }}
         transDate={transDate}
         setTransDate={setTransDate}
+        expStr={expStr}
       />
     </Root>
   );

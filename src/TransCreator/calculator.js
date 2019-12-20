@@ -18,69 +18,53 @@ const getLastNum = (str) => {
   return rst;
 };
 
-export default class Calculator {
-  constructor() {
-    this.init();
-  }
-
-  init() {
-    this.operation = '';
-  }
-
-  push(val) {
-    const lastNum = getLastNum(this.operation);
-    if (val === '.') {
-      if (lastNum.indexOf('.') < 0) {
-        this.operation += '.';
-      }
-      return;
+export const push = (oriStr, newChar) => {
+  const lastNum = getLastNum(oriStr);
+  if (newChar === '.') {
+    if (lastNum.indexOf('.') < 0) {
+      return `${oriStr}.`;
     }
-
-    if (isNumber(val) && lastNum.indexOf('.') >= 0 && lastNum.split('.')[1].length === 2) {
-      return;
-    }
-
-    this.operation += val;
+    return oriStr;
   }
 
-  pop() {
-    this.operation = this.operation.slice(0, -1);
+  if (isNumber(newChar) && lastNum.indexOf('.') >= 0 && lastNum.split('.')[1].length === 2) {
+    return oriStr;
   }
 
-  getResult() {
-    const operationArr = [];
-    let temp = '';
-    for (let i = 0; i < this.operation.length; i += 1) {
-      if (['+', '-'].indexOf(this.operation.charAt(i)) >= 0) {
-        operationArr.push(temp);
-        operationArr.push(this.operation.charAt(i));
-        temp = '';
-      } else {
-        temp += this.operation.charAt(i);
-      }
-    }
+  return oriStr + newChar;
+};
 
-    if (temp !== '') {
+export const pop = (oriStr) => oriStr.slice(0, -1);
+
+export const getResult = (oriStr) => {
+  const operationArr = [];
+  let temp = '';
+  for (let i = 0; i < oriStr.length; i += 1) {
+    if (['+', '-'].indexOf(oriStr.charAt(i)) >= 0) {
       operationArr.push(temp);
+      operationArr.push(oriStr.charAt(i));
+      temp = '';
+    } else {
+      temp += oriStr.charAt(i);
     }
-
-    let result = 0;
-    let sign = 1;
-    operationArr.forEach((i) => {
-      if (i === '+') {
-        sign = 1;
-      } else if (i === '-') {
-        sign = -1;
-      } else {
-        temp = parseFloat(i);
-        result += sign * temp;
-      }
-    });
-
-    return result.toFixed(2).toString();
   }
 
-  getOperation() {
-    return this.operation;
+  if (temp !== '') {
+    operationArr.push(temp);
   }
-}
+
+  let result = 0;
+  let sign = 1;
+  operationArr.forEach((i) => {
+    if (i === '+') {
+      sign = 1;
+    } else if (i === '-') {
+      sign = -1;
+    } else {
+      temp = parseFloat(i);
+      result += sign * temp;
+    }
+  });
+
+  return result.toFixed(2).toString();
+};

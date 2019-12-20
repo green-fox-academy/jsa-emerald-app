@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
 import PropTypes from 'prop-types';
-import Calculator, { keyboardLayout } from './calculator';
+import { push, pop, keyboardLayout } from './calculator';
 import styles from './Style';
 import DateSelector from './DateSelector';
 import btnColor from '../Common/Color';
 
 export default function Keyboard({
   calculable,
-  setTransExpression,
-  setTransAmount,
+  expStr,
   createHandler,
   transDate,
   setTransDate,
+  updateCalDisplay,
 }) {
-  const [calculator, setCalculator] = useState(null);
-  useEffect(() => setCalculator(new Calculator()), []);
-
   const pressHandler = (pressedVal) => {
     if (!calculable) {
       return;
@@ -26,14 +23,12 @@ export default function Keyboard({
     if (pressedVal === 'Add') {
       createHandler();
     } else if (pressedVal === 'C') {
-      calculator.init();
+      updateCalDisplay('');
     } else if (pressedVal === 'Remove') {
-      calculator.pop();
+      updateCalDisplay(pop(expStr));
     } else {
-      calculator.push(pressedVal);
+      updateCalDisplay(push(expStr, pressedVal));
     }
-    setTransAmount(calculator.getResult());
-    setTransExpression(calculator.getOperation());
   };
 
   const numberBtn = (btnVal) => (
@@ -93,13 +88,14 @@ export default function Keyboard({
 
 Keyboard.propTypes = {
   calculable: PropTypes.string,
-  transDate: PropTypes.number.isRequired,
-  setTransAmount: PropTypes.func.isRequired,
+  expStr: PropTypes.string,
   createHandler: PropTypes.func.isRequired,
-  setTransExpression: PropTypes.func.isRequired,
+  transDate: PropTypes.number.isRequired,
   setTransDate: PropTypes.func.isRequired,
+  updateCalDisplay: PropTypes.func.isRequired,
 };
 
 Keyboard.defaultProps = {
   calculable: '',
+  expStr: '',
 };
