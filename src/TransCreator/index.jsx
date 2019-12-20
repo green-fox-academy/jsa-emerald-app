@@ -68,7 +68,7 @@ const TransCreator = ({ navigation }) => {
         </View>
       </View>
       <Keyboard
-        calculable={transLabel.name}
+        calculable={transLabel.name !== undefined}
         createHandler={createHandler}
         updateCalDisplay={(val) => {
           setExpStr(val);

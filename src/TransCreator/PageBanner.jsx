@@ -14,7 +14,7 @@ export default function PageBanner({
   transLabel, transType, transAmount, expStr,
 }) {
   let displayAmount = transAmount === '' ? '0.00' : transAmount;
-  displayAmount = transType === 'Expense' ? `-$${displayAmount}` : `+$${displayAmount}`;
+  displayAmount = transType === 'Expense' ? `-$${displayAmount}` : `$${displayAmount}`;
   return (
     transLabel.name
       ? (
@@ -28,12 +28,9 @@ export default function PageBanner({
               <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
               <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
             </View>
-            <View style={{
-              flex: 1, flexDirection: 'column', alignItems: 'flex-end',
-            }}
-            >
-              <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>{ displayAmount }</Text>
-              <Text style={{ color: '#EEEEEE', fontSize: 17, fontWeight: '400' }}>{expStr}</Text>
+            <View style={styles.headerDigitSection}>
+              <Text style={styles.headerDigitResult}>{ displayAmount }</Text>
+              <Text style={styles.headerDigitExp}>{ expStr }</Text>
             </View>
           </View>
         </LinearGradient>

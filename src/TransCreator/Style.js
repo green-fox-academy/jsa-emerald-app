@@ -96,6 +96,21 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: '400',
   },
+  headerDigitSection: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+  },
+  headerDigitResult: {
+    color: '#ffffff',
+    fontSize: 20,
+    fontWeight: '400',
+  },
+  headerDigitExp: {
+    color: '#EEEEEE',
+    fontSize: 17,
+    fontWeight: '400',
+  },
   keyboardBtn: {
     height: DeviceWidth * 0.15,
     width: DeviceWidth * 0.25,

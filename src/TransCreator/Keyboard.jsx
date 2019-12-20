@@ -1,11 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import { push, pop, keyboardLayout } from './calculator';
 import styles from './Style';
 import DateSelector from './DateSelector';
-import btnColor from '../Common/Color';
+import KeyboardButton from './KeyboardButton';
 
 export default function Keyboard({
   calculable,
@@ -20,52 +19,19 @@ export default function Keyboard({
       return;
     }
 
-    if (pressedVal === 'Add') {
-      createHandler();
-    } else if (pressedVal === 'C') {
-      updateCalDisplay('');
-    } else if (pressedVal === 'Remove') {
-      updateCalDisplay(pop(expStr));
-    } else {
-      updateCalDisplay(push(expStr, pressedVal));
+    switch (pressedVal) {
+      case 'Add':
+        createHandler();
+        break;
+      case 'C':
+        updateCalDisplay('');
+        break;
+      case 'Remove':
+        updateCalDisplay(pop(expStr));
+        break;
+      default:
+        updateCalDisplay(push(expStr, pressedVal));
     }
-  };
-
-  const numberBtn = (btnVal) => (
-    <Button
-      type="outline"
-      buttonStyle={styles.keyboardBtn}
-      title={btnVal.toString()}
-      titleStyle={{ color: btnColor.grey }}
-      onPress={() => pressHandler(btnVal)}
-    />
-  );
-
-  const iconBtn = (iconName, btnVal) => (
-    <Button
-      type="outline"
-      icon={{
-        name: iconName,
-        size: 25,
-        color: btnColor.grey,
-      }}
-      buttonStyle={styles.keyboardBtn}
-      onPress={() => pressHandler(btnVal)}
-    />
-  );
-
-  const btnSelector = (btnVal) => {
-    if (btnVal === 'Add') {
-      return iconBtn('playlist-add', btnVal);
-    }
-    if (btnVal === 'Remove') {
-      return iconBtn('backspace', btnVal);
-    }
-    if (btnVal === 'C') {
-      return numberBtn('C');
-    }
-
-    return numberBtn(btnVal);
   };
 
   return (
@@ -76,7 +42,7 @@ export default function Keyboard({
           <View key={`row${idx + 1}`}>
             {row.map((cell, idx2) => (
               <View key={`cell${idx + 1}-${idx2 + 1}`}>
-                {btnSelector(cell)}
+                <KeyboardButton btnVal={cell} pressHandler={pressHandler} />
               </View>
             ))}
           </View>
@@ -87,7 +53,7 @@ export default function Keyboard({
 }
 
 Keyboard.propTypes = {
-  calculable: PropTypes.string,
+  calculable: PropTypes.bool.isRequired,
   expStr: PropTypes.string,
   createHandler: PropTypes.func.isRequired,
   transDate: PropTypes.number.isRequired,
@@ -96,6 +62,5 @@ Keyboard.propTypes = {
 };
 
 Keyboard.defaultProps = {
-  calculable: '',
   expStr: '',
 };
