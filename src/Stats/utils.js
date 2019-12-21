@@ -51,6 +51,7 @@ const filterTransactionsByDate = (dataList, range, view) => {
     case 'year':
       return dataList.filter((value) => moment.unix(value.date).format('YYYY') === yearRange);
     default:
+      return [];
   }
 };
 
