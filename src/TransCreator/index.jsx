@@ -69,7 +69,7 @@ const TransCreator = ({ navigation }) => {
       <CalculatorKeyboard
         calculable={transLabel.name !== undefined}
         createHandler={createHandler}
-        onExpressionsChange={(rst) => {
+        onExpressionChange={(rst) => {
           setExpStr(rst.expression);
           setTransAmount(rst.result);
         }}

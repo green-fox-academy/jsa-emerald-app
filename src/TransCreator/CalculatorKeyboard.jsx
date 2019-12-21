@@ -8,13 +8,13 @@ import styles from './Style';
 import DateSelector from './DateSelector';
 import KeyboardButton from './KeyboardButton';
 
-export default function Keyboard({
+export default function CalculatorKeyboard({
   calculable,
   expStr,
   createHandler,
   transDate,
   setTransDate,
-  onExpressionsChange,
+  onExpressionChange,
 }) {
   const wrapResult = (exp) => ({
     expression: exp,
@@ -31,13 +31,13 @@ export default function Keyboard({
         createHandler();
         break;
       case 'C':
-        onExpressionsChange(wrapResult(''));
+        onExpressionChange(wrapResult(''));
         break;
       case 'Remove':
-        onExpressionsChange(wrapResult(removeLast(expStr)));
+        onExpressionChange(wrapResult(removeLast(expStr)));
         break;
       default:
-        onExpressionsChange(wrapResult(append(expStr, pressedVal)));
+        onExpressionChange(wrapResult(append(expStr, pressedVal)));
     }
   };
 
@@ -49,7 +49,7 @@ export default function Keyboard({
           <View key={`row${idx + 1}`}>
             {row.map((cell, idx2) => (
               <View key={`cell${idx + 1}-${idx2 + 1}`}>
-                <KeyboardButton btnVal={cell} pressHandler={pressHandler} />
+                <KeyboardButton btnVal={cell.toString()} pressHandler={pressHandler} />
               </View>
             ))}
           </View>
@@ -59,15 +59,15 @@ export default function Keyboard({
   );
 }
 
-Keyboard.propTypes = {
+CalculatorKeyboard.propTypes = {
   calculable: PropTypes.bool.isRequired,
   expStr: PropTypes.string,
   createHandler: PropTypes.func.isRequired,
   transDate: PropTypes.number.isRequired,
   setTransDate: PropTypes.func.isRequired,
-  onExpressionsChange: PropTypes.func.isRequired,
+  onExpressionChange: PropTypes.func.isRequired,
 };
 
-Keyboard.defaultProps = {
+CalculatorKeyboard.defaultProps = {
   expStr: '',
 };
