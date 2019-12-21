@@ -41,30 +41,20 @@ const getDateSet = (current, type) => [
   current.clone().add(1, type),
 ];
 
-const filterData = (dataList, range, view) => {
+const filterTransactionsByDate = (dataList, range, view) => {
   const monthRange = range.format('MMM YYYY');
   const yearRange = range.format('YYYY');
-  let result;
+
   switch (view) {
     case 'month':
-      result = dataList.filter((value) => moment(value[0].date, 'MMMM Do YYYY').format('MMM YYYY') === monthRange);
-      break;
+      return dataList.filter((value) => moment.unix(value.date).format('MMM YYYY') === monthRange);
     case 'year':
-      result = dataList.filter((value) => moment(value[0].date, 'MMMM Do YYYY').format('YYYY') === yearRange);
-      break;
+      return dataList.filter((value) => moment.unix(value.date).format('YYYY') === yearRange);
     default:
-      break;
   }
-  return result;
 };
 
-const filterType = (dataList, type) => {
-  if (type === 'all') {
-    return dataList;
-  }
-
-  return dataList.filter((item) => (item.type === type));
-};
+const filterTransactionByType = (dataList, type) => (type === 'all' ? dataList : dataList.filter((item) => (item.type === type)));
 
 const transType = (amount, type) => (type === 'Expense' ? `-$${amount}` : `+$${amount}`);
 
@@ -73,7 +63,7 @@ export default {
   sumAmount,
   groupTransactionsByDate,
   getDateSet,
-  filterData,
-  filterType,
+  filterTransactionsByDate,
+  filterTransactionByType,
   transType,
 };

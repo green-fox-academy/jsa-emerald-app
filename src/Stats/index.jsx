@@ -25,11 +25,20 @@ export default function Stats() {
     setOverlayVisibility(!isOverlayVisible);
   };
 
-  const filterListView = (typedTransaction) => {
-    const groupedTransaction = utils.groupTransactionsByDate(typedTransaction);
-    const current = timePeriodOptions[1];
-    return utils.filterData(groupedTransaction, current, view);
+  const filterTransactions = (transaction) => {
+    const transactionsWithSpecificType = utils.filterTransactionByType(transaction, transFilter);
+    return utils.filterTransactionsByDate(transactionsWithSpecificType, timePeriodOptions[1], view);
   };
+
+  const calculateSumByType = (dataList, type) => dataList
+    .filter((item) => item.type === type)
+    .map((item) => item.amount)
+    .reduce((pre, cur) => parseFloat(pre) + parseFloat(cur), 0);
+
+  const filteredTransactions = filterTransactions(transactions);
+  const processedTransactions = utils.groupTransactionsByDate(filteredTransactions);
+  const totalExpense = calculateSumByType(filteredTransactions, 'Expense');
+  const totalIncome = calculateSumByType(filteredTransactions, 'Income');
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -54,15 +63,16 @@ export default function Stats() {
         <View style={{ marginBottom: 20 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <FilterBtn
-              transFilter={transFilter}
-              setTransFilter={setTransFilter}
-              groupTransactions={filterListView(transactions)}
+              currentFilter={transFilter}
+              onFilterChange={(newFilter) => (newFilter === transFilter ? setTransFilter('all') : setTransFilter(newFilter))}
+              totalExpense={totalExpense}
+              totalIncome={totalIncome}
             />
           </View>
           {(transactions.length !== 0)
             ? (
               <TransList
-                transactions={filterListView(utils.filterType(transactions, transFilter))}
+                transactions={processedTransactions}
               />
             )
             : <EmptyHistory />}
