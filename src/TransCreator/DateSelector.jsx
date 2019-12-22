@@ -9,13 +9,12 @@ import styles from './Style';
 const DateSelector = ({ transDate, setTransDate }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   return (
-    <>
+    <View style={styles.dateSection}>
       <MaterialIcons name="date-range" style={styles.dateItemIcon} />
-      <Text>Date: </Text>
       <View style={styles.dateView}>
         <Text
           onPress={() => setDatePickerVisibility(true)}
-          style={{ padding: 5 }}
+          style={{ color: 'grey' }}
         >
           {moment.unix(transDate).format('MM/DD/YYYY')}
         </Text>
@@ -31,7 +30,7 @@ const DateSelector = ({ transDate, setTransDate }) => {
           titleStyle={{ color: '#5C6BC0' }}
         />
       </View>
-    </>
+    </View>
   );
 };
 
