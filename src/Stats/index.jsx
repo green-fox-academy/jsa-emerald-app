@@ -25,15 +25,21 @@ export default function Stats() {
     setOverlayVisibility(!isOverlayVisible);
   };
 
-  const filterTransactions = (transaction) => {
-    const transactionsWithSpecificType = utils.filterTransactionByType(transaction, transFilter);
-    return utils.filterTransactionsByDate(transactionsWithSpecificType, timePeriodOptions[1], view);
+  const filterTransactions = (transactionsList) => {
+    const transactionsWithSpecificType = utils.filterTransactionByType(
+      transactionsList,
+      transFilter,
+    );
+    return utils.filterTransactionsByDate(
+      transactionsWithSpecificType,
+      timePeriodOptions[1],
+      view,
+    );
   };
 
   const calculateSumByType = (dataList, type) => dataList
     .filter((item) => item.type === type)
-    .map((item) => item.amount)
-    .reduce((pre, cur) => parseFloat(pre) + parseFloat(cur), 0);
+    .reduce((sum, { amount }) => sum + parseFloat(amount), 0);
 
   const filteredTransactions = filterTransactions(transactions);
   const processedTransactions = utils.groupTransactionsByDate(filteredTransactions);
