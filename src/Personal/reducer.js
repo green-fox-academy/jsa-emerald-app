@@ -46,6 +46,7 @@ const user = (state = initialUser, action) => {
       };
     case actionType.SIGNUP_SUCCESSFUL:
       return {
+        ...state,
         username: action.payload.username,
         email: action.payload.email,
         accessToken: action.payload.accessToken,
