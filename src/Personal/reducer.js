@@ -14,18 +14,22 @@ const backupState = (state = initialBackup, action) => {
   switch (action.type) {
     case actionType.BACKUP_START:
       return {
+        ...state,
         response: 'Backing up',
       };
     case actionType.BACKUP_DATA:
       return {
+        ...state,
         response: 'Back up successfully!',
       };
     case actionType.BACKUP_FAILED:
       return {
+        ...state,
         response: 'Ops, something went wrong',
       };
     case actionType.BACKUP_INITIAL:
       return {
+        ...state,
         response: 'Click button to backup data',
       };
     default:
