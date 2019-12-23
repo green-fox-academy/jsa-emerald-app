@@ -13,7 +13,9 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  transactions, backupState: userReducer.backupState, user: userReducer.user,
+  transactions, 
+  backupState: userReducer.backupState, 
+  user: userReducer.user,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
