@@ -17,6 +17,7 @@ export default function Stats() {
   const [view, setCurrentView] = useState('month');
   const [timePeriodOptions, setTimePeriod] = useState(utils.getDateSet(moment(), view));
   const [isOverlayVisible, setOverlayVisibility] = useState(false);
+  const [transFilter, setTransFilter] = useState('all');
 
   const updateHeaderView = (type) => {
     setCurrentView(type);
@@ -24,10 +25,26 @@ export default function Stats() {
     setOverlayVisibility(!isOverlayVisible);
   };
 
-  const filterListView = (transactionRecords) => {
-    const current = timePeriodOptions[1];
-    return utils.filterData(transactionRecords, current, view);
+  const filterTransactions = (transactionsList) => {
+    const transactionsWithSpecificType = utils.filterTransactionByType(
+      transactionsList,
+      transFilter,
+    );
+    return utils.filterTransactionsByDate(
+      transactionsWithSpecificType,
+      timePeriodOptions[1],
+      view,
+    );
   };
+
+  const calculateSumByType = (dataList, type) => dataList
+    .filter((item) => item.type === type)
+    .reduce((sum, { amount }) => sum + parseFloat(amount), 0);
+
+  const filteredTransactions = filterTransactions(transactions);
+  const processedTransactions = utils.groupTransactionsByDate(filteredTransactions);
+  const totalExpense = calculateSumByType(filteredTransactions, 'Expense');
+  const totalIncome = calculateSumByType(filteredTransactions, 'Income');
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -51,12 +68,17 @@ export default function Stats() {
       <ScrollView style={styles.deviceBody}>
         <View style={{ marginBottom: 20 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <FilterBtn />
+            <FilterBtn
+              currentFilter={transFilter}
+              onFilterChange={(newFilter) => (newFilter === transFilter ? setTransFilter('all') : setTransFilter(newFilter))}
+              totalExpense={totalExpense}
+              totalIncome={totalIncome}
+            />
           </View>
           {(transactions.length !== 0)
             ? (
               <TransList
-                transactions={filterListView(utils.groupTransactionsByDate(transactions))}
+                transactions={processedTransactions}
               />
             )
             : <EmptyHistory />}
