@@ -31,7 +31,6 @@ const groupTransactionsByDate = (transactions) => {
     }
     return myGroup;
   }, {});
-
   return Object.values(result);
 };
 
