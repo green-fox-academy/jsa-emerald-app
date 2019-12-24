@@ -1,6 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TabBarIcon /> render 1`] = `
+exports[`<TabBarIcon /> render Create 1`] = `
+<Text
+  allowFontScaling={false}
+  style={
+    Array [
+      Object {
+        "color": "#5C6BC0",
+        "fontSize": 25,
+      },
+      undefined,
+      Object {
+        "fontFamily": "material-community",
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+      },
+      Object {},
+    ]
+  }
+>
+  
+</Text>
+`;
+
+exports[`<TabBarIcon /> render Me 1`] = `
+<Text
+  allowFontScaling={false}
+  style={
+    Array [
+      Object {
+        "color": "#5C6BC0",
+        "fontSize": 25,
+      },
+      undefined,
+      Object {
+        "fontFamily": "material",
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+      },
+      Object {},
+    ]
+  }
+>
+  
+</Text>
+`;
+
+exports[`<TabBarIcon /> render Stats 1`] = `
 <Text
   allowFontScaling={false}
   style={
