@@ -22,6 +22,7 @@ export function signupFailed() {
     type: actionType.SIGNUP_FAILED,
   };
 }
+
 export const requestSignup = (email, password, username) => (dispatch) => {
   dispatch(signupStart());
   fetch('http://10.72.161.25:3000/register', {
