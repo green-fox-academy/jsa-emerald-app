@@ -46,6 +46,7 @@ export const requestSignup = (email, password, username) => (dispatch) => {
     }
   })
     .catch((error) => {
+      dispatch(signupFailed());
       throw error;
     });
 };
