@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Image, ListItem, Button } from 'react-native-elements';
+import { Avatar, ListItem, Button } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
 import { requestBackup } from './actionCreator';
@@ -29,10 +29,7 @@ export default function Personal() {
               alignItems: 'center', paddingVertical: 30,
             }}
             >
-              <Image
-                source={{ uri: 'https://image.flaticon.com/icons/png/512/678/678880.png' }}
-                style={{ width: 80, height: 80 }}
-              />
+              <Avatar size="large" rounded icon={{ name: 'person' }} />
               <Text style={[styles.secondaryHeading, { color: 'white' }]}>{user.username}</Text>
               <Text style={{ color: 'white' }}>{user.email}</Text>
             </View>
