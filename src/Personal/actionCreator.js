@@ -25,7 +25,7 @@ export function signupFailed() {
 
 export const requestSignup = (email, password, username) => (dispatch) => {
   dispatch(signupStart());
-  fetch('http://10.72.161.25:3000/register', {
+  fetch('http://10.72.161.25:3000/users/signup', {
     method: 'POST',
     mode: 'cors',
     headers: {
