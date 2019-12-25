@@ -19,7 +19,7 @@ export default function Personal() {
   useEffect(() => {
     if (backupStatus.lastBackupDate === 0) {
       setMessage('Something went wrong, please try again later');
-    } else {
+    } else if (backupStatus.lastBackupDate !== null) {
       setMessage(`Last update: ${moment.unix(backupStatus.lastBackupDate).format('YYYY-MM-DD HH:mm')}`);
     }
   }, [backupStatus.lastBackupDate]);
