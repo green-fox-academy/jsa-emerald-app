@@ -32,4 +32,4 @@ const user = (state = initialUser, action) => {
   }
 };
 
-export default { user };
+export default user;

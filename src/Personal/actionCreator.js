@@ -1,3 +1,5 @@
+import { BACKEND_URL } from 'react-native-dotenv';
+
 export const actionType = {
   SIGNUP_START: 'SIGNUP_START',
   SIGNUP_FAILED: 'SIGNUP_FAILED',
@@ -25,7 +27,7 @@ export function signupFailed() {
 
 export const requestSignup = (email, password, username) => (dispatch) => {
   dispatch(signupStart());
-  fetch('http://10.72.161.25:3000/users/signup', {
+  fetch(`${BACKEND_URL}/users/signup`, {
     method: 'POST',
     mode: 'cors',
     headers: {
