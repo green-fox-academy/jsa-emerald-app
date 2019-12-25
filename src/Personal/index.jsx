@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import Login from './Login';
+import styles from './LoginView';
 
 export default function Personal() {
   return (
-    <View>
-      <Text>Personal Screen</Text>
+    <View style={styles.container}>
+      <Login />
     </View>
   );
 }
