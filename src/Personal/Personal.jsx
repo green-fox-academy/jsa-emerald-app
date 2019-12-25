@@ -1,8 +1,9 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, ActivityIndicator } from 'react-native';
 import { Avatar, ListItem, Button } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
+import moment from 'moment';
 import { requestBackup } from './actionCreator';
 import MainHeader from '../Common/MainHeader';
 import styles from '../Common/themeStyle';
@@ -13,6 +14,15 @@ export default function Personal() {
   const { transactions } = useSelector((state) => state.transactions);
   const backupStatus = useSelector((state) => state.backupState);
   const user = useSelector((state) => state.user);
+  const [message, setMessage] = useState('Click to back up date');
+
+  useEffect(() => {
+    if (backupStatus.lastBackupDate === 0) {
+      setMessage('Something went wrong, please try again later');
+    } else {
+      setMessage(`Last update: ${moment.unix(backupStatus.lastBackupDate).format('YYYY-MM-DD HH:mm')}`);
+    }
+  }, [backupStatus.lastBackupDate]);
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -44,18 +54,18 @@ export default function Personal() {
             />
             <ListItem
               title="Backup data"
-              subtitle={backupStatus.response}
+              subtitle={message}
               subtitleStyle={{ color: 'grey' }}
-              rightElement={(
-                <Button
-                  title="Backup"
-                  titleStyle={{ color: '#2fc899' }}
-                  type="outline"
-                  disabled={(backupStatus.response === 'Backing up')}
-                  buttonStyle={{ borderColor: '#2fc899', borderRadius: 6 }}
-                  onPress={() => dispatch(requestBackup(transactions))}
-                />
-              )}
+              rightElement={backupStatus.isInProgress ? <ActivityIndicator size="small" color="grey" />
+                : (
+                  <Button
+                    title="Backup"
+                    titleStyle={{ color: '#2fc899' }}
+                    type="outline"
+                    buttonStyle={{ borderColor: '#2fc899', borderRadius: 6 }}
+                    onPress={() => dispatch(requestBackup(transactions))}
+                  />
+                )}
               bottomDivider
             />
             <ListItem

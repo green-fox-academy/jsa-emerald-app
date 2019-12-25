@@ -1,10 +1,11 @@
 import { BACKEND_URL } from 'react-native-dotenv';
 
+const moment = require('moment');
+
 export const actionType = {
   BACKUP_START: 'BACKUP_START',
-  BACKUP_DATA: 'BACKUP_DATA',
+  BACKUP_SUCCESSFUL: 'BACKUP_SUCCESSFUL',
   BACKUP_FAILED: 'BACKUP_FAILED',
-  BACKUP_INITIAL: 'BACKUP_INITIAL',
   SIGNUP_START: 'SIGNUP_START',
   SIGNUP_SUCCESSFUL: 'SIGNUP_SUCCESSFUL',
   SIGNUP_FAILED: 'SIGNUP_FAILED',
@@ -16,21 +17,16 @@ export function backupStart() {
   };
 }
 
-export function backupData() {
+export function backupSuccessful(timestamp) {
   return {
-    type: actionType.BACKUP_DATA,
+    type: actionType.BACKUP_SUCCESSFUL,
+    payload: timestamp,
   };
 }
 
 export function backupFailed() {
   return {
     type: actionType.BACKUP_FAILED,
-  };
-}
-
-export function initialBackup() {
-  return {
-    type: actionType.BACKUP_INITIAL,
   };
 }
 
@@ -64,16 +60,13 @@ export const requestBackup = (transactions) => (dispatch) => {
     body: JSON.stringify(transactions),
   }).then((response) => {
     if (response.status === 200) {
-      dispatch(backupData());
-      setTimeout(() => dispatch(initialBackup()), 2000);
+      setTimeout(() => dispatch(dispatch(backupSuccessful(moment().unix()))), 1000);
     } else {
-      dispatch(backupFailed());
-      setTimeout(() => dispatch(initialBackup()), 2000);
+      setTimeout(() => dispatch(backupFailed()), 1000);
     }
   })
     .catch((error) => {
-      dispatch(backupFailed());
-      setTimeout(() => dispatch(initialBackup()), 2000);
+      setTimeout(() => dispatch(backupFailed()), 1000);
       throw error;
     });
 };
