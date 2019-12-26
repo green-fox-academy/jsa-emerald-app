@@ -42,7 +42,7 @@ export default function Login() {
         onChangeText={(value) => handlePasswordChange(value)}
       />
       <Text style={styles.Note}>
-        {utils.passwordValidation(password) || password === '' ? '' : 'Password should be 8 to 16 characters.'}
+        {utils.passwordValidation(password) || password === '' ? '' : 'Password should be 8 to 16 characters with at least one special characters.'}
       </Text>
 
       <TouchableOpacity style={styles.button}>
