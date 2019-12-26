@@ -8,7 +8,12 @@ function passwordValidation(password) {
   return validatePassword.test(password);
 }
 
+function loginValidation(email, password) {
+  return emailValidation(email) && passwordValidation(password);
+}
+
 export default {
   emailValidation,
   passwordValidation,
+  loginValidation,
 };
