@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyHistory render 1`] = `
+<View>
+  <Text>
+    You haven"t added any transactions yet
+  </Text>
+</View>
+`;

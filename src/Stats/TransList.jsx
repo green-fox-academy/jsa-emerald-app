@@ -7,7 +7,6 @@ import utils from './utils';
 
 export default function TransList(props) {
   const { transactions } = props;
-
   return (
     transactions.map((groupedRecordsByDate, index) => (
       <View style={styles.card} key={`DateGroup:${index + 1}`}>
