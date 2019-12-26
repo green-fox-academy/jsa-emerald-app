@@ -11,13 +11,12 @@ import { requestSignup } from './actionCreator';
 export default function Register() {
   const { navigate } = useNavigation();
   const { accessToken } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
-  const dispatch = useDispatch();
 
   const signUp = (userInfo) => {
     dispatch(requestSignup(userInfo.email, userInfo.password, userInfo.username));
@@ -30,7 +29,6 @@ export default function Register() {
   return (
     <View style={RegisterView.registerForm}>
       <Text styles={RegisterView.header}>Registration</Text>
-
       <TextInput
         style={RegisterView.inputText}
         placeholder="Your username"
@@ -38,7 +36,6 @@ export default function Register() {
         value={username}
         onChangeText={(value) => setUsername(value)}
       />
-
       <TextInput
         style={RegisterView.inputText}
         placeholder="Your email"
@@ -47,11 +44,10 @@ export default function Register() {
         value={email}
         onChangeText={(value) => setEmail(value)}
       />
-      <Text style={RegisterView.Note}>
+      <Text style={RegisterView.note}>
         {email === 'test@gmail.com' ? 'The email is registered.' : '' }
         {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
       </Text>
-
       <TextInput
         style={RegisterView.inputText}
         placeholder="Your password"
@@ -60,10 +56,9 @@ export default function Register() {
         value={password}
         onChangeText={(value) => setPassword(value)}
       />
-      <Text style={RegisterView.Note}>
+      <Text style={RegisterView.note}>
         {utils.passwordValidation(password) || password === '' ? '' : 'Password should be 8 to 16 characters with at least one special character.'}
       </Text>
-
       <TextInput
         style={RegisterView.inputText}
         placeholder="Confirm your password"
@@ -72,10 +67,9 @@ export default function Register() {
         value={confirmPassword}
         onChangeText={(value) => setConfirmPassword(value)}
       />
-      <Text style={RegisterView.Note}>
+      <Text style={RegisterView.note}>
         {password === confirmPassword || confirmPassword === '' ? '' : 'Password is not the same.'}
       </Text>
-
       {
         utils.validateSignup(username, password, confirmPassword, email) ? (
           <Button

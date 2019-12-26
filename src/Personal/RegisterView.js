@@ -31,7 +31,7 @@ const RegisterView = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
-  Note: {
+  note: {
     color: 'red',
     width: 'auto',
   },
