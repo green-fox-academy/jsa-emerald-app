@@ -1,12 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
-import Login from './Login';
-import styles from './LoginView';
+import { View, Button } from 'react-native';
+import { useNavigation } from 'react-navigation-hooks';
+import styles from './loginView';
 
-export default function Personal() {
+export default function Index() {
+  const { navigate } = useNavigation();
   return (
     <View style={styles.container}>
-      <Login />
+      <Button title="Login" onPress={() => navigate('Login')} />
     </View>
   );
 }

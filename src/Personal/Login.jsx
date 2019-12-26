@@ -1,55 +1,55 @@
 import React, { useState } from 'react';
 import {
-  View, Text, TextInput, TouchableOpacity,
+  View, Text, TextInput, Button,
 } from 'react-native';
 import utils from './utils';
-import styles from './LoginView';
+import LoginView from './loginView';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handlePasswordChange = (value) => {
-    setPassword(value);
-  };
-  const handleEmailChange = (value) => {
-    setEmail(value);
-  };
-
   return (
-    <View style={styles.registerForm}>
-      <Text styles={styles.header}>Login</Text>
+    <View style={LoginView.registerForm}>
+      <Text styles={LoginView.header}>Login</Text>
 
       <TextInput
-        style={styles.inputText}
+        style={LoginView.inputText}
         placeholder="Your email"
         underlineColorAndroid="transparent"
         textContentType="emailAddress"
         value={email}
-        onChangeText={(value) => handleEmailChange(value)}
+        onChangeText={(value) => setEmail(value)}
       />
-      <Text style={styles.Note}>
-        {email === 'test@1.com' ? 'The email is registered.' : '' }
+      <Text style={LoginView.Note}>
         {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
       </Text>
 
       <TextInput
-        style={styles.inputText}
+        style={LoginView.inputText}
         placeholder="Your password"
         underlineColorAndroid="transparent"
         secureTextEntry
         value={password}
-        onChangeText={(value) => handlePasswordChange(value)}
+        onChangeText={(value) => setPassword(value)}
       />
-      <Text style={styles.Note}>
+      <Text style={LoginView.Note}>
         {utils.passwordValidation(password) || password === '' ? '' : 'Password should be 8 to 16 characters with at least one special characters.'}
       </Text>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>
-          Sign up
-        </Text>
-      </TouchableOpacity>
+      {
+      utils.loginValidation(email, password) ? (
+        <Button
+          title="Sign Up"
+          color="green"
+        />
+      ) : (
+        <Button
+          title="Sign Up"
+          disabled
+        />
+      )
+      }
 
     </View>
   );
