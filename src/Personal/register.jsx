@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useSelector } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View, Text, TextInput, Button,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
 import utils from './utils';
 import RegisterView from './RegisterView';
@@ -57,7 +57,7 @@ export default function Register() {
         onChangeText={(value) => setPassword(value)}
       />
       <Text style={RegisterView.note}>
-        {utils.passwordValidation(password) || password === '' ? '' : 'Password should be 8 to 16 characters with at least one special character.'}
+        {utils.passwordValidation(password) || password === '' ? '' : 'Password should be 8 to 16 characters.'}
       </Text>
       <TextInput
         style={RegisterView.inputText}
