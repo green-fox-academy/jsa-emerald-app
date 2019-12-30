@@ -4,8 +4,8 @@ import Index from './index';
 import Login from './login';
 
 const MainNavigator = createStackNavigator({
-  Index: { screen: Index },
-  Login: { screen: Login },
+  Index,
+  Login,
 });
 
 const personalNavigator = createAppContainer(MainNavigator);

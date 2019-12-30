@@ -17,7 +17,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
 
   const login = (userInfo) => {
-    dispatch(requestLogin(userInfo.email, userInfo.password));
+    dispatch(requestLogin(userInfo));
   };
 
   useEffect(() => {

@@ -25,7 +25,7 @@ export function loginFailed() {
   };
 }
 
-export const requestLogin = (email, password) => (dispatch) => {
+export const requestLogin = (userInfo) => (dispatch) => {
   dispatch(loginStart());
   fetch(`${BACKEND_URL}/users/login`, {
     method: 'POST',
@@ -33,7 +33,7 @@ export const requestLogin = (email, password) => (dispatch) => {
     headers: {
       'Content-Type': 'Application/json',
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify(userInfo),
   }).then((response) => {
     if (response.status === 200) {
       return response.json();
@@ -42,7 +42,7 @@ export const requestLogin = (email, password) => (dispatch) => {
     return false;
   }).then((response) => {
     if (response) {
-      dispatch(loginSuccessful({ email, accessToken: response.accessToken }));
+      dispatch(loginSuccessful({ email: userInfo.email, accessToken: response.accessToken }));
     }
   }).catch((error) => {
     dispatch(loginFailed());
