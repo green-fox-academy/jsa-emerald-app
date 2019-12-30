@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Personal render  1`] = `
+<View>
+  <Text>
+    Personal Screen
+  </Text>
+</View>
+`;
