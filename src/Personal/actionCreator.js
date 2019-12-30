@@ -25,7 +25,7 @@ export function signupFailed() {
   };
 }
 
-export const requestSignup = (email, password, username) => (dispatch) => {
+export const requestSignup = (userInfo) => (dispatch) => {
   dispatch(signupStart());
   fetch(`${BACKEND_URL}/users/signup`, {
     method: 'POST',
@@ -33,7 +33,7 @@ export const requestSignup = (email, password, username) => (dispatch) => {
     headers: {
       'Content-Type': 'Application/json',
     },
-    body: JSON.stringify({ email, password, username }),
+    body: JSON.stringify(userInfo),
   }).then((response) => {
     if (response.status === 200) {
       return response.json();
@@ -42,7 +42,14 @@ export const requestSignup = (email, password, username) => (dispatch) => {
     return false;
   }).then((response) => {
     if (response) {
-      dispatch(signupSuccessful(response, email, password));
+      dispatch(
+        signupSuccessful({
+          accessToken: response.accessToken,
+          email: userInfo.email,
+          password: userInfo.password,
+          username: userInfo.username,
+        }),
+      );
     }
   })
     .catch((error) => {

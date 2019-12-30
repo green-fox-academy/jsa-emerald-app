@@ -19,7 +19,7 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const signUp = (userInfo) => {
-    dispatch(requestSignup(userInfo.email, userInfo.password, userInfo.username));
+    dispatch(requestSignup(userInfo));
   };
 
   useEffect(() => {

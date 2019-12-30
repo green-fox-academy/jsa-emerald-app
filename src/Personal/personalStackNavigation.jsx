@@ -4,8 +4,8 @@ import Index from './index';
 import Register from './register';
 
 const MainNavigator = createStackNavigator({
-  Index: { screen: Index },
-  Register: { screen: Register },
+  Index,
+  Register,
 });
 
 const personalNavigator = createAppContainer(MainNavigator);
