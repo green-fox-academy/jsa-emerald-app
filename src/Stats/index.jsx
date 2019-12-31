@@ -17,6 +17,7 @@ export default function Stats() {
   const [view, setCurrentView] = useState('month');
   const [timePeriodOptions, setTimePeriod] = useState(utils.getDateSet(moment(), view));
   const [isOverlayVisible, setOverlayVisibility] = useState(false);
+  const [isChatVisible, setChatVisibility] = useState(false);
 
   const updateHeaderView = (type) => {
     setCurrentView(type);
@@ -28,6 +29,17 @@ export default function Stats() {
     const current = timePeriodOptions[1];
     return utils.filterData(transactionRecords, current, view);
   };
+
+  const navBarFunc = [
+    {
+      name: 'pie-chart',
+      func: () => setChatVisibility(true),
+    },
+    {
+      name: 'filter',
+      func: () => setOverlayVisibility(true),
+    },
+  ];
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -42,7 +54,7 @@ export default function Stats() {
           </View>
         </View>
       </Overlay>
-      <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(true)} btnName="filter" />
+      <MainHeader title="Activity" btnType={navBarFunc} />
       <DateSlider
         viewSet={timePeriodOptions}
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}

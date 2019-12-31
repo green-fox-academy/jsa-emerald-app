@@ -5,32 +5,32 @@ import { Button } from 'react-native-elements';
 import styles from './themeStyle';
 
 export default function MainHeader(props) {
-  const { title, onPressBtn, btnName } = props;
+  const { title, leftBtn, btnType } = props;
   return (
     <View style={styles.mainHeader}>
-      <View style={{ flex: 1 }}>
-        <Button type="clear" />
+      <View style={{ flex: 1, alignItems: 'flex-start', marginBottom: -10 }}>
+        <Button icon={{ name: 'close' }} type="clear" />
       </View>
       <Text style={[styles.headerFont, { flex: 1 }]}>{title}</Text>
       <View style={{
-        flex: 1, alignItems: 'flex-end',
+        flex: 1, alignContent: 'flex-end', marginBottom: -10, justifyContent: 'flex-end', flexDirection: 'row', alignItems: 'flex-end',
       }}
       >
-        {(btnName !== '')
-          ? <Button onPress={onPressBtn} icon={{ name: btnName }} type="clear" /> : <View />}
+        {(btnType.length)
+          ? btnType.map((item) => <Button onPress={item.func} icon={{ name: item.name }} type="clear" />) : <View />}
       </View>
     </View>
   );
 }
 
 MainHeader.propTypes = {
+  leftBtn: PropTypes.func,
   title: PropTypes.string,
-  onPressBtn: PropTypes.func,
-  btnName: PropTypes.string,
+  btnType: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string, func: PropTypes.func })),
 };
 
 MainHeader.defaultProps = {
+  leftBtn: () => {},
   title: '',
-  onPressBtn: () => {},
-  btnName: '',
+  btnType: [],
 };

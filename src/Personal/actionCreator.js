@@ -2,7 +2,7 @@ import { BACKEND_URL } from 'react-native-dotenv';
 
 const moment = require('moment');
 
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ijc4OSIsImVtYWlsIjoiNzg5QGdtYWlsLmNvbSIsImlhdCI6MTU3Nzc3NDA5NSwiZXhwIjoxNTc3Nzc3Njk1fQ.Vh2uraOqmrWDrj_UGPSS7yOhNbWtDjpKYrroRJ34MBI';
+const refreshToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ijc4OSIsImVtYWlsIjoiNzg5QGdtYWlsLmNvbSIsImlhdCI6MTU3Nzc4MDU5MSwiZXhwIjoxNTgwMzcyNTkxfQ.sUYdNKS8Y3amSwXx1YdC1rXzOVQMNRewAmFYWBpfo0Q';
 
 export const actionType = {
   BACKUP_START: 'BACKUP_START',
@@ -57,7 +57,7 @@ export const requestBackup = (transactions) => (dispatch) => {
     method: 'POST',
     mode: 'cors',
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${refreshToken}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(transactions),
