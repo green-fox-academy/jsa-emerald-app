@@ -22,7 +22,15 @@ export default function LineGraph({ dataSet }) {
   };
   return (
     <View>
-      <LineChart style={{ flex: 1 }} data={data} height={220} width={screenWidth} chartConfig={chartConfig} bezier />
+      <LineChart
+        style={{ flex: 1 }}
+        fromZero
+        data={data}
+        height={220}
+        width={screenWidth}
+        chartConfig={chartConfig}
+        bezier
+      />
     </View>
   );
 }
