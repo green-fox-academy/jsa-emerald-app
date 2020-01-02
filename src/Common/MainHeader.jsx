@@ -5,11 +5,11 @@ import { Button } from 'react-native-elements';
 import styles from './themeStyle';
 
 export default function MainHeader(props) {
-  const { title, leftBtn, btnType } = props;
+  const { title, btnType } = props;
   return (
     <View style={styles.mainHeader}>
       <View style={{ flex: 1, alignItems: 'flex-start', marginBottom: -10 }}>
-        <Button icon={{ name: 'close' }} type="clear" />
+        <Button type="clear" />
       </View>
       <Text style={[styles.headerFont, { flex: 1 }]}>{title}</Text>
       <View style={{
@@ -17,20 +17,18 @@ export default function MainHeader(props) {
       }}
       >
         {(btnType.length)
-          ? btnType.map((item) => <Button onPress={item.func} icon={{ name: item.name }} type="clear" />) : <View />}
+          ? btnType.map((item, index) => <Button key={`btnTypeGroup:${index + 1}`} onPress={item.func} icon={{ name: item.name }} type="clear" />) : <View />}
       </View>
     </View>
   );
 }
 
 MainHeader.propTypes = {
-  leftBtn: PropTypes.func,
   title: PropTypes.string,
   btnType: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string, func: PropTypes.func })),
 };
 
 MainHeader.defaultProps = {
-  leftBtn: () => {},
   title: '',
   btnType: [],
 };

@@ -8,6 +8,10 @@ const TabBarIcon = ({ navigation, focused, tintColor }) => {
   let iconName; let IconComponent;
   switch (routeName) {
     case 'Stats':
+      IconComponent = MaterialCommunityIcons;
+      iconName = 'format-list-bulleted';
+      break;
+    case 'Trans':
       IconComponent = MaterialIcons;
       iconName = `pie-chart${focused ? '' : '-outlined'}`;
       break;

@@ -1,79 +1,10 @@
-import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
-import { ListItem, Overlay, Button } from 'react-native-elements';
-import { useSelector } from 'react-redux';
-import styles from '../Common/themeStyle';
-import MainHeader from '../Common/MainHeader';
-import utils from './utils';
-import DateSlider from './DateSlider';
-import FilterBtn from './FilterBtn';
-import TransList from './TransList';
-import EmptyHistory from './EmptyHistory';
-
-const moment = require('moment');
+import React from 'react';
+import { View, Text } from 'react-native';
 
 export default function Stats() {
-  const { transactions } = useSelector((state) => state.transactions);
-  const [view, setCurrentView] = useState('month');
-  const [timePeriodOptions, setTimePeriod] = useState(utils.getDateSet(moment(), view));
-  const [isOverlayVisible, setOverlayVisibility] = useState(false);
-  const [isChatVisible, setChatVisibility] = useState(false);
-
-  const updateHeaderView = (type) => {
-    setCurrentView(type);
-    setTimePeriod(utils.getDateSet(moment(), type));
-    setOverlayVisibility(!isOverlayVisible);
-  };
-
-  const filterListView = (transactionRecords) => {
-    const current = timePeriodOptions[1];
-    return utils.filterData(transactionRecords, current, view);
-  };
-
-  const navBarFunc = [
-    {
-      name: 'pie-chart',
-      func: () => setChatVisibility(true),
-    },
-    {
-      name: 'filter',
-      func: () => setOverlayVisibility(true),
-    },
-  ];
-
   return (
-    <View style={{ flex: 1, flexDirection: 'column' }}>
-      <Overlay height={200} isVisible={isOverlayVisible}>
-        <View>
-          <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-            <Button icon={{ name: 'close' }} type="clear" onPress={() => setOverlayVisibility(false)} />
-          </View>
-          <View style={{ marginTop: 20 }}>
-            <ListItem title="Month" topDivider bottomDivider onPress={() => updateHeaderView('month')} />
-            <ListItem title="Year" bottomDivider onPress={() => updateHeaderView('year')} />
-          </View>
-        </View>
-      </Overlay>
-      <MainHeader title="Activity" btnType={navBarFunc} />
-      <DateSlider
-        viewSet={timePeriodOptions}
-        onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}
-        viewType={view}
-      />
-      <ScrollView style={styles.deviceBody}>
-        <View style={{ marginBottom: 20 }}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <FilterBtn />
-          </View>
-          {(transactions.length !== 0)
-            ? (
-              <TransList
-                transactions={filterListView(utils.groupTransactionsByDate(transactions))}
-              />
-            )
-            : <EmptyHistory />}
-        </View>
-      </ScrollView>
+    <View>
+      <Text>This is stats page</Text>
     </View>
   );
 }

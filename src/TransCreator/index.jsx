@@ -8,7 +8,7 @@ import { NavigationScreenPropType } from 'react-navigation';
 import styles from './Style';
 import PageFooter from './PageFooter';
 import DateSelector from './DateSelector';
-import { addNewTransaction } from '../Stats/actionCreator';
+import { addNewTransaction } from '../List/actionCreator';
 import LabelGroup from './LabelGroup';
 import PageBanner from './PageBanner';
 import theme from '../Common/themeStyle';
