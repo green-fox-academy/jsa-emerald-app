@@ -30,6 +30,10 @@ export default function Stats() {
       func: () => setOverlayVisibility(true),
     },
   ];
+  console.log('==============');
+
+  console.log(filterListView(utils.groupTransactionsByDate(transactions)));
+
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <DateOverlay
