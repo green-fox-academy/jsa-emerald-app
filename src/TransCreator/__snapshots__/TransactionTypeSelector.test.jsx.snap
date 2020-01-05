@@ -1,21 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DateSlider /> render 1`] = `
+exports[`<TransactionTypeSelector/> render Expense 1`] = `
 <View
   style={
     Object {
       "flexDirection": "row",
-      "justifyContent": "space-around",
+      "justifyContent": "center",
+      "marginBottom": 20,
     }
   }
 >
   <View
     style={
       Object {
-        "borderBottomColor": "white",
-        "borderBottomWidth": 2,
         "borderRadius": 3,
-        "flex": 1,
       }
     }
   >
@@ -39,27 +37,34 @@ exports[`<DateSlider /> render 1`] = `
           Object {
             "alignItems": "center",
             "backgroundColor": "transparent",
-            "borderColor": "#2089dc",
-            "borderRadius": 3,
-            "borderWidth": 0,
+            "borderColor": "black",
+            "borderRadius": 50,
+            "borderWidth": 1,
             "flexDirection": "row",
             "justifyContent": "center",
+            "marginBottom": 0,
+            "marginLeft": 6,
+            "marginRight": 6,
+            "marginTop": 15,
             "padding": 8,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+            "width": 120,
           }
         }
       >
         <Text
           style={
             Object {
-              "color": "grey",
-              "fontSize": 18,
+              "color": "black",
+              "fontSize": 15,
               "paddingBottom": 1,
               "paddingTop": 2,
               "textAlign": "center",
             }
           }
         >
-          Dec 2019
+          Expense
         </Text>
       </View>
     </View>
@@ -67,32 +72,7 @@ exports[`<DateSlider /> render 1`] = `
   <View
     style={
       Object {
-        "borderBottomColor": "#30d29d",
-        "borderBottomWidth": 2,
-        "flex": 1,
-        "justifyContent": "center",
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "fontSize": 18,
-          "fontWeight": "500",
-          "textAlign": "center",
-        }
-      }
-    >
-      Jan 2020
-    </Text>
-  </View>
-  <View
-    style={
-      Object {
-        "borderBottomColor": "white",
-        "borderBottomWidth": 2,
-        "borderRadius": 3,
-        "flex": 1,
+        "borderRadius": 50,
       }
     }
   >
@@ -116,12 +96,19 @@ exports[`<DateSlider /> render 1`] = `
           Object {
             "alignItems": "center",
             "backgroundColor": "transparent",
-            "borderColor": "#2089dc",
-            "borderRadius": 3,
-            "borderWidth": 0,
+            "borderColor": "gray",
+            "borderRadius": 50,
+            "borderWidth": 1,
             "flexDirection": "row",
             "justifyContent": "center",
+            "marginBottom": 0,
+            "marginLeft": 6,
+            "marginRight": 6,
+            "marginTop": 15,
             "padding": 8,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+            "width": 120,
           }
         }
       >
@@ -129,14 +116,14 @@ exports[`<DateSlider /> render 1`] = `
           style={
             Object {
               "color": "grey",
-              "fontSize": 18,
+              "fontSize": 15,
               "paddingBottom": 1,
               "paddingTop": 2,
               "textAlign": "center",
             }
           }
         >
-          Feb 2020
+          Income
         </Text>
       </View>
     </View>
@@ -144,22 +131,20 @@ exports[`<DateSlider /> render 1`] = `
 </View>
 `;
 
-exports[`<DateSlider /> render 2`] = `
+exports[`<TransactionTypeSelector/> render Income 1`] = `
 <View
   style={
     Object {
       "flexDirection": "row",
-      "justifyContent": "space-around",
+      "justifyContent": "center",
+      "marginBottom": 20,
     }
   }
 >
   <View
     style={
       Object {
-        "borderBottomColor": "white",
-        "borderBottomWidth": 2,
-        "borderRadius": 3,
-        "flex": 1,
+        "borderRadius": 50,
       }
     }
   >
@@ -183,12 +168,19 @@ exports[`<DateSlider /> render 2`] = `
           Object {
             "alignItems": "center",
             "backgroundColor": "transparent",
-            "borderColor": "#2089dc",
-            "borderRadius": 3,
-            "borderWidth": 0,
+            "borderColor": "gray",
+            "borderRadius": 50,
+            "borderWidth": 1,
             "flexDirection": "row",
             "justifyContent": "center",
+            "marginBottom": 0,
+            "marginLeft": 6,
+            "marginRight": 6,
+            "marginTop": 15,
             "padding": 8,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+            "width": 120,
           }
         }
       >
@@ -196,14 +188,14 @@ exports[`<DateSlider /> render 2`] = `
           style={
             Object {
               "color": "grey",
-              "fontSize": 18,
+              "fontSize": 15,
               "paddingBottom": 1,
               "paddingTop": 2,
               "textAlign": "center",
             }
           }
         >
-          2019
+          Expense
         </Text>
       </View>
     </View>
@@ -211,32 +203,7 @@ exports[`<DateSlider /> render 2`] = `
   <View
     style={
       Object {
-        "borderBottomColor": "#30d29d",
-        "borderBottomWidth": 2,
-        "flex": 1,
-        "justifyContent": "center",
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "fontSize": 18,
-          "fontWeight": "500",
-          "textAlign": "center",
-        }
-      }
-    >
-      2020
-    </Text>
-  </View>
-  <View
-    style={
-      Object {
-        "borderBottomColor": "white",
-        "borderBottomWidth": 2,
         "borderRadius": 3,
-        "flex": 1,
       }
     }
   >
@@ -260,27 +227,34 @@ exports[`<DateSlider /> render 2`] = `
           Object {
             "alignItems": "center",
             "backgroundColor": "transparent",
-            "borderColor": "#2089dc",
-            "borderRadius": 3,
-            "borderWidth": 0,
+            "borderColor": "black",
+            "borderRadius": 50,
+            "borderWidth": 1,
             "flexDirection": "row",
             "justifyContent": "center",
+            "marginBottom": 0,
+            "marginLeft": 6,
+            "marginRight": 6,
+            "marginTop": 15,
             "padding": 8,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+            "width": 120,
           }
         }
       >
         <Text
           style={
             Object {
-              "color": "grey",
-              "fontSize": 18,
+              "color": "black",
+              "fontSize": 15,
               "paddingBottom": 1,
               "paddingTop": 2,
               "textAlign": "center",
             }
           }
         >
-          2021
+          Income
         </Text>
       </View>
     </View>

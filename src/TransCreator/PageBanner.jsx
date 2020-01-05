@@ -26,7 +26,7 @@ export default function PageBanner({
           <View style={[themeStyle.headerFormat, styles.headerFormat]}>
             <View style={styles.headerContainer}>
               <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
-              <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
+              <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name}</Text>
             </View>
             <View style={styles.headerDigitSection}>
               <Text style={styles.headerDigitResult}>{ displayAmount }</Text>
