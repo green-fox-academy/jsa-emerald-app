@@ -16,7 +16,7 @@ const PageFooter = ({ createHandler }) => (
       <Button
         bordered
         style={styles.confirmButton}
-        onPress={() => createHandler()}
+        onPress={createHandler}
       >
         <Text style={styles.confirmButtonText}>Add</Text>
       </Button>
