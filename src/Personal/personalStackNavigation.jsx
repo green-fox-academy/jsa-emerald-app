@@ -5,7 +5,12 @@ import Login from './login';
 
 const MainNavigator = createStackNavigator({
   Index,
-  Login,
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      header: null,
+    },
+  },
 });
 
 const personalNavigator = createAppContainer(MainNavigator);

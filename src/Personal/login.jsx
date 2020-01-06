@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
+import MainHeader from '../Common/MainHeader';
 import utils from './utils';
 import LoginView from './loginView';
 import { requestLogin } from './actionCreator';
@@ -25,31 +26,32 @@ export default function Login() {
   }, [user.accessToken]);
 
   return (
-    <View style={LoginView.registerForm}>
-      <Text styles={LoginView.header}>Login</Text>
-      <TextInput
-        style={LoginView.inputText}
-        placeholder="Your email"
-        underlineColorAndroid="transparent"
-        textContentType="emailAddress"
-        value={email}
-        onChangeText={(value) => setEmail(value)}
-      />
-      <Text style={LoginView.Note}>
-        {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
-      </Text>
-      <TextInput
-        style={LoginView.inputText}
-        placeholder="Your password"
-        underlineColorAndroid="transparent"
-        secureTextEntry
-        value={password}
-        onChangeText={(value) => setPassword(value)}
-      />
-      <Text style={LoginView.Note}>
-        {utils.passwordValidation(password) || password === '' ? '' : 'Password should be 8 to 16 characters.'}
-      </Text>
-      {
+    <>
+      <MainHeader title="Login" />
+      <View style={LoginView.registerForm}>
+        <TextInput
+          style={LoginView.inputText}
+          placeholder="Your email"
+          underlineColorAndroid="transparent"
+          textContentType="emailAddress"
+          value={email}
+          onChangeText={(value) => setEmail(value)}
+        />
+        <Text style={LoginView.Note}>
+          {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
+        </Text>
+        <TextInput
+          style={LoginView.inputText}
+          placeholder="Your password"
+          underlineColorAndroid="transparent"
+          secureTextEntry
+          value={password}
+          onChangeText={(value) => setPassword(value)}
+        />
+        <Text style={LoginView.Note}>
+          {utils.passwordValidation(password) || password === '' ? '' : 'Password should be at least 8 characters.'}
+        </Text>
+        {
       utils.loginValidation(email, password) ? (
         <Button
           title="Sign Up"
@@ -63,6 +65,7 @@ export default function Login() {
         />
       )
       }
-    </View>
+      </View>
+    </>
   );
 }
