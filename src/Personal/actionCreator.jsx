@@ -27,7 +27,7 @@ export function loginFailed() {
 
 export const requestLogin = (userInfo) => (dispatch) => {
   dispatch(loginStart());
-  fetch(`${BACKEND_URL}/users/login`, {
+  fetch(`${BACKEND_URL}/users/signin`, {
     method: 'POST',
     mode: 'cors',
     headers: {

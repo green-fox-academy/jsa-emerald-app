@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, TextInput, Button,
+  View, Text, KeyboardAvoidingView, Platform,
 } from 'react-native';
+import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
 import MainHeader from '../Common/MainHeader';
 import utils from './utils';
 import LoginView from './loginView';
 import { requestLogin } from './actionCreator';
+import SubmitBtn from './SubmitBtn';
 
 export default function Login() {
   const { navigate } = useNavigation();
@@ -16,6 +18,7 @@ export default function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordHidden, setPasswordHidden] = useState(true);
 
   const login = (userInfo) => {
     dispatch(requestLogin(userInfo));
@@ -27,45 +30,72 @@ export default function Login() {
 
   return (
     <>
-      <MainHeader title="Login" />
-      <View style={LoginView.registerForm}>
-        <TextInput
-          style={LoginView.inputText}
-          placeholder="Your email"
-          underlineColorAndroid="transparent"
-          textContentType="emailAddress"
-          value={email}
-          onChangeText={(value) => setEmail(value)}
-        />
-        <Text style={LoginView.Note}>
-          {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
-        </Text>
-        <TextInput
-          style={LoginView.inputText}
-          placeholder="Your password"
-          underlineColorAndroid="transparent"
-          secureTextEntry
-          value={password}
-          onChangeText={(value) => setPassword(value)}
-        />
-        <Text style={LoginView.Note}>
-          {utils.passwordValidation(password) || password === '' ? '' : 'Password should be at least 8 characters.'}
-        </Text>
-        {
-      utils.loginValidation(email, password) ? (
-        <Button
-          title="Sign Up"
-          color="green"
-          onPress={() => login({ email, password })}
-        />
-      ) : (
-        <Button
-          title="Sign Up"
-          disabled
-        />
-      )
-      }
+      <View style={{ borderBottomWidth: 2, borderBottomColor: '#f8f8f8' }}>
+        <MainHeader title="Login" />
       </View>
+      <KeyboardAvoidingView
+        style={LoginView.registerForm}
+        behavior="padding"
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 20}
+        enabled
+      >
+        <View>
+          <View style={LoginView.inputSection}>
+            <Input
+              placeholder="email@address.com"
+              leftIcon={(
+                <Icon
+                  name="email"
+                  color="#a8a8a8"
+                />
+          )}
+              leftIconContainerStyle={LoginView.inputIcon}
+              label="Your Email Address"
+              textContentType="emailAddress"
+              value={email}
+              onChangeText={(value) => setEmail(value)}
+              labelStyle={{ color: 'gray' }}
+            />
+            <Text style={LoginView.note}>
+              {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
+            </Text>
+          </View>
+          <View style={LoginView.inputSection}>
+            <Input
+              placeholder="Password"
+              leftIcon={(
+                <Icon
+                  name="lock"
+                  color="#a8a8a8"
+                />
+              )}
+              leftIconContainerStyle={LoginView.inputIcon}
+              label="Your password"
+              secureTextEntry={passwordHidden}
+              value={password}
+              onChangeText={(value) => setPassword(value)}
+              labelStyle={{ color: 'gray' }}
+              rightIcon={(
+                <Icon
+                  name={`md-eye${passwordHidden ? '-off' : ''}`}
+                  type="ionicon"
+                  color="gray"
+                  onPress={() => setPasswordHidden(!passwordHidden)}
+                />
+            )}
+            />
+            <Text style={LoginView.note}>
+              {utils.passwordValidation(password) || password === '' ? '' : 'Password should be at least 8 characters.'}
+            </Text>
+          </View>
+        </View>
+        <View>
+          <SubmitBtn
+            disabled={utils.loginValidation(email, password) === false}
+            onPressBtn={() => login({ email, password })}
+          />
+        </View>
+      </KeyboardAvoidingView>
     </>
   );
 }

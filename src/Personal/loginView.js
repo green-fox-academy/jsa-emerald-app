@@ -1,16 +1,32 @@
 import { StyleSheet } from 'react-native';
 
+const btnShadow = {
+  shadowOffset: {
+    width: 0,
+    height: 6,
+  },
+  shadowOpacity: 0.70,
+  shadowRadius: 4.65,
+  elevation: 8,
+};
+
 const LoginView = StyleSheet.create({
   registerForm: {
-    alignSelf: 'stretch',
+    alignContent: 'center',
+    paddingLeft: 10,
+    paddingRight: 10,
+    flex: 1,
+    marginTop: 50,
+    marginBottom: 50,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
-  inputText: {
-    alignSelf: 'stretch',
-    height: 40,
-    marginBottom: 10,
-    color: 'black',
-    borderBottomColor: '#f8f8f8',
-    borderBottomWidth: 2,
+  inputIcon: {
+    marginLeft: 0,
+    marginRight: 5,
+  },
+  inputSection: {
+    marginBottom: 20,
   },
   button: {
     alignSelf: 'stretch',
@@ -23,9 +39,10 @@ const LoginView = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
-  Note: {
+  note: {
     color: 'red',
     width: 'auto',
+    marginLeft: 10,
   },
   container: {
     flex: 1,
@@ -33,6 +50,16 @@ const LoginView = StyleSheet.create({
     backgroundColor: '#fff',
     paddingLeft: 60,
     paddingRight: 60,
+  },
+
+  btnShadow: {
+    shadowColor: '#70ea93',
+    ...btnShadow,
+  },
+
+  disabledBtnShadow: {
+    shadowColor: '#ababab',
+    ...btnShadow,
   },
 });
 
