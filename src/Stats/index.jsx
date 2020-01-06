@@ -8,6 +8,7 @@ import DateOverlay from '../Common/DateOverlay';
 import utils from '../List/utils';
 import statsUtils from './statsUtils';
 import LineGraph from './LineGraph';
+import PieGraph from './PieGraph';
 
 const moment = require('moment');
 
@@ -27,6 +28,7 @@ export default function Stats() {
     return utils.filterData(transactionRecords, current, view);
   };
 
+
   const navBarFunc = [
     {
       name: 'filter',
@@ -34,8 +36,13 @@ export default function Stats() {
     },
   ];
 
-  const dataSet = statsUtils.convertDataGroup(filterListView(utils.groupTransactionsByDate(transactions)), 'Expense');
-  console.log(dataSet);
+  const filteredDataByDate = filterListView(utils.groupTransactionsByDate(transactions));
+
+  const filterDataByPeriod = statsUtils.filterDataByPeriod(transactions, timePeriodOptions[1], view);
+
+  const dataSetByDate = statsUtils.convertToLineGraphDataset(filteredDataByDate, 'Expense');
+
+  const graphDataSet = statsUtils.convertToDatasetByCategory(filterDataByPeriod, 'Expense');
 
 
   return (
@@ -53,7 +60,14 @@ export default function Stats() {
       />
       <ScrollView style={styles.deviceBody}>
         <View style={styles.card}>
-          <LineGraph dataSet={dataSet} style={{ flex: 1 }} />
+          {dataSetByDate.length !== 0
+            ? <LineGraph dataSet={dataSetByDate} style={{ flex: 1 }} />
+            : <View />}
+        </View>
+        <View style={styles.card}>
+          {dataSetByDate.length !== 0
+            ? <PieGraph dataSet={graphDataSet} style={{ flex: 1 }} />
+            : <View />}
         </View>
       </ScrollView>
     </View>
