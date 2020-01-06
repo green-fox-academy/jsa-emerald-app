@@ -60,7 +60,7 @@ export const requestBackup = (transactions) => (dispatch) => {
       Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(transactions),
+    body: JSON.stringify({ transactions }),
   }).then((response) => {
     if (response.status === 200) {
       setTimeout(() => dispatch(dispatch(backupSuccessful(moment().unix()))), 1000);
