@@ -13,12 +13,14 @@ const DateSelector = ({ transDate, setTransDate }) => {
       <MaterialIcons name="date-range" style={styles.dateItemIcon} />
       <View style={styles.dateView}>
         <Text
+          id="text-datePick-display"
           onPress={() => setDatePickerVisibility(true)}
           style={{ color: 'grey' }}
         >
           {moment.unix(transDate).format('MM/DD/YYYY')}
         </Text>
         <DateTimePicker
+          id="dateTimePicker-dateSelector"
           isVisible={isDatePickerVisible}
           mode="date"
           date={new Date(moment.unix(transDate).format('YYYY-MM-DD'))}

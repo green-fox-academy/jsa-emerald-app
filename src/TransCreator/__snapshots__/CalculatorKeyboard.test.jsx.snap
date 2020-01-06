@@ -42,6 +42,7 @@ exports[`<CalculatorKeyboard /> render 1`] = `
       }
     >
       <Text
+        id="text-datePick-display"
         onPress={[Function]}
         style={
           Object {

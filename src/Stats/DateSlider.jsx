@@ -11,6 +11,7 @@ export default function DateSlider(props) {
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
       <Button
+        id="btn-dateSlider-left"
         containerStyle={styles.dateNormal}
         title={viewSet[0].format(format)}
         type="clear"
@@ -21,6 +22,7 @@ export default function DateSlider(props) {
         <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500' }}>{viewSet[1].format(format)}</Text>
       </View>
       <Button
+        id="btn-dateSlider-right"
         containerStyle={styles.dateNormal}
         title={viewSet[2].format(format)}
         type="clear"

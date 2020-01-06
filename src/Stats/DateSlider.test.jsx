@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import DateSlider from './DateSlider';
 import utils from './utils';
 
@@ -14,9 +15,7 @@ describe('<DateSlider />', () => {
     />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-});
 
-describe('<DateSlider />', () => {
   it('render', () => {
     const type = 'year';
     const dateSet = utils.getDateSet(moment(), type);
@@ -26,5 +25,27 @@ describe('<DateSlider />', () => {
       viewType="year"
     />).toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it('Left button click', () => {
+    const btnClick = jest.fn();
+    const wrapper = shallow(<DateSlider
+      viewSet={utils.getDateSet(moment(), 'month')}
+      onPressBtn={btnClick}
+      viewType="month"
+    />);
+    wrapper.find('#btn-dateSlider-left').simulate('press');
+    expect(btnClick).toHaveBeenCalled();
+  });
+
+  it('Right button click', () => {
+    const btnClick = jest.fn();
+    const wrapper = shallow(<DateSlider
+      viewSet={utils.getDateSet(moment(), 'month')}
+      onPressBtn={btnClick}
+      viewType="month"
+    />);
+    wrapper.find('#btn-dateSlider-right').simulate('press');
+    expect(btnClick).toHaveBeenCalled();
   });
 });

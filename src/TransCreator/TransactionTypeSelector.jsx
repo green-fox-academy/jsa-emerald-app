@@ -7,6 +7,7 @@ import styles from './Style';
 const TransactionTypeSelector = ({ transType, setTransType }) => (
   <View style={styles.typeButtonGroup}>
     <Button
+      id="btn-trans-expense"
       buttonStyle={transType === 'Expense'
         ? [styles.typeButton, styles.typeButtonActive] : styles.typeButton}
       titleStyle={transType === 'Expense'
@@ -16,6 +17,7 @@ const TransactionTypeSelector = ({ transType, setTransType }) => (
       onPress={() => setTransType('Expense')}
     />
     <Button
+      id="btn-trans-income"
       buttonStyle={transType === 'Income'
         ? [styles.typeButton, styles.typeButtonActive] : styles.typeButton}
       titleStyle={transType === 'Income'

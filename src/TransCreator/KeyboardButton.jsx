@@ -18,11 +18,11 @@ const NumberBtn = ({ btnVal, onPress }) => (
 const KeyboardButton = ({ btnVal, pressHandler }) => {
   switch (btnVal) {
     case 'Add':
-      return <IconButton iconName="playlist-add" onPress={() => pressHandler(btnVal)} />;
+      return <IconButton id="btn-keyboard-add" iconName="playlist-add" onPress={() => pressHandler(btnVal)} />;
     case 'Remove':
-      return <IconButton iconName="backspace" onPress={() => pressHandler(btnVal)} />;
+      return <IconButton id="btn-keyboard-remove" iconName="backspace" onPress={() => pressHandler(btnVal)} />;
     default:
-      return <NumberBtn btnVal={btnVal} onPress={() => pressHandler(btnVal)} />;
+      return <NumberBtn id="btn-keyboard-digit" btnVal={btnVal} onPress={() => pressHandler(btnVal)} />;
   }
 };
 
