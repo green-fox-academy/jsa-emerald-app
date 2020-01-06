@@ -736,30 +736,16 @@ exports[`Stats render 1`] = `
             style={
               Array [
                 Object {
-<<<<<<< HEAD
                   "marginTop": 20,
                   "shadowColor": "#f38aa9",
                 },
                 null,
-=======
-                  "elevation": 8,
-                  "marginTop": 20,
-                  "shadowColor": "#f38aa9",
-                  "shadowOffset": Object {
-                    "height": 6,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.7,
-                  "shadowRadius": 4.65,
-                },
->>>>>>> JSAEM2-30_testing
                 Object {
                   "width": "48%",
                 },
               ]
             }
           >
-<<<<<<< HEAD
             <View
               accessible={true}
               isTVSelectable={true}
@@ -837,98 +823,21 @@ exports[`Stats render 1`] = `
                 </Text>
               </ViewManagerAdapter_ExpoLinearGradient>
             </View>
-=======
-            <ViewManagerAdapter_ExpoLinearGradient
-              proxiedProperties={
-                Object {
-                  "colors": Array [
-                    4293488030,
-                    4294945423,
-                  ],
-                  "endPoint": Array [
-                    0.9,
-                    0.1,
-                  ],
-                  "locations": undefined,
-                  "startPoint": Array [
-                    0.1,
-                    0.9,
-                  ],
-                }
-              }
-              style={
-                Object {
-                  "borderRadius": 10,
-                  "padding": 20,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 15,
-                    "fontWeight": "300",
-                  }
-                }
-              >
-                Spent
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 18,
-                    "fontWeight": "400",
-                    "marginBottom": 5,
-                    "marginTop": 5,
-                  }
-                }
-              >
-                -$400.00
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 15,
-                    "fontWeight": "300",
-                  }
-                }
-              >
-                Expense
-              </Text>
-            </ViewManagerAdapter_ExpoLinearGradient>
->>>>>>> JSAEM2-30_testing
           </View>
           <View
             style={
               Array [
                 Object {
-<<<<<<< HEAD
                   "marginTop": 20,
                   "shadowColor": "#70ea93",
                 },
                 null,
-=======
-                  "elevation": 8,
-                  "marginTop": 20,
-                  "shadowColor": "#70ea93",
-                  "shadowOffset": Object {
-                    "height": 6,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.7,
-                  "shadowRadius": 4.65,
-                },
->>>>>>> JSAEM2-30_testing
                 Object {
                   "width": "48%",
                 },
               ]
             }
           >
-<<<<<<< HEAD
             <View
               accessible={true}
               isTVSelectable={true}
@@ -1006,69 +915,6 @@ exports[`Stats render 1`] = `
                 </Text>
               </ViewManagerAdapter_ExpoLinearGradient>
             </View>
-=======
-            <ViewManagerAdapter_ExpoLinearGradient
-              proxiedProperties={
-                Object {
-                  "colors": Array [
-                    4281321625,
-                    4286115731,
-                  ],
-                  "endPoint": Array [
-                    0.9,
-                    0.1,
-                  ],
-                  "locations": undefined,
-                  "startPoint": Array [
-                    0.1,
-                    0.9,
-                  ],
-                }
-              }
-              style={
-                Object {
-                  "borderRadius": 10,
-                  "padding": 20,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 15,
-                    "fontWeight": "300",
-                  }
-                }
-              >
-                Earned
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 18,
-                    "fontWeight": "400",
-                    "marginBottom": 5,
-                    "marginTop": 5,
-                  }
-                }
-              >
-                +$680.00
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 15,
-                    "fontWeight": "300",
-                  }
-                }
-              >
-                Incomes
-              </Text>
-            </ViewManagerAdapter_ExpoLinearGradient>
->>>>>>> JSAEM2-30_testing
           </View>
         </View>
         <View>

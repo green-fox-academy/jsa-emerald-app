@@ -19,17 +19,10 @@
     ],
     "coverageThreshold": {
       "global": {
-<<<<<<< HEAD
         "branches": 75,
         "functions": 75,
         "lines": 75,
         "statements": 75
-=======
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
->>>>>>> JSAEM2-30_testing
       }
     },
     "setupFiles": [
