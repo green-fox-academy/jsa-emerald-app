@@ -24,14 +24,4 @@ global.cancelAnimationFrame = (id) => {
 };
 copyProps(window, global);
 
-// eslint-disable-next-line no-console
-const originalConsoleError = console.error;
-// eslint-disable-next-line no-console
-console.error = (message) => {
-  if (message.startsWith('Warning:')) {
-    return;
-  }
-  originalConsoleError(message);
-};
-
 Enzyme.configure({ adapter: new Adapter() });
