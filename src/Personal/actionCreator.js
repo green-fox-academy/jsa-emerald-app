@@ -2,7 +2,7 @@ import { BACKEND_URL } from 'react-native-dotenv';
 
 const moment = require('moment');
 
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ijc4OSIsImVtYWlsIjoiNzg5QGdtYWlsLmNvbSIsImlhdCI6MTU3Nzc3NDA5NSwiZXhwIjoxNTc3Nzc3Njk1fQ.Vh2uraOqmrWDrj_UGPSS7yOhNbWtDjpKYrroRJ34MBI';
+const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2UiLCJlbWFpbCI6Im1pa2VAZ21haWwuY29tIiwiaWQiOiI1ZTEwYmMyNDcwMWZiZDQ4OTczNzdkOWYiLCJpYXQiOjE1NzgyNzczNjQsImV4cCI6MTU4MDg2OTM2NH0.87qX49d6TTfqzhtI1jLiAoMn4bVyIGG4FNf9dLSX63c';
 
 export const actionType = {
   BACKUP_START: 'BACKUP_START',
