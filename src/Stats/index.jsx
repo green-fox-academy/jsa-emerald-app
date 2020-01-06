@@ -51,11 +51,27 @@ export default function Stats() {
       <Overlay height={200} isVisible={isOverlayVisible}>
         <View>
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-            <Button icon={{ name: 'close' }} type="clear" onPress={() => setOverlayVisibility(false)} />
+            <Button
+              id="btn-stats-index-vsb"
+              icon={{ name: 'close' }}
+              type="clear"
+              onPress={() => setOverlayVisibility(false)}
+            />
           </View>
           <View style={{ marginTop: 20 }}>
-            <ListItem title="Month" topDivider bottomDivider onPress={() => updateHeaderView('month')} />
-            <ListItem title="Year" bottomDivider onPress={() => updateHeaderView('year')} />
+            <ListItem
+              id="btn-stats-index-month"
+              title="Month"
+              topDivider
+              bottomDivider
+              onPress={() => updateHeaderView('month')}
+            />
+            <ListItem
+              id="btn-stats-index-year"
+              title="Year"
+              bottomDivider
+              onPress={() => updateHeaderView('year')}
+            />
           </View>
         </View>
       </Overlay>

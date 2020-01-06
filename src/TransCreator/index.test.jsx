@@ -1,10 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import index from './index';
+import { Provider } from 'react-redux';
+import Index from './index';
+import { store } from '../reduxStore';
 
-describe('<index/>', () => {
+describe('<TransCreator index/>', () => {
   it('render', () => {
-    const tree = renderer.create(<index navigation={{}} />);
+    const tree = renderer.create(<Provider store={store}><Index navigation={{}} /></Provider>);
     expect(tree.toJSON()).toMatchSnapshot();
   });
 });

@@ -29,6 +29,7 @@ const LabelGroup = ({
       <View style={styles.labelContainer}>
         {labels.map((item) => (
           <TouchableHighlight
+            id={`th-item-${item.name}`}
             key={item.name}
             underlayColor="white"
             onPress={() => setTransLabel(item)}
