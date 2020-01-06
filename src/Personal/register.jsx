@@ -57,7 +57,7 @@ export default function Register() {
         onChangeText={(value) => setPassword(value)}
       />
       <Text style={RegisterView.note}>
-        {utils.passwordValidation(password) || password === '' ? '' : 'Password should be 8 to 16 characters.'}
+        {utils.passwordValidation(password) || password === '' ? '' : 'Password should be at least 8 characters.'}
       </Text>
       <TextInput
         style={RegisterView.inputText}
