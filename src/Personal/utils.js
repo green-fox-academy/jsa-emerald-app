@@ -4,7 +4,7 @@ function emailValidation(email) {
 }
 
 function passwordValidation(password) {
-  const validatePassword = /^(?=.*[0-9])[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{8,16}$/;
+  const validatePassword = /^[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{8,}$/;
   return validatePassword.test(password);
 }
 
