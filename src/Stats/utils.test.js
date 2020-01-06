@@ -1,7 +1,5 @@
 import utils from './utils';
 
-const moment = require('moment');
-
 test('sort data by date', () => {
   const dataList = [
     {
