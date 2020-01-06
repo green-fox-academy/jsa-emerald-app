@@ -62,7 +62,7 @@ test('group objects by date', () => {
   const data = [
     {
       amount: '111.00',
-      date: 1577047800,
+      date: 1577007800,
       type: 'Expense',
     },
     {
@@ -92,7 +92,7 @@ test('group objects by date', () => {
     [
       {
         amount: '111.00',
-        date: 'December 23rd 2019',
+        date: 'December 22nd 2019',
         type: 'Expense',
       },
     ],
