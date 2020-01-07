@@ -19,6 +19,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordHidden, setPasswordHidden] = useState(true);
+  const [errorMsgDisplay, setErrorMsgDisplay] = useState(false);
 
   const login = (userInfo) => {
     dispatch(requestLogin(userInfo));
@@ -26,7 +27,13 @@ export default function Login() {
 
   useEffect(() => {
     if (user.accessToken) navigate('Index');
-  }, [user.accessToken]);
+  }, []);
+
+  useEffect(() => {
+    if (user.status !== '') {
+      setErrorMsgDisplay(true);
+    }
+  }, [user.status]);
 
   return (
     <>
@@ -84,13 +91,14 @@ export default function Login() {
                 />
             )}
             />
-            <Text style={LoginView.note}>
-              {utils.passwordValidation(password) || password === '' ? '' : 'Password should be at least 8 characters.'}
-            </Text>
           </View>
-          <View style={[LoginView.inputSection, LoginView.errorBox]}>
-            <Text style={LoginView.errorText}>111</Text>
-          </View>
+          {
+             (errorMsgDisplay) ? (
+               <View style={[LoginView.inputSection, LoginView.errorBox]}>
+                 <Text style={LoginView.errorText}>Invalidate email or password.</Text>
+               </View>
+             ) : (null)
+          }
         </View>
         <View>
           <SubmitBtn

@@ -19,9 +19,10 @@ export function loginSuccessful(userInfo) {
   };
 }
 
-export function loginFailed() {
+export function loginFailed(userInfo) {
   return {
     type: actionType.LOGIN_FAILED,
+    payload: userInfo,
   };
 }
 
@@ -38,11 +39,14 @@ export const requestLogin = (userInfo) => (dispatch) => {
     if (response.status === 200) {
       return response.json();
     }
-    dispatch(loginFailed());
-    return false;
+    dispatch(loginFailed({ status: response.status }));
+    return response.json();
   }).then((response) => {
     if (response) {
-      dispatch(loginSuccessful({ email: userInfo.email, accessToken: response.accessToken }));
+      dispatch(loginSuccessful({
+        email: userInfo.email,
+        accessToken: response.accessToken,
+      }));
     }
   }).catch((error) => {
     dispatch(loginFailed());

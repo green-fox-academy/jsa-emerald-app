@@ -8,8 +8,9 @@ import Personal from './personal';
 export default function Index() {
   const { navigate } = useNavigation();
   const user = useSelector((state) => state.user);
+
   return (
-    (user.accessToken !== '') ? <Personal /> : (
+    (user.accessToken !== '' && user.accessToken !== undefined) ? <Personal /> : (
       <View style={styles.container}>
         <Button title="Login" onPress={() => navigate('Login')} />
       </View>
