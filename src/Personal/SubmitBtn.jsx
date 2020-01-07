@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
+import PropTypes from 'prop-types';
 import colors from '../Common/Color';
 import LoginView from './loginView';
 
@@ -26,3 +27,8 @@ export default function SubmitBtn({ disabled, onPressBtn }) {
     </View>
   );
 }
+
+SubmitBtn.propTypes = {
+  disabled: PropTypes.bool.isRequired,
+  onPressBtn: PropTypes.func.isRequired,
+};
