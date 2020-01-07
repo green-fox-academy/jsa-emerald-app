@@ -4,14 +4,6 @@ const RegisterView = StyleSheet.create({
   registerForm: {
     alignSelf: 'stretch',
   },
-  header: {
-    fontSize: 29,
-    color: '#fff',
-    paddingBottom: 10,
-    marginBottom: 40,
-    borderBottomColor: '#199187',
-    borderBottomWidth: 1,
-  },
   inputText: {
     alignSelf: 'stretch',
     height: 40,

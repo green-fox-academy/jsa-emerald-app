@@ -5,7 +5,12 @@ import Register from './register';
 
 const MainNavigator = createStackNavigator({
   Index,
-  Register,
+  Register: {
+    screen: Register,
+    navigationOptions: {
+      header: null,
+    },
+  },
 });
 
 const personalNavigator = createAppContainer(MainNavigator);
