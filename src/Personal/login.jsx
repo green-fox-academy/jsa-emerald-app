@@ -88,6 +88,9 @@ export default function Login() {
               {utils.passwordValidation(password) || password === '' ? '' : 'Password should be at least 8 characters.'}
             </Text>
           </View>
+          <View style={[LoginView.inputSection, LoginView.errorBox]}>
+            <Text style={LoginView.errorText}>111</Text>
+          </View>
         </View>
         <View>
           <SubmitBtn

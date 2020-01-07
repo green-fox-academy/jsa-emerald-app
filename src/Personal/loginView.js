@@ -52,6 +52,20 @@ const LoginView = StyleSheet.create({
     paddingRight: 60,
   },
 
+  errorBox: {
+    backgroundColor: '#f3dee0',
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 5,
+  },
+
+  errorText: {
+    color: '#eb3d3d',
+    textAlign: 'center',
+  },
+
   btnShadow: {
     shadowColor: '#70ea93',
     ...btnShadow,
