@@ -4,6 +4,7 @@ export const actionType = {
   SIGNUP_START: 'SIGNUP_START',
   SIGNUP_FAILED: 'SIGNUP_FAILED',
   SIGNUP_SUCCESSFUL: 'SIGNUP_SUCCESSFUL',
+  LOGOUT_SUCCESSFUL: 'LOGOUT_SUCCESSFUL',
 };
 
 export function signupStart() {
@@ -19,9 +20,16 @@ export function signupSuccessful(userInfo) {
   };
 }
 
-export function signupFailed() {
+export function signupFailed(userInfo) {
   return {
     type: actionType.SIGNUP_FAILED,
+    payload: userInfo,
+  };
+}
+
+export function logoutSuccessful() {
+  return {
+    type: actionType.LOGOUT_SUCCESSFUL,
   };
 }
 
@@ -38,8 +46,8 @@ export const requestSignup = (userInfo) => (dispatch) => {
     if (response.status === 200) {
       return response.json();
     }
-    dispatch(signupFailed());
-    return false;
+    dispatch(signupFailed({ status: response.status }));
+    return response.json();
   }).then((response) => {
     if (response) {
       dispatch(

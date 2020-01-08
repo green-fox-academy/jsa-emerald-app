@@ -59,6 +59,20 @@ const RegisterView = StyleSheet.create({
     shadowColor: '#ababab',
     ...btnShadow,
   },
+  errorBox: {
+    backgroundColor: '#f3dee0',
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 5,
+  },
+
+  errorText: {
+    color: '#eb3d3d',
+    textAlign: 'center',
+  },
+
 });
 
 export default RegisterView;

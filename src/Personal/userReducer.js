@@ -3,7 +3,8 @@ import { actionType } from './actionCreator';
 const initialUser = {
   username: '',
   email: '',
-  accessToken: null,
+  accessToken: '',
+  status: '',
 };
 
 const user = (state = initialUser, action) => {
@@ -13,7 +14,8 @@ const user = (state = initialUser, action) => {
         ...state,
         username: '',
         email: '',
-        accessToken: null,
+        accessToken: '',
+        status: '',
       };
     case actionType.SIGNUP_SUCCESSFUL:
       return {
@@ -21,11 +23,18 @@ const user = (state = initialUser, action) => {
         username: action.payload.username,
         email: action.payload.email,
         accessToken: action.payload.accessToken,
+        status: '',
       };
     case actionType.SIGNUP_FAILED:
       return {
         ...state,
-        accessToken: null,
+        accessToken: '',
+        status: action.payload.status,
+      };
+    case actionType.LOGOUT_SUCCESSFUL:
+      return {
+        ...state,
+        accessToken: '',
       };
     default:
       return state;

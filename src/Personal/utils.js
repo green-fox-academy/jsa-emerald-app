@@ -10,7 +10,6 @@ function passwordValidation(password) {
 
 function validateSignup(username, password, confirmPassword, email) {
   return username !== ''
-      && email !== 'test@gmail.com'
       && password === confirmPassword
       && emailValidation(email)
       && passwordValidation(password);

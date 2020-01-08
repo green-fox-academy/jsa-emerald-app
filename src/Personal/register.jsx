@@ -13,7 +13,7 @@ import SubmitBtn from './submitBtn';
 
 export default function Register() {
   const { navigate } = useNavigation();
-  const { accessToken } = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
@@ -22,14 +22,21 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordHidden, setPasswordHidden] = useState(true);
   const [confirmPasswordHidden, setConfirmPasswordHidden] = useState(true);
+  const [errorMsgDisplay, setErrorMsgDisplay] = useState(false);
 
   const signUp = (userInfo) => {
     dispatch(requestSignup(userInfo));
   };
 
   useEffect(() => {
-    if (accessToken) navigate('Index');
-  }, [accessToken]);
+    if (user.accessToken) navigate('Index');
+  }, [user.accessToken]);
+
+  useEffect(() => {
+    if (user.status !== '') {
+      setErrorMsgDisplay(true);
+    }
+  }, [user.status]);
 
   return (
     <>
@@ -138,6 +145,13 @@ export default function Register() {
               {password === confirmPassword || confirmPassword === '' ? '' : 'Password is not the same.'}
             </Text>
           </View>
+          {
+             (errorMsgDisplay) ? (
+               <View style={[RegisterView.inputSection, RegisterView.errorBox]}>
+                 <Text style={RegisterView.errorText}>Invalidate email or password.</Text>
+               </View>
+             ) : (null)
+          }
           <View>
             <SubmitBtn
               disabled={utils.validateSignup(username, password, confirmPassword, email) === false}
