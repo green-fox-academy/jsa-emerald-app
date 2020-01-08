@@ -11,6 +11,11 @@ export default (state = initialState, action) => {
         ...state,
         transactions: [...state.transactions, { ...action.data }],
       };
+    case actionType.RESTORE_TRANS:
+      return {
+        ...state,
+        transactions: action.dataSet,
+      };
     default:
       return state;
   }

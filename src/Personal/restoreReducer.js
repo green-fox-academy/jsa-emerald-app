@@ -1,36 +1,36 @@
 import { actionType } from './actionCreator';
 
-const initialBackup = {
+const initialRestore = {
   isInProgress: false,
   error: '',
-  lastBackupDate: null,
+  lastRestoreDate: null,
 };
 
-const backupState = (state = initialBackup, action) => {
+const restoreState = (state = initialRestore, action) => {
   switch (action.type) {
-    case actionType.BACKUP_START:
+    case actionType.RESTORE_START:
       return {
         ...state,
         isInProgress: true,
         error: '',
       };
-    case actionType.BACKUP_SUCCESSFUL:
+    case actionType.RESTORE_SUCCESSFUL:
       return {
         ...state,
         isInProgress: false,
-        lastBackupDate: action.payload,
+        lastRestoreDate: action.payload,
         error: '',
       };
-    case actionType.BACKUP_FAILED:
+    case actionType.RESTORE_FAILED:
       return {
         ...state,
         isInProgress: false,
         error: action.payload,
-        lastBackupDate: null,
+        lastRestoreDate: null,
       };
     default:
       return state;
   }
 };
 
-export default backupState;
+export default restoreState;

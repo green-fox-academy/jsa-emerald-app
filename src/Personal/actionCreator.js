@@ -1,8 +1,10 @@
 import { BACKEND_URL } from 'react-native-dotenv';
+import { restoreTransactions } from '../Stats/actionCreator';
 
 const moment = require('moment');
 
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2UiLCJlbWFpbCI6Im1pa2VAZ21haWwuY29tIiwiaWQiOiI1ZTEwYmMyNDcwMWZiZDQ4OTczNzdkOWYiLCJpYXQiOjE1NzgyNzczNjQsImV4cCI6MTU4MDg2OTM2NH0.87qX49d6TTfqzhtI1jLiAoMn4bVyIGG4FNf9dLSX63c';
+const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2UiLCJlbWFpbCI6Im1pa2VAZ21haWwuY29tIiwiaWQiOiI1ZTEwYmMyNDcwMWZiZDQ4OTczNzdkOWYiLCJpYXQiOjE1NzgzNjQxOTQsImV4cCI6MTU4MDk1NjE5NH0.KiAzpui0f9-uwrAGVghNwukkEPWgeHHGkZH4sEm_v6o';
+// const accessToken = '';
 
 export const actionType = {
   BACKUP_START: 'BACKUP_START',
@@ -11,6 +13,9 @@ export const actionType = {
   SIGNUP_START: 'SIGNUP_START',
   SIGNUP_SUCCESSFUL: 'SIGNUP_SUCCESSFUL',
   SIGNUP_FAILED: 'SIGNUP_FAILED',
+  RESTORE_START: 'RESTORE_START',
+  RESTORE_SUCCESSFUL: 'RESTORE_SUCCESSFUL',
+  RESTORE_FAILED: 'RESTORE_FAILED',
 };
 
 export function backupStart() {
@@ -26,9 +31,10 @@ export function backupSuccessful(timestamp) {
   };
 }
 
-export function backupFailed() {
+export function backupFailed(errorMsg) {
   return {
     type: actionType.BACKUP_FAILED,
+    payload: errorMsg,
   };
 }
 
@@ -51,7 +57,31 @@ export function signupFailed() {
   };
 }
 
+export function restoreStart() {
+  return {
+    type: actionType.RESTORE_START,
+  };
+}
+
+export function restoreSuccessful(payload) {
+  return {
+    type: actionType.RESTORE_SUCCESSFUL,
+    payload,
+  };
+}
+
+export function restoreFailed(payload) {
+  return {
+    type: actionType.RESTORE_FAILED,
+    payload,
+  };
+}
+
 export const requestBackup = (transactions) => (dispatch) => {
+  if (!accessToken) {
+    dispatch(backupFailed('Unauthorized token'));
+    return;
+  }
   dispatch(backupStart());
   fetch(`${BACKEND_URL}/backup`, {
     method: 'POST',
@@ -63,13 +93,50 @@ export const requestBackup = (transactions) => (dispatch) => {
     body: JSON.stringify({ transactions }),
   }).then((response) => {
     if (response.status === 200) {
-      setTimeout(() => dispatch(dispatch(backupSuccessful(moment().unix()))), 1000);
+      setTimeout(() => dispatch(backupSuccessful(moment().unix())), 300);
+      throw new Error(200);
     } else {
-      setTimeout(() => dispatch(backupFailed()), 1000);
+      return response.json();
     }
-  })
-    .catch((error) => {
-      setTimeout(() => dispatch(backupFailed()), 1000);
-      throw error;
-    });
+  }).then((response) => {
+    setTimeout(() => dispatch(backupFailed(response.message)), 300);
+  }).catch((error) => {
+    if (error.message !== '200') {
+      dispatch(backupFailed('Network error, Please try again later'));
+    }
+  });
+};
+
+export const requestRestore = () => (dispatch) => {
+  if (!accessToken) {
+    dispatch(restoreFailed('Unauthorized token'));
+    return;
+  }
+  dispatch(restoreStart());
+  fetch(`${BACKEND_URL}/backup`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => {
+    if (response.status === 401) {
+      dispatch(restoreFailed(response.message));
+      throw new Error(response.status);
+    } else {
+      return response.json();
+    }
+  }).then((response) => {
+    if (response.code) {
+      dispatch(restoreFailed(response.message));
+    } else {
+      dispatch(restoreTransactions(response));
+      setTimeout(() => dispatch(restoreSuccessful(moment().unix())), 300);
+    }
+  }).catch((error) => {
+    if (error !== '401') {
+      dispatch(restoreFailed('Network error, Please try again later'));
+    }
+  });
 };

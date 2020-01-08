@@ -4,7 +4,7 @@ import { Avatar, ListItem, Button } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
 import moment from 'moment';
-import { requestBackup } from './actionCreator';
+import { requestBackup, requestRestore } from './actionCreator';
 import MainHeader from '../Common/MainHeader';
 import styles from '../Common/themeStyle';
 import fadeHex from '../Common/colorConvert';
@@ -12,17 +12,34 @@ import fadeHex from '../Common/colorConvert';
 export default function Personal() {
   const dispatch = useDispatch();
   const { transactions } = useSelector((state) => state.transactions);
-  const backupStatus = useSelector((state) => state.backupState);
+  const backupState = useSelector((state) => state.backupState);
+  const restoreState = useSelector((state) => state.restoreState);
   const user = useSelector((state) => state.user);
-  const [message, setMessage] = useState('Click to back up date');
+  const [message, setMessage] = useState('Click to back up data');
+  const [restoreMsg, setRestoreMsg] = useState('Click to restore data');
 
   useEffect(() => {
-    if (backupStatus.lastBackupDate === 0) {
-      setMessage('Something went wrong, please try again later');
-    } else if (backupStatus.lastBackupDate !== null) {
-      setMessage(`Last update: ${moment.unix(backupStatus.lastBackupDate).format('YYYY-MM-DD HH:mm')}`);
+    if (backupState.error !== '') {
+      setMessage(backupState.error);
     }
-  }, [backupStatus.lastBackupDate]);
+    if (backupState.lastBackupDate !== null) {
+      setMessage(`Last update: ${moment.unix(backupState.lastBackupDate).format('YYYY-MM-DD HH:mm')}`);
+    }
+    if (restoreState.lastRestoreDate !== null) {
+      setRestoreMsg(`Last restore: ${moment.unix(restoreState.lastRestoreDate).format('YYYY-MM-DD HH:mm')}`);
+    }
+    if (restoreState.error !== '') {
+      setRestoreMsg(restoreState.error);
+    }
+  }, [
+    backupState.lastBackupDate,
+    backupState.error,
+    restoreState.lastRestoreDate,
+    restoreState.error]);
+
+  const restoreData = () => {
+    dispatch(requestRestore());
+  };
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -56,7 +73,7 @@ export default function Personal() {
               title="Backup data"
               subtitle={message}
               subtitleStyle={{ color: 'grey' }}
-              rightElement={backupStatus.isInProgress ? <ActivityIndicator size="small" color="grey" />
+              rightElement={backupState.isInProgress ? <ActivityIndicator size="small" color="grey" />
                 : (
                   <Button
                     title="Backup"
@@ -69,11 +86,29 @@ export default function Personal() {
               bottomDivider
             />
             <ListItem
-              title="Change Password"
+              title="Change password"
               bottomDivider
             />
             <ListItem title="Categories" subtitle="Add or remove categories" subtitleStyle={{ color: 'grey' }} />
           </View>
+        </View>
+        <View style={styles.card}>
+          <Text style={[styles.secondaryHeading, { color: 'grey', marginLeft: 12, marginBottom: 5 }]}>Cloud Service</Text>
+          <ListItem
+            title="Restore data"
+            subtitle={restoreMsg}
+            subtitleStyle={{ color: 'grey' }}
+            rightElement={restoreState.isInProgress ? <ActivityIndicator size="small" color="grey" />
+              : (
+                <Button
+                  title="Restore"
+                  titleStyle={{ color: '#2fc899' }}
+                  type="outline"
+                  buttonStyle={{ borderColor: '#2fc899', borderRadius: 6 }}
+                  onPress={restoreData}
+                />
+              )}
+          />
         </View>
       </View>
     </View>

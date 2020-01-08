@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import transactions from './Stats/reducer';
 import backupState from './Personal/backupReducer';
+import restoreState from './Personal/restoreReducer';
 import user from './Personal/userReducer';
 
 const persistConfig = {
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   transactions,
   backupState,
   user,
+  restoreState,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
