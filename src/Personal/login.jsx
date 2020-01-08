@@ -27,7 +27,7 @@ export default function Login() {
 
   useEffect(() => {
     if (user.accessToken) navigate('Index');
-  }, []);
+  }, [user.accessToken]);
 
   useEffect(() => {
     if (user.status !== '') {

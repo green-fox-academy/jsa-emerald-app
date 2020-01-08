@@ -4,7 +4,12 @@ import Index from './index';
 import Login from './login';
 
 const MainNavigator = createStackNavigator({
-  Index,
+  Index: {
+    screen: Index,
+    navigationOptions: {
+      header: null,
+    },
+  },
   Login: {
     screen: Login,
     navigationOptions: {
