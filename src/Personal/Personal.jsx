@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
-import { Avatar, ListItem, Button } from 'react-native-elements';
+import {
+  Avatar, ListItem, Button, Overlay,
+} from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
 import moment from 'moment';
@@ -8,6 +10,7 @@ import { requestBackup, requestRestore } from './actionCreator';
 import MainHeader from '../Common/MainHeader';
 import styles from '../Common/themeStyle';
 import fadeHex from '../Common/colorConvert';
+import RestoreOverlay from './RestoreOverlay';
 
 export default function Personal() {
   const dispatch = useDispatch();
@@ -17,6 +20,7 @@ export default function Personal() {
   const user = useSelector((state) => state.user);
   const [message, setMessage] = useState('Click to back up data');
   const [restoreMsg, setRestoreMsg] = useState('Click to restore data');
+  const [isOverlayVisible, setOverlayVisibility] = useState(false);
 
   useEffect(() => {
     if (backupState.error !== '') {
@@ -39,12 +43,18 @@ export default function Personal() {
 
   const restoreData = () => {
     dispatch(requestRestore());
+    setOverlayVisibility(false);
   };
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <MainHeader title="Profile" />
       <View style={[styles.deviceBody, { flex: 1, flexDirection: 'column' }]}>
+        <RestoreOverlay
+          isVisible={isOverlayVisible}
+          onConfirm={() => restoreData()}
+          onCancel={() => setOverlayVisibility(false)}
+        />
         <View style={[styles.card, { padding: 0, overflow: 'hidden' }]}>
           <LinearGradient
             colors={['#f078a4', fadeHex('#f078a4')]}
@@ -105,7 +115,7 @@ export default function Personal() {
                   titleStyle={{ color: '#2fc899' }}
                   type="outline"
                   buttonStyle={{ borderColor: '#2fc899', borderRadius: 6 }}
-                  onPress={restoreData}
+                  onPress={() => setOverlayVisibility(true)}
                 />
               )}
           />

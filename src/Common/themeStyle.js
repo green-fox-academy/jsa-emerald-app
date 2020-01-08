@@ -111,6 +111,31 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
 
+  grayBtnShadow: {
+    shadowColor: '#cccccc',
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.70,
+    shadowRadius: 4.65,
+    elevation: 8,
+  },
+
+  overlayBtn: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 25,
+  },
+
+  overlayText: {
+    fontSize: 20,
+    color: 'white',
+    textAlign: 'center',
+  },
+
   largeBtnHeader: {
     color: 'white',
     fontSize: 18,
