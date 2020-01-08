@@ -4,7 +4,12 @@ import Index from './index';
 import Register from './register';
 
 const MainNavigator = createStackNavigator({
-  Index,
+  Index: {
+    screen: Index,
+    navigationOptions: {
+      header: null,
+    },
+  },
   Register: {
     screen: Register,
     navigationOptions: {

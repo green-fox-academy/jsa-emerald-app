@@ -148,7 +148,7 @@ export default function Register() {
           {
              (errorMsgDisplay) ? (
                <View style={[RegisterView.inputSection, RegisterView.errorBox]}>
-                 <Text style={RegisterView.errorText}>Invalidate email or password.</Text>
+                 <Text style={RegisterView.errorText}>Username was registered.</Text>
                </View>
              ) : (null)
           }
