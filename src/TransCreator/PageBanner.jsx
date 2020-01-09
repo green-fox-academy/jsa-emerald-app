@@ -1,19 +1,20 @@
 import React from 'react';
 import {
-  View, Text, Platform,
+  View, Text,
 } from 'react-native';
-import { Input, Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import PropTypes from 'prop-types';
 import themeStyle from '../Common/themeStyle';
 import themeColor from '../Common/Color';
 import styles from './Style';
-import numDecorator from './numericInputDecorator';
 
 export default function PageBanner({
-  transLabel, transType, transAmount, setTransAmount,
+  transLabel, transType, transAmount, expStr,
 }) {
+  let displayAmount = transAmount === '' ? '0.00' : transAmount;
+  displayAmount = transType === 'Expense' ? `-$${displayAmount}` : `$${displayAmount}`;
   return (
     transLabel.name
       ? (
@@ -27,15 +28,10 @@ export default function PageBanner({
               <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
               <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
             </View>
-            <Input
-              placeholder="$ 0.00"
-              keyboardType={Platform.OS === 'ios' ? 'numeric' : 'decimal-pad'}
-              inputStyle={[styles.headerText, { textAlign: 'right', color: '#ffffff' }]}
-              value={transAmount ? transAmount.toString() : null}
-              containerStyle={{ width: 150 }}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              onChangeText={(val) => setTransAmount(numDecorator(val))}
-            />
+            <View style={styles.headerDigitSection}>
+              <Text style={styles.headerDigitResult}>{ displayAmount }</Text>
+              <Text style={styles.headerDigitExp}>{ expStr }</Text>
+            </View>
           </View>
         </LinearGradient>
       )
@@ -56,7 +52,7 @@ PageBanner.propTypes = {
   }),
   transType: PropTypes.string,
   transAmount: PropTypes.string,
-  setTransAmount: PropTypes.func,
+  expStr: PropTypes.string,
 };
 
 PageBanner.defaultProps = {
@@ -68,5 +64,5 @@ PageBanner.defaultProps = {
   },
   transType: '',
   transAmount: '',
-  setTransAmount: null,
+  expStr: '',
 };

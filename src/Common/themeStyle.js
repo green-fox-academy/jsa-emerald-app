@@ -90,18 +90,14 @@ const styles = StyleSheet.create({
   redLargeBtn: {
     marginTop: 20,
     shadowColor: '#f38aa9',
-    shadowOffset: {
-      width: 0,
-      height: 6,
-    },
-    shadowOpacity: 0.70,
-    shadowRadius: 4.65,
-    elevation: 8,
   },
 
   greenLargeBtn: {
     marginTop: 20,
     shadowColor: '#70ea93',
+  },
+
+  largeBtnShadow: {
     shadowOffset: {
       width: 0,
       height: 6,
