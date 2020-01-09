@@ -30,6 +30,7 @@ export default function Stats() {
       transactionsList,
       transFilter,
     );
+
     return utils.filterTransactionsByDate(
       transactionsWithSpecificType,
       timePeriodOptions[1],

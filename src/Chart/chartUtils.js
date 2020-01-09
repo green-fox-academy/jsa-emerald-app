@@ -36,7 +36,25 @@ const filterDataByPeriod = (dataList, range, view) => {
   return result;
 };
 
+const filterData = (dataList, range, view) => {
+  const monthRange = range.format('MMM YYYY');
+  const yearRange = range.format('YYYY');
+  let result;
+  switch (view) {
+    case 'month':
+      result = dataList.filter((value) => moment(value[0].date, 'MMMM Do YYYY').format('MMM YYYY') === monthRange);
+      break;
+    case 'year':
+      result = dataList.filter((value) => moment(value[0].date, 'MMMM Do YYYY').format('YYYY') === yearRange);
+      break;
+    default:
+      break;
+  }
+  return result;
+};
+
 export default {
   convertToLineGraphDataset,
   filterDataByPeriod,
+  filterData,
 };

@@ -24,7 +24,7 @@ export default function Chart() {
 
   const filterListView = (transactionRecords) => {
     const current = timePeriodOptions[1];
-    return utils.filterData(transactionRecords, current, view);
+    return statsUtils.filterData(transactionRecords, current, view);
   };
 
 
