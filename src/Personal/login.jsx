@@ -30,7 +30,7 @@ export default function Login() {
   }, [user.accessToken]);
 
   useEffect(() => {
-    if (user.status !== '') {
+    if (user.status !== '' && user.status !== undefined) {
       setErrorMsgDisplay(true);
     }
   }, [user.status]);
@@ -95,7 +95,7 @@ export default function Login() {
           {
              (errorMsgDisplay) ? (
                <View style={[LoginView.inputSection, LoginView.errorBox]}>
-                 <Text style={LoginView.errorText}>Invalidate email or password.</Text>
+                 <Text style={LoginView.errorText}>{user.message}</Text>
                </View>
              ) : (null)
           }

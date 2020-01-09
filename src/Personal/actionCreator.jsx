@@ -28,25 +28,21 @@ export function loginFailed(userInfo) {
 
 export const requestLogin = (userInfo) => (dispatch) => {
   dispatch(loginStart());
-  fetch(`${BACKEND_URL}/users/signin`, {
+  fetch(`${BACKEND_URL}/sessions`, {
     method: 'POST',
     mode: 'cors',
     headers: {
       'Content-Type': 'Application/json',
     },
     body: JSON.stringify(userInfo),
-  }).then((response) => {
-    if (response.status === 200) {
-      return response.json();
-    }
-    dispatch(loginFailed({ status: response.status }));
-    return response.json();
-  }).then((response) => {
-    if (response) {
+  }).then((response) => response.json()).then((response) => {
+    if (response.accessToken !== '' && response.accessToken !== undefined) {
       dispatch(loginSuccessful({
         email: userInfo.email,
         accessToken: response.accessToken,
       }));
+    } else {
+      dispatch(loginFailed({ status: response.code, message: response.message }));
     }
   }).catch((error) => {
     dispatch(loginFailed());

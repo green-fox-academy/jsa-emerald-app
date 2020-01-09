@@ -4,6 +4,7 @@ const initialUser = {
   email: '',
   accessToken: '',
   status: '',
+  message: '',
 };
 
 const user = (state = initialUser, action) => {
@@ -14,12 +15,14 @@ const user = (state = initialUser, action) => {
         email: '',
         accessToken: '',
         status: '',
+        message: '',
       };
     case actionType.LOGIN_FAILED:
       return {
         ...state,
         accessToken: '',
         status: action.payload.status,
+        message: action.payload.message,
       };
     case actionType.LOGIN_SUCCESSFUL:
       return {
