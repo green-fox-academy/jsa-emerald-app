@@ -41,7 +41,8 @@ const list = [
 ];
 
 const convertToLineGraphDataset = (dataList, dataType) => {
-  const resultSet = [];
+  const labels = [];
+  const total = [];
   dataList.map((groupedRecordsByDate) => {
     const filterData = groupedRecordsByDate.filter((item) => item.type === dataType);
     const result = filterData.reduce((sum, { amount }) => {
@@ -50,11 +51,12 @@ const convertToLineGraphDataset = (dataList, dataType) => {
     }, 0);
     if (filterData.length !== 0) {
       const formatDate = moment(groupedRecordsByDate[0].date, 'MMMM Do YYYY').format('D');
-      resultSet.push({ x: formatDate, y: result });
+      labels.push(formatDate);
+      total.push(result);
     }
     return null;
   });
-  return resultSet.reverse();
+  return { labels: labels.reverse(), total: total.reverse() };
 };
 
 const convertToDatasetByCategory = (dataList, dataType) => {
@@ -63,17 +65,18 @@ const convertToDatasetByCategory = (dataList, dataType) => {
     const dataSet = [];
     const colorSet = [];
     filterData.forEach((item) => {
-      const index = dataSet.findIndex((value) => value.x === item.label.name);
+      const index = dataSet.findIndex((value) => value.name === item.label.name);
       if (index === -1) {
-        dataSet.push({ x: item.label.name, y: item.amount });
+        dataSet.push({ name: item.label.name, total: parseFloat(item.amount), color: item.label.color });
         colorSet.push(item.label.color);
       } else {
-        const newValue = parseFloat(dataSet[index].y) + parseFloat(item.amount);
-        dataSet[index].y = newValue;
+        const newValue = parseFloat(dataSet[index].total) + parseFloat(item.amount);
+        dataSet[index].total = newValue;
       }
     });
-    return { dataSet, colorSet };
+    return dataSet;
   }
+  return [];
 };
 
 const filterDataByPeriod = (dataList, range, view) => {
@@ -85,7 +88,7 @@ const filterDataByPeriod = (dataList, range, view) => {
       result = dataList.filter((value) => moment.unix(value.date).format('MMM YYYY') === monthRange);
       break;
     case 'year':
-      result = dataList.filter((value) => moment(value.date).format('YYYY') === yearRange);
+      result = dataList.filter((value) => moment.unix(value.date).format('YYYY') === yearRange);
       break;
     default:
       break;

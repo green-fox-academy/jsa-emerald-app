@@ -4,19 +4,20 @@ import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
 import MainHeader from '../Common/MainHeader';
 import DateSlider from '../Common/DateSlider';
+import utils from './utils';
+import FilterBtn from './FilterBtn';
+import TransList from './TransList';
+import EmptyHistory from './EmptyHistory';
 import DateOverlay from '../Common/DateOverlay';
-import utils from '../List/utils';
-import statsUtils from './statsUtils';
-import LineGraph from './LineGraph';
-import PieGraph from './PieGraph';
 
 const moment = require('moment');
 
-export default function Stats() {
+export default function Trans() {
   const { transactions } = useSelector((state) => state.transactions);
   const [view, setCurrentView] = useState('month');
   const [timePeriodOptions, setTimePeriod] = useState(utils.getDateSet(moment(), view));
   const [isOverlayVisible, setOverlayVisibility] = useState(false);
+
   const updateHeaderView = (type) => {
     setCurrentView(type);
     setTimePeriod(utils.getDateSet(moment(), type));
@@ -28,22 +29,12 @@ export default function Stats() {
     return utils.filterData(transactionRecords, current, view);
   };
 
-
   const navBarFunc = [
     {
       name: 'filter',
       func: () => setOverlayVisibility(true),
     },
   ];
-
-  const filteredDataByDate = filterListView(utils.groupTransactionsByDate(transactions));
-
-  const filterDataByPeriod = statsUtils.filterDataByPeriod(transactions, timePeriodOptions[1], view);
-
-  const dataSetByDate = statsUtils.convertToLineGraphDataset(filteredDataByDate, 'Expense');
-
-  const graphDataSet = statsUtils.convertToDatasetByCategory(filterDataByPeriod, 'Expense');
-
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -52,22 +43,24 @@ export default function Stats() {
         onPressBtn={(viewValue) => updateHeaderView(viewValue)}
         onPressClose={() => setOverlayVisibility(false)}
       />
-      <MainHeader title="Stats" btnType={navBarFunc} />
+      <MainHeader title="Transactions" btnType={navBarFunc} />
       <DateSlider
         viewSet={timePeriodOptions}
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}
         viewType={view}
       />
       <ScrollView style={styles.deviceBody}>
-        <View style={styles.card}>
-          {dataSetByDate.length !== 0
-            ? <LineGraph dataSet={dataSetByDate} style={{ flex: 1 }} />
-            : <View />}
-        </View>
-        <View style={styles.card}>
-          {dataSetByDate.length !== 0
-            ? <PieGraph dataSet={graphDataSet} style={{ flex: 1 }} />
-            : <View />}
+        <View style={{ marginBottom: 20 }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <FilterBtn />
+          </View>
+          {(transactions.length !== 0)
+            ? (
+              <TransList
+                transactions={filterListView(utils.groupTransactionsByDate(transactions))}
+              />
+            )
+            : <EmptyHistory />}
         </View>
       </ScrollView>
     </View>
