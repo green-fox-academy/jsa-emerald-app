@@ -3,10 +3,6 @@ import { restoreTransactions } from '../Stats/actionCreator';
 
 const moment = require('moment');
 
-
-// const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2UiLCJlbWFpbCI6Im1pa2VAZ21haWwuY29tIiwiaWQiOiI1ZTEwYmMyNDcwMWZiZDQ4OTczNzdkOWYiLCJpYXQiOjE1NzgzNjQxOTQsImV4cCI6MTU4MDk1NjE5NH0.KiAzpui0f9-uwrAGVghNwukkEPWgeHHGkZH4sEm_v6o';
-// const accessToken = '';
-
 export const actionType = {
   BACKUP_START: 'BACKUP_START',
   BACKUP_SUCCESSFUL: 'BACKUP_SUCCESSFUL',
@@ -15,6 +11,9 @@ export const actionType = {
   SIGNUP_FAILED: 'SIGNUP_FAILED',
   SIGNUP_SUCCESSFUL: 'SIGNUP_SUCCESSFUL',
   LOGOUT_SUCCESSFUL: 'LOGOUT_SUCCESSFUL',
+  LOGIN_START: 'LOGIN_START',
+  LOGIN_FAILED: 'LOGIN_FAILED',
+  LOGIN_SUCCESSFUL: 'LOGIN_SUCCESSFUL',
   RESTORE_START: 'RESTORE_START',
   RESTORE_SUCCESSFUL: 'RESTORE_SUCCESSFUL',
   RESTORE_FAILED: 'RESTORE_FAILED',
@@ -70,6 +69,26 @@ export function restoreFailed(payload) {
   return {
     type: actionType.RESTORE_FAILED,
     payload,
+  };
+}
+
+export function loginStart() {
+  return {
+    type: actionType.LOGIN_START,
+  };
+}
+
+export function loginSuccessful(userInfo) {
+  return {
+    type: actionType.LOGIN_SUCCESSFUL,
+    payload: userInfo,
+  };
+}
+
+export function loginFailed(userInfo) {
+  return {
+    type: actionType.LOGIN_FAILED,
+    payload: userInfo,
   };
 }
 
@@ -183,4 +202,27 @@ export const requestSignup = (userInfo) => (dispatch) => {
     .catch(() => {
       dispatch(signupFailed());
     });
+};
+
+export const requestLogin = (userInfo) => (dispatch) => {
+  dispatch(loginStart());
+  fetch(`${BACKEND_URL}/sessions`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'Application/json',
+    },
+    body: JSON.stringify(userInfo),
+  }).then((response) => response.json()).then((response) => {
+    if (response.accessToken !== '' && response.accessToken !== undefined) {
+      dispatch(loginSuccessful({
+        email: userInfo.email,
+        accessToken: response.accessToken,
+      }));
+    } else {
+      dispatch(loginFailed({ status: response.code, message: response.message }));
+    }
+  }).catch(() => {
+    dispatch(loginFailed());
+  });
 };

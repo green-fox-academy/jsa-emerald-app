@@ -4,7 +4,6 @@ import { useNavigation } from 'react-navigation-hooks';
 import { useSelector } from 'react-redux';
 import RegisterView from './RegisterView';
 import Personal from './Personal';
-import styles from './loginView';
 
 export default function Index() {
   const { navigate } = useNavigation();

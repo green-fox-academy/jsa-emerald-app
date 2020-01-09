@@ -5,11 +5,12 @@ import {
 import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
+import { requestRestore, requestLogin } from './actionCreator';
 import MainHeader from '../Common/MainHeader';
 import utils from './utils';
 import LoginView from './loginView';
-import { requestLogin } from './actionCreator';
-import SubmitBtn from './SubmitBtn';
+
+import SubmitBtn from './submitBtn';
 
 export default function Login() {
   const { navigate } = useNavigation();
@@ -27,6 +28,7 @@ export default function Login() {
 
   useEffect(() => {
     if (user.accessToken) navigate('Index');
+    dispatch(requestRestore());
   }, [user.accessToken]);
 
   useEffect(() => {

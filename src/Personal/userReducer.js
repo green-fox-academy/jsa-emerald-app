@@ -39,6 +39,28 @@ const user = (state = initialUser, action) => {
         ...state,
         accessToken: '',
       };
+    case actionType.LOGIN_START:
+      return {
+        ...state,
+        email: '',
+        accessToken: '',
+        status: '',
+        message: '',
+      };
+    case actionType.LOGIN_FAILED:
+      return {
+        ...state,
+        accessToken: '',
+        status: action.payload.status,
+        message: action.payload.message,
+      };
+    case actionType.LOGIN_SUCCESSFUL:
+      return {
+        ...state,
+        email: action.payload.email,
+        accessToken: action.payload.accessToken,
+        status: '',
+      };
     default:
       return state;
   }

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
 import moment from 'moment';
 import { requestBackup, requestRestore, logoutSuccessful } from './actionCreator';
+import { restoreTransactions } from '../Stats/actionCreator';
 import MainHeader from '../Common/MainHeader';
 import styles from '../Common/themeStyle';
 import fadeHex from '../Common/colorConvert';
@@ -19,6 +20,7 @@ export default function Personal() {
   const user = useSelector((state) => state.user);
   const handleLogout = () => {
     dispatch(logoutSuccessful());
+    dispatch(restoreTransactions([]));
   };
 
   const [message, setMessage] = useState('Click to back up data');

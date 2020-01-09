@@ -5,7 +5,6 @@ import Stats from '../Stats/index';
 import TransCreator from '../TransCreator/index';
 import PersonalNavigation from '../Personal/personalStackNavigation';
 import themeColor from '../Common/Color';
-// import personalNavigator from '../Personal/personalStackNavigation';
 
 const AppNavigator = createBottomTabNavigator({
   Stats,
