@@ -1726,7 +1726,7 @@ exports[`<TransCreator index/> render 1`] = `
               >
                 <View>
                   <RCTDatePicker
-                    date={1578240000000}
+                    date={1578268800000}
                     minuteInterval={1}
                     mode="date"
                     onChange={[Function]}
