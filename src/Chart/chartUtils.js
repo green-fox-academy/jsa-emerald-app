@@ -1,45 +1,5 @@
 const moment = require('moment');
 
-const list = [
-  [
-    {
-      amount: '123',
-      date: 'January 5th 2020',
-      label: {
-        color: '#e9b69a',
-        icon: 'local-pizza',
-        iconFamily: '',
-        name: 'Food & Drink',
-      },
-      type: 'Expense',
-    },
-    {
-      amount: '223',
-      date: 'January 5th 2020',
-      label: {
-        color: '#e9b69a',
-        icon: 'local-pizza',
-        iconFamily: '',
-        name: 'Food & Drink',
-      },
-      type: 'Expense',
-    },
-  ],
-  [
-    {
-      amount: '111',
-      date: 'January 2nd 2020',
-      label: {
-        color: '#aa78db',
-        icon: 'shoppingcart',
-        iconFamily: 'antdesign',
-        name: 'Shopping',
-      },
-      type: 'Expense',
-    },
-  ],
-];
-
 const convertToLineGraphDataset = (dataList, dataType) => {
   const labels = [];
   const total = [];
