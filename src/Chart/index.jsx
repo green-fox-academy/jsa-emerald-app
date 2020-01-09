@@ -50,7 +50,7 @@ export default function Chart() {
         onPressBtn={(viewValue) => updateHeaderView(viewValue)}
         onPressClose={() => setOverlayVisibility(false)}
       />
-      <MainHeader title="Stats" btnType={navBarFunc} />
+      <MainHeader title="Chart" btnType={navBarFunc} />
       <DateSlider
         viewSet={timePeriodOptions}
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}
