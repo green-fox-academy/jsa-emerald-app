@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { View, ScrollView } from 'react-native';
-import { ListItem, Overlay, Button } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
 import MainHeader from '../Common/MainHeader';
+import DateSlider from '../Common/DateSlider';
 import utils from './utils';
-import DateSlider from './DateSlider';
 import FilterBtn from './FilterBtn';
 import TransList from './TransList';
 import EmptyHistory from './EmptyHistory';
+import DateOverlay from '../Common/DateOverlay';
 
 const moment = require('moment');
 
-export default function Stats() {
+export default function Trans() {
   const { transactions } = useSelector((state) => state.transactions);
   const [view, setCurrentView] = useState('month');
   const [timePeriodOptions, setTimePeriod] = useState(utils.getDateSet(moment(), view));
@@ -45,21 +45,21 @@ export default function Stats() {
   const processedTransactions = utils.groupTransactionsByDate(filteredTransactions);
   const totalExpense = calculateSumByType(filteredTransactions, 'Expense');
   const totalIncome = calculateSumByType(filteredTransactions, 'Income');
+  const navBarFunc = [
+    {
+      name: 'filter',
+      func: () => setOverlayVisibility(true),
+    },
+  ];
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
-      <Overlay height={200} isVisible={isOverlayVisible}>
-        <View>
-          <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-            <Button icon={{ name: 'close' }} type="clear" onPress={() => setOverlayVisibility(false)} />
-          </View>
-          <View style={{ marginTop: 20 }}>
-            <ListItem title="Month" topDivider bottomDivider onPress={() => updateHeaderView('month')} />
-            <ListItem title="Year" bottomDivider onPress={() => updateHeaderView('year')} />
-          </View>
-        </View>
-      </Overlay>
-      <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(true)} btnName="filter" />
+      <DateOverlay
+        isOverlayVisible={isOverlayVisible}
+        onPressBtn={(viewValue) => updateHeaderView(viewValue)}
+        onPressClose={() => setOverlayVisibility(false)}
+      />
+      <MainHeader title="Transactions" btnType={navBarFunc} />
       <DateSlider
         viewSet={timePeriodOptions}
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}

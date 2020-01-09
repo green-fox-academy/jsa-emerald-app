@@ -1,13 +1,15 @@
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import TabBarIcon from './TabBarIcon';
-import Stats from '../Stats/index';
+import Trans from '../Stats/index';
+import Chart from '../Chart/index';
 import TransCreator from '../TransCreator/index';
 import PersonalNavigation from '../Personal/personalStackNavigation';
 import themeColor from '../Common/Color';
 
 const AppNavigator = createBottomTabNavigator({
-  Stats,
+  Trans,
+  Chart,
   Create: TransCreator,
   Me: PersonalNavigation,
 },
