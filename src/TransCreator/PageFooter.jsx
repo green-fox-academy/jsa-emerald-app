@@ -14,6 +14,7 @@ const PageFooter = ({ createHandler }) => (
   <Footer style={Platform.OS === 'ios' ? styles.footerIOS : styles.footerAndroid}>
     <FooterTab style={styles.footerAndroid}>
       <Button
+        id="btn-pageFooter-confirm"
         bordered
         style={styles.confirmButton}
         onPress={() => createHandler()}

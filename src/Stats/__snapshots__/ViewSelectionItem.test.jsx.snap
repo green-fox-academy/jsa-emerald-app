@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ViewSelectionItem /> should render month item 1`] = `"[object Object]"`;
+
+exports[`<ViewSelectionItem /> should render year item 1`] = `"[object Object]"`;

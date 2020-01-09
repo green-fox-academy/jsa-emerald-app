@@ -1,0 +1,326 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageBanner/> render case 1 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-end",
+        "flexDirection": "row",
+        "paddingBottom": 20,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+      },
+      Object {
+        "height": 140,
+        "justifyContent": "space-between",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "fontWeight": "400",
+      }
+    }
+  >
+    Select a category
+  </Text>
+</View>
+`;
+
+exports[`<PageBanner/> render case 2 1`] = `
+<ViewManagerAdapter_ExpoLinearGradient
+  proxiedProperties={
+    Object {
+      "colors": Array [
+        4281321625,
+        4286115731,
+      ],
+      "endPoint": Array [
+        0.9,
+        0.1,
+      ],
+      "locations": undefined,
+      "startPoint": Array [
+        0.1,
+        0.9,
+      ],
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+          "paddingBottom": 20,
+          "paddingLeft": 20,
+          "paddingRight": 20,
+        },
+        Object {
+          "height": 140,
+          "justifyContent": "space-between",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "justifyContent": "center",
+            }
+          }
+          theme={
+            Object {
+              "colors": Object {
+                "disabled": "hsl(208, 8%, 90%)",
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "platform": Object {
+                  "android": Object {
+                    "error": "#f44336",
+                    "primary": "#2196f3",
+                    "secondary": "#9C27B0",
+                    "success": "#4caf50",
+                    "warning": "#ffeb3b",
+                  },
+                  "ios": Object {
+                    "error": "#ff3b30",
+                    "primary": "#007aff",
+                    "secondary": "#5856d6",
+                    "success": "#4cd964",
+                    "warning": "#ffcc00",
+                  },
+                },
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+                "success": "#52c41a",
+                "warning": "#faad14",
+              },
+            }
+          }
+          underlayColor="white"
+        >
+          <Text />
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 20,
+              "fontWeight": "400",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        House
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flex": 1,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 20,
+            "fontWeight": "400",
+          }
+        }
+      >
+        $12.10
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#EEEEEE",
+            "fontSize": 17,
+            "fontWeight": "400",
+          }
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+</ViewManagerAdapter_ExpoLinearGradient>
+`;
+
+exports[`<PageBanner/> render case 3 1`] = `
+<ViewManagerAdapter_ExpoLinearGradient
+  proxiedProperties={
+    Object {
+      "colors": Array [
+        4293488030,
+        4294945423,
+      ],
+      "endPoint": Array [
+        0.9,
+        0.1,
+      ],
+      "locations": undefined,
+      "startPoint": Array [
+        0.1,
+        0.9,
+      ],
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+          "paddingBottom": 20,
+          "paddingLeft": 20,
+          "paddingRight": 20,
+        },
+        Object {
+          "height": 140,
+          "justifyContent": "space-between",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "justifyContent": "center",
+            }
+          }
+          theme={
+            Object {
+              "colors": Object {
+                "disabled": "hsl(208, 8%, 90%)",
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "platform": Object {
+                  "android": Object {
+                    "error": "#f44336",
+                    "primary": "#2196f3",
+                    "secondary": "#9C27B0",
+                    "success": "#4caf50",
+                    "warning": "#ffeb3b",
+                  },
+                  "ios": Object {
+                    "error": "#ff3b30",
+                    "primary": "#007aff",
+                    "secondary": "#5856d6",
+                    "success": "#4cd964",
+                    "warning": "#ffcc00",
+                  },
+                },
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+                "success": "#52c41a",
+                "warning": "#faad14",
+              },
+            }
+          }
+          underlayColor="white"
+        >
+          <Text />
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 20,
+              "fontWeight": "400",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        House
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flex": 1,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 20,
+            "fontWeight": "400",
+          }
+        }
+      >
+        -$12.10
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#EEEEEE",
+            "fontSize": 17,
+            "fontWeight": "400",
+          }
+        }
+      >
+        #08addb
+      </Text>
+    </View>
+  </View>
+</ViewManagerAdapter_ExpoLinearGradient>
+`;

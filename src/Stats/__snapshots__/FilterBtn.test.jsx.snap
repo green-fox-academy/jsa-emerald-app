@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterBtn render 1`] = `
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "marginTop": 20,
+          "shadowColor": "#f38aa9",
+        },
+        null,
+        Object {
+          "width": "48%",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <ViewManagerAdapter_ExpoLinearGradient
+        proxiedProperties={
+          Object {
+            "colors": Array [
+              4293488030,
+              4294945423,
+            ],
+            "endPoint": Array [
+              0.9,
+              0.1,
+            ],
+            "locations": undefined,
+            "startPoint": Array [
+              0.1,
+              0.9,
+            ],
+          }
+        }
+        style={
+          Object {
+            "borderRadius": 10,
+            "padding": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 15,
+              "fontWeight": "300",
+            }
+          }
+        >
+          Spent
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "fontWeight": "400",
+              "marginBottom": 5,
+              "marginTop": 5,
+            }
+          }
+        >
+          -$undefined
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 15,
+              "fontWeight": "300",
+            }
+          }
+        >
+          Expense
+        </Text>
+      </ViewManagerAdapter_ExpoLinearGradient>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "marginTop": 20,
+          "shadowColor": "#70ea93",
+        },
+        null,
+        Object {
+          "width": "48%",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <ViewManagerAdapter_ExpoLinearGradient
+        proxiedProperties={
+          Object {
+            "colors": Array [
+              4281321625,
+              4286115731,
+            ],
+            "endPoint": Array [
+              0.9,
+              0.1,
+            ],
+            "locations": undefined,
+            "startPoint": Array [
+              0.1,
+              0.9,
+            ],
+          }
+        }
+        style={
+          Object {
+            "borderRadius": 10,
+            "padding": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 15,
+              "fontWeight": "300",
+            }
+          }
+        >
+          Earned
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "fontWeight": "400",
+              "marginBottom": 5,
+              "marginTop": 5,
+            }
+          }
+        >
+          +$undefined
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 15,
+              "fontWeight": "300",
+            }
+          }
+        >
+          Income
+        </Text>
+      </ViewManagerAdapter_ExpoLinearGradient>
+    </View>
+  </View>,
+]
+`;

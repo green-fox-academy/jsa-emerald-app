@@ -1,0 +1,263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransactionTypeSelector/> render Expense 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "marginBottom": 20,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderRadius": 3,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderColor": "black",
+            "borderRadius": 50,
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginBottom": 0,
+            "marginLeft": 6,
+            "marginRight": 6,
+            "marginTop": 15,
+            "padding": 8,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+            "width": 120,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "black",
+              "fontSize": 15,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Expense
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 50,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderColor": "gray",
+            "borderRadius": 50,
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginBottom": 0,
+            "marginLeft": 6,
+            "marginRight": 6,
+            "marginTop": 15,
+            "padding": 8,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+            "width": 120,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "grey",
+              "fontSize": 15,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Income
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<TransactionTypeSelector/> render Income 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "marginBottom": 20,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderRadius": 50,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderColor": "gray",
+            "borderRadius": 50,
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginBottom": 0,
+            "marginLeft": 6,
+            "marginRight": 6,
+            "marginTop": 15,
+            "padding": 8,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+            "width": 120,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "grey",
+              "fontSize": 15,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Expense
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 3,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderColor": "black",
+            "borderRadius": 50,
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginBottom": 0,
+            "marginLeft": 6,
+            "marginRight": 6,
+            "marginTop": 15,
+            "padding": 8,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+            "width": 120,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "black",
+              "fontSize": 15,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Income
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

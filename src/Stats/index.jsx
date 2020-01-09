@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, ScrollView } from 'react-native';
-import { ListItem, Overlay, Button } from 'react-native-elements';
+import { Overlay, Button } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
 import MainHeader from '../Common/MainHeader';
@@ -9,6 +9,7 @@ import DateSlider from './DateSlider';
 import FilterBtn from './FilterBtn';
 import TransList from './TransList';
 import EmptyHistory from './EmptyHistory';
+import ViewSelectionItem from './ViewSelectionItem';
 
 const moment = require('moment');
 
@@ -51,11 +52,16 @@ export default function Stats() {
       <Overlay height={200} isVisible={isOverlayVisible}>
         <View>
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-            <Button icon={{ name: 'close' }} type="clear" onPress={() => setOverlayVisibility(false)} />
+            <Button
+              id="btn-stats-index-vsb"
+              icon={{ name: 'close' }}
+              type="clear"
+              onPress={() => setOverlayVisibility(false)}
+            />
           </View>
           <View style={{ marginTop: 20 }}>
-            <ListItem title="Month" topDivider bottomDivider onPress={() => updateHeaderView('month')} />
-            <ListItem title="Year" bottomDivider onPress={() => updateHeaderView('year')} />
+            <ViewSelectionItem title="Month" pressHandler={updateHeaderView} />
+            <ViewSelectionItem title="Year" pressHandler={updateHeaderView} />
           </View>
         </View>
       </Overlay>

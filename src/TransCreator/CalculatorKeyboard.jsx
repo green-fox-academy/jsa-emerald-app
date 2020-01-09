@@ -49,7 +49,7 @@ export default function CalculatorKeyboard({
           <View key={`row${idx + 1}`}>
             {row.map((cell, idx2) => (
               <View key={`cell${idx + 1}-${idx2 + 1}`}>
-                <KeyboardButton btnVal={cell.toString()} pressHandler={pressHandler} />
+                <KeyboardButton id={`btn-keyboard-${cell.toString()}`} btnVal={cell.toString()} pressHandler={pressHandler} />
               </View>
             ))}
           </View>
