@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
 import MainHeader from '../Common/MainHeader';
 import utils from './utils';
-import DateSlider from './DateSlider';
+import DateSlider from '../Common/DateSlider';
 import FilterBtn from './FilterBtn';
 import TransList from './TransList';
 import EmptyHistory from './EmptyHistory';
