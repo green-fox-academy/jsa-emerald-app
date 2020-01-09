@@ -4,11 +4,11 @@ import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import PropTypes from 'prop-types';
 import colors from '../Common/Color';
-import RegisterView from './RegisterView';
+import LoginView from './loginView';
 
 export default function SubmitBtn({ disabled, onPressBtn }) {
   return (
-    <View style={disabled ? RegisterView.disabledBtnShadow : RegisterView.btnShadow}>
+    <View style={disabled ? LoginView.disabledBtnShadow : LoginView.btnShadow}>
       <LinearGradient
         colors={disabled ? colors.gradientColor.gray : colors.gradientColor.green}
         start={[0.1, 0.9]}
