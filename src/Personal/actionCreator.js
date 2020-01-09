@@ -35,21 +35,15 @@ export function logoutSuccessful() {
 
 export const requestSignup = (userInfo) => (dispatch) => {
   dispatch(signupStart());
-  fetch(`${BACKEND_URL}/users/signup`, {
+  fetch(`${BACKEND_URL}/register`, {
     method: 'POST',
     mode: 'cors',
     headers: {
       'Content-Type': 'Application/json',
     },
     body: JSON.stringify(userInfo),
-  }).then((response) => {
-    if (response.status === 200) {
-      return response.json();
-    }
-    dispatch(signupFailed({ status: response.status }));
-    return response.json();
-  }).then((response) => {
-    if (response) {
+  }).then((response) => response.json()).then((response) => {
+    if (response.accessToken !== '' && response.accessToken !== undefined) {
       dispatch(
         signupSuccessful({
           accessToken: response.accessToken,

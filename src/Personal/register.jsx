@@ -33,7 +33,7 @@ export default function Register() {
   }, [user.accessToken]);
 
   useEffect(() => {
-    if (user.status !== '') {
+    if (user.status !== '' && user.status !== undefined) {
       setErrorMsgDisplay(true);
     }
   }, [user.status]);
@@ -148,7 +148,7 @@ export default function Register() {
           {
              (errorMsgDisplay) ? (
                <View style={[RegisterView.inputSection, RegisterView.errorBox]}>
-                 <Text style={RegisterView.errorText}>Username was registered.</Text>
+                 <Text style={RegisterView.errorText}>{user.message}</Text>
                </View>
              ) : (null)
           }

@@ -5,6 +5,7 @@ const initialUser = {
   email: '',
   accessToken: '',
   status: '',
+  message: '',
 };
 
 const user = (state = initialUser, action) => {
@@ -30,6 +31,7 @@ const user = (state = initialUser, action) => {
         ...state,
         accessToken: '',
         status: action.payload.status,
+        message: 's',
       };
     case actionType.LOGOUT_SUCCESSFUL:
       return {
