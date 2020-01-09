@@ -4,6 +4,7 @@ import { useNavigation } from 'react-navigation-hooks';
 import { useSelector } from 'react-redux';
 import RegisterView from './RegisterView';
 import Personal from './Personal';
+import styles from './loginView';
 
 export default function Index() {
   const { navigate } = useNavigation();
@@ -13,6 +14,7 @@ export default function Index() {
     (user.accessToken !== '' && user.accessToken !== undefined) ? <Personal /> : (
       <View style={RegisterView.container}>
         <Button title="Sign up" onPress={() => navigate('Register')} />
+        <Button title="Login" onPress={() => navigate('Login')} />
       </View>
     )
   );

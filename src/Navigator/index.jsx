@@ -3,13 +3,14 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import TabBarIcon from './TabBarIcon';
 import Stats from '../Stats/index';
 import TransCreator from '../TransCreator/index';
+import PersonalNavigation from '../Personal/personalStackNavigation';
 import themeColor from '../Common/Color';
-import personalNavigator from '../Personal/personalStackNavigation';
+// import personalNavigator from '../Personal/personalStackNavigation';
 
 const AppNavigator = createBottomTabNavigator({
   Stats,
   Create: TransCreator,
-  Me: personalNavigator,
+  Me: PersonalNavigation,
 },
 {
   initialRouteName: 'Create', // set default page

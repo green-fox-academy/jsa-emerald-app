@@ -14,9 +14,13 @@ function validateSignup(username, password, confirmPassword, email) {
       && emailValidation(email)
       && passwordValidation(password);
 }
+function loginValidation(email, password) {
+  return emailValidation(email) && passwordValidation(password);
+}
 
 export default {
   emailValidation,
   passwordValidation,
   validateSignup,
+  loginValidation,
 };
