@@ -77,7 +77,8 @@ export function restoreFailed(payload) {
   };
 }
 
-export const requestBackup = (transactions) => (dispatch) => {
+export const requestBackup = () => (dispatch, getState) => {
+  const { transactions } = getState().transactions;
   if (!accessToken) {
     dispatch(backupFailed('Unauthorized token'));
     return;
@@ -113,6 +114,7 @@ export const requestRestore = () => (dispatch) => {
     return;
   }
   dispatch(restoreStart());
+
   fetch(`${BACKEND_URL}/backup`, {
     method: 'GET',
     mode: 'cors',

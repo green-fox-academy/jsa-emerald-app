@@ -14,7 +14,6 @@ import RestoreOverlay from './RestoreOverlay';
 
 export default function Personal() {
   const dispatch = useDispatch();
-  const { transactions } = useSelector((state) => state.transactions);
   const backupState = useSelector((state) => state.backupState);
   const restoreState = useSelector((state) => state.restoreState);
   const user = useSelector((state) => state.user);
@@ -90,7 +89,7 @@ export default function Personal() {
                     titleStyle={{ color: '#2fc899' }}
                     type="outline"
                     buttonStyle={{ borderColor: '#2fc899', borderRadius: 6 }}
-                    onPress={() => dispatch(requestBackup(transactions))}
+                    onPress={() => dispatch(requestBackup())}
                   />
                 )}
               bottomDivider
