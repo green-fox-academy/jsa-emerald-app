@@ -17,6 +17,7 @@ const user = (state = initialUser, action) => {
         email: '',
         accessToken: '',
         status: '',
+        message: '',
       };
     case actionType.SIGNUP_SUCCESSFUL:
       return {
@@ -31,7 +32,7 @@ const user = (state = initialUser, action) => {
         ...state,
         accessToken: '',
         status: action.payload.status,
-        message: 's',
+        message: action.payload.message,
       };
     case actionType.LOGOUT_SUCCESSFUL:
       return {

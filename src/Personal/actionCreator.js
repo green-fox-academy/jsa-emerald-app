@@ -52,6 +52,10 @@ export const requestSignup = (userInfo) => (dispatch) => {
           username: userInfo.username,
         }),
       );
+    } else {
+      dispatch(
+        signupFailed({ status: response.code, message: response.message }),
+      );
     }
   })
     .catch((error) => {

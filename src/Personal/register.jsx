@@ -41,7 +41,7 @@ export default function Register() {
   return (
     <>
       <View style={{ borderBottomWidth: 2, borderBottomColor: '#f8f8f8' }}>
-        <MainHeader title="Login" />
+        <MainHeader title="Register" />
       </View>
       <KeyboardAvoidingView
         style={RegisterView.registerForm}
