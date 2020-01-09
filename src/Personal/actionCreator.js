@@ -3,7 +3,8 @@ import { restoreTransactions } from '../Stats/actionCreator';
 
 const moment = require('moment');
 
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2UiLCJlbWFpbCI6Im1pa2VAZ21haWwuY29tIiwiaWQiOiI1ZTEwYmMyNDcwMWZiZDQ4OTczNzdkOWYiLCJpYXQiOjE1NzgzNjQxOTQsImV4cCI6MTU4MDk1NjE5NH0.KiAzpui0f9-uwrAGVghNwukkEPWgeHHGkZH4sEm_v6o';
+
+// const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2UiLCJlbWFpbCI6Im1pa2VAZ21haWwuY29tIiwiaWQiOiI1ZTEwYmMyNDcwMWZiZDQ4OTczNzdkOWYiLCJpYXQiOjE1NzgzNjQxOTQsImV4cCI6MTU4MDk1NjE5NH0.KiAzpui0f9-uwrAGVghNwukkEPWgeHHGkZH4sEm_v6o';
 // const accessToken = '';
 
 export const actionType = {
@@ -74,6 +75,8 @@ export function restoreFailed(payload) {
 
 export const requestBackup = () => (dispatch, getState) => {
   const { transactions } = getState().transactions;
+  const { accessToken } = getState().user;
+
   if (!accessToken) {
     dispatch(backupFailed('Unauthorized token'));
     return;
@@ -103,7 +106,8 @@ export const requestBackup = () => (dispatch, getState) => {
   });
 };
 
-export const requestRestore = () => (dispatch) => {
+export const requestRestore = () => (dispatch, getState) => {
+  const { accessToken } = getState().user;
   if (!accessToken) {
     dispatch(restoreFailed('Unauthorized token'));
     return;

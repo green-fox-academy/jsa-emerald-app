@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import TabBarIcon from './TabBarIcon';
 import Stats from '../Stats/index';
 import TransCreator from '../TransCreator/index';
-import Personal from '../Personal/Personal';
 import themeColor from '../Common/Color';
 import personalNavigator from '../Personal/personalStackNavigation';
 
