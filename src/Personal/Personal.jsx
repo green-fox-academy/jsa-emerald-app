@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import {
-  Avatar, ListItem, Button, Overlay,
+  Avatar, ListItem, Button,
 } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';

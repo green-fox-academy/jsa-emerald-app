@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Button, Overlay } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
+import PropTypes from 'prop-types';
 import styles from '../Common/themeStyle';
 import themeColor from '../Common/Color';
 
@@ -46,3 +47,9 @@ export default function RestoreOverlay({ isVisible, onConfirm, onCancel }) {
     </Overlay>
   );
 }
+
+RestoreOverlay.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+  onConfirm: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+};
