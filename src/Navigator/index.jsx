@@ -5,11 +5,12 @@ import Stats from '../Stats/index';
 import TransCreator from '../TransCreator/index';
 import Personal from '../Personal/Personal';
 import themeColor from '../Common/Color';
+import personalNavigator from '../Personal/personalStackNavigation';
 
 const AppNavigator = createBottomTabNavigator({
   Stats,
   Create: TransCreator,
-  Me: Personal,
+  Me: personalNavigator,
 },
 {
   initialRouteName: 'Create', // set default page

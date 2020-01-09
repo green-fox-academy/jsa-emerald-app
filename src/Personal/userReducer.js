@@ -3,7 +3,9 @@ import { actionType } from './actionCreator';
 const initialUser = {
   username: '',
   email: '',
-  accessToken: '0xa143981f3ec758296a1575146eab03ef047b7e40',
+  accessToken: '',
+  status: '',
+  message: '',
 };
 
 const user = (state = initialUser, action) => {
@@ -11,7 +13,11 @@ const user = (state = initialUser, action) => {
     case actionType.SIGNUP_START:
       return {
         ...state,
-        accessToken: null,
+        username: '',
+        email: '',
+        accessToken: '',
+        status: '',
+        message: '',
       };
     case actionType.SIGNUP_SUCCESSFUL:
       return {
@@ -19,11 +25,19 @@ const user = (state = initialUser, action) => {
         username: action.payload.username,
         email: action.payload.email,
         accessToken: action.payload.accessToken,
+        status: '',
       };
     case actionType.SIGNUP_FAILED:
       return {
         ...state,
-        accessToken: null,
+        accessToken: '',
+        status: action.payload.status,
+        message: action.payload.message,
+      };
+    case actionType.LOGOUT_SUCCESSFUL:
+      return {
+        ...state,
+        accessToken: '',
       };
     default:
       return state;

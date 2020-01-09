@@ -11,8 +11,9 @@ export const actionType = {
   BACKUP_SUCCESSFUL: 'BACKUP_SUCCESSFUL',
   BACKUP_FAILED: 'BACKUP_FAILED',
   SIGNUP_START: 'SIGNUP_START',
-  SIGNUP_SUCCESSFUL: 'SIGNUP_SUCCESSFUL',
   SIGNUP_FAILED: 'SIGNUP_FAILED',
+  SIGNUP_SUCCESSFUL: 'SIGNUP_SUCCESSFUL',
+  LOGOUT_SUCCESSFUL: 'LOGOUT_SUCCESSFUL',
   RESTORE_START: 'RESTORE_START',
   RESTORE_SUCCESSFUL: 'RESTORE_SUCCESSFUL',
   RESTORE_FAILED: 'RESTORE_FAILED',
@@ -46,14 +47,8 @@ export function signupStart() {
 
 export function signupSuccessful(userInfo) {
   return {
-    type: actionType.signupSuccessful,
+    type: actionType.SIGNUP_SUCCESSFUL,
     payload: userInfo,
-  };
-}
-
-export function signupFailed() {
-  return {
-    type: actionType.signupFailed,
   };
 }
 
@@ -141,4 +136,47 @@ export const requestRestore = () => (dispatch) => {
       dispatch(restoreFailed('Network error, Please try again later'));
     }
   });
+};
+
+export function signupFailed(userInfo) {
+  return {
+    type: actionType.SIGNUP_FAILED,
+    payload: userInfo,
+  };
+}
+
+export function logoutSuccessful() {
+  return {
+    type: actionType.LOGOUT_SUCCESSFUL,
+  };
+}
+
+export const requestSignup = (userInfo) => (dispatch) => {
+  dispatch(signupStart());
+  fetch(`${BACKEND_URL}/register`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'Application/json',
+    },
+    body: JSON.stringify(userInfo),
+  }).then((response) => response.json()).then((response) => {
+    if (response.accessToken !== '' && response.accessToken !== undefined) {
+      dispatch(
+        signupSuccessful({
+          accessToken: response.accessToken,
+          email: userInfo.email,
+          password: userInfo.password,
+          username: userInfo.username,
+        }),
+      );
+    } else {
+      dispatch(
+        signupFailed({ status: response.code, message: response.message }),
+      );
+    }
+  })
+    .catch(() => {
+      dispatch(signupFailed());
+    });
 };

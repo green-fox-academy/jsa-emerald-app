@@ -5,19 +5,19 @@ import { Button } from 'react-native-elements';
 import styles from './themeStyle';
 
 export default function MainHeader(props) {
-  const { title, onPressBtn, btnName } = props;
+  const { title, btnType } = props;
   return (
     <View style={styles.mainHeader}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, alignItems: 'flex-start', marginBottom: -10 }}>
         <Button type="clear" />
       </View>
       <Text style={[styles.headerFont, { flex: 1 }]}>{title}</Text>
       <View style={{
-        flex: 1, alignItems: 'flex-end',
+        flex: 1, alignContent: 'flex-end', marginBottom: -10, justifyContent: 'flex-end', flexDirection: 'row', alignItems: 'flex-end',
       }}
       >
-        {(btnName !== '')
-          ? <Button onPress={onPressBtn} icon={{ name: btnName }} type="clear" /> : <View />}
+        {(btnType.length)
+          ? btnType.map((item, index) => <Button key={`btnTypeGroup:${index + 1}`} onPress={item.func} icon={{ name: item.name }} type="clear" />) : <View />}
       </View>
     </View>
   );
@@ -25,12 +25,10 @@ export default function MainHeader(props) {
 
 MainHeader.propTypes = {
   title: PropTypes.string,
-  onPressBtn: PropTypes.func,
-  btnName: PropTypes.string,
+  btnType: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string, func: PropTypes.func })),
 };
 
 MainHeader.defaultProps = {
   title: '',
-  onPressBtn: () => {},
-  btnName: '',
+  btnType: [],
 };

@@ -14,5 +14,6 @@ export default {
     green: ['#2fc899', '#78ef93'],
     purple: ['#a765cf', '#f8b6cc'],
     orange: ['#ef6d6b', '#feaa74'],
+    gray: ['#ababab', '#d1d1d1'],
   },
 };
