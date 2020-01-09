@@ -21,7 +21,11 @@ export default function RestoreOverlay({ isVisible, onConfirm, onCancel }) {
             paddingRight: 20,
           }}
         >
-          <Text style={styles.overlayText}>Please make sure you have backup all your transactions</Text>
+          <Text
+            style={styles.overlayText}
+          >
+            Please make sure you have backup all your transactions
+          </Text>
         </LinearGradient>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <View style={[styles.greenLargeBtn, { marginTop: 0, marginBottom: 30 }]}>
