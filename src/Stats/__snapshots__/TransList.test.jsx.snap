@@ -1,319 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TransList /> render 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "white",
-      "borderRadius": 5,
-      "elevation": 2,
-      "marginTop": 20,
-      "padding": 10,
-      "shadowColor": "grey",
-      "shadowOffset": Object {
-        "height": 3,
-        "width": 2,
-      },
-      "shadowOpacity": 0.08,
-      "shadowRadius": 5,
-    }
-  }
->
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-        "justifyContent": "space-between",
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "#777777",
-          "fontSize": 18,
-          "margin": 10,
-        }
-      }
-    >
-      December 24th 2019
-    </Text>
-    <Text
-      style={
-        Object {
-          "color": "#777777",
-          "fontSize": 18,
-          "margin": 10,
-        }
-      }
-    >
-      -$111
-    </Text>
-  </View>
-  <View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "white",
-          "borderColor": "#bcbbc1",
-          "flexDirection": "row",
-          "padding": 14,
-        }
-      }
-    >
-      <ViewManagerAdapter_ExpoLinearGradient
-        proxiedProperties={
-          Object {
-            "colors": Array [
-              4289362139,
-              4294945023,
-            ],
-            "endPoint": Array [
-              0.9,
-              0.2,
-            ],
-            "locations": undefined,
-            "startPoint": Array [
-              0.1,
-              0.9,
-            ],
-          }
-        }
-        style={
-          Object {
-            "borderRadius": 23,
-            "padding": 8,
-          }
-        }
-      >
-        <View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "justifyContent": "center",
-              }
-            }
-            theme={
-              Object {
-                "colors": Object {
-                  "disabled": "hsl(208, 8%, 90%)",
-                  "divider": "#bcbbc1",
-                  "error": "#ff190c",
-                  "grey0": "#393e42",
-                  "grey1": "#43484d",
-                  "grey2": "#5e6977",
-                  "grey3": "#86939e",
-                  "grey4": "#bdc6cf",
-                  "grey5": "#e1e8ee",
-                  "greyOutline": "#bbb",
-                  "platform": Object {
-                    "android": Object {
-                      "error": "#f44336",
-                      "primary": "#2196f3",
-                      "secondary": "#9C27B0",
-                      "success": "#4caf50",
-                      "warning": "#ffeb3b",
-                    },
-                    "ios": Object {
-                      "error": "#ff3b30",
-                      "primary": "#007aff",
-                      "secondary": "#5856d6",
-                      "success": "#4cd964",
-                      "warning": "#ffcc00",
-                    },
-                  },
-                  "primary": "#2089dc",
-                  "searchBg": "#303337",
-                  "secondary": "#8F0CE8",
-                  "success": "#52c41a",
-                  "warning": "#faad14",
-                },
-              }
-            }
-            underlayColor="white"
-          >
-            <Text />
-          </View>
-        </View>
-      </ViewManagerAdapter_ExpoLinearGradient>
-      <View
-        width={16}
-      />
-      <View
-        style={
-          Object {
-            "flex": 1,
-            "justifyContent": "center",
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "fontSize": 17,
-            }
-          }
-          testID="listItemTitle"
-          theme={
-            Object {
-              "colors": Object {
-                "disabled": "hsl(208, 8%, 90%)",
-                "divider": "#bcbbc1",
-                "error": "#ff190c",
-                "grey0": "#393e42",
-                "grey1": "#43484d",
-                "grey2": "#5e6977",
-                "grey3": "#86939e",
-                "grey4": "#bdc6cf",
-                "grey5": "#e1e8ee",
-                "greyOutline": "#bbb",
-                "platform": Object {
-                  "android": Object {
-                    "error": "#f44336",
-                    "primary": "#2196f3",
-                    "secondary": "#9C27B0",
-                    "success": "#4caf50",
-                    "warning": "#ffeb3b",
-                  },
-                  "ios": Object {
-                    "error": "#ff3b30",
-                    "primary": "#007aff",
-                    "secondary": "#5856d6",
-                    "success": "#4cd964",
-                    "warning": "#ffcc00",
-                  },
-                },
-                "primary": "#2089dc",
-                "searchBg": "#303337",
-                "secondary": "#8F0CE8",
-                "success": "#52c41a",
-                "warning": "#faad14",
-              },
-            }
-          }
-        >
-          Shopping
-        </Text>
-        <Text
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "grey",
-              "fontSize": 15,
-            }
-          }
-          theme={
-            Object {
-              "colors": Object {
-                "disabled": "hsl(208, 8%, 90%)",
-                "divider": "#bcbbc1",
-                "error": "#ff190c",
-                "grey0": "#393e42",
-                "grey1": "#43484d",
-                "grey2": "#5e6977",
-                "grey3": "#86939e",
-                "grey4": "#bdc6cf",
-                "grey5": "#e1e8ee",
-                "greyOutline": "#bbb",
-                "platform": Object {
-                  "android": Object {
-                    "error": "#f44336",
-                    "primary": "#2196f3",
-                    "secondary": "#9C27B0",
-                    "success": "#4caf50",
-                    "warning": "#ffeb3b",
-                  },
-                  "ios": Object {
-                    "error": "#ff3b30",
-                    "primary": "#007aff",
-                    "secondary": "#5856d6",
-                    "success": "#4cd964",
-                    "warning": "#ffcc00",
-                  },
-                },
-                "primary": "#2089dc",
-                "searchBg": "#303337",
-                "secondary": "#8F0CE8",
-                "success": "#52c41a",
-                "warning": "#faad14",
-              },
-            }
-          }
-        >
-          expand
-        </Text>
-      </View>
-      <View
-        width={16}
-      />
-      <View
-        style={
-          Object {
-            "alignItems": "flex-end",
-            "flex": 0.5,
-            "justifyContent": "center",
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0, 0, 0, 0.54)",
-              "fontSize": 17,
-            }
-          }
-          theme={
-            Object {
-              "colors": Object {
-                "disabled": "hsl(208, 8%, 90%)",
-                "divider": "#bcbbc1",
-                "error": "#ff190c",
-                "grey0": "#393e42",
-                "grey1": "#43484d",
-                "grey2": "#5e6977",
-                "grey3": "#86939e",
-                "grey4": "#bdc6cf",
-                "grey5": "#e1e8ee",
-                "greyOutline": "#bbb",
-                "platform": Object {
-                  "android": Object {
-                    "error": "#f44336",
-                    "primary": "#2196f3",
-                    "secondary": "#9C27B0",
-                    "success": "#4caf50",
-                    "warning": "#ffeb3b",
-                  },
-                  "ios": Object {
-                    "error": "#ff3b30",
-                    "primary": "#007aff",
-                    "secondary": "#5856d6",
-                    "success": "#4cd964",
-                    "warning": "#ffcc00",
-                  },
-                },
-                "primary": "#2089dc",
-                "searchBg": "#303337",
-                "secondary": "#8F0CE8",
-                "success": "#52c41a",
-                "warning": "#faad14",
-              },
-            }
-          }
-        >
-          -$111
-        </Text>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`<TransList /> render 2`] = `
+exports[`<TransList /> should render with default label 1`] = `
 <View
   style={
     Object {
@@ -558,6 +245,319 @@ exports[`<TransList /> render 2`] = `
           }
         >
           Unknown
+        </Text>
+      </View>
+      <View
+        width={16}
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-end",
+            "flex": 0.5,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "rgba(0, 0, 0, 0.54)",
+              "fontSize": 17,
+            }
+          }
+          theme={
+            Object {
+              "colors": Object {
+                "disabled": "hsl(208, 8%, 90%)",
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "platform": Object {
+                  "android": Object {
+                    "error": "#f44336",
+                    "primary": "#2196f3",
+                    "secondary": "#9C27B0",
+                    "success": "#4caf50",
+                    "warning": "#ffeb3b",
+                  },
+                  "ios": Object {
+                    "error": "#ff3b30",
+                    "primary": "#007aff",
+                    "secondary": "#5856d6",
+                    "success": "#4cd964",
+                    "warning": "#ffcc00",
+                  },
+                },
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+                "success": "#52c41a",
+                "warning": "#faad14",
+              },
+            }
+          }
+        >
+          -$111
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<TransList /> should render with selected label 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderRadius": 5,
+      "elevation": 2,
+      "marginTop": 20,
+      "padding": 10,
+      "shadowColor": "grey",
+      "shadowOffset": Object {
+        "height": 3,
+        "width": 2,
+      },
+      "shadowOpacity": 0.08,
+      "shadowRadius": 5,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#777777",
+          "fontSize": 18,
+          "margin": 10,
+        }
+      }
+    >
+      December 24th 2019
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#777777",
+          "fontSize": 18,
+          "margin": 10,
+        }
+      }
+    >
+      -$111
+    </Text>
+  </View>
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "borderColor": "#bcbbc1",
+          "flexDirection": "row",
+          "padding": 14,
+        }
+      }
+    >
+      <ViewManagerAdapter_ExpoLinearGradient
+        proxiedProperties={
+          Object {
+            "colors": Array [
+              4289362139,
+              4294945023,
+            ],
+            "endPoint": Array [
+              0.9,
+              0.2,
+            ],
+            "locations": undefined,
+            "startPoint": Array [
+              0.1,
+              0.9,
+            ],
+          }
+        }
+        style={
+          Object {
+            "borderRadius": 23,
+            "padding": 8,
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              }
+            }
+            underlayColor="white"
+          >
+            <Text />
+          </View>
+        </View>
+      </ViewManagerAdapter_ExpoLinearGradient>
+      <View
+        width={16}
+      />
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "fontSize": 17,
+            }
+          }
+          testID="listItemTitle"
+          theme={
+            Object {
+              "colors": Object {
+                "disabled": "hsl(208, 8%, 90%)",
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "platform": Object {
+                  "android": Object {
+                    "error": "#f44336",
+                    "primary": "#2196f3",
+                    "secondary": "#9C27B0",
+                    "success": "#4caf50",
+                    "warning": "#ffeb3b",
+                  },
+                  "ios": Object {
+                    "error": "#ff3b30",
+                    "primary": "#007aff",
+                    "secondary": "#5856d6",
+                    "success": "#4cd964",
+                    "warning": "#ffcc00",
+                  },
+                },
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+                "success": "#52c41a",
+                "warning": "#faad14",
+              },
+            }
+          }
+        >
+          Shopping
+        </Text>
+        <Text
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "grey",
+              "fontSize": 15,
+            }
+          }
+          theme={
+            Object {
+              "colors": Object {
+                "disabled": "hsl(208, 8%, 90%)",
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "platform": Object {
+                  "android": Object {
+                    "error": "#f44336",
+                    "primary": "#2196f3",
+                    "secondary": "#9C27B0",
+                    "success": "#4caf50",
+                    "warning": "#ffeb3b",
+                  },
+                  "ios": Object {
+                    "error": "#ff3b30",
+                    "primary": "#007aff",
+                    "secondary": "#5856d6",
+                    "success": "#4cd964",
+                    "warning": "#ffcc00",
+                  },
+                },
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+                "success": "#52c41a",
+                "warning": "#faad14",
+              },
+            }
+          }
+        >
+          expand
         </Text>
       </View>
       <View

@@ -2,26 +2,36 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import DateSlider from './DateSlider';
-import utils from './utils';
 
 const moment = require('moment');
+
+const monthSet = [
+  moment('20111031', 'YYYYMMDD').subtract(1, 'month'),
+  moment('20111031', 'YYYYMMDD'),
+  moment('20111031', 'YYYYMMDD').add(1, 'month'),
+];
+
+const yearSet = [
+  moment('20111031', 'YYYYMMDD').subtract(1, 'year'),
+  moment('20111031', 'YYYYMMDD'),
+  moment('20111031', 'YYYYMMDD').add(1, 'year'),
+];
 
 describe('<DateSlider />', () => {
   it('render', () => {
     const tree = renderer.create(<DateSlider
-      viewSet={utils.getDateSet(moment(), 'month')}
-      onPressBtn={(set, cate) => utils.getDateSet(set, cate)}
+      viewSet={monthSet}
+      onPressBtn={jest.fn}
       viewType="month"
     />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('render', () => {
-    const type = 'year';
-    const dateSet = utils.getDateSet(moment(), type);
+    const dateSet = yearSet;
     const tree = renderer.create(<DateSlider
       viewSet={dateSet}
-      onPressBtn={(set, cate) => utils.getDateSet(set, cate)}
+      onPressBtn={jest.fn}
       viewType="year"
     />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -30,7 +40,7 @@ describe('<DateSlider />', () => {
   it('Left button click', () => {
     const btnClick = jest.fn();
     const wrapper = shallow(<DateSlider
-      viewSet={utils.getDateSet(moment(), 'month')}
+      viewSet={monthSet}
       onPressBtn={btnClick}
       viewType="month"
     />);
@@ -41,7 +51,7 @@ describe('<DateSlider />', () => {
   it('Right button click', () => {
     const btnClick = jest.fn();
     const wrapper = shallow(<DateSlider
-      viewSet={utils.getDateSet(moment(), 'month')}
+      viewSet={monthSet}
       onPressBtn={btnClick}
       viewType="month"
     />);

@@ -59,7 +59,7 @@ exports[`<DateSlider /> render 1`] = `
             }
           }
         >
-          Dec 2019
+          Sep 2011
         </Text>
       </View>
     </View>
@@ -83,7 +83,7 @@ exports[`<DateSlider /> render 1`] = `
         }
       }
     >
-      Jan 2020
+      Oct 2011
     </Text>
   </View>
   <View
@@ -136,7 +136,7 @@ exports[`<DateSlider /> render 1`] = `
             }
           }
         >
-          Feb 2020
+          Nov 2011
         </Text>
       </View>
     </View>
@@ -203,7 +203,7 @@ exports[`<DateSlider /> render 2`] = `
             }
           }
         >
-          2019
+          2010
         </Text>
       </View>
     </View>
@@ -227,7 +227,7 @@ exports[`<DateSlider /> render 2`] = `
         }
       }
     >
-      2020
+      2011
     </Text>
   </View>
   <View
@@ -280,7 +280,7 @@ exports[`<DateSlider /> render 2`] = `
             }
           }
         >
-          2021
+          2012
         </Text>
       </View>
     </View>

@@ -5,8 +5,13 @@ import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 import TabBarIcon from './TabBarIcon';
 
+beforeAll(async () => {
+  await Font.loadAsync(MaterialIcons.font);
+  await Font.loadAsync(MaterialCommunityIcons.font);
+  await Font.loadAsync(MaterialIcons.font);
+});
+
 describe('<TabBarIcon />', () => {
-  beforeEach(() => Font.loadAsync(MaterialIcons.font));
   it('render Stats', () => {
     const tree = renderer.create(<TabBarIcon
       navigation={{ state: { routeName: 'Stats' } }}
@@ -16,7 +21,6 @@ describe('<TabBarIcon />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  beforeEach(() => Font.loadAsync(MaterialCommunityIcons.font));
   it('render Create', () => {
     const tree = renderer.create(<TabBarIcon
       navigation={{ state: { routeName: 'Create' } }}
@@ -26,7 +30,6 @@ describe('<TabBarIcon />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  beforeEach(() => Font.loadAsync(MaterialIcons.font));
   it('render Me', () => {
     const tree = renderer.create(<TabBarIcon
       navigation={{ state: { routeName: 'Me' } }}
