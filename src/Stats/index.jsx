@@ -46,6 +46,13 @@ export default function Stats() {
   const totalExpense = calculateSumByType(filteredTransactions, 'Expense');
   const totalIncome = calculateSumByType(filteredTransactions, 'Income');
 
+  const navBarFunc = [
+    {
+      name: 'filter',
+      func: () => setOverlayVisibility(true),
+    },
+  ];
+
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Overlay height={200} isVisible={isOverlayVisible}>
@@ -59,7 +66,7 @@ export default function Stats() {
           </View>
         </View>
       </Overlay>
-      <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(true)} btnName="filter" />
+      <MainHeader title="Transactions" btnType={navBarFunc} />
       <DateSlider
         viewSet={timePeriodOptions}
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}
