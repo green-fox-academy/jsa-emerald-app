@@ -1,37 +1,403 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stats render 1`] = `
-<Context.Provider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
-    }
-  }
->
-  <Stats />
-</Context.Provider>
+"<Provider store={{...}}>
+  <Stats>
+    <View style={{...}}>
+      <View style={{...}}>
+        <Themed.Overlay height={200} isVisible={false}>
+          <Overlay theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} height={200} isVisible={false} borderRadius={3} fullScreen={false} windowBackgroundColor=\\"rgba(0, 0, 0, .4)\\" overlayBackgroundColor=\\"white\\" width={670} onBackdropPress={[Function: onBackdropPress]}>
+            <Component visible={false} onRequestClose={[Function: onBackdropPress]} transparent={true} theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} hardwareAccelerated={false}>
+              <Modal visible={false} hardwareAccelerated={false} onRequestClose={[Function: onBackdropPress]} transparent={true} theme={{...}}>
+                <TouchableWithoutFeedback onPress={[Function: onBackdropPress]} testID=\\"RNE__Overlay__backdrop\\">
+                  <View testID=\\"RNE__Overlay__backdrop\\" style={{...}} accessible={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                    <View testID=\\"RNE__Overlay__backdrop\\" style={{...}} accessible={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} />
+                  </View>
+                </TouchableWithoutFeedback>
+                <View style={{...}} pointerEvents=\\"box-none\\">
+                  <View style={{...}} pointerEvents=\\"box-none\\">
+                    <View style={{...}}>
+                      <View style={{...}}>
+                        <View>
+                          <View>
+                            <View style={{...}}>
+                              <View style={{...}}>
+                                <ForwardRef(Themed.Button) id=\\"btn-stats-index-vsb\\" icon={{...}} type=\\"clear\\" onPress={[Function: onPress]}>
+                                  <ThemedComponent id=\\"btn-stats-index-vsb\\" icon={{...}} type=\\"clear\\" onPress={[Function: onPress]} forwardedRef={{...}}>
+                                    <Button theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-stats-index-vsb\\" icon={{...}} type=\\"clear\\" onPress={[Function: onPress]} title=\\"\\" iconRight={false} TouchableComponent={[Function]} buttonStyle={{...}} disabled={false} raised={false} loading={false}>
+                                      <View style={{...}}>
+                                        <View style={{...}}>
+                                          <TouchableOpacity onPress={[Function: onPress]} activeOpacity={0.3} disabled={false} updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-stats-index-vsb\\">
+                                            <AnimatedComponent accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                              <View accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} collapsable={[undefined]}>
+                                                <View accessible={true} style={{...}} isTVSelectable={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                                  <View style={{...}}>
+                                                    <View style={{...}}>
+                                                      <Themed.Icon containerStyle={{...}} name=\\"close\\">
+                                                        <Icon theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} containerStyle={{...}} name=\\"close\\" underlayColor=\\"white\\" reverse={false} raised={false} size={24} color=\\"black\\" reverseColor=\\"white\\" disabled={false} type=\\"material\\">
+                                                          <View style={{...}}>
+                                                            <View style={{...}}>
+                                                              <View theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} underlayColor=\\"white\\" style={{...}} onPress={[undefined]}>
+                                                                <View theme={{...}} underlayColor=\\"white\\" style={{...}}>
+                                                                  <Icon testID=\\"iconIcon\\" style={{...}} size={24} name=\\"close\\" color=\\"black\\" allowFontScaling={false}>
+                                                                    <Text>
+                                                                      <Text />
+                                                                    </Text>
+                                                                  </Icon>
+                                                                </View>
+                                                              </View>
+                                                            </View>
+                                                          </View>
+                                                        </Icon>
+                                                      </Themed.Icon>
+                                                    </View>
+                                                  </View>
+                                                </View>
+                                              </View>
+                                            </AnimatedComponent>
+                                          </TouchableOpacity>
+                                        </View>
+                                      </View>
+                                    </Button>
+                                  </ThemedComponent>
+                                </ForwardRef(Themed.Button)>
+                              </View>
+                            </View>
+                            <View style={{...}}>
+                              <View style={{...}}>
+                                <ViewSelectionItem title=\\"Month\\" pressHandler={[Function: updateHeaderView]}>
+                                  <Themed.ListItem id=\\"btn-stats-index-month\\" title=\\"Month\\" topDivider={true} bottomDivider={true} onPress={[Function: onPress]}>
+                                    <ListItem theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-stats-index-month\\" title=\\"Month\\" topDivider={true} bottomDivider={true} onPress={[Function: onPress]} pad={16}>
+                                      <TouchableHighlight updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-stats-index-month\\" onPress={[Function: onPress]} onLongPress={[undefined]} disabled={[undefined]} activeOpacity={0.85} delayPressOut={100} underlayColor=\\"black\\">
+                                        <View accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} onLayout={[undefined]} hitSlop={[undefined]} isTVSelectable={true} tvParallaxProperties={[undefined]} hasTVPreferredFocus={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} nativeID={[undefined]} testID={[undefined]}>
+                                          <View accessible={true} style={{...}} isTVSelectable={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                            <PadView Component={[Function: Component]} style={{...}} pad={16}>
+                                              <View style={{...}}>
+                                                <View style={{...}}>
+                                                  <View style={{...}}>
+                                                    <View style={{...}}>
+                                                      <Themed.Text testID=\\"listItemTitle\\" style={{...}}>
+                                                        <TextElement theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} testID=\\"listItemTitle\\" style={{...}} h1={false} h2={false} h3={false} h4={false} h1Style={{...}} h2Style={{...}} h3Style={{...}} h4Style={{...}}>
+                                                          <Text style={{...}} theme={{...}} testID=\\"listItemTitle\\">
+                                                            <Text style={{...}} theme={{...}} testID=\\"listItemTitle\\">
+                                                              Month
+                                                            </Text>
+                                                          </Text>
+                                                        </TextElement>
+                                                      </Themed.Text>
+                                                    </View>
+                                                  </View>
+                                                </View>
+                                              </View>
+                                            </PadView>
+                                          </View>
+                                        </View>
+                                      </TouchableHighlight>
+                                    </ListItem>
+                                  </Themed.ListItem>
+                                </ViewSelectionItem>
+                                <ViewSelectionItem title=\\"Year\\" pressHandler={[Function: updateHeaderView]}>
+                                  <Themed.ListItem id=\\"btn-stats-index-month\\" title=\\"Year\\" topDivider={true} bottomDivider={true} onPress={[Function: onPress]}>
+                                    <ListItem theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-stats-index-month\\" title=\\"Year\\" topDivider={true} bottomDivider={true} onPress={[Function: onPress]} pad={16}>
+                                      <TouchableHighlight updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-stats-index-month\\" onPress={[Function: onPress]} onLongPress={[undefined]} disabled={[undefined]} activeOpacity={0.85} delayPressOut={100} underlayColor=\\"black\\">
+                                        <View accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} onLayout={[undefined]} hitSlop={[undefined]} isTVSelectable={true} tvParallaxProperties={[undefined]} hasTVPreferredFocus={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} nativeID={[undefined]} testID={[undefined]}>
+                                          <View accessible={true} style={{...}} isTVSelectable={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                            <PadView Component={[Function: Component]} style={{...}} pad={16}>
+                                              <View style={{...}}>
+                                                <View style={{...}}>
+                                                  <View style={{...}}>
+                                                    <View style={{...}}>
+                                                      <Themed.Text testID=\\"listItemTitle\\" style={{...}}>
+                                                        <TextElement theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} testID=\\"listItemTitle\\" style={{...}} h1={false} h2={false} h3={false} h4={false} h1Style={{...}} h2Style={{...}} h3Style={{...}} h4Style={{...}}>
+                                                          <Text style={{...}} theme={{...}} testID=\\"listItemTitle\\">
+                                                            <Text style={{...}} theme={{...}} testID=\\"listItemTitle\\">
+                                                              Year
+                                                            </Text>
+                                                          </Text>
+                                                        </TextElement>
+                                                      </Themed.Text>
+                                                    </View>
+                                                  </View>
+                                                </View>
+                                              </View>
+                                            </PadView>
+                                          </View>
+                                        </View>
+                                      </TouchableHighlight>
+                                    </ListItem>
+                                  </Themed.ListItem>
+                                </ViewSelectionItem>
+                              </View>
+                            </View>
+                          </View>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </Modal>
+            </Component>
+          </Overlay>
+        </Themed.Overlay>
+        <MainHeader title=\\"Activity\\" onPressBtn={[Function: onPressBtn]} btnName=\\"filter\\">
+          <View style={{...}}>
+            <View style={{...}}>
+              <View style={{...}}>
+                <View style={{...}}>
+                  <ForwardRef(Themed.Button) type=\\"clear\\">
+                    <ThemedComponent type=\\"clear\\" forwardedRef={{...}}>
+                      <Button theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} type=\\"clear\\" title=\\"\\" iconRight={false} TouchableComponent={[Function]} onPress={[Function: onPress]} buttonStyle={{...}} disabled={false} raised={false} loading={false}>
+                        <View style={{...}}>
+                          <View style={{...}}>
+                            <TouchableOpacity onPress={[Function: onPress]} activeOpacity={0.3} disabled={false} updateTheme={[undefined]} replaceTheme={[undefined]}>
+                              <AnimatedComponent accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                <View accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} collapsable={[undefined]}>
+                                  <View accessible={true} style={{...}} isTVSelectable={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                    <View style={{...}}>
+                                      <View style={{...}} />
+                                    </View>
+                                  </View>
+                                </View>
+                              </AnimatedComponent>
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+                      </Button>
+                    </ThemedComponent>
+                  </ForwardRef(Themed.Button)>
+                </View>
+              </View>
+              <Text style={{...}}>
+                <Text style={{...}}>
+                  Activity
+                </Text>
+              </Text>
+              <View style={{...}}>
+                <View style={{...}}>
+                  <ForwardRef(Themed.Button) onPress={[Function: onPressBtn]} icon={{...}} type=\\"clear\\">
+                    <ThemedComponent onPress={[Function: onPressBtn]} icon={{...}} type=\\"clear\\" forwardedRef={{...}}>
+                      <Button theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} onPress={[Function: onPressBtn]} icon={{...}} type=\\"clear\\" title=\\"\\" iconRight={false} TouchableComponent={[Function]} buttonStyle={{...}} disabled={false} raised={false} loading={false}>
+                        <View style={{...}}>
+                          <View style={{...}}>
+                            <TouchableOpacity onPress={[Function: onPressBtn]} activeOpacity={0.3} disabled={false} updateTheme={[undefined]} replaceTheme={[undefined]}>
+                              <AnimatedComponent accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                <View accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} collapsable={[undefined]}>
+                                  <View accessible={true} style={{...}} isTVSelectable={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                    <View style={{...}}>
+                                      <View style={{...}}>
+                                        <Themed.Icon containerStyle={{...}} name=\\"filter\\">
+                                          <Icon theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} containerStyle={{...}} name=\\"filter\\" underlayColor=\\"white\\" reverse={false} raised={false} size={24} color=\\"black\\" reverseColor=\\"white\\" disabled={false} type=\\"material\\">
+                                            <View style={{...}}>
+                                              <View style={{...}}>
+                                                <View theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} underlayColor=\\"white\\" style={{...}} onPress={[undefined]}>
+                                                  <View theme={{...}} underlayColor=\\"white\\" style={{...}}>
+                                                    <Icon testID=\\"iconIcon\\" style={{...}} size={24} name=\\"filter\\" color=\\"black\\" allowFontScaling={false}>
+                                                      <Text>
+                                                        <Text />
+                                                      </Text>
+                                                    </Icon>
+                                                  </View>
+                                                </View>
+                                              </View>
+                                            </View>
+                                          </Icon>
+                                        </Themed.Icon>
+                                      </View>
+                                    </View>
+                                  </View>
+                                </View>
+                              </AnimatedComponent>
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+                      </Button>
+                    </ThemedComponent>
+                  </ForwardRef(Themed.Button)>
+                </View>
+              </View>
+            </View>
+          </View>
+        </MainHeader>
+        <DateSlider viewSet={{...}} onPressBtn={[Function: onPressBtn]} viewType=\\"month\\">
+          <View style={{...}}>
+            <View style={{...}}>
+              <ForwardRef(Themed.Button) id=\\"btn-dateSlider-left\\" containerStyle={{...}} title=\\"Dec 2019\\" type=\\"clear\\" titleStyle={{...}} onPress={[Function: onPress]}>
+                <ThemedComponent id=\\"btn-dateSlider-left\\" containerStyle={{...}} title=\\"Dec 2019\\" type=\\"clear\\" titleStyle={{...}} onPress={[Function: onPress]} forwardedRef={{...}}>
+                  <Button theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-dateSlider-left\\" containerStyle={{...}} title=\\"Dec 2019\\" type=\\"clear\\" titleStyle={{...}} onPress={[Function: onPress]} iconRight={false} TouchableComponent={[Function]} buttonStyle={{...}} disabled={false} raised={false} loading={false}>
+                    <View style={{...}}>
+                      <View style={{...}}>
+                        <TouchableOpacity onPress={[Function: onPress]} activeOpacity={0.3} disabled={false} updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-dateSlider-left\\">
+                          <AnimatedComponent accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                            <View accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} collapsable={[undefined]}>
+                              <View accessible={true} style={{...}} isTVSelectable={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                <View style={{...}}>
+                                  <View style={{...}}>
+                                    <Text style={{...}}>
+                                      <Text style={{...}}>
+                                        Dec 2019
+                                      </Text>
+                                    </Text>
+                                  </View>
+                                </View>
+                              </View>
+                            </View>
+                          </AnimatedComponent>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  </Button>
+                </ThemedComponent>
+              </ForwardRef(Themed.Button)>
+              <View style={{...}}>
+                <View style={{...}}>
+                  <Text style={{...}}>
+                    <Text style={{...}}>
+                      Jan 2020
+                    </Text>
+                  </Text>
+                </View>
+              </View>
+              <ForwardRef(Themed.Button) id=\\"btn-dateSlider-right\\" containerStyle={{...}} title=\\"Feb 2020\\" type=\\"clear\\" titleStyle={{...}} onPress={[Function: onPress]}>
+                <ThemedComponent id=\\"btn-dateSlider-right\\" containerStyle={{...}} title=\\"Feb 2020\\" type=\\"clear\\" titleStyle={{...}} onPress={[Function: onPress]} forwardedRef={{...}}>
+                  <Button theme={{...}} updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-dateSlider-right\\" containerStyle={{...}} title=\\"Feb 2020\\" type=\\"clear\\" titleStyle={{...}} onPress={[Function: onPress]} iconRight={false} TouchableComponent={[Function]} buttonStyle={{...}} disabled={false} raised={false} loading={false}>
+                    <View style={{...}}>
+                      <View style={{...}}>
+                        <TouchableOpacity onPress={[Function: onPress]} activeOpacity={0.3} disabled={false} updateTheme={[undefined]} replaceTheme={[undefined]} id=\\"btn-dateSlider-right\\">
+                          <AnimatedComponent accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                            <View accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} collapsable={[undefined]}>
+                              <View accessible={true} style={{...}} isTVSelectable={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                <View style={{...}}>
+                                  <View style={{...}}>
+                                    <Text style={{...}}>
+                                      <Text style={{...}}>
+                                        Feb 2020
+                                      </Text>
+                                    </Text>
+                                  </View>
+                                </View>
+                              </View>
+                            </View>
+                          </AnimatedComponent>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  </Button>
+                </ThemedComponent>
+              </ForwardRef(Themed.Button)>
+            </View>
+          </View>
+        </DateSlider>
+        <ScrollViewMock style={{...}}>
+          <_class style={{...}}>
+            <RCTScrollView style={{...}}>
+              <View>
+                <View>
+                  <View style={{...}}>
+                    <View style={{...}}>
+                      <View style={{...}}>
+                        <View style={{...}}>
+                          <FilterBtn currentFilter=\\"all\\" onFilterChange={[Function: onFilterChange]} totalExpense={0} totalIncome={0}>
+                            <LargeButton subtitle=\\"Spent\\" title=\\"-$0\\" note=\\"Expense\\" bgColor=\\"red\\" btnWidth=\\"48%\\" isShadowVisible={false} pressHandler={[Function: pressHandler]}>
+                              <View style={{...}}>
+                                <View style={{...}}>
+                                  <TouchableOpacity onPress={[Function: pressHandler]} activeOpacity={0.2}>
+                                    <AnimatedComponent accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                      <View accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} collapsable={[undefined]}>
+                                        <View accessible={true} style={{...}} isTVSelectable={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                          <LinearGradient colors={{...}} start={{...}} end={{...}} style={{...}}>
+                                            <NativeLinearGradient style={{...}} colors={{...}} locations={[undefined]} startPoint={{...}} endPoint={{...}}>
+                                              <ForwardRef(Adapter<ExpoLinearGradient>) style={{...}} colors={{...}} locations={[undefined]} startPoint={{...}} endPoint={{...}}>
+                                                <_class style={{...}} proxiedProperties={{...}}>
+                                                  <ViewManagerAdapter_ExpoLinearGradient style={{...}} proxiedProperties={{...}}>
+                                                    <Text style={{...}}>
+                                                      <Text style={{...}}>
+                                                        Spent
+                                                      </Text>
+                                                    </Text>
+                                                    <Text style={{...}}>
+                                                      <Text style={{...}}>
+                                                        -$0
+                                                      </Text>
+                                                    </Text>
+                                                    <Text style={{...}}>
+                                                      <Text style={{...}}>
+                                                        Expense
+                                                      </Text>
+                                                    </Text>
+                                                  </ViewManagerAdapter_ExpoLinearGradient>
+                                                </_class>
+                                              </ForwardRef(Adapter<ExpoLinearGradient>)>
+                                            </NativeLinearGradient>
+                                          </LinearGradient>
+                                        </View>
+                                      </View>
+                                    </AnimatedComponent>
+                                  </TouchableOpacity>
+                                </View>
+                              </View>
+                            </LargeButton>
+                            <LargeButton subtitle=\\"Earned\\" title=\\"+$0\\" note=\\"Income\\" bgColor=\\"green\\" btnWidth=\\"48%\\" isShadowVisible={false} pressHandler={[Function: pressHandler]}>
+                              <View style={{...}}>
+                                <View style={{...}}>
+                                  <TouchableOpacity onPress={[Function: pressHandler]} activeOpacity={0.2}>
+                                    <AnimatedComponent accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                      <View accessible={true} accessibilityLabel={[undefined]} accessibilityHint={[undefined]} accessibilityRole={[undefined]} accessibilityStates={[undefined]} style={{...}} nativeID={[undefined]} testID={[undefined]} onLayout={[undefined]} isTVSelectable={true} hasTVPreferredFocus={[undefined]} tvParallaxProperties={[undefined]} hitSlop={[undefined]} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]} collapsable={[undefined]}>
+                                        <View accessible={true} style={{...}} isTVSelectable={true} onStartShouldSetResponder={[Function: bound touchableHandleStartShouldSetResponder]} onResponderTerminationRequest={[Function: bound touchableHandleResponderTerminationRequest]} onResponderGrant={[Function: bound touchableHandleResponderGrant]} onResponderMove={[Function: bound touchableHandleResponderMove]} onResponderRelease={[Function: bound touchableHandleResponderRelease]} onResponderTerminate={[Function: bound touchableHandleResponderTerminate]}>
+                                          <LinearGradient colors={{...}} start={{...}} end={{...}} style={{...}}>
+                                            <NativeLinearGradient style={{...}} colors={{...}} locations={[undefined]} startPoint={{...}} endPoint={{...}}>
+                                              <ForwardRef(Adapter<ExpoLinearGradient>) style={{...}} colors={{...}} locations={[undefined]} startPoint={{...}} endPoint={{...}}>
+                                                <_class style={{...}} proxiedProperties={{...}}>
+                                                  <ViewManagerAdapter_ExpoLinearGradient style={{...}} proxiedProperties={{...}}>
+                                                    <Text style={{...}}>
+                                                      <Text style={{...}}>
+                                                        Earned
+                                                      </Text>
+                                                    </Text>
+                                                    <Text style={{...}}>
+                                                      <Text style={{...}}>
+                                                        +$0
+                                                      </Text>
+                                                    </Text>
+                                                    <Text style={{...}}>
+                                                      <Text style={{...}}>
+                                                        Income
+                                                      </Text>
+                                                    </Text>
+                                                  </ViewManagerAdapter_ExpoLinearGradient>
+                                                </_class>
+                                              </ForwardRef(Adapter<ExpoLinearGradient>)>
+                                            </NativeLinearGradient>
+                                          </LinearGradient>
+                                        </View>
+                                      </View>
+                                    </AnimatedComponent>
+                                  </TouchableOpacity>
+                                </View>
+                              </View>
+                            </LargeButton>
+                          </FilterBtn>
+                        </View>
+                      </View>
+                      <EmptyHistory>
+                        <View>
+                          <View>
+                            <Text>
+                              <Text>
+                                You haven&quot;t added any transactions yet
+                              </Text>
+                            </Text>
+                          </View>
+                        </View>
+                      </EmptyHistory>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </RCTScrollView>
+          </_class>
+        </ScrollViewMock>
+      </View>
+    </View>
+  </Stats>
+</Provider>"
 `;

@@ -9,6 +9,7 @@ import DateSlider from './DateSlider';
 import FilterBtn from './FilterBtn';
 import TransList from './TransList';
 import EmptyHistory from './EmptyHistory';
+import ViewSelectionItem from './ViewSelectionItem';
 
 const moment = require('moment');
 
@@ -59,19 +60,8 @@ export default function Stats() {
             />
           </View>
           <View style={{ marginTop: 20 }}>
-            <ListItem
-              id="btn-stats-index-month"
-              title="Month"
-              topDivider
-              bottomDivider
-              onPress={() => updateHeaderView('month')}
-            />
-            <ListItem
-              id="btn-stats-index-year"
-              title="Year"
-              bottomDivider
-              onPress={() => updateHeaderView('year')}
-            />
+            <ViewSelectionItem title="Month" pressHandler={updateHeaderView} />
+            <ViewSelectionItem title="Year" pressHandler={updateHeaderView} />
           </View>
         </View>
       </Overlay>
