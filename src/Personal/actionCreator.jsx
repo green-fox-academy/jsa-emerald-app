@@ -44,8 +44,7 @@ export const requestLogin = (userInfo) => (dispatch) => {
     } else {
       dispatch(loginFailed({ status: response.code, message: response.message }));
     }
-  }).catch((error) => {
+  }).catch(() => {
     dispatch(loginFailed());
-    throw error;
   });
 };
