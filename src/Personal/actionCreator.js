@@ -58,8 +58,7 @@ export const requestSignup = (userInfo) => (dispatch) => {
       );
     }
   })
-    .catch((error) => {
+    .catch(() => {
       dispatch(signupFailed());
-      throw error;
     });
 };
