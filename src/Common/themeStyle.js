@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: 'white',
-    borderRadius: 5,
+    borderRadius: 6,
     shadowColor: 'grey',
     shadowOffset: {
       width: 2,
@@ -69,6 +69,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  secondaryHeading: {
+    fontSize: 20,
+    fontWeight: '500',
+    marginTop: 10,
+    marginBottom: 10,
+  },
+
   cardAlign: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -98,6 +105,31 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.70,
     shadowRadius: 4.65,
     elevation: 8,
+  },
+
+  grayBtnShadow: {
+    shadowColor: '#cccccc',
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.70,
+    shadowRadius: 4.65,
+    elevation: 8,
+  },
+
+  overlayBtn: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 25,
+  },
+
+  overlayText: {
+    fontSize: 20,
+    color: 'white',
+    textAlign: 'center',
   },
 
   largeBtnHeader: {

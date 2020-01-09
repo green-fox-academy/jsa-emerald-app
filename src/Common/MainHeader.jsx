@@ -16,7 +16,8 @@ export default function MainHeader(props) {
         flex: 1, alignItems: 'flex-end',
       }}
       >
-        <Button onPress={onPressBtn} icon={{ name: btnName }} type="clear" />
+        {(btnName !== '')
+          ? <Button onPress={onPressBtn} icon={{ name: btnName }} type="clear" /> : <View />}
       </View>
     </View>
   );
