@@ -105,7 +105,7 @@ export const requestBackup = () => (dispatch, getState) => {
     method: 'POST',
     mode: 'cors',
     headers: {
-      Authorization: `Bearer ${refreshToken}`,
+      Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ transactions }),
