@@ -19,7 +19,7 @@ const LoginView = StyleSheet.create({
     paddingTop: 40,
     marginBottom: 40,
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 
   heading: {

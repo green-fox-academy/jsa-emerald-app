@@ -157,6 +157,7 @@ export default function Register() {
             <SubmitBtn
               disabled={utils.validateSignup(username, password, confirmPassword, email) === false}
               onPressBtn={() => signUp({ email, password, username })}
+              title="Register"
             />
           </View>
         </View>

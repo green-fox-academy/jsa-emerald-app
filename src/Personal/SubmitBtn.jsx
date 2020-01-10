@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import colors from '../Common/Color';
 import LoginView from './loginView';
 
-export default function SubmitBtn({ disabled, onPressBtn }) {
+export default function SubmitBtn({ disabled, onPressBtn, title }) {
   return (
     <View style={disabled ? LoginView.disabledBtnShadow : LoginView.btnShadow}>
       <LinearGradient
@@ -16,7 +16,7 @@ export default function SubmitBtn({ disabled, onPressBtn }) {
         style={{ borderRadius: 30, padding: 10 }}
       >
         <Button
-          title="Submit"
+          title={title}
           disabledTitleStyle={{ color: 'white' }}
           titleStyle={{ color: 'white' }}
           type="clear"
@@ -31,4 +31,5 @@ export default function SubmitBtn({ disabled, onPressBtn }) {
 SubmitBtn.propTypes = {
   disabled: PropTypes.bool.isRequired,
   onPressBtn: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
 };
