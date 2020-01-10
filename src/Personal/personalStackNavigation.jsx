@@ -18,6 +18,6 @@ const MainNavigator = createStackNavigator({
   },
 });
 
-const personalNavigator = createAppContainer(MainNavigator);
+const PersonalNavigation = createAppContainer(MainNavigator);
 
-export default personalNavigator;
+export default PersonalNavigation;

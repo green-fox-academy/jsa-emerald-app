@@ -4,12 +4,12 @@ import TabBarIcon from './TabBarIcon';
 import Stats from '../Stats/index';
 import TransCreator from '../TransCreator/index';
 import themeColor from '../Common/Color';
-import personalNavigator from '../Personal/personalStackNavigation';
+import PersonalNavigation from '../Personal/personalStackNavigation';
 
 const AppNavigator = createBottomTabNavigator({
   Stats,
   Create: TransCreator,
-  Me: personalNavigator,
+  Me: PersonalNavigation,
 },
 {
   defaultNavigationOptions: ({ navigation }) => ({
