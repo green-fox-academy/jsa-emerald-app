@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, Dimensions, KeyboardAvoidingView
+  View, Text, Dimensions, KeyboardAvoidingView,
 } from 'react-native';
 import { Input, Icon, Image } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
