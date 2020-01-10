@@ -2,7 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Index from './index';
 import Register from './register';
-import Login from './login';
+import Login from './Login';
 
 const MainNavigator = createStackNavigator({
   Index: {
