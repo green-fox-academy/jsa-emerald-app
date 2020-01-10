@@ -10,6 +10,7 @@ import utils from './utils';
 import RegisterView from './RegisterView';
 import { requestSignup } from './actionCreator';
 import SubmitBtn from './submitBtn';
+import commonStyle from '../Common/themeStyle';
 
 export default function Register() {
   const { navigate } = useNavigation();
@@ -40,9 +41,9 @@ export default function Register() {
 
   return (
     <>
-      <View style={{ borderBottomWidth: 2, borderBottomColor: '#f8f8f8' }}>
-        <MainHeader title="Register" />
-      </View>
+      <Text style={[commonStyle.firstHeading, RegisterView.heading]}>
+        Login
+      </Text>
       <KeyboardAvoidingView
         style={RegisterView.registerForm}
         behavior="padding"
@@ -58,7 +59,7 @@ export default function Register() {
                   name="face"
                   color="#a8a8a8"
                 />
-          )}
+              )}
               leftIconContainerStyle={RegisterView.inputIcon}
               label="Your Username"
               value={username}
@@ -74,7 +75,7 @@ export default function Register() {
                   name="email"
                   color="#a8a8a8"
                 />
-          )}
+              )}
               leftIconContainerStyle={RegisterView.inputIcon}
               label="Your Email Address"
               textContentType="emailAddress"
@@ -83,7 +84,7 @@ export default function Register() {
               labelStyle={{ color: 'gray' }}
             />
             <Text style={RegisterView.note}>
-              {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
+              {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.'}
             </Text>
           </View>
 
@@ -109,7 +110,7 @@ export default function Register() {
                   color="gray"
                   onPress={() => setPasswordHidden(!passwordHidden)}
                 />
-            )}
+              )}
             />
             <Text style={RegisterView.note}>
               {utils.passwordValidation(password) || password === ''
@@ -139,18 +140,18 @@ export default function Register() {
                   color="gray"
                   onPress={() => setConfirmPasswordHidden(!confirmPasswordHidden)}
                 />
-            )}
+              )}
             />
             <Text style={RegisterView.note}>
               {password === confirmPassword || confirmPassword === '' ? '' : 'Password is not the same.'}
             </Text>
           </View>
           {
-             (errorMsgDisplay) ? (
-               <View style={[RegisterView.inputSection, RegisterView.errorBox]}>
-                 <Text style={RegisterView.errorText}>{user.message}</Text>
-               </View>
-             ) : (null)
+            (errorMsgDisplay) ? (
+              <View style={[RegisterView.inputSection, RegisterView.errorBox]}>
+                <Text style={RegisterView.errorText}>{user.message}</Text>
+              </View>
+            ) : (null)
           }
           <View>
             <SubmitBtn

@@ -19,7 +19,10 @@ export default function Index() {
     (user.accessToken !== '' && user.accessToken !== undefined) ? <Personal /> : (
       <>
         <View style={{ flex: 1, paddingTop: 120 }}>
-          <Image source={img} style={{ marginTop: 50, width: screenWidth, height: screenHeight / 3 }} />
+          <Image
+            source={img}
+            style={{ marginTop: 50, width: screenWidth, height: screenHeight / 3 }}
+          />
         </View>
         <View style={RegisterView.container}>
           <View>

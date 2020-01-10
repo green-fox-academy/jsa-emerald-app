@@ -16,11 +16,16 @@ const LoginView = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     flex: 1,
-    marginTop: 50,
-    marginBottom: 50,
+    paddingTop: 40,
+    marginBottom: 40,
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
+
+  heading: {
+    color: 'gray',
+  },
+
   inputIcon: {
     marginLeft: 0,
     marginRight: 5,

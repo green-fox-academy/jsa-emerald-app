@@ -69,6 +69,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  firstHeading: {
+    fontSize: 40,
+    fontWeight: '400',
+    textAlign: 'center',
+    letterSpacing: 5,
+    textShadowColor: '#f8f8f8',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 4,
+  },
+
   secondaryHeading: {
     fontSize: 20,
     fontWeight: '500',

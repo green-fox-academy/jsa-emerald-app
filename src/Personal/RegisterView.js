@@ -26,7 +26,9 @@ const RegisterView = StyleSheet.create({
     marginRight: 5,
   },
   inputSection: { marginBottom: 20 },
-
+  heading: {
+    color: 'gray',
+  },
   button: {
     alignSelf: 'stretch',
     alignItems: 'center',

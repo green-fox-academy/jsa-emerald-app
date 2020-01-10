@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, KeyboardAvoidingView, Platform,
+  View, Text, Dimensions, KeyboardAvoidingView
 } from 'react-native';
-import { Input, Icon } from 'react-native-elements';
+import { Input, Icon, Image } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
 import { requestRestore, requestLogin } from './actionCreator';
-import MainHeader from '../Common/MainHeader';
 import utils from './utils';
 import LoginView from './loginView';
-
+import commonStyle from '../Common/themeStyle';
 import SubmitBtn from './submitBtn';
+
+const img = require('../../assets/loginPage.png');
 
 export default function Login() {
   const { navigate } = useNavigation();
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
+  const screenWidth = Dimensions.get('window').width;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordHidden, setPasswordHidden] = useState(true);
@@ -39,15 +40,22 @@ export default function Login() {
 
   return (
     <>
-      <View style={{ borderBottomWidth: 2, borderBottomColor: '#f8f8f8' }}>
-        <MainHeader title="Login" />
+      <View>
+        <Image
+          source={img}
+          style={{ width: screenWidth, height: 240 }}
+        />
       </View>
       <KeyboardAvoidingView
         style={LoginView.registerForm}
         behavior="padding"
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 20}
         enabled
       >
+        <View>
+          <Text style={[commonStyle.firstHeading, LoginView.heading]}>
+            Login
+          </Text>
+        </View>
         <View>
           <View style={LoginView.inputSection}>
             <Input
@@ -57,7 +65,7 @@ export default function Login() {
                   name="email"
                   color="#a8a8a8"
                 />
-          )}
+              )}
               leftIconContainerStyle={LoginView.inputIcon}
               label="Your Email Address"
               textContentType="emailAddress"
@@ -66,7 +74,7 @@ export default function Login() {
               labelStyle={{ color: 'gray' }}
             />
             <Text style={LoginView.note}>
-              {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
+              {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.'}
             </Text>
           </View>
           <View style={LoginView.inputSection}>
@@ -91,15 +99,15 @@ export default function Login() {
                   color="gray"
                   onPress={() => setPasswordHidden(!passwordHidden)}
                 />
-            )}
+              )}
             />
           </View>
           {
-             (errorMsgDisplay) ? (
-               <View style={[LoginView.inputSection, LoginView.errorBox]}>
-                 <Text style={LoginView.errorText}>{user.message}</Text>
-               </View>
-             ) : (null)
+            (errorMsgDisplay) ? (
+              <View style={[LoginView.inputSection, LoginView.errorBox]}>
+                <Text style={LoginView.errorText}>{user.message}</Text>
+              </View>
+            ) : (null)
           }
         </View>
         <View>
