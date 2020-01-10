@@ -5,7 +5,7 @@ import { useNavigation } from 'react-navigation-hooks';
 import { useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
 import RegisterView from './RegisterView';
-import Personal from './Person';
+import Personal from './Personal';
 import colors from '../Common/Color';
 
 const img = require('../../assets/personalDefaultPage.png');
