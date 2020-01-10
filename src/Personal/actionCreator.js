@@ -218,6 +218,7 @@ export const requestLogin = (userInfo) => (dispatch) => {
       dispatch(loginSuccessful({
         email: userInfo.email,
         accessToken: response.accessToken,
+        username: 'Katy',
       }));
     } else {
       dispatch(loginFailed({ status: response.code, message: response.message }));

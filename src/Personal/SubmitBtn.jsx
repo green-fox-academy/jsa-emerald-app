@@ -16,7 +16,7 @@ export default function SubmitBtn({ disabled, onPressBtn }) {
         style={{ borderRadius: 30, padding: 10 }}
       >
         <Button
-          title="Sign Up"
+          title="Submit"
           disabledTitleStyle={{ color: 'white' }}
           titleStyle={{ color: 'white' }}
           type="clear"

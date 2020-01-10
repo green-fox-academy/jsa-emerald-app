@@ -60,6 +60,7 @@ const user = (state = initialUser, action) => {
         email: action.payload.email,
         accessToken: action.payload.accessToken,
         status: '',
+        username: action.payload.username,
       };
     default:
       return state;

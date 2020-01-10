@@ -43,12 +43,16 @@ const RegisterView = StyleSheet.create({
     width: 'auto',
     marginLeft: 10,
   },
+
   container: {
     flex: 1,
-    justifyContent: 'center',
     backgroundColor: '#fff',
-    paddingLeft: 60,
-    paddingRight: 60,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignContent: 'flex-end',
   },
   btnShadow: {
     shadowColor: '#70ea93',
