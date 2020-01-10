@@ -9,7 +9,7 @@ import { requestRestore, requestLogin } from './actionCreator';
 import utils from './utils';
 import LoginView from './loginView';
 import commonStyle from '../Common/themeStyle';
-import SubmitBtn from './submitBtn';
+import SubmitBtn from './SubmitButton';
 
 const img = require('../../assets/loginPage.png');
 

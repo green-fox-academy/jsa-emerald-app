@@ -9,7 +9,7 @@ import MainHeader from '../Common/MainHeader';
 import utils from './utils';
 import RegisterView from './RegisterView';
 import { requestSignup } from './actionCreator';
-import SubmitBtn from './submitBtn';
+import SubmitBtn from './SubmitButton';
 import commonStyle from '../Common/themeStyle';
 
 export default function Register() {
