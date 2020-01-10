@@ -18,7 +18,7 @@ export default function Personal() {
   const restoreState = useSelector((state) => state.restoreState);
   const user = useSelector((state) => state.user);
   const handleLogout = () => {
-    dispatch(requestBackup());
+    // dispatch(requestBackup());
     dispatch(logoutSuccessful());
   };
 

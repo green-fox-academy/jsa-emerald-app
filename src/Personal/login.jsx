@@ -28,7 +28,7 @@ export default function Login() {
 
   useEffect(() => {
     if (user.accessToken) navigate('Index');
-    dispatch(requestRestore());
+    // dispatch(requestRestore());
   }, [user.accessToken]);
 
   useEffect(() => {
