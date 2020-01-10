@@ -9,7 +9,7 @@ import MainHeader from '../Common/MainHeader';
 import utils from './utils';
 import LoginView from './loginView';
 import { requestLogin } from './actionCreator';
-import SubmitBtn from './SubmitBtn';
+import SubmitBtn from './submitBtn';
 
 export default function Login() {
   const { navigate } = useNavigation();
