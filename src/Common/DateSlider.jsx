@@ -1,15 +1,19 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import styles from './themeStyle';
+import setThemeStyle from './theme/setThemeStyle';
+
 
 export default function DateSlider(props) {
+  const { themeMode } = useSelector((state) => state.theme);
+  const styles = setThemeStyle(themeMode);
   const { viewSet, onPressBtn, viewType } = props;
   const format = viewType === 'month' ? 'MMM YYYY' : 'YYYY';
 
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+    <View style={styles.dateContainer}>
       <Button
         containerStyle={styles.dateNormal}
         title={viewSet[0].format(format)}
@@ -18,7 +22,7 @@ export default function DateSlider(props) {
         onPress={() => onPressBtn(viewSet[0], viewType)}
       />
       <View style={styles.dateHighlight}>
-        <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500' }}>{viewSet[1].format(format)}</Text>
+        <Text style={styles.dateText}>{viewSet[1].format(format)}</Text>
       </View>
       <Button
         containerStyle={styles.dateNormal}

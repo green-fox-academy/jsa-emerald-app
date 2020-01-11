@@ -11,10 +11,10 @@ import moment from 'moment';
 import { useNavigation } from 'react-navigation-hooks';
 import { requestBackup, requestRestore, logoutSuccessful } from './actionCreator';
 import MainHeader from '../Common/MainHeader';
-import styles from '../Common/themeStyle';
 import fadeHex from '../Common/colorConvert';
 import RestoreOverlay from './RestoreOverlay';
 import ThemeSelection from './themeSelection/ThemeSelection';
+import setThemeStyle from '../Common/theme/setThemeStyle';
 
 export default function Personal() {
   const { navigate } = useNavigation();
@@ -22,7 +22,8 @@ export default function Personal() {
   const backupState = useSelector((state) => state.backupState);
   const restoreState = useSelector((state) => state.restoreState);
   const user = useSelector((state) => state.user);
-  const theme = useSelector((state) => state.theme);
+  const { themeMode } = useSelector((state) => state.theme);
+  const styles = setThemeStyle(themeMode);
 
   const handleLogout = () => {
     // dispatch(requestBackup());
@@ -83,15 +84,21 @@ export default function Personal() {
             </View>
           </LinearGradient>
           <View style={{ paddingTop: 15, paddingBottom: 10, paddingHorizontal: 10 }}>
-            <Text style={[styles.secondaryHeading, { color: 'grey', marginLeft: 12, marginBottom: 5 }]}>General</Text>
+            <Text
+              style={[styles.secondaryHeading, { marginLeft: 12, marginBottom: 5 }]}>
+              General
+            </Text>
             <ListItem
               title="Personal details"
+              titleStyle={styles.listHeading}
               subtitle="you can edit your information about your email address, phone number"
               subtitleStyle={{ color: 'grey' }}
               bottomDivider
+              containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
             />
             <ListItem
               title="Backup data"
+              titleStyle={styles.listHeading}
               subtitle={message}
               subtitleStyle={{ color: 'grey' }}
               rightElement={backupState.isInProgress ? <ActivityIndicator size="small" color="grey" />
@@ -104,24 +111,30 @@ export default function Personal() {
                     onPress={() => dispatch(requestBackup())}
                   />
                 )}
+              containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
               bottomDivider
             />
             <ListItem
               title="Change password"
+              titleStyle={styles.listHeading}
+              containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
               bottomDivider
             />
             <ListItem
               title="Theme"
+              titleStyle={styles.listHeading}
               rightElement={(
                 <ThemeSelection />
               )}
+              containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
             />
           </View>
         </View>
         <View style={styles.card}>
-          <Text style={[styles.secondaryHeading, { color: 'grey', marginLeft: 12, marginBottom: 5 }]}>Cloud Service</Text>
+          <Text style={[styles.secondaryHeading, { marginLeft: 12, marginBottom: 5 }]}>Cloud Service</Text>
           <ListItem
             title="Restore data"
+            titleStyle={styles.listHeading}
             subtitle={restoreMsg}
             subtitleStyle={{ color: 'grey' }}
             rightElement={restoreState.isInProgress ? <ActivityIndicator size="small" color="grey" />
@@ -134,12 +147,16 @@ export default function Personal() {
                   onPress={() => setOverlayVisibility(true)}
                 />
               )}
+            bottomDivider
+            containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
           />
           <ListItem
             title="Banking Sync"
+            titleStyle={styles.listHeading}
             subtitle="Sync your transactions from bank"
             subtitleStyle={{ color: 'grey' }}
             onPress={() => navigate('OpenBanking')}
+            containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
           />
           <Button title="Logout" color="#f194ff" onPress={handleLogout} />
         </View>

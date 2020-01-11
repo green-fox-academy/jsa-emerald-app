@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
-import styles from '../Common/themeStyle';
 import MainHeader from '../Common/MainHeader';
 import DateSlider from '../Common/DateSlider';
 import utils from './utils';
@@ -9,11 +8,14 @@ import FilterBtn from './FilterBtn';
 import TransList from './TransList';
 import EmptyHistory from './EmptyHistory';
 import DateOverlay from '../Common/DateOverlay';
+import setThemeStyle from '../Common/theme/setThemeStyle';
 
 const moment = require('moment');
 
 export default function Trans() {
   const { transactions } = useSelector((state) => state.transactions);
+  const { themeMode } = useSelector((state) => state.theme);
+  const styles = setThemeStyle(themeMode);
   const [view, setCurrentView] = useState('month');
   const [timePeriodOptions, setTimePeriod] = useState(utils.getDateSet(moment(), view));
   const [isOverlayVisible, setOverlayVisibility] = useState(false);

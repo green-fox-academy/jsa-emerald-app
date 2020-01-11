@@ -2,10 +2,14 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { Button } from 'react-native-elements';
-import styles from './themeStyle';
+import { useSelector } from 'react-redux';
+import setThemeStyle from './theme/setThemeStyle';
 
 export default function MainHeader(props) {
   const { title, btnType } = props;
+  const { themeMode } = useSelector((state) => state.theme);
+  const styles = setThemeStyle(themeMode);
+
   return (
     <View style={styles.mainHeader}>
       <View style={{ flex: 1, alignItems: 'flex-start', marginBottom: -10 }}>
@@ -17,7 +21,7 @@ export default function MainHeader(props) {
       }}
       >
         {(btnType.length)
-          ? btnType.map((item, index) => <Button key={`btnTypeGroup:${index + 1}`} onPress={item.func} icon={{ name: item.name }} type="clear" />) : <View />}
+          ? btnType.map((item, index) => <Button key={`btnTypeGroup:${index + 1}`} onPress={item.func} icon={{ name: item.name, color: styles.mainColor.color }} type="clear" />) : <View />}
       </View>
     </View>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import PropTypes from 'prop-types';
-import styles from './themeStyle';
+import styles from './themeStyleLight';
 import themeColor from './Color';
 
 export default function LargeButton({

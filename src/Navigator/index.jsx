@@ -5,7 +5,6 @@ import Trans from '../Stats/index';
 import Chart from '../Chart/index';
 import TransCreator from '../TransCreator/index';
 import PersonalNavigation from '../Personal/personalStackNavigation';
-import themeColor from '../Common/Color';
 
 const AppNavigator = createBottomTabNavigator({
   Trans,
@@ -13,20 +12,26 @@ const AppNavigator = createBottomTabNavigator({
   Create: TransCreator,
   Me: PersonalNavigation,
 },
-{
-  initialRouteName: 'Create', // set default page
-  defaultNavigationOptions: ({ navigation }) => ({
-    // eslint-disable-next-line react/prop-types
-    tabBarIcon: ({ focused, tintColor }) => (
-      <TabBarIcon
-        navigation={navigation}
-        focused={focused}
-        tintColor={tintColor}
-      />
-    ),
+  {
+    initialRouteName: 'Create', // set default page
+    defaultNavigationOptions: ({ navigation }) => ({
+      // eslint-disable-next-line react/prop-types
+      tabBarIcon: ({ focused, tintColor }) => (
+        <TabBarIcon
+          navigation={navigation}
+          focused={focused}
+          tintColor={tintColor}
+        />
+      ),
 
-  }),
-  tabBarOptions: themeColor.navColor,
-});
+    }),
+    tabBarOptions: {
+      activeTintColor: '#5C6BC0',
+      inactiveTintColor: 'gray',
+      style: {
+        backgroundColor: 'rgba(255, 0, 0, 0)',
+      },
+    },
+  });
 
 export default AppNavigator;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './Style';
 import Labels from '../Common/Labels';
-import theme from '../Common/themeStyle';
+import theme from '../Common/themeStyleLight';
 import themeColor from '../Common/Color';
 import TransactionTypeSelector from './TransactionTypeSelector';
 

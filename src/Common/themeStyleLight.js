@@ -16,7 +16,14 @@ const themeBtnDefault = {
   paddingBottom: 2,
 };
 
+const defaultColor = {
+  listHeading: 'black',
+};
+
 const styles = StyleSheet.create({
+  mainColor: {
+    color: 'black',
+  },
   deviceHead: {
     height: 120,
     justifyContent: 'flex-end',
@@ -64,6 +71,18 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
 
+  dateContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+
+  dateText: {
+    color: defaultColor.listHeading,
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '500',
+  },
+
   dateNormal: {
     flex: 1,
     borderBottomWidth: 2,
@@ -92,6 +111,12 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     marginTop: 10,
     marginBottom: 10,
+    color: 'grey',
+  },
+
+
+  listHeading: {
+    color: defaultColor.listHeading,
   },
 
   cardAlign: {

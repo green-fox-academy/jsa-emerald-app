@@ -6,7 +6,7 @@ import { Icon } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import PropTypes from 'prop-types';
-import themeStyle from '../Common/themeStyle';
+import themeStyleLight from '../Common/themeStyleLight';
 import themeColor from '../Common/Color';
 import styles from './Style';
 
@@ -23,20 +23,20 @@ export default function PageBanner({
           start={[0.1, 0.9]}
           end={[0.9, 0.1]}
         >
-          <View style={[themeStyle.headerFormat, styles.headerFormat]}>
+          <View style={[themeStyleLight.headerFormat, styles.headerFormat]}>
             <View style={styles.headerContainer}>
               <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
               <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
             </View>
             <View style={styles.headerDigitSection}>
-              <Text style={styles.headerDigitResult}>{ displayAmount }</Text>
-              <Text style={styles.headerDigitExp}>{ expStr }</Text>
+              <Text style={styles.headerDigitResult}>{displayAmount}</Text>
+              <Text style={styles.headerDigitExp}>{expStr}</Text>
             </View>
           </View>
         </LinearGradient>
       )
       : (
-        <View style={[themeStyle.headerFormat, styles.headerFormat]}>
+        <View style={[themeStyleLight.headerFormat, styles.headerFormat]}>
           <Text style={styles.headerText}>Select a category</Text>
         </View>
       )

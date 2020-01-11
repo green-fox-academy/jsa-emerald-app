@@ -16,7 +16,17 @@ const themeBtnDefault = {
   paddingBottom: 2,
 };
 
+const defaultColor = {
+  cardColor: '#3b3b75',
+  secondaryHeading: '#8f8fb5',
+  listHeading: '#e0e0e0',
+};
+
+
 const styles = StyleSheet.create({
+  mainColor: {
+    color: '#e0e0e0',
+  },
   deviceHead: {
     height: 120,
     justifyContent: 'flex-end',
@@ -30,13 +40,13 @@ const styles = StyleSheet.create({
 
   deviceBody: {
     flexDirection: 'column',
-    backgroundColor: '#f3f5fa',
     paddingLeft: 20,
     paddingRight: 20,
+    backgroundColor: '#181a35',
   },
 
   card: {
-    backgroundColor: 'white',
+    backgroundColor: defaultColor.cardColor,
     borderRadius: 6,
     shadowColor: 'grey',
     shadowOffset: {
@@ -54,7 +64,7 @@ const styles = StyleSheet.create({
     ...commonHeader,
     height: 100,
     justifyContent: 'space-between',
-    backgroundColor: '#262244',
+    backgroundColor: defaultColor.cardColor,
   },
 
   mainHeaderModelight: {
@@ -71,10 +81,23 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
 
+  dateContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: defaultColor.cardColor,
+  },
+
+  dateText: {
+    color: defaultColor.listHeading,
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '500',
+  },
+
   dateNormal: {
     flex: 1,
     borderBottomWidth: 2,
-    borderBottomColor: 'white',
+    borderBottomColor: defaultColor.cardColor,
   },
 
   dateHighlight: {
@@ -99,6 +122,11 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     marginTop: 10,
     marginBottom: 10,
+    color: defaultColor.secondaryHeading,
+  },
+
+  listHeading: {
+    color: defaultColor.listHeading,
   },
 
   cardAlign: {
@@ -107,7 +135,7 @@ const styles = StyleSheet.create({
   },
 
   cardHeader: {
-    color: '#777777',
+    color: defaultColor.secondaryHeading,
     fontSize: 18,
     margin: 10,
   },
@@ -185,6 +213,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
+    color: defaultColor.listHeading,
   },
 
   themeBtn: {

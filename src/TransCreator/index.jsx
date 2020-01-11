@@ -8,7 +8,7 @@ import { NavigationScreenPropType } from 'react-navigation';
 import { addNewTransaction } from '../Stats/actionCreator';
 import LabelGroup from './LabelGroup';
 import PageBanner from './PageBanner';
-import theme from '../Common/themeStyle';
+import theme from '../Common/themeStyleLight';
 import CalculatorKeyboard from './CalculatorKeyboard';
 
 const TransCreator = ({ navigation }) => {

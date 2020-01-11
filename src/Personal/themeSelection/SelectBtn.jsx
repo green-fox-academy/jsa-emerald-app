@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
-import styles from '../../Common/themeStyle';
-
+import PropTypes from 'prop-types';
+import styles from '../../Common/themeStyleLight';
 
 export default function SelectBtn({ title, onClick, clickedMode }) {
   return (
@@ -17,3 +17,9 @@ export default function SelectBtn({ title, onClick, clickedMode }) {
     />
   );
 }
+
+SelectBtn.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  clickedMode: PropTypes.string.isRequired,
+};
