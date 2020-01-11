@@ -50,7 +50,7 @@ export default function Register() {
         enabled
       >
         <View style={RegisterView.icon}>
-          <Image source={icon} style={{ width: 80, height: 80 }} />
+          <Image source={icon} style={{ width: 220, height: 220 }} />
         </View>
         <View style={RegisterView.inputSection}>
           <Input
@@ -79,6 +79,7 @@ export default function Register() {
             )}
             leftIconContainerStyle={RegisterView.inputIcon}
             label="Email Address"
+            autoCapitalize="none"
             textContentType="emailAddress"
             value={email}
             onChangeText={(value) => setEmail(value)}

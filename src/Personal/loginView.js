@@ -23,7 +23,7 @@ const LoginView = StyleSheet.create({
   },
   icon: {
     alignItems: 'center',
-    paddingBottom: 50,
+    paddingBottom: 5,
   },
   inputIcon: {
     marginLeft: 0,

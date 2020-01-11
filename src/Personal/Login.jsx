@@ -47,7 +47,7 @@ export default function Login() {
         enabled
       >
         <View style={LoginView.icon}>
-          <Image source={icon} style={{ width: 80, height: 80 }} />
+          <Image source={icon} style={{ width: 220, height: 220 }} />
         </View>
         <View style={LoginView.inputSection}>
           <Input
