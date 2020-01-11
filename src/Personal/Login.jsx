@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, Dimensions, KeyboardAvoidingView, ImageBackground
+  View, Text, Dimensions, KeyboardAvoidingView, ImageBackground,
 } from 'react-native';
-import { Input, Icon, Image } from 'react-native-elements';
+import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
 import { requestRestore, requestLogin } from './actionCreator';
 import utils from './utils';
 import LoginView from './loginView';
-import commonStyle from '../Common/themeStyle';
 import SubmitBtn from './SubmitBtn';
 
-const img = require('../../assets/loginPage.png');
 const bgImg = require('../../assets/loginBg.png');
 
 export default function Login() {

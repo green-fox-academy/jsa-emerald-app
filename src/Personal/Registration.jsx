@@ -5,7 +5,6 @@ import {
 import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
-import MainHeader from '../Common/MainHeader';
 import utils from './utils';
 import RegisterView from './RegisterView';
 import { requestSignup } from './actionCreator';
