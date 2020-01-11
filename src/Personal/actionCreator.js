@@ -206,6 +206,7 @@ export const requestSignup = (userInfo) => (dispatch) => {
 
 export const requestLogin = (userInfo) => (dispatch) => {
   dispatch(loginStart());
+  console.log(BACKEND_URL);
   fetch(`${BACKEND_URL}/sessions`, {
     method: 'POST',
     mode: 'cors',
@@ -223,7 +224,7 @@ export const requestLogin = (userInfo) => (dispatch) => {
     } else {
       dispatch(loginFailed({ status: response.code, message: response.message }));
     }
-  }).catch(() => {
-    dispatch(loginFailed());
+  }).catch((err) => {
+    dispatch(loginFailed({ status: null, message: err.message }));
   });
 };
