@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, Dimensions, KeyboardAvoidingView, Platform, ImageBackground, Image,
+  View, Text, Dimensions, KeyboardAvoidingView, ImageBackground, Image,
 } from 'react-native';
 import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
 import utils from './utils';
-import RegisterView from './RegisterView';
+import RegisterView from './registerView';
 import { requestSignup } from './actionCreator';
 import SubmitBtn from './SubmitBtn';
 
@@ -46,7 +46,7 @@ export default function Register() {
       <KeyboardAvoidingView
         style={RegisterView.registerForm}
         behavior="padding"
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 20}
+        keyboardVerticalOffset={300}
         enabled
       >
         <View style={RegisterView.icon}>
