@@ -46,7 +46,7 @@ exports[`<TabBarIcon /> render Me 1`] = `
 </Text>
 `;
 
-exports[`<TabBarIcon /> render Stats 1`] = `
+exports[`<TabBarIcon /> render Trans 1`] = `
 <Text
   allowFontScaling={false}
   style={
@@ -57,7 +57,7 @@ exports[`<TabBarIcon /> render Stats 1`] = `
       },
       undefined,
       Object {
-        "fontFamily": "material",
+        "fontFamily": "material-community",
         "fontStyle": "normal",
         "fontWeight": "normal",
       },
@@ -65,6 +65,6 @@ exports[`<TabBarIcon /> render Stats 1`] = `
     ]
   }
 >
-  
+  
 </Text>
 `;

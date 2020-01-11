@@ -7,9 +7,9 @@ import TabBarIcon from './TabBarIcon';
 
 describe('<TabBarIcon />', () => {
   beforeEach(() => Font.loadAsync(MaterialIcons.font));
-  it('render Stats', () => {
+  it('render Trans', () => {
     const tree = renderer.create(<TabBarIcon
-      navigation={{ state: { routeName: 'Stats' } }}
+      navigation={{ state: { routeName: 'Trans' } }}
       focused
       tintColor="#5C6BC0"
     />).toJSON();

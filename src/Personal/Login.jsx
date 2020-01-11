@@ -5,7 +5,7 @@ import {
 import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
-import { requestRestore, requestLogin } from './actionCreator';
+import { requestLogin } from './actionCreator';
 import utils from './utils';
 import LoginView from './loginView';
 import SubmitBtn from './SubmitBtn';
