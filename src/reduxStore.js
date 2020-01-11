@@ -6,6 +6,7 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import transactions from './Stats/reducer';
 import backupState from './Personal/backupReducer';
 import restoreState from './Personal/restoreReducer';
+import openBanking from './Personal/openBanking/obReducer';
 import user from './Personal/userReducer';
 
 const persistConfig = {
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   backupState,
   user,
   restoreState,
+  openBanking,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
