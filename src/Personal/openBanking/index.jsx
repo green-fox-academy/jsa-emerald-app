@@ -4,17 +4,35 @@ import { View } from 'react-native';
 import { Button, Image } from 'react-native-elements';
 import ModalDropdown from 'react-native-modal-dropdown';
 import { LinearGradient } from 'expo-linear-gradient';
+import PropTypes from 'prop-types';
+import { NavigationScreenPropType } from 'react-navigation';
 import { loadBankList } from './actionCreator';
 import colors from '../../Common/Color';
 
 const opBank = require('../../../assets/openBankingHead.png');
 
-export default () => {
+const OpenBanking = ({ navigation }) => {
   const dispatch = useDispatch();
   const openBanking = useSelector((state) => state.openBanking);
   useEffect(() => {
     dispatch(loadBankList());
   }, []);
+
+  const goAuth = (idx, val) => {
+    const { id } = openBanking.bankList
+      .filter((item) => item.attributes.full_name === val)[0];
+
+    fetch(`https://oauth-sandbox.fintecture.com/ais/v1/provider/${id}/authorize?response_type=code&redirect_uri=http://122.51.72.108:8080`, {
+      headers: {
+        app_id: 'e9ac45bb-dd82-45a0-a092-c5a1bf398581',
+        Accept: 'application/json',
+      },
+    }).then((response) => response.json())
+      .then((response) => {
+        navigation.navigate({ routeName: 'WebView', params: { url: response.url } });
+        setTimeout(() => { navigation.navigate('OpenBanking'); }, 5000);
+      });
+  };
   return (
     <View>
       <View style={{ alignItems: 'center', paddingTop: 100 }}>
@@ -23,13 +41,14 @@ export default () => {
       <View style={{ alignItems: 'center', paddingTop: 100 }}>
         <ModalDropdown
           style={{
-            borderWidth: 2, borderColor: '#f6f6f6', padding: 10, borderRadius: 5, width: 205,
+            borderWidth: 1, borderColor: '#410093', padding: 10, borderRadius: 5, width: 205,
           }}
           textStyle={{ fontSize: 15 }}
           dropdownTextStyle={{ fontSize: 13 }}
           dropdownStyle={{ width: 190 }}
           defaultValue="Select your bank..."
           options={openBanking.bankList.map((item) => item.attributes.full_name)}
+          onSelect={goAuth}
         />
 
         <LinearGradient
@@ -46,3 +65,13 @@ export default () => {
     </View>
   );
 };
+
+OpenBanking.propTypes = {
+  navigation: PropTypes.shape(NavigationScreenPropType),
+};
+
+OpenBanking.defaultProps = {
+  navigation: {},
+};
+
+export default OpenBanking;
