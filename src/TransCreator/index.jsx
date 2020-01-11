@@ -22,7 +22,7 @@ const TransCreator = ({ navigation }) => {
 
   useEffect(() => {
     if (newTransInsertionSuccess) {
-      navigation.navigate('Stats');
+      navigation.navigate('Trans');
       setNewTransInsertionSuccess(false);
     }
   });
