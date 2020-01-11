@@ -4,7 +4,7 @@ import { Button, Image } from 'react-native-elements';
 import { useNavigation } from 'react-navigation-hooks';
 import { useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
-import RegisterView from './RegisterView';
+import RegisterView from './registerView';
 import Personal from './Personal';
 import colors from '../Common/Color';
 
