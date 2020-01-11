@@ -58,6 +58,7 @@ export default function Login() {
             label="Email Address"
             textContentType="emailAddress"
             value={email}
+            autoCapitalize="none"
             onChangeText={(value) => setEmail(value)}
             labelStyle={{ color: 'gray' }}
           />
