@@ -8,7 +8,7 @@ const setThemeStyle = (mode) => {
       style = require('../themeStyleDark');
       break;
     case 'EPAM':
-      style = require('../themeStyleEPAM');
+      style = require('../themeStyleEpam');
       break;
     default:
       break;
