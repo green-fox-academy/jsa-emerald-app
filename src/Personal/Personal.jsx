@@ -14,6 +14,7 @@ import MainHeader from '../Common/MainHeader';
 import styles from '../Common/themeStyle';
 import fadeHex from '../Common/colorConvert';
 import RestoreOverlay from './RestoreOverlay';
+import ThemeSelection from './themeSelection/ThemeSelection';
 
 export default function Personal() {
   const { navigate } = useNavigation();
@@ -21,6 +22,8 @@ export default function Personal() {
   const backupState = useSelector((state) => state.backupState);
   const restoreState = useSelector((state) => state.restoreState);
   const user = useSelector((state) => state.user);
+  const theme = useSelector((state) => state.theme);
+
   const handleLogout = () => {
     // dispatch(requestBackup());
     dispatch(logoutSuccessful());
@@ -105,6 +108,13 @@ export default function Personal() {
             />
             <ListItem
               title="Change password"
+              bottomDivider
+            />
+            <ListItem
+              title="Theme"
+              rightElement={(
+                <ThemeSelection />
+              )}
             />
           </View>
         </View>

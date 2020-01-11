@@ -8,6 +8,7 @@ import backupState from './Personal/backupReducer';
 import restoreState from './Personal/restoreReducer';
 import openBanking from './Personal/openBanking/obReducer';
 import user from './Personal/userReducer';
+import theme from './Common/theme/themeReducer';
 
 const persistConfig = {
   key: 'root',
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   user,
   restoreState,
   openBanking,
+  theme,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

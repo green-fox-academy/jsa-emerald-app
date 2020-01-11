@@ -56,6 +56,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
+  mainHeaderModelight: {
+    ...commonHeader,
+    height: 100,
+    justifyContent: 'space-between',
+    backgroundColor: '#262244',
+  },
+
   headerFormat: {
     flexDirection: 'row',
     alignItems: 'flex-end',
