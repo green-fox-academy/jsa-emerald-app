@@ -1,7 +1,7 @@
 import { actionType } from './actionCreator';
 
 const initialTheme = {
-  themeMode: 'light',
+  themeMode: 'Light',
 };
 
 const theme = (state = initialTheme, action) => {
