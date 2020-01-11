@@ -56,84 +56,82 @@ export default function Personal() {
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
-      <ScrollView>
-        <MainHeader title="Profile" />
-        <View style={[styles.deviceBody, { flex: 1, flexDirection: 'column' }]}>
-          <RestoreOverlay
-            isVisible={isOverlayVisible}
-            onConfirm={() => restoreData()}
-            onCancel={() => setOverlayVisibility(false)}
-          />
-          <View style={[styles.card, { padding: 0, overflow: 'hidden' }]}>
-            <LinearGradient
-              colors={['#f078a4', fadeHex('#f078a4')]}
-              start={[0.1, 0.9]}
-              end={[0.9, 0.1]}
-              style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
+      <MainHeader title="Profile" />
+      <ScrollView style={[styles.deviceBody, { flex: 1, flexDirection: 'column' }]}>
+        <RestoreOverlay
+          isVisible={isOverlayVisible}
+          onConfirm={() => restoreData()}
+          onCancel={() => setOverlayVisibility(false)}
+        />
+        <View style={[styles.card, { padding: 0, overflow: 'hidden' }]}>
+          <LinearGradient
+            colors={['#f078a4', fadeHex('#f078a4')]}
+            start={[0.1, 0.9]}
+            end={[0.9, 0.1]}
+            style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
+          >
+            <View style={{
+              alignItems: 'center', paddingVertical: 30,
+            }}
             >
-              <View style={{
-                alignItems: 'center', paddingVertical: 30,
-              }}
-              >
-                <Avatar size="large" rounded icon={{ name: 'person' }} />
-                <Text style={[styles.secondaryHeading, { color: 'white' }]}>{user.username}</Text>
-                <Text style={{ color: 'white' }}>{user.email}</Text>
-              </View>
-            </LinearGradient>
-            <View style={{ paddingTop: 15, paddingBottom: 10, paddingHorizontal: 10 }}>
-              <Text style={[styles.secondaryHeading, { color: 'grey', marginLeft: 12, marginBottom: 5 }]}>General</Text>
-              <ListItem
-                title="Personal details"
-                subtitle="you can edit your information about your email address, phone number"
-                subtitleStyle={{ color: 'grey' }}
-                bottomDivider
-              />
-              <ListItem
-                title="Backup data"
-                subtitle={message}
-                subtitleStyle={{ color: 'grey' }}
-                rightElement={backupState.isInProgress ? <ActivityIndicator size="small" color="grey" />
-                  : (
-                    <Button
-                      title="Backup"
-                      titleStyle={{ color: '#2fc899' }}
-                      type="outline"
-                      buttonStyle={{ borderColor: '#2fc899', borderRadius: 6 }}
-                      onPress={() => dispatch(requestBackup())}
-                    />
-                  )}
-                bottomDivider
-              />
-              <ListItem
-                title="Change password"
-              />
+              <Avatar size="large" rounded icon={{ name: 'person' }} />
+              <Text style={[styles.secondaryHeading, { color: 'white' }]}>{user.username}</Text>
+              <Text style={{ color: 'white' }}>{user.email}</Text>
             </View>
-          </View>
-          <View style={styles.card}>
-            <Text style={[styles.secondaryHeading, { color: 'grey', marginLeft: 12, marginBottom: 5 }]}>Cloud Service</Text>
+          </LinearGradient>
+          <View style={{ paddingTop: 15, paddingBottom: 10, paddingHorizontal: 10 }}>
+            <Text style={[styles.secondaryHeading, { color: 'grey', marginLeft: 12, marginBottom: 5 }]}>General</Text>
             <ListItem
-              title="Restore data"
-              subtitle={restoreMsg}
+              title="Personal details"
+              subtitle="you can edit your information about your email address, phone number"
               subtitleStyle={{ color: 'grey' }}
-              rightElement={restoreState.isInProgress ? <ActivityIndicator size="small" color="grey" />
+              bottomDivider
+            />
+            <ListItem
+              title="Backup data"
+              subtitle={message}
+              subtitleStyle={{ color: 'grey' }}
+              rightElement={backupState.isInProgress ? <ActivityIndicator size="small" color="grey" />
                 : (
                   <Button
-                    title="Restore"
+                    title="Backup"
                     titleStyle={{ color: '#2fc899' }}
                     type="outline"
                     buttonStyle={{ borderColor: '#2fc899', borderRadius: 6 }}
-                    onPress={() => setOverlayVisibility(true)}
+                    onPress={() => dispatch(requestBackup())}
                   />
                 )}
+              bottomDivider
             />
             <ListItem
-              title="Banking Sync"
-              subtitle="Sync your transactions from bank"
-              subtitleStyle={{ color: 'grey' }}
-              onPress={() => navigate('OpenBanking')}
+              title="Change password"
             />
-            <Button title="Logout" color="#f194ff" onPress={handleLogout} />
           </View>
+        </View>
+        <View style={styles.card}>
+          <Text style={[styles.secondaryHeading, { color: 'grey', marginLeft: 12, marginBottom: 5 }]}>Cloud Service</Text>
+          <ListItem
+            title="Restore data"
+            subtitle={restoreMsg}
+            subtitleStyle={{ color: 'grey' }}
+            rightElement={restoreState.isInProgress ? <ActivityIndicator size="small" color="grey" />
+              : (
+                <Button
+                  title="Restore"
+                  titleStyle={{ color: '#2fc899' }}
+                  type="outline"
+                  buttonStyle={{ borderColor: '#2fc899', borderRadius: 6 }}
+                  onPress={() => setOverlayVisibility(true)}
+                />
+              )}
+          />
+          <ListItem
+            title="Banking Sync"
+            subtitle="Sync your transactions from bank"
+            subtitleStyle={{ color: 'grey' }}
+            onPress={() => navigate('OpenBanking')}
+          />
+          <Button title="Logout" color="#f194ff" onPress={handleLogout} />
         </View>
       </ScrollView>
     </View>
