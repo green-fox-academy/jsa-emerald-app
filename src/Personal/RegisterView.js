@@ -21,6 +21,10 @@ const RegisterView = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
   },
+  icon: {
+    alignItems: 'center',
+    paddingBottom: 50,
+  },
   inputIcon: {
     marginLeft: 0,
     marginRight: 5,

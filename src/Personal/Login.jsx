@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, Dimensions, KeyboardAvoidingView, ImageBackground,
+  View, Text, Dimensions, KeyboardAvoidingView, ImageBackground, Image,
 } from 'react-native';
 import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ import utils from './utils';
 import LoginView from './loginView';
 import SubmitBtn from './SubmitBtn';
 
+const icon = require('../../assets/loginIcon.png');
 const bgImg = require('../../assets/loginBg.png');
 
 export default function Login() {
@@ -45,6 +46,9 @@ export default function Login() {
         behavior="padding"
         enabled
       >
+        <View style={LoginView.icon}>
+          <Image source={icon} style={{ width: 80, height: 80 }} />
+        </View>
         <View style={LoginView.inputSection}>
           <Input
             placeholder="example@email.com"
