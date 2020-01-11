@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Index from './index';
 import Register from './Register';
 import Login from './Login';
+import OpenBanking from './openBanking/index';
 
 const MainNavigator = createStackNavigator({
   Index: {
@@ -19,6 +20,12 @@ const MainNavigator = createStackNavigator({
   },
   Login: {
     screen: Login,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  OpenBanking: {
+    screen: OpenBanking,
     navigationOptions: {
       header: null,
     },
