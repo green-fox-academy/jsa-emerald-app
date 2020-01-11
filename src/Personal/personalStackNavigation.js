@@ -4,6 +4,7 @@ import Index from './index';
 import Register from './Register';
 import Login from './Login';
 import OpenBanking from './openBanking/index';
+import WebView from './openBanking/WebView';
 
 const MainNavigator = createStackNavigator({
   Index: {
@@ -26,6 +27,12 @@ const MainNavigator = createStackNavigator({
   },
   OpenBanking: {
     screen: OpenBanking,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  WebView: {
+    screen: WebView,
     navigationOptions: {
       header: null,
     },

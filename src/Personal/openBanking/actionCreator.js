@@ -11,7 +11,7 @@ export const SET_BANK_LIST = (list) => ({
 export const loadBankList = () => (dispatch) => {
   fetch('https://oauth-sandbox.fintecture.com/res/v1/providers', {
     headers: {
-      app_id: '8419189c-748e-4c3d-abd6-caa25f03917c',
+      app_id: 'e9ac45bb-dd82-45a0-a092-c5a1bf398581',
       Accept: 'application/json',
     },
   })
