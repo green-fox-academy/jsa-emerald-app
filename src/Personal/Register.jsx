@@ -6,7 +6,7 @@ import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
 import utils from './utils';
-import RegisterView from './registerView';
+import RegisterView from './registerViewStyle';
 import { requestSignup } from './actionCreator';
 import SubmitBtn from './SubmitBtn';
 
