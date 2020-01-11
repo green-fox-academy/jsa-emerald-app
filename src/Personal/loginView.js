@@ -21,11 +21,10 @@ const LoginView = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
   },
-
-  heading: {
-    color: 'gray',
+  icon: {
+    alignItems: 'center',
+    paddingBottom: 50,
   },
-
   inputIcon: {
     marginLeft: 0,
     marginRight: 5,

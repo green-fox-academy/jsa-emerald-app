@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, Dimensions, KeyboardAvoidingView, Platform, ImageBackground,
+  View, Text, Dimensions, KeyboardAvoidingView, Platform, ImageBackground, Image,
 } from 'react-native';
 import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ import RegisterView from './registerView';
 import { requestSignup } from './actionCreator';
 import SubmitBtn from './SubmitBtn';
 
+const icon = require('../../assets/loginIcon.png');
 const bgImg = require('../../assets/loginBg.png');
 
 export default function Register() {
@@ -48,6 +49,9 @@ export default function Register() {
         keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 20}
         enabled
       >
+        <View style={RegisterView.icon}>
+          <Image source={icon} style={{ width: 80, height: 80 }} />
+        </View>
         <View style={RegisterView.inputSection}>
           <Input
             placeholder="username"
@@ -58,7 +62,7 @@ export default function Register() {
               />
             )}
             leftIconContainerStyle={RegisterView.inputIcon}
-            label="Your Username"
+            label="Username"
             value={username}
             onChangeText={(value) => setUsername(value)}
             labelStyle={{ color: 'gray' }}
@@ -66,7 +70,7 @@ export default function Register() {
         </View>
         <View style={RegisterView.inputSection}>
           <Input
-            placeholder="email@address.com"
+            placeholder="example@email.com"
             leftIcon={(
               <Icon
                 name="email"
@@ -74,7 +78,7 @@ export default function Register() {
               />
             )}
             leftIconContainerStyle={RegisterView.inputIcon}
-            label="Your Email Address"
+            label="Email Address"
             textContentType="emailAddress"
             value={email}
             onChangeText={(value) => setEmail(value)}
@@ -95,7 +99,7 @@ export default function Register() {
               />
             )}
             leftIconContainerStyle={RegisterView.inputIcon}
-            label="Your password"
+            label="Password"
             secureTextEntry={passwordHidden}
             value={password}
             onChangeText={(value) => setPassword(value)}
