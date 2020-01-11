@@ -20,13 +20,17 @@ const defaultColor = {
   cardColor: '#3b3b75',
   secondaryHeading: '#8f8fb5',
   listHeading: '#e0e0e0',
+  darkerColor: '#181a35',
 };
 
 
 const styles = StyleSheet.create({
   mainColor: {
     color: '#e0e0e0',
+    backgroundColor: '#3b3b75',
+    borderColor: 'gray',
   },
+
   deviceHead: {
     height: 120,
     justifyContent: 'flex-end',
@@ -42,7 +46,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     paddingLeft: 20,
     paddingRight: 20,
-    backgroundColor: '#181a35',
+    backgroundColor: defaultColor.darkerColor,
   },
 
   card: {
@@ -79,6 +83,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20,
+    backgroundColor: defaultColor.cardColor,
   },
 
   dateContainer: {

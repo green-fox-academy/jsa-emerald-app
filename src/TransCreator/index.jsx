@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Root } from 'native-base';
 import { View, Alert } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { NavigationScreenPropType } from 'react-navigation';
 import { addNewTransaction } from '../Stats/actionCreator';
 import LabelGroup from './LabelGroup';
 import PageBanner from './PageBanner';
-import theme from '../Common/themeStyleLight';
 import CalculatorKeyboard from './CalculatorKeyboard';
+import setThemeStyle from '../Common/theme/setThemeStyle';
 
 const TransCreator = ({ navigation }) => {
+  const { themeMode } = useSelector((state) => state.theme);
+  const theme = setThemeStyle(themeMode);
   const [transAmount, setTransAmount] = useState('');
   const [expStr, setExpStr] = useState('');
   const [transType, setTransType] = useState('Expense');

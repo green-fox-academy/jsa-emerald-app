@@ -1,23 +1,26 @@
 import React from 'react';
 import { View, TouchableHighlight } from 'react-native';
 import { Text, Icon } from 'react-native-elements';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './Style';
 import Labels from '../Common/Labels';
-import theme from '../Common/themeStyleLight';
+import setThemeStyle from '../Common/theme/setThemeStyle';
 import themeColor from '../Common/Color';
 import TransactionTypeSelector from './TransactionTypeSelector';
 
 const LabelGroup = ({
   transType, setTransType, transLabel, setTransLabel,
 }) => {
+  const { themeMode } = useSelector((state) => state.theme);
+  const theme = setThemeStyle(themeMode);
   const labels = (transType === 'Expense' ? Labels.Expense : Labels.Income);
   const getColorsForLabel = (item) => {
     if (transLabel.name === item.name) {
       return transType === 'Expense' ? themeColor.gradientColor.red : themeColor.gradientColor.green;
     }
-    return ['white', 'white'];
+    return [theme.mainColor.backgroundColor, theme.mainColor.backgroundColor];
   };
 
   return (

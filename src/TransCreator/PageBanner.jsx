@@ -4,9 +4,9 @@ import {
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
-
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import themeStyleLight from '../Common/themeStyleLight';
+import setThemeStyle from '../Common/theme/setThemeStyle';
 import themeColor from '../Common/Color';
 import styles from './Style';
 
@@ -15,6 +15,8 @@ export default function PageBanner({
 }) {
   let displayAmount = transAmount === '' ? '0.00' : transAmount;
   displayAmount = transType === 'Expense' ? `-$${displayAmount}` : `$${displayAmount}`;
+  const { themeMode } = useSelector((state) => state.theme);
+  const themeStyleLight = setThemeStyle(themeMode);
   return (
     transLabel.name
       ? (
@@ -23,7 +25,7 @@ export default function PageBanner({
           start={[0.1, 0.9]}
           end={[0.9, 0.1]}
         >
-          <View style={[themeStyleLight.headerFormat, styles.headerFormat]}>
+          <View style={[themeStyleLight.headerFormat, styles.headerFormat, { backgroundColor: 'rgba(255,0,0,0)' }]}>
             <View style={styles.headerContainer}>
               <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
               <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
@@ -37,7 +39,7 @@ export default function PageBanner({
       )
       : (
         <View style={[themeStyleLight.headerFormat, styles.headerFormat]}>
-          <Text style={styles.headerText}>Select a category</Text>
+          <Text style={[styles.headerText, themeStyleLight.mainColor]}>Select a category</Text>
         </View>
       )
   );

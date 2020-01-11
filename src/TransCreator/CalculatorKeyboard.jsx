@@ -1,6 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import setThemeStyle from '../Common/theme/setThemeStyle';
 import {
   append, removeLast, keyboardLayout, getResult,
 } from './Calculator';
@@ -16,6 +18,9 @@ export default function CalculatorKeyboard({
   setTransDate,
   onExpressionChange,
 }) {
+  const { themeMode } = useSelector((state) => state.theme);
+  const theme = setThemeStyle(themeMode);
+
   const wrapResult = (exp) => ({
     expression: exp,
     result: getResult(exp),
@@ -44,9 +49,9 @@ export default function CalculatorKeyboard({
   return (
     <View style={styles.keyboardLayout}>
       <DateSelector transDate={transDate} setTransDate={setTransDate} />
-      <View style={styles.keyboardRowLayout}>
+      <View style={[styles.keyboardRowLayout, { backgroundColor: theme.mainColor.backgroundColor }]}>
         {keyboardLayout.map((row, idx) => (
-          <View key={`row${idx + 1}`}>
+          <View key={`row${idx + 1}`} >
             {row.map((cell, idx2) => (
               <View key={`cell${idx + 1}-${idx2 + 1}`}>
                 <KeyboardButton btnVal={cell.toString()} pressHandler={pressHandler} />

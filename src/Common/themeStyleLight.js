@@ -23,7 +23,10 @@ const defaultColor = {
 const styles = StyleSheet.create({
   mainColor: {
     color: 'black',
+    backgroundColor: 'white',
+    borderColor: '#f0f0f0',
   },
+
   deviceHead: {
     height: 120,
     justifyContent: 'flex-end',

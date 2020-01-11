@@ -1,19 +1,25 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import btnColor from '../Common/Color';
 import IconButton from './IconButton';
 import styles from './Style';
+import setThemeStyle from '../Common/theme/setThemeStyle';
 
-const NumberBtn = ({ btnVal, onPress }) => (
-  <Button
-    type="outline"
-    buttonStyle={styles.keyboardBtn}
-    title={btnVal.toString()}
-    titleStyle={{ color: btnColor.grey }}
-    onPress={onPress}
-  />
-);
+const NumberBtn = ({ btnVal, onPress }) => {
+  const { themeMode } = useSelector((state) => state.theme);
+  const theme = setThemeStyle(themeMode);
+  return (
+    <Button
+      type="outline"
+      buttonStyle={[styles.keyboardBtn, { borderColor: theme.mainColor.borderColor }]}
+      title={btnVal.toString()}
+      titleStyle={{ color: theme.mainColor.color }}
+      onPress={onPress}
+    />
+  );
+};
 
 const KeyboardButton = ({ btnVal, pressHandler }) => {
   switch (btnVal) {
