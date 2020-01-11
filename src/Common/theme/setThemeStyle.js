@@ -11,6 +11,7 @@ const setThemeStyle = (mode) => {
       style = require('../themeStyleEpam');
       break;
     default:
+      style = require('../themeStyleLight');
       break;
   }
   return style.default;
