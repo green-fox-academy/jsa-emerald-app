@@ -43,6 +43,7 @@ const OpenBanking = ({ navigation }) => {
           style={{
             borderWidth: 1, borderColor: '#410093', padding: 10, borderRadius: 5, width: 205,
           }}
+          enableEmptySections
           textStyle={{ fontSize: 15 }}
           dropdownTextStyle={{ fontSize: 13 }}
           dropdownStyle={{ width: 190 }}
