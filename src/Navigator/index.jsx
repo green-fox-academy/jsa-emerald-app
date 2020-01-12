@@ -13,7 +13,7 @@ const AppNavigator = createBottomTabNavigator({
   Me: PersonalNavigation,
 },
   {
-    initialRouteName: 'Create', // set default page
+    initialRouteName: 'Me', // set default page
     defaultNavigationOptions: ({ navigation }) => ({
       // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ focused, tintColor }) => (

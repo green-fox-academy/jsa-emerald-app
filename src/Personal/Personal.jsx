@@ -94,7 +94,7 @@ export default function Personal() {
               subtitle="you can edit your information about your email address, phone number"
               subtitleStyle={{ color: 'grey' }}
               bottomDivider
-              containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
+              containerStyle={{ backgroundColor: 'transparent' }}
             />
             <ListItem
               title="Backup data"
@@ -111,13 +111,20 @@ export default function Personal() {
                     onPress={() => dispatch(requestBackup())}
                   />
                 )}
-              containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
+              containerStyle={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
+              bottomDivider
+            />
+            <ListItem
+              title="My family"
+              titleStyle={styles.listHeading}
+              containerStyle={{ backgroundColor: 'transparent' }}
+              onPress={() => navigate('FamilyPage')}
               bottomDivider
             />
             <ListItem
               title="Change password"
               titleStyle={styles.listHeading}
-              containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
+              containerStyle={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
               bottomDivider
             />
             <ListItem
@@ -126,7 +133,7 @@ export default function Personal() {
               rightElement={(
                 <ThemeSelection />
               )}
-              containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
+              containerStyle={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
             />
           </View>
         </View>
@@ -148,7 +155,7 @@ export default function Personal() {
                 />
               )}
             bottomDivider
-            containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
+            containerStyle={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
           />
           <ListItem
             title="Banking Sync"
@@ -156,7 +163,7 @@ export default function Personal() {
             subtitle="Sync your transactions from bank"
             subtitleStyle={{ color: 'grey' }}
             onPress={() => navigate('OpenBanking')}
-            containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}
+            containerStyle={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
           />
           <Button title="Logout" color="#f194ff" onPress={handleLogout} />
         </View>
