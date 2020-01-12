@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Index from './index';
 import Register from './Register';
 import Login from './Login';
+import FamilyPage from './familyGroup/index';
 import OpenBanking from './openBanking/index';
 import WebView from './openBanking/WebView';
 
@@ -33,6 +34,12 @@ const MainNavigator = createStackNavigator({
   },
   WebView: {
     screen: WebView,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  FamilyPage: {
+    screen: FamilyPage,
     navigationOptions: {
       header: null,
     },

@@ -9,6 +9,8 @@ import restoreState from './Personal/restoreReducer';
 import openBanking from './Personal/openBanking/obReducer';
 import user from './Personal/userReducer';
 import theme from './Common/theme/themeReducer';
+import searchedList from './Personal/familyGroup/familySearchReducer';
+import familyList from './Personal/familyGroup/familyReducer';
 
 const persistConfig = {
   key: 'root',
@@ -23,6 +25,8 @@ const rootReducer = combineReducers({
   restoreState,
   openBanking,
   theme,
+  searchedList,
+  familyList,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
