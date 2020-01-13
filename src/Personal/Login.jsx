@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
 import MainHeader from '../Common/MainHeader';
 import utils from './utils';
-import LoginView from './loginView';
+import LoginStyle from './loginStyle';
 import { requestLogin } from './actionCreator';
 import SubmitBtn from './SubmitBtn';
 
@@ -26,14 +26,11 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (user.accessToken) navigate('Index');
-  }, [user.accessToken]);
-
-  useEffect(() => {
-    if (user.status !== '' && user.status !== undefined) {
+    if (user.accessToken) navigate('PersonalIndex');
+    if (user.message !== '' && user.message !== undefined) {
       setErrorMsgDisplay(true);
     }
-  }, [user.status]);
+  }, [user.accessToken, user.message]);
 
   return (
     <>
@@ -41,13 +38,13 @@ export default function Login() {
         <MainHeader title="Login" />
       </View>
       <KeyboardAvoidingView
-        style={LoginView.registerForm}
+        style={LoginStyle.registerForm}
         behavior="padding"
         keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 20}
         enabled
       >
         <View>
-          <View style={LoginView.inputSection}>
+          <View style={LoginStyle.inputSection}>
             <Input
               placeholder="email@address.com"
               leftIcon={(
@@ -56,18 +53,18 @@ export default function Login() {
                   color="#a8a8a8"
                 />
           )}
-              leftIconContainerStyle={LoginView.inputIcon}
+              leftIconContainerStyle={LoginStyle.inputIcon}
               label="Your Email Address"
               textContentType="emailAddress"
               value={email}
               onChangeText={(value) => setEmail(value)}
               labelStyle={{ color: 'gray' }}
             />
-            <Text style={LoginView.note}>
-              {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
+            <Text style={LoginStyle.note}>
+              {utils.validateEmail(email) || email === '' ? '' : 'Your email is not correct.' }
             </Text>
           </View>
-          <View style={LoginView.inputSection}>
+          <View style={LoginStyle.inputSection}>
             <Input
               placeholder="Password"
               leftIcon={(
@@ -76,7 +73,7 @@ export default function Login() {
                   color="#a8a8a8"
                 />
               )}
-              leftIconContainerStyle={LoginView.inputIcon}
+              leftIconContainerStyle={LoginStyle.inputIcon}
               label="Your password"
               secureTextEntry={passwordHidden}
               value={password}
@@ -94,15 +91,15 @@ export default function Login() {
           </View>
           {
              (errorMsgDisplay) ? (
-               <View style={[LoginView.inputSection, LoginView.errorBox]}>
-                 <Text style={LoginView.errorText}>{user.message}</Text>
+               <View style={[LoginStyle.inputSection, LoginStyle.errorBox]}>
+                 <Text style={LoginStyle.errorText}>{user.message}</Text>
                </View>
              ) : (null)
           }
         </View>
         <View>
           <SubmitBtn
-            disabled={utils.loginValidation(email, password) === false}
+            disabled={utils.validateLogin(email, password) === false}
             onPressBtn={() => login({ email, password })}
           />
         </View>

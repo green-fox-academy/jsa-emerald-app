@@ -12,17 +12,17 @@ export function loginStart() {
   };
 }
 
-export function loginSuccessful(userInfo) {
+export function loginSuccessful(payload) {
   return {
     type: actionType.LOGIN_SUCCESSFUL,
-    payload: userInfo,
+    payload,
   };
 }
 
-export function loginFailed(userInfo) {
+export function loginFailed(payload) {
   return {
     type: actionType.LOGIN_FAILED,
-    payload: userInfo,
+    payload,
   };
 }
 
@@ -36,15 +36,20 @@ export const requestLogin = (userInfo) => (dispatch) => {
     },
     body: JSON.stringify(userInfo),
   }).then((response) => response.json()).then((response) => {
+    console.log(response);
+
     if (response.accessToken !== '' && response.accessToken !== undefined) {
       dispatch(loginSuccessful({
         email: userInfo.email,
         accessToken: response.accessToken,
       }));
+      console.log(2);
     } else {
-      dispatch(loginFailed({ status: response.code, message: response.message }));
+      dispatch(loginFailed({ message: response.message }));
+      console.log(1);
+      console.log(response.message);
     }
-  }).catch(() => {
-    dispatch(loginFailed());
+  }).catch((error) => {
+    dispatch(loginFailed({ message: error }));
   });
 };

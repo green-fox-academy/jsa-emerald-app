@@ -1,11 +1,10 @@
-import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import Index from './index';
-import Login from './login';
+import PersonalIndex from './PersonalIndex';
+import Login from './Login';
 
 const MainNavigator = createStackNavigator({
-  Index: {
-    screen: Index,
+  PersonalIndex: {
+    screen: PersonalIndex,
     navigationOptions: {
       header: null,
     },
@@ -18,6 +17,4 @@ const MainNavigator = createStackNavigator({
   },
 });
 
-const personalNavigator = createAppContainer(MainNavigator);
-
-export default personalNavigator;
+export default MainNavigator;

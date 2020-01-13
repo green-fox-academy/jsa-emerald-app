@@ -5,7 +5,7 @@ export default function Personal() {
   return (
     <View>
       <Text>
-      This is Personal page
+        This is Personal page
       </Text>
     </View>
   );
