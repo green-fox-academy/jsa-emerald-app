@@ -1,4 +1,5 @@
 import { BACKEND_URL, UPDATE_URL } from 'react-native-dotenv';
+import { getFamilyTransactions } from '../../FamilyTrans/actionCreator';
 
 export const actionType = {
   GET_MEMBER_LIST: 'GET_MEMBER_LIST',
@@ -82,7 +83,7 @@ export const updateFamilyMember = () => (dispatch, getState) => {
     if (response.status !== 200) {
       return response.json();
     }
-    // TODO: get new family transaction
+    dispatch(getFamilyTransactions());
   }).then((response) => {
     if (response === undefined) {
       dispatch(updateFamilyListFailed('Unauthorized error'));

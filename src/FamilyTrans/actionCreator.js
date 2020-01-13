@@ -15,7 +15,7 @@ export function addFamilyTransFailed(error) {
 
 export function getFamilyTrans(dataSet) {
   return {
-    type: actionType.RESTORE_TRANS,
+    type: actionType.GET_FAMILY_TRANS,
     dataSet,
   };
 }
@@ -61,4 +61,24 @@ export const getFamilyTransactions = () => (dispatch, getState) => {
     dispatch(getFamilyTransFailed('Unauthorized token'));
     return;
   }
-}
+  fetch(`${BACKEND_URL}/family-transactions`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => {
+    return response.json();
+  }).then((response) => {
+    if (response === undefined) {
+      dispatch(getFamilyTransFailed('Unauthorized error'));
+    } else if (response.code === 200) {
+      dispatch(getFamilyTrans(response.data));
+    } else {
+      dispatch(getFamilyTransFailed(response.message));
+    }
+  }).catch(() => {
+    dispatch(getFamilyTransFailed('Network error, please try again later'));
+  });
+};
