@@ -21,7 +21,7 @@ export default function SubmitBtn({ disabled, onPressBtn, title }) {
           titleStyle={{ color: 'white' }}
           type="clear"
           disabled={disabled}
-          onPress={({ email, password }) => onPressBtn({ email, password })}
+          onPress={onPressBtn}
         />
       </LinearGradient>
     </View>

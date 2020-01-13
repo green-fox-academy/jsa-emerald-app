@@ -11,6 +11,8 @@ import user from './Personal/userReducer';
 import theme from './Common/theme/themeReducer';
 import searchedList from './Personal/familyGroup/familySearchReducer';
 import familyList from './Personal/familyGroup/familyReducer';
+import familyTrans from './FamilyTrans/familyTransReducer';
+
 
 const persistConfig = {
   key: 'root',
@@ -28,6 +30,7 @@ const rootReducer = combineReducers({
   theme,
   searchedList,
   familyList,
+  familyTrans,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

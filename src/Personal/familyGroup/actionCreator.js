@@ -5,6 +5,7 @@ export const actionType = {
   SEARCH_FAILED: 'SEARCH_FAILED',
   CONFIRM_FAMILY_MEMBER: 'CONFIRM_FAMILY_MEMBER',
   CANCEL_MEMBER_SEARCH: 'CANCEL_MEMBER_SEARCH',
+  UPDATE_FAMILY_LIST_FAILED: 'UPDATE_FAMILY_LIST_FAILED',
 };
 
 export function getMemberList(payload) {
@@ -34,6 +35,13 @@ export function cancelMemberSearch() {
   };
 }
 
+export function updateFamilyListFailed(error) {
+  return {
+    type: actionType.UPDATE_FAMILY_LIST_FAILED,
+    error,
+  };
+}
+
 export const searchMember = (keyword) => (dispatch, getState) => {
   const { accessToken } = getState().user;
   fetch(`${BACKEND_URL}/users?contain=${keyword}`, {
@@ -51,7 +59,6 @@ export const searchMember = (keyword) => (dispatch, getState) => {
       return response.json();
     }
   }).then((response) => {
-    // console.log(response);
     dispatch(getMemberList(response));
   }).catch(() => {
     dispatch(searchFailed('Network error, Please try again later'));
@@ -62,21 +69,27 @@ export const updateFamilyMember = () => (dispatch, getState) => {
   const { members } = getState().familyList;
   const { accessToken } = getState().user;
   const membersList = members.map((item) => item.id);
-  console.log(accessToken);
 
-  console.log(JSON.stringify({ members: membersList }));
-
-  // fetch(`${BACKEND_URL}/family`, {
-  //   method: 'POST',
-  //   mode: 'cors',
-  //   headers: {
-  //     Authorization: `Bearer ${accessToken}`,
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify({ members: membersList }),
-  // }).then((response) => response.json()).then((response) => {
-  //   console.log(response);
-  // }).catch(() => {
-  //   console.log("111");
-  // });
+  fetch(`${BACKEND_URL}/family`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ members: membersList }),
+  }).then((response) => {
+    if (response.status !== 200) {
+      return response.json();
+    }
+    // TODO: get new family transaction
+  }).then((response) => {
+    if (response === undefined) {
+      dispatch(updateFamilyListFailed('Unauthorized error'));
+    } else {
+      dispatch(updateFamilyListFailed(response.message));
+    }
+  }).catch(() => {
+    dispatch(updateFamilyListFailed('Network Error, Please try again later'));
+  });
 };

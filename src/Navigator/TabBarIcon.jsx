@@ -19,6 +19,10 @@ const TabBarIcon = ({ navigation, focused, tintColor }) => {
       IconComponent = MaterialCommunityIcons;
       iconName = `pencil-circle${focused ? '' : '-outline'}`;
       break;
+    case 'Family':
+      IconComponent = MaterialIcons;
+      iconName = `people${focused ? '' : '-outline'}`;
+      break;
     case 'Me':
       IconComponent = MaterialIcons;
       iconName = `person${focused ? '' : '-outline'}`;
