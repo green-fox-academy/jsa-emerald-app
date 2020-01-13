@@ -4,12 +4,14 @@ import TabBarIcon from './TabBarIcon';
 import Trans from '../Stats/index';
 import Chart from '../Chart/index';
 import TransCreator from '../TransCreator/index';
+import FamilyTrans from '../FamilyTrans/index';
 import PersonalNavigation from '../Personal/personalStackNavigation';
 
 const AppNavigator = createBottomTabNavigator({
   Trans,
   Chart,
   Create: TransCreator,
+  Family: FamilyTrans,
   Me: PersonalNavigation,
 },
   {
