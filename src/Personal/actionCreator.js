@@ -36,18 +36,13 @@ export const requestLogin = (userInfo) => (dispatch) => {
     },
     body: JSON.stringify(userInfo),
   }).then((response) => response.json()).then((response) => {
-    console.log(response);
-
     if (response.accessToken !== '' && response.accessToken !== undefined) {
       dispatch(loginSuccessful({
         email: userInfo.email,
         accessToken: response.accessToken,
       }));
-      console.log(2);
     } else {
       dispatch(loginFailed({ message: response.message }));
-      console.log(1);
-      console.log(response.message);
     }
   }).catch((error) => {
     dispatch(loginFailed({ message: error }));

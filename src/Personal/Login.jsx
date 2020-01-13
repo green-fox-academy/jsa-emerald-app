@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, KeyboardAvoidingView, Platform,
+  View, Text, KeyboardAvoidingView, Platform, ActivityIndicator,
 } from 'react-native';
 import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
@@ -57,6 +57,7 @@ export default function Login() {
               label="Your Email Address"
               textContentType="emailAddress"
               value={email}
+              autoCapitalize="none"
               onChangeText={(value) => setEmail(value)}
               labelStyle={{ color: 'gray' }}
             />
@@ -98,10 +99,14 @@ export default function Login() {
           }
         </View>
         <View>
-          <SubmitBtn
-            disabled={utils.validateLogin(email, password) === false}
-            onPressBtn={() => login({ email, password })}
-          />
+          {(user.isInProgress)
+            ? <ActivityIndicator size="large" color="black" />
+            : (
+              <SubmitBtn
+                disabled={utils.validateLogin(email, password) === false}
+                onPressBtn={() => login({ email, password })}
+              />
+            )}
         </View>
       </KeyboardAvoidingView>
     </>
