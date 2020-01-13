@@ -4,6 +4,8 @@ import { getFamilyTransactions } from '../../FamilyTrans/actionCreator';
 export const actionType = {
   GET_MEMBER_LIST: 'GET_MEMBER_LIST',
   SEARCH_FAILED: 'SEARCH_FAILED',
+  GET_FAMILY_MEMBER: 'GET_FAMILY_MEMBER',
+  GET_FAMILY_MEMBER_FAILED: 'GET_FAMILY_MEMBER_FAILED',
   CONFIRM_FAMILY_MEMBER: 'CONFIRM_FAMILY_MEMBER',
   CANCEL_MEMBER_SEARCH: 'CANCEL_MEMBER_SEARCH',
   UPDATE_FAMILY_LIST_FAILED: 'UPDATE_FAMILY_LIST_FAILED',
@@ -23,13 +25,6 @@ export function searchFailed(payload) {
   };
 }
 
-export function confirmFamilyMember(payload) {
-  return {
-    type: actionType.CONFIRM_FAMILY_MEMBER,
-    payload,
-  };
-}
-
 export function cancelMemberSearch() {
   return {
     type: actionType.CANCEL_MEMBER_SEARCH,
@@ -39,6 +34,27 @@ export function cancelMemberSearch() {
 export function updateFamilyListFailed(error) {
   return {
     type: actionType.UPDATE_FAMILY_LIST_FAILED,
+    error,
+  };
+}
+
+export function confirmFamilyMember(payload) {
+  return {
+    type: actionType.CONFIRM_FAMILY_MEMBER,
+    payload,
+  };
+}
+
+export function getFamilyMember(payload) {
+  return {
+    type: actionType.GET_FAMILY_MEMBER,
+    payload,
+  };
+}
+
+export function getFamilyMemberFailed(error) {
+  return {
+    type: actionType.GET_FAMILY_MEMBER_FAILED,
     error,
   };
 }
@@ -92,4 +108,25 @@ export const updateFamilyMember = () => (dispatch, getState) => {
   }).catch(() => {
     dispatch(updateFamilyListFailed('Network Error, Please try again later'));
   });
+};
+
+export const getFamilyMemberList = () => (dispatch, getState) => {
+  const { accessToken } = getState().user;
+  fetch(`${BACKEND_URL}/family-members`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => response.json())
+    .then((response) => {
+      if (response.code === 200) {
+        dispatch(getFamilyMember(response.data));
+      } else {
+        dispatch(getFamilyMemberFailed(response.message));
+      }
+    }).catch(() => {
+      dispatch(getFamilyMemberFailed('Network Error, Please try again later'));
+    });
 };

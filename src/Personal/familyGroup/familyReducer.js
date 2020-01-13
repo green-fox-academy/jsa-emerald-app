@@ -12,6 +12,16 @@ export default (state = initialMemberList, action) => {
         ...state,
         members: [...state.members, { ...action.payload }],
       };
+    case actionType.GET_FAMILY_MEMBER:
+      return {
+        ...state,
+        members: action.payload,
+      };
+    case actionType.GET_FAMILY_MEMBER_FAILED:
+      return {
+        ...state,
+        error: '',
+      };
     default:
       return state;
   }
