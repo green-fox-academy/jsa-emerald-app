@@ -7,9 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from 'react-navigation-hooks';
 import MainHeader from '../Common/MainHeader';
 import utils from './utils';
-import RegisterView from './RegisterView';
 import { requestSignup } from './actionCreator';
-import SubmitBtn from './SubmitBtn';
+import SubmitBtn from './submitBtn';
+import RegisterStyle from './registerStyle';
 
 export default function Register() {
   const { navigate } = useNavigation();
@@ -44,13 +44,13 @@ export default function Register() {
         <MainHeader title="Register" />
       </View>
       <KeyboardAvoidingView
-        style={RegisterView.registerForm}
+        style={RegisterStyle.registerForm}
         behavior="padding"
         keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 20}
         enabled
       >
         <View>
-          <View style={RegisterView.inputSection}>
+          <View style={RegisterStyle.inputSection}>
             <Input
               placeholder="username"
               leftIcon={(
@@ -59,14 +59,14 @@ export default function Register() {
                   color="#a8a8a8"
                 />
           )}
-              leftIconContainerStyle={RegisterView.inputIcon}
+              leftIconContainerStyle={RegisterStyle.inputIcon}
               label="Your Username"
               value={username}
               onChangeText={(value) => setUsername(value)}
               labelStyle={{ color: 'gray' }}
             />
           </View>
-          <View style={RegisterView.inputSection}>
+          <View style={RegisterStyle.inputSection}>
             <Input
               placeholder="email@address.com"
               leftIcon={(
@@ -75,19 +75,19 @@ export default function Register() {
                   color="#a8a8a8"
                 />
           )}
-              leftIconContainerStyle={RegisterView.inputIcon}
+              leftIconContainerStyle={RegisterStyle.inputIcon}
               label="Your Email Address"
               textContentType="emailAddress"
               value={email}
               onChangeText={(value) => setEmail(value)}
               labelStyle={{ color: 'gray' }}
             />
-            <Text style={RegisterView.note}>
-              {utils.emailValidation(email) || email === '' ? '' : 'Your email is not correct.' }
+            <Text style={RegisterStyle.note}>
+              {utils.validateEmail(email) || email === '' ? '' : 'Your email is not correct.' }
             </Text>
           </View>
 
-          <View style={RegisterView.inputSection}>
+          <View style={RegisterStyle.inputSection}>
             <Input
               placeholder="Password"
               leftIcon={(
@@ -96,7 +96,7 @@ export default function Register() {
                   color="#a8a8a8"
                 />
               )}
-              leftIconContainerStyle={RegisterView.inputIcon}
+              leftIconContainerStyle={RegisterStyle.inputIcon}
               label="Your password"
               secureTextEntry={passwordHidden}
               value={password}
@@ -111,13 +111,13 @@ export default function Register() {
                 />
             )}
             />
-            <Text style={RegisterView.note}>
-              {utils.passwordValidation(password) || password === ''
+            <Text style={RegisterStyle.note}>
+              {utils.validatePassword(password) || password === ''
                 ? '' : 'Password should be at least 8 characters.'}
             </Text>
           </View>
 
-          <View style={RegisterView.inputSection}>
+          <View style={RegisterStyle.inputSection}>
             <Input
               placeholder="Confirm your password"
               leftIcon={(
@@ -126,7 +126,7 @@ export default function Register() {
                   color="#a8a8a8"
                 />
               )}
-              leftIconContainerStyle={RegisterView.inputIcon}
+              leftIconContainerStyle={RegisterStyle.inputIcon}
               label="Confirm your password"
               secureTextEntry={confirmPasswordHidden}
               value={confirmPassword}
@@ -141,14 +141,14 @@ export default function Register() {
                 />
             )}
             />
-            <Text style={RegisterView.note}>
+            <Text style={RegisterStyle.note}>
               {password === confirmPassword || confirmPassword === '' ? '' : 'Password is not the same.'}
             </Text>
           </View>
           {
              (errorMsgDisplay) ? (
-               <View style={[RegisterView.inputSection, RegisterView.errorBox]}>
-                 <Text style={RegisterView.errorText}>{user.message}</Text>
+               <View style={[RegisterStyle.inputSection, RegisterStyle.errorBox]}>
+                 <Text style={RegisterStyle.errorText}>{user.message}</Text>
                </View>
              ) : (null)
           }

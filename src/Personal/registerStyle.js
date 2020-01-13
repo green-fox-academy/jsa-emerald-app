@@ -10,7 +10,7 @@ const btnShadow = {
   elevation: 8,
 };
 
-const RegisterView = StyleSheet.create({
+const RegisterStyle = StyleSheet.create({
   registerForm: {
     alignContent: 'center',
     paddingLeft: 10,
@@ -75,4 +75,4 @@ const RegisterView = StyleSheet.create({
 
 });
 
-export default RegisterView;
+export default RegisterStyle;

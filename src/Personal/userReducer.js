@@ -1,6 +1,6 @@
 import { actionType } from './actionCreator';
 
-const initialUser = {
+const initialState = {
   username: '',
   email: '',
   accessToken: '',
@@ -8,11 +8,10 @@ const initialUser = {
   message: '',
 };
 
-const user = (state = initialUser, action) => {
+const user = (state = initialState, action) => {
   switch (action.type) {
     case actionType.SIGNUP_START:
       return {
-        ...state,
         username: '',
         email: '',
         accessToken: '',
@@ -37,6 +36,8 @@ const user = (state = initialUser, action) => {
     case actionType.LOGOUT_SUCCESSFUL:
       return {
         ...state,
+        username: '',
+        email: '',
         accessToken: '',
       };
     default:

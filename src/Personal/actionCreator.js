@@ -4,7 +4,7 @@ export const actionType = {
   SIGNUP_START: 'SIGNUP_START',
   SIGNUP_FAILED: 'SIGNUP_FAILED',
   SIGNUP_SUCCESSFUL: 'SIGNUP_SUCCESSFUL',
-  LOGOUT_SUCCESSFUL: 'LOGOUT_SUCCESSFUL',
+  LOGOUT: 'LOGOUT',
 };
 
 export function signupStart() {
@@ -13,23 +13,23 @@ export function signupStart() {
   };
 }
 
-export function signupSuccessful(userInfo) {
+export function signupSuccessful(payload) {
   return {
     type: actionType.SIGNUP_SUCCESSFUL,
-    payload: userInfo,
+    payload,
   };
 }
 
-export function signupFailed(userInfo) {
+export function signupFailed(payload) {
   return {
     type: actionType.SIGNUP_FAILED,
-    payload: userInfo,
+    payload,
   };
 }
 
 export function logoutSuccessful() {
   return {
-    type: actionType.LOGOUT_SUCCESSFUL,
+    type: actionType.LOGOUT,
   };
 }
 

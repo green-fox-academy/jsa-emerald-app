@@ -13,7 +13,7 @@ export default function Personal() {
   return (
     <View>
       <Text>
-      This is Personal page
+       This is Personal page
       </Text>
       <Button title="Logout" color="#f194ff" onPress={handleLogout} />
     </View>
