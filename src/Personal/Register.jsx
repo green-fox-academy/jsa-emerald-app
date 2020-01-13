@@ -59,6 +59,7 @@ export default function Register() {
               leftIconContainerStyle={RegisterStyle.inputIcon}
               label="Your Username"
               value={username}
+              autoCapitalize="none"
               onChangeText={(value) => setUsername(value)}
               labelStyle={{ color: 'gray' }}
             />
@@ -76,6 +77,7 @@ export default function Register() {
               label="Your Email Address"
               textContentType="emailAddress"
               value={email}
+              autoCapitalize="none"
               onChangeText={(value) => setEmail(value)}
               labelStyle={{ color: 'gray' }}
             />
