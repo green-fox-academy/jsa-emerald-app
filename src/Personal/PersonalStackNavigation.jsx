@@ -1,4 +1,3 @@
-import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import PersonalIndex from './PersonalIndex';
 import Register from './Register';
@@ -18,6 +17,4 @@ const MainNavigator = createStackNavigator({
   },
 });
 
-const PersonalNavigation = createAppContainer(MainNavigator);
-
-export default PersonalNavigation;
+export default MainNavigator;

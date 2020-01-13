@@ -54,11 +54,11 @@ export const requestSignup = (userInfo) => (dispatch) => {
       );
     } else {
       dispatch(
-        signupFailed({ status: response.code, message: response.message }),
+        signupFailed({ message: response.message }),
       );
     }
   })
-    .catch(() => {
-      dispatch(signupFailed());
+    .catch((error) => {
+      dispatch(signupFailed({ message: error }));
     });
 };

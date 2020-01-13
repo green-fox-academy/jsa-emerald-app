@@ -4,8 +4,8 @@ const initialState = {
   username: '',
   email: '',
   accessToken: '',
-  status: '',
   message: '',
+  isInProgress: '',
 };
 
 const user = (state = initialState, action) => {
@@ -15,8 +15,8 @@ const user = (state = initialState, action) => {
         username: '',
         email: '',
         accessToken: '',
-        status: '',
         message: '',
+        isInProgress: true,
       };
     case actionType.SIGNUP_SUCCESSFUL:
       return {
@@ -24,14 +24,14 @@ const user = (state = initialState, action) => {
         username: action.payload.username,
         email: action.payload.email,
         accessToken: action.payload.accessToken,
-        status: '',
+        isInProgress: false,
       };
     case actionType.SIGNUP_FAILED:
       return {
         ...state,
         accessToken: '',
-        status: action.payload.status,
         message: action.payload.message,
+        isInProgress: false,
       };
     case actionType.LOGOUT:
       return {

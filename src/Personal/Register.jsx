@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, KeyboardAvoidingView, Platform,
+  View, Text, KeyboardAvoidingView, Platform, ActivityIndicator,
 } from 'react-native';
 import { Input, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,13 +30,10 @@ export default function Register() {
 
   useEffect(() => {
     if (user.accessToken) navigate('PersonalIndex');
-  }, [user.accessToken]);
-
-  useEffect(() => {
     if (user.status !== '' && user.status !== undefined) {
       setErrorMsgDisplay(true);
     }
-  }, [user.status]);
+  }, [user.accessToken, user.status]);
 
   return (
     <>
@@ -153,10 +150,16 @@ export default function Register() {
              ) : (null)
           }
           <View>
-            <SubmitBtn
-              disabled={utils.validateSignup(username, password, confirmPassword, email) === false}
-              onPressBtn={() => signUp({ email, password, username })}
-            />
+            {(user.isInProgress) ? <ActivityIndicator size="large" color="black" />
+              : (
+                <SubmitBtn
+                  disabled={utils.validateSignup(username,
+                    password,
+                    confirmPassword,
+                    email) === false}
+                  onPressBtn={() => signUp({ email, password, username })}
+                />
+              )}
           </View>
         </View>
       </KeyboardAvoidingView>
