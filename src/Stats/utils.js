@@ -44,7 +44,6 @@ const getDateSet = (current, type) => [
 const filterTransactionsByDate = (dataList, range, view) => {
   const monthRange = range.format('MMM YYYY');
   const yearRange = range.format('YYYY');
-
   switch (view) {
     case 'month':
       return dataList.filter((value) => moment.unix(value.date).format('MMM YYYY') === monthRange);

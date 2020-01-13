@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import styles from '../Common/themeStyle';
 import MainHeader from '../Common/MainHeader';
 import utils from './utils';
-import DateSlider from './DateSlider';
+import DateSlider from '../Common/DateSlider';
 import FilterBtn from './FilterBtn';
 import TransList from './TransList';
 import EmptyHistory from './EmptyHistory';
@@ -30,6 +30,7 @@ export default function Stats() {
       transactionsList,
       transFilter,
     );
+
     return utils.filterTransactionsByDate(
       transactionsWithSpecificType,
       timePeriodOptions[1],
@@ -46,6 +47,13 @@ export default function Stats() {
   const totalExpense = calculateSumByType(filteredTransactions, 'Expense');
   const totalIncome = calculateSumByType(filteredTransactions, 'Income');
 
+  const navBarFunc = [
+    {
+      name: 'filter',
+      func: () => setOverlayVisibility(true),
+    },
+  ];
+
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Overlay height={200} isVisible={isOverlayVisible}>
@@ -59,7 +67,7 @@ export default function Stats() {
           </View>
         </View>
       </Overlay>
-      <MainHeader title="Activity" onPressBtn={() => setOverlayVisibility(true)} btnName="filter" />
+      <MainHeader title="Transactions" btnType={navBarFunc} />
       <DateSlider
         viewSet={timePeriodOptions}
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}

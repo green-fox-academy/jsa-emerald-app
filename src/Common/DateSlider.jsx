@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { Button } from 'react-native-elements';
-import styles from '../Common/themeStyle';
+import styles from './themeStyle';
 
 export default function DateSlider(props) {
   const { viewSet, onPressBtn, viewType } = props;
