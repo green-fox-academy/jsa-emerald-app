@@ -7,7 +7,10 @@ export function addNewTransaction(type, date, amount, labelName) {
   return {
     type: actionType.ADD_TRANS,
     data: {
-      type, date, amount, labelName,
+      type,
+      date,
+      amount,
+      labelName,
     },
   };
 }
