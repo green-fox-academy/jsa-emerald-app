@@ -8,7 +8,7 @@ import { useNavigation } from 'react-navigation-hooks';
 import MainHeader from '../Common/MainHeader';
 import utils from './utils';
 import { requestSignup } from './actionCreator';
-import SubmitBtn from './submitBtn';
+import SubmitBtn from './SubmitBtn';
 import RegisterStyle from './registerStyle';
 
 export default function Register() {

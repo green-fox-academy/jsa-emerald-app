@@ -3,9 +3,9 @@ import { View, Button } from 'react-native';
 import { useNavigation } from 'react-navigation-hooks';
 import { useSelector } from 'react-redux';
 import RegisterStyle from './registerStyle';
-import Personal from './personal';
+import Personal from './Personal';
 
-export default function Index() {
+export default function PersonalIndex() {
   const { navigate } = useNavigation();
   const user = useSelector((state) => state.user);
 

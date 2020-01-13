@@ -4,7 +4,7 @@ import TabBarIcon from './TabBarIcon';
 import Stats from '../Stats/index';
 import TransCreator from '../TransCreator/index';
 import themeColor from '../Common/Color';
-import PersonalNavigation from '../Personal/personalStackNavigation';
+import PersonalNavigation from '../Personal/PersonalStackNavigation1';
 
 const AppNavigator = createBottomTabNavigator({
   Stats,
