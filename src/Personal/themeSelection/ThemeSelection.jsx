@@ -18,7 +18,6 @@ export default function ThemeSelection() {
     <View style={{ flexDirection: 'row' }}>
       <SelectBtn title="Light" clickedMode={mode} onClick={() => updateTheme('Light')} />
       <SelectBtn title="Dark" clickedMode={mode} onClick={() => updateTheme('Dark')} />
-      <SelectBtn title="EPAM" clickedMode={mode} onClick={() => updateTheme('EPAM')} />
     </View>
   );
 }

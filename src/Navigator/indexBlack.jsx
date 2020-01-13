@@ -14,26 +14,26 @@ const AppNavigator = createBottomTabNavigator({
   Family: FamilyTrans,
   Me: PersonalNavigation,
 },
-  {
-    initialRouteName: 'Create', // set default page
-    defaultNavigationOptions: ({ navigation }) => ({
-      // eslint-disable-next-line react/prop-types
-      tabBarIcon: ({ focused, tintColor }) => (
-        <TabBarIcon
-          navigation={navigation}
-          focused={focused}
-          tintColor={tintColor}
-        />
-      ),
+{
+  initialRouteName: 'Trans', // set default page
+  defaultNavigationOptions: ({ navigation }) => ({
+    // eslint-disable-next-line react/prop-types
+    tabBarIcon: ({ focused, tintColor }) => (
+      <TabBarIcon
+        navigation={navigation}
+        focused={focused}
+        tintColor={tintColor}
+      />
+    ),
 
-    }),
-    tabBarOptions: {
-      activeTintColor: '#5C6BC0',
-      inactiveTintColor: 'gray',
-      style: {
-        backgroundColor: '#181a35',
-      },
+  }),
+  tabBarOptions: {
+    activeTintColor: '#5C6BC0',
+    inactiveTintColor: 'gray',
+    style: {
+      backgroundColor: '#181a35',
     },
-  });
+  },
+});
 
 export default AppNavigator;
