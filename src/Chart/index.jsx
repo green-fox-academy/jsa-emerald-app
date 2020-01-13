@@ -58,7 +58,7 @@ export default function Chart() {
       />
       <ScrollView style={styles.deviceBody}>
         <View style={styles.card}>
-          {filterDataByPeriod.length !== 0
+          {filterDataByPeriod.length !== 0 && dataSetByDate.labels.length !== 0
             ? <LineGraph dataSet={dataSetByDate} style={{ flex: 1 }} />
             : <View />}
         </View>
