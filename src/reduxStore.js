@@ -16,6 +16,7 @@ const persistConfig = {
   key: 'root',
   storage,
   stateReconciler: autoMergeLevel2,
+  blacklist: ['openBanking'],
 };
 
 const rootReducer = combineReducers({

@@ -2,15 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { registerRootComponent, AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Provider } from 'react-redux';
-import { createAppContainer } from 'react-navigation';
 import { Alert } from 'react-native';
 import { PersistGate } from 'redux-persist/integration/react';
-import AppNavigator from './Navigator';
+import AppContainer from './AppContainer';
 import { store, persistor } from './reduxStore';
 import Roboto from '../assets/Fonts/Roboto/Roboto-Regular.ttf';
 import RobotoMedium from '../assets/Fonts/Roboto/Roboto-Medium.ttf';
-
-const AppContainer = createAppContainer(AppNavigator);
 
 const App = () => {
   const [fontLoading, setFontLoading] = useState(true);
