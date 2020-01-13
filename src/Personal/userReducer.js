@@ -33,7 +33,7 @@ const user = (state = initialState, action) => {
         status: action.payload.status,
         message: action.payload.message,
       };
-    case actionType.LOGOUT_SUCCESSFUL:
+    case actionType.LOGOUT:
       return {
         ...state,
         username: '',

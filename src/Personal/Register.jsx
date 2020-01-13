@@ -29,7 +29,7 @@ export default function Register() {
   };
 
   useEffect(() => {
-    if (user.accessToken) navigate('Index');
+    if (user.accessToken) navigate('PersonalIndex');
   }, [user.accessToken]);
 
   useEffect(() => {

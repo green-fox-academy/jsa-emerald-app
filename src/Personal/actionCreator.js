@@ -27,7 +27,7 @@ export function signupFailed(payload) {
   };
 }
 
-export function logoutSuccessful() {
+export function logout() {
   return {
     type: actionType.LOGOUT,
   };
