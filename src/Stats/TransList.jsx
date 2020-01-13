@@ -26,15 +26,15 @@ export default function TransList(props) {
             key={`InfoGroup:${idx + 1}`}
             leftElement={(
               <GradientIcon
-                name={item.label ? item.label.icon : 'home'}
-                color={item.label && item.label.color ? item.label.color : '#9e87fc'}
-                iconFamily={item.label && item.label.iconFamily ? item.label.iconFamily : ''}
+                name={item.labelName ? item.labelName.icon : 'home'}
+                color={item.labelName && item.labelName.color ? item.labelName.color : '#9e87fc'}
+                iconFamily={item.labelName && item.labelName.iconFamily ? item.labelName.iconFamily : ''}
               />
             )}
-            title={item.label ? item.label.name : 'Unknown'}
+            title={item.labelName ? item.labelName.name : 'Unknown'}
             titleStyle={styles.listHeading}
-            subtitle={item.comment ? item.comment : 'Unknown'}
-            subtitleStyle={{ color: 'grey' }}
+            subtitle={item.creator ? item.creator : 'Unknown'}
+            subtitleStyle={item.creator ? { color: 'grey' } : { display: 'none' }}
             rightTitle={utils.transType(item.amount, item.type)}
             rightTitleStyle={styles.listHeading}
             containerStyle={{ backgroundColor: 'rgba(255,0, 0, 0)' }}

@@ -37,6 +37,9 @@ export default function Login() {
     if (user.status !== '' && user.status !== undefined) {
       setErrorMsgDisplay(true);
     }
+    return () => {
+      setErrorMsgDisplay(false);
+    };
   }, [user.status]);
 
   return (

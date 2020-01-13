@@ -3,11 +3,11 @@ export const actionType = {
   RESTORE_TRANS: 'RESTORE_TRANS',
 };
 
-export function addNewTransaction(type, date, amount, label) {
+export function addNewTransaction(type, date, amount, labelName) {
   return {
     type: actionType.ADD_TRANS,
     data: {
-      type, date, amount, label,
+      type, date, amount, labelName,
     },
   };
 }
