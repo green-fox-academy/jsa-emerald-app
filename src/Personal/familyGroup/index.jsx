@@ -19,9 +19,8 @@ export default function FamilyPage() {
     const searchIndex = members.findIndex((item) => item.id === value.id);
     if (searchIndex === -1) {
       dispatch(confirmFamilyMember(value));
-      // dispatch(updateFamilyMember());
+      dispatch(updateFamilyMember());
     }
-    dispatch(updateFamilyMember());
     setOverlayVisibility(false);
   };
   const cancelSearch = () => {

@@ -17,6 +17,8 @@ export default function CalculatorKeyboard({
   transDate,
   setTransDate,
   onExpressionChange,
+  onPressCheckBox,
+  checkState,
 }) {
   const { themeMode } = useSelector((state) => state.theme);
   const theme = setThemeStyle(themeMode);
@@ -48,7 +50,7 @@ export default function CalculatorKeyboard({
 
   return (
     <View style={styles.keyboardLayout}>
-      <DateSelector transDate={transDate} setTransDate={setTransDate} />
+      <DateSelector transDate={transDate} setTransDate={setTransDate} onPressCheckBox={() => onPressCheckBox(!checkState)} checkState={checkState} />
       <View style={[styles.keyboardRowLayout, { backgroundColor: theme.mainColor.backgroundColor }]}>
         {keyboardLayout.map((row, idx) => (
           <View key={`row${idx + 1}`} >

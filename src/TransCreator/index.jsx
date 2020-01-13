@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { NavigationScreenPropType } from 'react-navigation';
 import { addNewTransaction } from '../Stats/actionCreator';
+import { addFamilyTransactions } from '../FamilyTrans/actionCreator';
 import LabelGroup from './LabelGroup';
 import PageBanner from './PageBanner';
 import CalculatorKeyboard from './CalculatorKeyboard';
@@ -20,6 +21,7 @@ const TransCreator = ({ navigation }) => {
   const [transDate, setTransDate] = useState(moment().unix());
   const [transLabel, setTransLabel] = useState({});
   const [newTransInsertionSuccess, setNewTransInsertionSuccess] = useState(false);
+  const [isBoxChecked, setBoxChecked] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,8 +36,19 @@ const TransCreator = ({ navigation }) => {
       Alert.alert('Please enter the amount');
       return;
     }
-
-    dispatch(addNewTransaction(transType, transDate, transAmount, transLabel));
+    if (isBoxChecked) {
+      const data = {
+        transaction: {
+          amount: transAmount,
+          labelName: transLabel,
+          date: transDate,
+          type: transType,
+        },
+      };
+      dispatch(addFamilyTransactions(data));
+    } else {
+      dispatch(addNewTransaction(transType, transDate, transAmount, transLabel));
+    }
     setNewTransInsertionSuccess(true);
     setTransAmount('');
     setExpStr('');
@@ -78,6 +91,8 @@ const TransCreator = ({ navigation }) => {
         transDate={transDate}
         setTransDate={setTransDate}
         expStr={expStr}
+        onPressCheckBox={() => setBoxChecked(!isBoxChecked)}
+        checkState={isBoxChecked}
       />
     </Root>
   );
