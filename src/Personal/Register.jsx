@@ -30,10 +30,10 @@ export default function Register() {
 
   useEffect(() => {
     if (user.accessToken) navigate('PersonalIndex');
-    if (user.status !== '' && user.status !== undefined) {
+    if (user.message !== '' && user.message !== undefined) {
       setErrorMsgDisplay(true);
     }
-  }, [user.accessToken, user.status]);
+  }, [user.accessToken, user.message]);
 
   return (
     <>
