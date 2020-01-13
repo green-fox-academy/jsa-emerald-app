@@ -51,9 +51,9 @@ const OpenBanking = ({ navigation }) => {
         fetch('http://122.51.72.108:8080', { method: 'post' })
           .then((response) => response.json())
           .then((response) => {
+            clearInterval(interval);
             dispatch(setBankIDCode(response.id, response.code));
             navigation.navigate('OpenBanking');
-            clearInterval(interval);
           })
           .catch(() => {});
       }

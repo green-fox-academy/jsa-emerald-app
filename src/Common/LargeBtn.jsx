@@ -20,9 +20,11 @@ export default function LargeButton({
       <TouchableOpacity onPress={pressHandler}>
         <LinearGradient
           colors={themeColor.gradientColor[bgColor]}
-          start={[0.1, 0.9]}
+          start={[0.3, 0.7]}
           end={[0.9, 0.1]}
-          style={{ borderRadius: 10, padding: 20 }}
+          style={{
+            borderRadius: 10, paddingLeft: 20, paddingRight: 20, paddingTop: 13, paddingBottom: 13,
+          }}
         >
           <Text style={styles.largeBtnFont}>{subtitle}</Text>
           <Text style={styles.largeBtnHeader}>

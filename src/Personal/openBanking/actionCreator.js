@@ -49,7 +49,6 @@ const encodeFormData = (data) => Object.keys(data)
   .join('&');
 
 export const loadTransactions = (token, id, accountID) => (dispatch) => {
-  console.log(accountID);
   fetch(`https://api-sandbox.fintecture.com/ais/v1/customer/${id}/accounts/${accountID}/transactions`, {
     headers: {
       Accept: 'application/json',
