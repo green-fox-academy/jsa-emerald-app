@@ -33,11 +33,6 @@ export default function FamilyPage() {
   };
 
   useEffect(() => {
-    console.log(members);
-
-  }, []);
-
-  useEffect(() => {
     dispatch(getFamilyMemberList());
   }, ['']);
 
