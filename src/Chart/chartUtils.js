@@ -25,14 +25,14 @@ const convertToDatasetByCategory = (dataList, dataType) => {
     const dataSet = [];
     const colorSet = [];
     filterData.forEach((item) => {
-      const index = dataSet.findIndex((value) => value.name === item.label.name);
+      const index = dataSet.findIndex((value) => value.name === item.labelName.name);
       if (index === -1) {
         dataSet.push({
-          name: item.label.name,
+          name: item.labelName.name,
           total: parseFloat(item.amount),
-          color: item.label.color,
+          color: item.labelName.color,
         });
-        colorSet.push(item.label.color);
+        colorSet.push(item.labelName.color);
       } else {
         const newValue = parseFloat(dataSet[index].total) + parseFloat(item.amount);
         dataSet[index].total = newValue;

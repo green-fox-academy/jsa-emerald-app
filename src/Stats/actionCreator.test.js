@@ -7,7 +7,7 @@ test('test action', () => {
       type: 'Expense',
       date: 'December 24th 2019',
       amount: '11.00',
-      label: {
+      labelName: {
         color: '#aa78db',
         icon: 'shoppingcart',
         iconFamily: 'antdesign',
@@ -27,7 +27,7 @@ test('test restoreTransactions', () => {
   const dataSet = [{
     amount: '2255.00',
     date: 1578537684,
-    label: {
+    labelName: {
       color: '#1cd09d',
       icon: 'attach-money',
       iconFamily: '',

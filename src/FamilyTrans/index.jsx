@@ -10,6 +10,7 @@ import TransList from '../Stats/TransList';
 import EmptyHistory from '../Stats/EmptyHistory';
 import DateOverlay from '../Common/DateOverlay';
 import setThemeStyle from '../Common/theme/setThemeStyle';
+import { useEffect } from 'react';
 
 const moment = require('moment');
 
@@ -22,8 +23,9 @@ export default function Trans() {
   const [isOverlayVisible, setOverlayVisibility] = useState(false);
   const [transFilter, setTransFilter] = useState('all');
   const dispatch = useDispatch();
-
-  dispatch(getFamilyTransactions());
+  useEffect(() => {
+    dispatch(getFamilyTransactions());
+  }, []);
 
   const updateHeaderView = (type) => {
     setCurrentView(type);
