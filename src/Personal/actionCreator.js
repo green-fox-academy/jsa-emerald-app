@@ -1,4 +1,4 @@
-import { BACKEND_URL, UPDATE_URL } from 'react-native-dotenv';
+import { BACKEND_URL } from 'react-native-dotenv';
 import { restoreTransactions } from '../Stats/actionCreator';
 
 const moment = require('moment');

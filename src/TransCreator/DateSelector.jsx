@@ -35,7 +35,7 @@ const DateSelector = ({ transDate, setTransDate, onPressCheckBox, checkState }) 
         </View>
       </View>
       <View>
-        <CheckBox title="Family" onPress={onPressCheckBox} checked={checkState} containerStyle={{ paddingHorizontal: 4, paddingVertical: 2, borderWidth: 0 }} />
+        <CheckBox title="Family" onPress={onPressCheckBox} checkedColor="#5C6BC0" checked={checkState} containerStyle={{ paddingHorizontal: 4, paddingVertical: 2, borderWidth: 0 }} />
       </View>
     </View>
   );

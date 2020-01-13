@@ -1,4 +1,4 @@
-import { BACKEND_URL, UPDATE_URL } from 'react-native-dotenv';
+import { BACKEND_URL } from 'react-native-dotenv';
 
 export const actionType = {
   ADD_FAMILY_TRANS_FAILED: 'ADD_FAMILY_TRANS_FAILED',

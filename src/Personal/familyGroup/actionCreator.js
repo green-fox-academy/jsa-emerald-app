@@ -1,4 +1,4 @@
-import { BACKEND_URL, UPDATE_URL } from 'react-native-dotenv';
+import { BACKEND_URL } from 'react-native-dotenv';
 import { getFamilyTransactions } from '../../FamilyTrans/actionCreator';
 
 export const actionType = {
@@ -69,8 +69,7 @@ export const searchMember = (keyword) => (dispatch, getState) => {
 export const updateFamilyMember = () => (dispatch, getState) => {
   const { members } = getState().familyList;
   const { accessToken } = getState().user;
-  const membersList = members.map((item) => item.id);
-
+  const membersList = members.map((item) => item.username);
   fetch(`${BACKEND_URL}/family`, {
     method: 'POST',
     mode: 'cors',

@@ -18,30 +18,29 @@ export default function PageBanner({
   const { themeMode } = useSelector((state) => state.theme);
   const themeStyleLight = setThemeStyle(themeMode);
   return (
-    transLabel.name
-      ? (
-        <LinearGradient
-          colors={transType === 'Expense' ? themeColor.gradientColor.red : themeColor.gradientColor.green}
-          start={[0.1, 0.9]}
-          end={[0.9, 0.1]}
-        >
-          <View style={[themeStyleLight.headerFormat, styles.headerFormat, { backgroundColor: 'rgba(255,0,0,0)' }]}>
-            <View style={styles.headerContainer}>
-              <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
-              <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
-            </View>
-            <View style={styles.headerDigitSection}>
-              <Text style={styles.headerDigitResult}>{displayAmount}</Text>
-              <Text style={styles.headerDigitExp}>{expStr}</Text>
-            </View>
+    <LinearGradient
+      colors={transType === 'Expense' ? themeColor.gradientColor.red : themeColor.gradientColor.green}
+      start={[0.1, 0.9]}
+      end={[0.9, 0.1]}
+    >
+      {transLabel.name ? (
+        <View style={[themeStyleLight.headerFormat, styles.headerFormat, { backgroundColor: 'rgba(255,0,0,0)' }]}>
+          <View style={styles.headerContainer}>
+            <Icon name={transLabel.icon} type={transLabel.iconFamily} color="#ffffff" size={40} />
+            <Text style={[styles.headerText, { color: '#ffffff' }]}>{transLabel.name || 'undefined'}</Text>
           </View>
-        </LinearGradient>
-      )
-      : (
-        <View style={[themeStyleLight.headerFormat, styles.headerFormat]}>
-          <Text style={[styles.headerText, themeStyleLight.mainColor]}>Select a category</Text>
+          <View style={styles.headerDigitSection}>
+            <Text style={styles.headerDigitResult}>{displayAmount}</Text>
+            <Text style={styles.headerDigitExp}>{expStr}</Text>
+          </View>
         </View>
       )
+        : (
+          <View style={[themeStyleLight.headerFormat, styles.headerFormat]}>
+            <Text style={[styles.headerText, { color: 'white' }]}>Select a category</Text>
+          </View>
+        )}
+    </LinearGradient>
   );
 }
 
