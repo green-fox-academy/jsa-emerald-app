@@ -10,10 +10,11 @@ export default function Index() {
   const user = useSelector((state) => state.user);
 
   return (
-    (user.accessToken !== '' && user.accessToken !== undefined) ? <Personal /> : (
-      <View style={RegisterStyle.container}>
-        <Button title="Sign up" onPress={() => navigate('Register')} />
-      </View>
-    )
+    (user.accessToken !== '' && user.accessToken !== undefined)
+      ? <Personal /> : (
+        <View style={RegisterStyle.container}>
+          <Button title="Sign up" onPress={() => navigate('Register')} />
+        </View>
+      )
   );
 }
