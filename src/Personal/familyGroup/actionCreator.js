@@ -1,4 +1,4 @@
-import { BACKEND_URL } from 'react-native-dotenv';
+import { BACKEND_URL, UPDATE_URL } from 'react-native-dotenv';
 
 export const actionType = {
   GET_MEMBER_LIST: 'GET_MEMBER_LIST',
@@ -56,4 +56,27 @@ export const searchMember = (keyword) => (dispatch, getState) => {
   }).catch(() => {
     dispatch(searchFailed('Network error, Please try again later'));
   });
+};
+
+export const updateFamilyMember = () => (dispatch, getState) => {
+  const { members } = getState().familyList;
+  const { accessToken } = getState().user;
+  const membersList = members.map((item) => item.id);
+  console.log(accessToken);
+
+  console.log(JSON.stringify({ members: membersList }));
+
+  // fetch(`${BACKEND_URL}/family`, {
+  //   method: 'POST',
+  //   mode: 'cors',
+  //   headers: {
+  //     Authorization: `Bearer ${accessToken}`,
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({ members: membersList }),
+  // }).then((response) => response.json()).then((response) => {
+  //   console.log(response);
+  // }).catch(() => {
+  //   console.log("111");
+  // });
 };

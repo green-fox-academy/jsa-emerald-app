@@ -6,7 +6,7 @@ import MainHeader from '../../Common/MainHeader';
 import FamilyCard from './FamilyCard';
 import SubmitBtn from '../SubmitBtn';
 import AddMemberOverlay from './AddMemberOverlay';
-import { cancelMemberSearch, confirmFamilyMember } from './actionCreator';
+import { cancelMemberSearch, confirmFamilyMember, updateFamilyMember } from './actionCreator';
 
 export default function FamilyPage() {
   const { themeMode } = useSelector((state) => state.theme);
@@ -19,7 +19,9 @@ export default function FamilyPage() {
     const searchIndex = members.findIndex((item) => item.id === value.id);
     if (searchIndex === -1) {
       dispatch(confirmFamilyMember(value));
+      // dispatch(updateFamilyMember());
     }
+    dispatch(updateFamilyMember());
     setOverlayVisibility(false);
   };
   const cancelSearch = () => {

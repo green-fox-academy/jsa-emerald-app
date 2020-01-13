@@ -48,7 +48,6 @@ export default function Chart() {
 
   const graphDataSet = statsUtils.convertToDatasetByCategory(filterDataByPeriod, 'Expense');
 
-
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <DateOverlay
@@ -64,12 +63,12 @@ export default function Chart() {
       />
       <ScrollView style={styles.deviceBody}>
         <View style={styles.card}>
-          {filterDataByPeriod.length !== 0
+          {filterDataByPeriod.length !== 0 && dataSetByDate.labels.length !== 0
             ? <LineGraph dataSet={dataSetByDate} style={{ flex: 1 }} />
             : <View />}
         </View>
         <View style={styles.card}>
-          {filterDataByPeriod.length !== 0
+          {filterDataByPeriod.length !== 0 && graphDataSet.length !== 0
             ? <PieGraph dataSet={graphDataSet} style={{ flex: 1 }} />
             : <View />}
         </View>
