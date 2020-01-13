@@ -32,6 +32,7 @@ export default function AddMemberOverlay({ isVisible, onConfirm, onCancel }) {
           platform="ios"
           onChangeText={(value) => searchMemberByName(value)}
           value={searchText}
+          autoCapitalize="none"
           containerStyle={{ width: screenWidth, marginTop: (Platform.OS === 'ios' ? 35 : 0) }}
           onCancel={onCancel}
         />
