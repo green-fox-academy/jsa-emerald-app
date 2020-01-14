@@ -61,19 +61,28 @@ export default StyleSheet.create({
   typeButtonGroup: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: 20,
-  },
-  typeButton: {
-    borderRadius: 50,
-    width: 120,
     marginTop: 15,
-    paddingTop: 5,
+  },
+
+  typeButton: {
+    borderTopRightRadius: 5,
+    borderTopLeftRadius: 5,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    borderBottomColor: '#F5F5F5',
+    width: 187,
+    marginTop: 15,
+    paddingTop: 10,
     marginBottom: 0,
-    paddingBottom: 5,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginRight: 6,
-    marginLeft: 6,
+    paddingBottom: 10,
+    borderWidth: 0,
+    shadowColor: 'grey',
+    shadowOffset: {
+      width: 2,
+      height: 3,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
   },
   typeTitle: {
     color: 'grey',
@@ -83,7 +92,8 @@ export default StyleSheet.create({
     color: 'black',
   },
   typeButtonActive: {
-    borderColor: 'black',
+    borderBottomColor: '#FF6F00',
+    borderBottomWidth: 2,
   },
   headerFormat: {
     height: 140,

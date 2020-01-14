@@ -13,24 +13,28 @@ const TransactionTypeSelector = ({ transType, setTransType }) => {
     <View style={styles.typeButtonGroup}>
       <Button
         buttonStyle={transType === 'Expense'
-          ? [styles.typeButton, styles.typeButtonActive, { borderColor: theme.mainColor.color }] : styles.typeButton}
+          ? [styles.typeButton, styles.typeButtonActive, { borderColor: theme.mainColor.color, backgroundColor: theme.mainColor.backgroundColor }]
+          : styles.typeButton}
         titleStyle={transType === 'Expense'
-          ? [styles.typeTitle, styles.typeTitleActive, theme.mainColor] : styles.typeTitle}
+          ? [styles.typeTitle, styles.typeTitleActive, theme.mainColor]
+          : styles.typeTitle}
         title="Expense"
         type="outline"
         onPress={() => setTransType('Expense')}
       />
       <Button
         buttonStyle={transType === 'Income'
-          ? [styles.typeButton, styles.typeButtonActive, { borderColor: theme.mainColor.color }] : styles.typeButton}
+          ? [styles.typeButton, styles.typeButtonActive, { borderColor: theme.mainColor.color, backgroundColor: theme.mainColor.backgroundColor }]
+          : styles.typeButton}
         titleStyle={transType === 'Income'
-          ? [styles.typeTitle, styles.typeTitleActive, theme.mainColor] : styles.typeTitle}
+          ? [styles.typeTitle, styles.typeTitleActive, theme.mainColor]
+          : styles.typeTitle}
         title="Income"
         type="outline"
         onPress={() => setTransType('Income')}
       />
     </View>
-  )
+  );
 };
 
 TransactionTypeSelector.propTypes = {

@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: defaultColor.cardColor,
-    borderRadius: 6,
+    borderBottomLeftRadius: 6,
+    borderBottomRightRadius: 6,
     shadowColor: 'grey',
     shadowOffset: {
       width: 2,
@@ -61,7 +62,6 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 2,
     padding: 10,
-    marginTop: 20,
   },
 
   mainHeader: {

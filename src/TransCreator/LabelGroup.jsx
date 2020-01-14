@@ -24,42 +24,44 @@ const LabelGroup = ({
   };
 
   return (
-    <View style={theme.card}>
+    <>
       <TransactionTypeSelector
         transType={transType}
         setTransType={setTransType}
       />
-      <View style={styles.labelContainer}>
-        {labels.map((item) => (
-          <TouchableHighlight
-            key={item.name}
-            underlayColor="white"
-            onPress={() => setTransLabel(item)}
-          >
-            <LinearGradient
-              colors={getColorsForLabel(item)}
-              start={[0.1, 0.9]}
-              end={[0.9, 0.1]}
-              style={{ margin: 5, padding: 2, borderRadius: 5 }}
+      <View style={theme.card}>
+        <View style={styles.labelContainer}>
+          {labels.map((item) => (
+            <TouchableHighlight
+              key={item.name}
+              underlayColor="white"
+              onPress={() => setTransLabel(item)}
             >
-              <View style={styles.labelItem}>
-                <Icon
-                  name={item.icon}
-                  type={item.iconFamily}
-                  color={transLabel.name === item.name ? 'white' : item.color}
-                  size={30}
-                />
-                <Text style={transLabel.name === item.name
-                  ? { color: 'white' } : { color: 'grey' }}
-                >
-                  {item.name}
-                </Text>
-              </View>
-            </LinearGradient>
-          </TouchableHighlight>
-        ))}
+              <LinearGradient
+                colors={getColorsForLabel(item)}
+                start={[0.1, 0.9]}
+                end={[0.9, 0.1]}
+                style={{ margin: 5, padding: 2, borderRadius: 5 }}
+              >
+                <View style={styles.labelItem}>
+                  <Icon
+                    name={item.icon}
+                    type={item.iconFamily}
+                    color={transLabel.name === item.name ? 'white' : item.color}
+                    size={30}
+                  />
+                  <Text style={transLabel.name === item.name
+                    ? { color: 'white' } : { color: 'grey' }}
+                  >
+                    {item.name}
+                  </Text>
+                </View>
+              </LinearGradient>
+            </TouchableHighlight>
+          ))}
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 
