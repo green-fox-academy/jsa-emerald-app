@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Button } from 'react-native';
 import { useNavigation } from 'react-navigation-hooks';
 import { useSelector } from 'react-redux';
-import styles from './loginStyle';
+import RegisterStyle from './registerStyle';
 import Personal from './Personal';
 
 export default function PersonalIndex() {
@@ -12,7 +12,8 @@ export default function PersonalIndex() {
   return (
     (user.accessToken !== '' && user.accessToken !== undefined)
       ? <Personal /> : (
-        <View style={styles.container}>
+        <View style={RegisterStyle.container}>
+          <Button title="Sign up" onPress={() => navigate('Register')} />
           <Button title="Login" onPress={() => navigate('Login')} />
         </View>
       )
