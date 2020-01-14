@@ -1,9 +1,8 @@
-// import { TEST_ENDPOINT } from 'react-native-dotenv';
+import { BACKEND_URL } from 'react-native-dotenv';
 import { restoreTransactions } from '../Stats/actionCreator';
 
+// const BACKEND_URL = 'http://10.72.160.173:8080';
 const moment = require('moment');
-
-const BACKEND_URL = 'http://10.72.160.173:8080';
 
 export const actionType = {
   BACKUP_START: 'BACKUP_START',

@@ -1,5 +1,5 @@
-// import { BACKEND_URL } from 'react-native-dotenv';
-const BACKEND_URL = 'http://10.72.160.173:8080';
+import { BACKEND_URL } from 'react-native-dotenv';
+// const BACKEND_URL = 'http://10.72.160.173:8080';
 
 export const actionType = {
   ADD_FAMILY_TRANS_FAILED: 'ADD_FAMILY_TRANS_FAILED',
