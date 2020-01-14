@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 2,
     padding: 10,
+    marginTop: 20,
   },
 
   mainHeader: {
