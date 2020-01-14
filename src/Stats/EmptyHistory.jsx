@@ -4,7 +4,7 @@ import { Image } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import setThemeStyle from '../Common/theme/setThemeStyle';
 
-const img = require('../../assets/dribbble-icons.png');
+const img = require('../../assets/empty_box.png');
 
 export default function EmptyHistory() {
   const { themeMode } = useSelector((state) => state.theme);

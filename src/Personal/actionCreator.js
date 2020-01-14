@@ -221,13 +221,12 @@ export const requestLogin = (userInfo) => (dispatch) => {
       dispatch(loginSuccessful({
         email: userInfo.email,
         accessToken: response.accessToken,
-        username: 'Katy',
+        username: response.username,
       }));
     } else {
       dispatch(loginFailed({ status: response.code, message: response.message }));
     }
   }).catch((err) => {
-    console.log(err);
     dispatch(loginFailed({ status: null, message: err.message }));
   });
 };
