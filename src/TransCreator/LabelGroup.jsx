@@ -29,7 +29,7 @@ const LabelGroup = ({
         transType={transType}
         setTransType={setTransType}
       />
-      <View style={[theme.card, { marginTop: 0 }]}>
+      <View style={[theme.iconCard, { marginTop: 0 }]}>
         <View style={styles.labelContainer}>
           {labels.map((item) => (
             <TouchableHighlight

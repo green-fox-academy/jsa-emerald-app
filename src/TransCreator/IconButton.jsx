@@ -3,7 +3,6 @@ import { Button } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import btnColor from '../Common/Color';
 import setThemeStyle from '../Common/theme/setThemeStyle';
 import styles from './Style';
 
@@ -21,7 +20,7 @@ const IconButton = ({ iconName, onPress }) => {
       buttonStyle={[styles.keyboardBtn, { borderColor: theme.mainColor.borderColor }]}
       onPress={onPress}
     />
-  )
+  );
 };
 
 IconButton.propTypes = {

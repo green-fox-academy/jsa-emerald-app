@@ -45,10 +45,25 @@ const styles = StyleSheet.create({
     paddingRight: 20,
   },
 
-  card: {
+  iconCard: {
     backgroundColor: 'white',
     borderBottomLeftRadius: 6,
     borderBottomRightRadius: 6,
+    shadowColor: 'grey',
+    shadowOffset: {
+      width: 2,
+      height: 3,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
+    elevation: 2,
+    padding: 10,
+    marginTop: 20,
+  },
+
+  card: {
+    backgroundColor: 'white',
+    borderRadius: 6,
     shadowColor: 'grey',
     shadowOffset: {
       width: 2,

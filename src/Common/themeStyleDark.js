@@ -49,10 +49,25 @@ const styles = StyleSheet.create({
     backgroundColor: defaultColor.darkerColor,
   },
 
-  card: {
+  iconCard: {
     backgroundColor: defaultColor.cardColor,
     borderBottomLeftRadius: 6,
     borderBottomRightRadius: 6,
+    shadowColor: 'grey',
+    shadowOffset: {
+      width: 2,
+      height: 3,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
+    elevation: 2,
+    padding: 10,
+    marginTop: 20,
+  },
+
+  card: {
+    backgroundColor: defaultColor.cardColor,
+    borderRadius: 6,
     shadowColor: 'grey',
     shadowOffset: {
       width: 2,
