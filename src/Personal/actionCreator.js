@@ -1,7 +1,9 @@
-import { BACKEND_URL } from 'react-native-dotenv';
+// import { TEST_ENDPOINT } from 'react-native-dotenv';
 import { restoreTransactions } from '../Stats/actionCreator';
 
 const moment = require('moment');
+
+const BACKEND_URL = 'http://10.72.160.173:8080';
 
 export const actionType = {
   BACKUP_START: 'BACKUP_START',
@@ -141,6 +143,7 @@ export const requestRestore = () => (dispatch, getState) => {
       'Content-Type': 'application/json',
     },
   }).then((response) => {
+    console.log(response);
     if (response.status === 401) {
       dispatch(restoreFailed(response.message));
       throw new Error(response.status);
@@ -224,6 +227,7 @@ export const requestLogin = (userInfo) => (dispatch) => {
       dispatch(loginFailed({ status: response.code, message: response.message }));
     }
   }).catch((err) => {
+    console.log(err);
     dispatch(loginFailed({ status: null, message: err.message }));
   });
 };

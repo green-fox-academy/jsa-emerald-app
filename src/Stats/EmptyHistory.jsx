@@ -1,6 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Image } from 'react-native-elements';
+import { useSelector } from 'react-redux';
+import setThemeStyle from '../Common/theme/setThemeStyle';
+
+const img = require('../../assets/dribbble-icons.png');
 
 export default function EmptyHistory() {
-  return (<View><Text>You haven&quot;t added any transactions yet</Text></View>);
+  const { themeMode } = useSelector((state) => state.theme);
+  const styles = setThemeStyle(themeMode);
+
+  return (
+    <View style={[styles.card, { alignItems: 'center', justifyContent: 'center', paddingVertical: 30 }]}>
+      <Image
+        source={img}
+        style={{ width: 220, height: 220 }}
+      />
+    </View>
+  );
 }

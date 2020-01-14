@@ -1,15 +1,24 @@
-import { BACKEND_URL } from 'react-native-dotenv';
+// import { BACKEND_URL } from 'react-native-dotenv';
+const BACKEND_URL = 'http://10.72.160.173:8080';
 
 export const actionType = {
   ADD_FAMILY_TRANS_FAILED: 'ADD_FAMILY_TRANS_FAILED',
+  GET_FAMILY_TRANS_START: 'GET_FAMILY_TRANS_START',
   GET_FAMILY_TRANS: 'GET_FAMILY_TRANS',
   GET_FAMILY_TRANS_FAILED: 'GET_FAMILY_TRANS_FAILED',
+  GET_FAMILY_TRANS_END: 'GET_FAMILY_TRANS_END',
 };
 
 export function addFamilyTransFailed(error) {
   return {
     type: actionType.ADD_FAMILY_TRANS_FAILED,
     error,
+  };
+}
+
+export function getFamilyTransStart() {
+  return {
+    type: actionType.GET_FAMILY_TRANS_START,
   };
 }
 
@@ -57,6 +66,7 @@ export const addFamilyTransactions = ({ transaction }) => (dispatch, getState) =
 
 export const getFamilyTransactions = () => (dispatch, getState) => {
   const { accessToken } = getState().user;
+  dispatch(getFamilyTransStart());
   if (!accessToken) {
     dispatch(getFamilyTransFailed('Unauthorized token'));
     return;

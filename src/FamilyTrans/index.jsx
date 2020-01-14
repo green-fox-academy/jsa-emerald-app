@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, ScrollView, RefreshControl } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFamilyTransactions } from './actionCreator';
 import MainHeader from '../Common/MainHeader';
@@ -10,12 +10,17 @@ import TransList from '../Stats/TransList';
 import EmptyHistory from '../Stats/EmptyHistory';
 import DateOverlay from '../Common/DateOverlay';
 import setThemeStyle from '../Common/theme/setThemeStyle';
-import { useEffect } from 'react';
 
 const moment = require('moment');
 
+// function wait(timeout) {
+//   return new Promise((resolve) => {
+//     setTimeout(resolve, timeout);
+//   });
+// }
+
 export default function Trans() {
-  const { transactions } = useSelector((state) => state.familyTrans);
+  const { transactions, isInProgress } = useSelector((state) => state.familyTrans);
   const { themeMode } = useSelector((state) => state.theme);
   const styles = setThemeStyle(themeMode);
   const [view, setCurrentView] = useState('month');
@@ -23,6 +28,13 @@ export default function Trans() {
   const [isOverlayVisible, setOverlayVisibility] = useState(false);
   const [transFilter, setTransFilter] = useState('all');
   const dispatch = useDispatch();
+
+
+  const onRefresh = React.useCallback(() => {
+    dispatch(getFamilyTransactions());
+  }, [isInProgress]);
+
+
   useEffect(() => {
     dispatch(getFamilyTransactions());
   }, []);
@@ -73,7 +85,12 @@ export default function Trans() {
         onPressBtn={(value, type) => setTimePeriod(utils.getDateSet(value, type))}
         viewType={view}
       />
-      <ScrollView style={styles.deviceBody}>
+      <ScrollView
+        style={styles.deviceBody}
+        refreshControl={
+          <RefreshControl refreshing={isInProgress} onRefresh={onRefresh} />
+        }
+      >
         <View style={{ marginBottom: 20 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <FilterBtn

@@ -46,9 +46,8 @@ const TransCreator = ({ navigation }) => {
         },
       };
       dispatch(addFamilyTransactions(data));
-    } else {
-      dispatch(addNewTransaction(transType, transDate, transAmount, transLabel));
     }
+    dispatch(addNewTransaction(transType, transDate, transAmount, transLabel));
     setNewTransInsertionSuccess(true);
     setTransAmount('');
     setExpStr('');

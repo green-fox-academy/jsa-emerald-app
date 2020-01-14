@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { ListItem, Avatar } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import setThemeStyle from '../../Common/theme/setThemeStyle';
 
