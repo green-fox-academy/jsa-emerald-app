@@ -5,6 +5,7 @@ import MainHeader from '../Common/MainHeader';
 import DateSlider from '../Common/DateSlider';
 import DateOverlay from '../Common/DateOverlay';
 import setThemeStyle from '../Common/theme/setThemeStyle';
+import EmptyHistory from '../Stats/EmptyHistory';
 import utils from '../Stats/utils';
 import statsUtils from './chartUtils';
 import LineGraph from './LineGraph';
@@ -45,8 +46,10 @@ export default function Chart() {
   );
 
   const dataSetByDate = statsUtils.convertToLineGraphDataset(filteredDataByDate, 'Expense');
-
   const graphDataSet = statsUtils.convertToDatasetByCategory(filterDataByPeriod, 'Expense');
+
+  const isLineChartExist = filterDataByPeriod.length !== 0 && dataSetByDate.labels.length !== 0;
+  const isPieChartExist = filterDataByPeriod.length !== 0 && graphDataSet.length !== 0;
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -62,16 +65,17 @@ export default function Chart() {
         viewType={view}
       />
       <ScrollView style={styles.deviceBody}>
-        <View style={styles.card}>
-          {filterDataByPeriod.length !== 0 && dataSetByDate.labels.length !== 0
-            ? <LineGraph dataSet={dataSetByDate} style={{ flex: 1 }} />
-            : <View />}
-        </View>
-        <View style={styles.card}>
-          {filterDataByPeriod.length !== 0 && graphDataSet.length !== 0
-            ? <PieGraph dataSet={graphDataSet} style={{ flex: 1 }} />
-            : <View />}
-        </View>
+        {isLineChartExist && isPieChartExist ? (
+          <>
+            <View style={styles.card}>
+              <LineGraph dataSet={dataSetByDate} style={{ flex: 1 }} />
+            </View>
+            <View style={styles.card}>
+              <PieGraph dataSet={graphDataSet} style={{ flex: 1 }} />
+            </View>
+          </>
+        )
+          : <EmptyHistory />}
       </ScrollView>
     </View>
   );

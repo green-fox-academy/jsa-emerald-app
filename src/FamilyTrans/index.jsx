@@ -119,7 +119,12 @@ export default function Trans() {
         </View>
       )
         : (
-          <ImageBackground source={bgImg} style={{ width: screenWidth, height: screenHeight, alignItems: 'center', justifyContent: 'center' }}>
+          <ImageBackground
+            source={bgImg}
+            style={{
+              width: screenWidth, height: screenHeight, alignItems: 'center', justifyContent: 'center',
+            }}
+          >
             <SubmitBtn
               disabled={false}
               onPressBtn={() => navigate('Me')}
