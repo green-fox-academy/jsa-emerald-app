@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, ActivityIndicator, ScrollView,
+  View, Text, ActivityIndicator, ScrollView, ImageBackground,
 } from 'react-native';
 import {
-  Avatar, ListItem, Button,
+  Image, ListItem, Button,
 } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
-import { LinearGradient } from 'expo-linear-gradient';
 import moment from 'moment';
 import { useNavigation } from 'react-navigation-hooks';
 import { requestBackup, requestRestore, logoutSuccessful } from './actionCreator';
 import MainHeader from '../Common/MainHeader';
-import fadeHex from '../Common/colorConvert';
 import RestoreOverlay from './RestoreOverlay';
 import ThemeSelection from './themeSelection/ThemeSelection';
 import setThemeStyle from '../Common/theme/setThemeStyle';
+import profileImg from '../../assets/profile.jpg';
+
+const avatar = require('../../assets/avatar.png');
 
 export default function Personal() {
   const { navigate } = useNavigation();
@@ -68,24 +69,23 @@ export default function Personal() {
           onCancel={() => setOverlayVisibility(false)}
         />
         <View style={[styles.card, { padding: 0, overflow: 'hidden' }]}>
-          <LinearGradient
-            colors={['#f078a4', fadeHex('#f078a4')]}
-            start={[0.1, 0.9]}
-            end={[0.9, 0.1]}
+          <ImageBackground
+            source={profileImg}
             style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
           >
             <View style={{
               alignItems: 'center', paddingVertical: 30,
             }}
             >
-              <Avatar size="large" rounded icon={{ name: 'person' }} />
-              <Text style={[styles.secondaryHeading, { color: 'white' }]}>{user.username}</Text>
-              <Text style={{ color: 'white' }}>{user.email}</Text>
+              <Image source={avatar} style={{ width: 85, height: 85 }} />
+              <Text style={[styles.secondaryHeading, { color: '#FAFAFA', fontWeight: 'bold', fontSize: 30 }]}>{user.username}</Text>
+              <Text style={{ color: '#FAFAFA', fontWeight: 'bold', fontSize: 15 }}>{user.email}</Text>
             </View>
-          </LinearGradient>
+          </ImageBackground>
           <View style={{ paddingTop: 15, paddingBottom: 10, paddingHorizontal: 10 }}>
             <Text
-              style={[styles.secondaryHeading, { marginLeft: 12, marginBottom: 5 }]}>
+              style={[styles.secondaryHeading, { marginLeft: 12, marginBottom: 5 }]}
+            >
               General
             </Text>
             <ListItem
@@ -138,7 +138,9 @@ export default function Personal() {
           </View>
         </View>
         <View style={styles.card}>
-          <Text style={[styles.secondaryHeading, { marginLeft: 12, marginBottom: 5 }]}>Cloud Service</Text>
+          <Text style={[styles.secondaryHeading, { marginLeft: 12, marginBottom: 5 }]}>
+            Cloud Service
+          </Text>
           <ListItem
             title="Restore data"
             titleStyle={styles.listHeading}
