@@ -32,6 +32,10 @@ export default function Login() {
     }
   }, [user.accessToken, user.message]);
 
+  useEffect(() => {
+    setErrorMsgDisplay(false);
+  }, []);
+
   return (
     <>
       <View style={{ borderBottomWidth: 2, borderBottomColor: '#f8f8f8' }}>
