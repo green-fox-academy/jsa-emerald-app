@@ -71,7 +71,7 @@ export default function Chart() {
               <LineGraph dataSet={dataSetByDate} style={{ flex: 1 }} />
             </View>
             <View style={styles.card}>
-              <PieGraph dataSet={graphDataSet} style={{ flex: 1 }} />
+              <PieGraph graphDataSet={graphDataSet} style={{ flex: 1 }} />
             </View>
           </>
         )

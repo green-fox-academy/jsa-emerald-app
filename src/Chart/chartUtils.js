@@ -24,6 +24,7 @@ const convertToDatasetByCategory = (dataList, dataType) => {
   if (filterData.length !== 0) {
     const dataSet = [];
     const colorSet = [];
+    const legendSet = [];
     filterData.forEach((item) => {
       const index = dataSet.findIndex((value) => value.name === item.labelName.name);
       if (index === -1) {
@@ -33,12 +34,16 @@ const convertToDatasetByCategory = (dataList, dataType) => {
           color: item.labelName.color,
         });
         colorSet.push(item.labelName.color);
+        legendSet.push({
+          name: item.labelName.name,
+          color: item.labelName.color,
+        });
       } else {
         const newValue = parseFloat(dataSet[index].total) + parseFloat(item.amount);
         dataSet[index].total = newValue;
       }
     });
-    return dataSet;
+    return { dataSet, legendSet };
   }
   return [];
 };
