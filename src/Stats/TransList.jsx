@@ -17,9 +17,14 @@ export default function TransList(props) {
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 1200,
+      duration: 600,
     }).start();
-  }, []);
+
+    return () => Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 0,
+    }).start();
+  }, [transactions]);
 
   return (
     transactions.map((groupedRecordsByDate, index) => (
