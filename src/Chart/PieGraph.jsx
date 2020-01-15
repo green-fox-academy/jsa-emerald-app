@@ -1,6 +1,5 @@
 import React from 'react';
 import { Animated, View, Easing } from 'react-native';
-import { Icon, Text } from 'react-native-elements';
 import { PieChart } from 'react-native-chart-kit';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
