@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import PersonalIndex from './PersonalIndex';
 import Register from './Register';
+import Login from './Login';
 
 const MainNavigator = createStackNavigator({
   PersonalIndex: {
@@ -11,6 +12,12 @@ const MainNavigator = createStackNavigator({
   },
   Register: {
     screen: Register,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  Login: {
+    screen: Login,
     navigationOptions: {
       header: null,
     },

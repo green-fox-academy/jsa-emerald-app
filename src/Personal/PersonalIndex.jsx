@@ -14,6 +14,7 @@ export default function PersonalIndex() {
       ? <Personal /> : (
         <View style={RegisterStyle.container}>
           <Button title="Sign up" onPress={() => navigate('Register')} />
+          <Button title="Login" onPress={() => navigate('Login')} />
         </View>
       )
   );
